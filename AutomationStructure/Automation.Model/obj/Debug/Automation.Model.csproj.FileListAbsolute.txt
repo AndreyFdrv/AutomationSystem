@@ -1,0 +1,5 @@
+C:\Users\aborodulin\documents\visual studio 2015\Projects\AutomationStructure\Automation.Model\bin\Debug\Automation.Model.dll
+C:\Users\aborodulin\documents\visual studio 2015\Projects\AutomationStructure\Automation.Model\bin\Debug\Automation.Model.pdb
+C:\Users\aborodulin\documents\visual studio 2015\Projects\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.dll
+C:\Users\aborodulin\documents\visual studio 2015\Projects\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.pdb
+C:\Users\aborodulin\documents\visual studio 2015\Projects\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.csprojResolveAssemblyReference.cache
