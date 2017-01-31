@@ -18,3 +18,14 @@ C:\Users\Leo\Documents\Visual Studio 2015\Projects\AutomationStructure\Automatio
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.exe.config
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.exe
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Automation.Model.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Automation.Model.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.About.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.Properties.Resources.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ThicknessMaterialEssential.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.TypesProductionFm.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.csproj.GenerateResource.Cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.MainForm.resources
