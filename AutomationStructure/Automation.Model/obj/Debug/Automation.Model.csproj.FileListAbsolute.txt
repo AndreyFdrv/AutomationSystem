@@ -3,3 +3,7 @@ C:\Users\aborodulin\documents\visual studio 2015\Projects\AutomationStructure\Au
 C:\Users\aborodulin\documents\visual studio 2015\Projects\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.dll
 C:\Users\aborodulin\documents\visual studio 2015\Projects\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.pdb
 C:\Users\aborodulin\documents\visual studio 2015\Projects\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\bin\Debug\Automation.Model.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\bin\Debug\Automation.Model.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.pdb

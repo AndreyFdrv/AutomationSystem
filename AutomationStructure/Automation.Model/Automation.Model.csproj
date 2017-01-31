@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLService.cs" />
     <Compile Include="Modules\AbstractModule.cs" />
     <Compile Include="CustomersInfoCollection.cs" />
     <Compile Include="CustomerRecord.cs" />
