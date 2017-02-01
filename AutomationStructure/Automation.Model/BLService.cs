@@ -9,10 +9,12 @@ namespace Automation.Model
     public  class BLService
     {
         //Действия, которые позволяет выполнить сервис модели
+        Order _order;
+
 
         public void MakeNewProject()
         {
-            Order order = new Order();
+           _order = new Order();
         }
 
         public void SaveCurrentProject()
@@ -41,6 +43,15 @@ namespace Automation.Model
             
         }
 
+        public string GetTotalCustomerRecord()
+        {
+            return _order.customersInfoCollection.GetTotalCustomerRecord();
+        }
 
+
+        public void SetCustomer(List<string[]> customerRecord)
+        {
+            _order.SetCustomer(customerRecord);
+        }
     }
 }

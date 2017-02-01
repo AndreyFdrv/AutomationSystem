@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Automation.View.Model;
 
@@ -8,10 +9,10 @@ namespace Automation.View
     {
 
 
-        private readonly Presenter _presenter;
+        public Presenter _presenter;
         public MainForm()
         {
-            _presenter = new Presenter();
+            
             InitializeComponent();
             InitCustomerTable();
         }
@@ -31,7 +32,8 @@ namespace Automation.View
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            
+            //TODO: сделать проверку на выбор итема в датагриде
+
             if (customerDGV.Rows[1].Cells[4].Value != null)
             {
                 new ThicknessMaterialEssential().Show();
@@ -39,10 +41,10 @@ namespace Automation.View
 
         }
 
-
-
-
-
+        public void UpdateCustomerString(string customerRecord)
+        {
+            label3.Text = customerRecord;
+        }
 
 
         private void openProjectMI_Click(object sender, EventArgs e)
@@ -94,7 +96,13 @@ namespace Automation.View
 
         private void turn_Click(object sender, EventArgs e)
         {
-            panelCustomer.Height = panelCustomer.Height == 240 ? 50 : 240;
+            panelCustomer.Height = panelCustomer.Height == 263 ? 50 : 236;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<string[]> customerRecord = CustomerTable.GetData(customerDGV);
+            _presenter.SetCustomer(customerRecord);
+         }
     }
 }

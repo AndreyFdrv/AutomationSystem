@@ -26,15 +26,21 @@ namespace Automation.Model
             _records.Add(new CustomerRecord { Material = "blabla" });
         }
 
-        public DataTable GetTable()
+        public void SetData(List<string[]> customerData)
         {
-            DataTable table = new DataTable();
-            return table;
+            for (int i = 0; i < customerData.Count; i++)
+            {
+                _records[i].Material = customerData[i][0].ToString();
+                _records[i].CompanyName = customerData[i][1].ToString();
+                _records[i].Color = customerData[i][2].ToString();
+                _records[i].CodeColor = customerData[i][3].ToString();
+                _records[i].CompanyName = customerData[i][4].ToString();
+            }
         }
 
-        public void SetData()
+        public string GetTotalCustomerRecord()
         {
-            //устанавливаем данные
+            return _records.Aggregate(string.Empty, (current, t) => current + ("Материал:" + t.Material + " Фирма изготовитель:" + t.CompanyName + "\n"));
         }
     }
 }

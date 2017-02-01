@@ -19,8 +19,9 @@ namespace Automation.Model
             productsCollection = new ProductsCollection();
         }
 
-
-
-
+        internal void SetCustomer(List<string[]> customerRecord)
+        {
+            customersInfoCollection.SetData(customerRecord);
+        }
     }
 }
