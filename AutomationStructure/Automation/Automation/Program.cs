@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,9 +19,14 @@ namespace Automation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+          
 
-            
+            BLService model = new BLService();
+            MainForm view = new MainForm();
+
+            Presenter presenter = new Presenter(model,view);
+            view._presenter = presenter;
+            Application.Run(view);
         }
     }
 }
