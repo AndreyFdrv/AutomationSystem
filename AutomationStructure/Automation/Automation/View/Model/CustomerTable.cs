@@ -64,6 +64,31 @@ namespace Automation.View.Model
             comboboxCell3.Items.Add("16 мм");
         }
 
+        public static List<string[]> GetData(DataGridView dataGridView)
+        {
+            List<string[]> customerInfo = new List<string[]>();
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                string[] record = new string[5];
+
+                for (int i = 0; i < 5; i++)
+                {
+                    var item = row.Cells[i].Value;
+                    if (item == null)
+                    {
+                        record[i] = "";
+                    }
+                    else
+                    {
+                        record[i] = (string) item;
+                    }
+                   
+                }
+
+                customerInfo.Add(record);
+            }
+            return customerInfo;
+        }
 
     }
 }
