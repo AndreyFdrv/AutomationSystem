@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +56,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.modulesPanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -63,6 +65,7 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -77,7 +80,7 @@
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 696);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1107, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1156, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -89,7 +92,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1107, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1156, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -200,7 +203,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1107, 672);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1156, 672);
             this.flowLayoutPanel1.TabIndex = 2;
             this.flowLayoutPanel1.Visible = false;
             // 
@@ -211,7 +214,7 @@
             this.panel1.Controls.Add(this.turnBtn);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1097, 36);
+            this.panel1.Size = new System.Drawing.Size(1145, 36);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -236,17 +239,18 @@
             // 
             this.panelCustomer.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelCustomer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelCustomer.Controls.Add(this.label2);
             this.panelCustomer.Controls.Add(this.button1);
             this.panelCustomer.Controls.Add(this.customerDGV);
             this.panelCustomer.Controls.Add(this.label3);
             this.panelCustomer.Location = new System.Drawing.Point(3, 45);
             this.panelCustomer.Name = "panelCustomer";
-            this.panelCustomer.Size = new System.Drawing.Size(1097, 263);
+            this.panelCustomer.Size = new System.Drawing.Size(1150, 263);
             this.panelCustomer.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(999, 219);
+            this.button1.Location = new System.Drawing.Point(1061, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 28);
             this.button1.TabIndex = 2;
@@ -264,32 +268,38 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5});
-            this.customerDGV.Location = new System.Drawing.Point(9, 72);
+            this.Column5,
+            this.Column9});
+            this.customerDGV.Location = new System.Drawing.Point(6, 72);
             this.customerDGV.Name = "customerDGV";
             this.customerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customerDGV.Size = new System.Drawing.Size(1072, 142);
+            this.customerDGV.Size = new System.Drawing.Size(1134, 142);
             this.customerDGV.TabIndex = 1;
+            this.customerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerDGV_CellContentClick);
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Материал";
             this.Column1.Name = "Column1";
+            this.Column1.Width = 90;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Фирма изготовитель";
             this.Column2.Name = "Column2";
+            this.Column2.Width = 90;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Цвет";
             this.Column3.Name = "Column3";
+            this.Column3.Width = 90;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Код цвета";
             this.Column4.Name = "Column4";
+            this.Column4.Width = 90;
             // 
             // Column5
             // 
@@ -301,6 +311,18 @@
             "20 мм",
             "22 мм"});
             this.Column5.Name = "Column5";
+            this.Column5.Width = 90;
+            // 
+            // Column9
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column9.HeaderText = "Помощь";
+            this.Column9.Name = "Column9";
+            this.Column9.Text = "?";
+            this.Column9.ToolTipText = "?";
+            this.Column9.Width = 60;
             // 
             // label3
             // 
@@ -374,11 +396,19 @@
             this.label4.Size = new System.Drawing.Size(0, 13);
             this.label4.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 228);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 718);
+            this.ClientSize = new System.Drawing.Size(1156, 718);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -428,11 +458,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView modulesDGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
         private System.Windows.Forms.ToolStripMenuItem кухняВерхниеМодулиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem кухняНижниеМодулиToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
@@ -440,6 +465,13 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column8;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Column9;
+        private System.Windows.Forms.Label label2;
     }
 }
 

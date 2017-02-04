@@ -62,9 +62,14 @@ namespace Automation.View.Model
             comboboxCell3.Items.Add("10 мм");
             comboboxCell3.Items.Add("12 мм");
             comboboxCell3.Items.Add("16 мм");
+
+            var helpButton = (DataGridViewButtonColumn) dataGridView1.Columns[5];
+            helpButton.UseColumnTextForButtonValue = true;
+            helpButton.Text = "?";
+
         }
 
-        public static List<string[]> GetData(DataGridView dataGridView)
+        public static List<string[]> GetData(DataGridView dataGridView, string thickness)
         {
             List<string[]> customerInfo = new List<string[]>();
             foreach (DataGridViewRow row in dataGridView.Rows)
@@ -74,15 +79,7 @@ namespace Automation.View.Model
                 for (int i = 0; i < 5; i++)
                 {
                     var item = row.Cells[i].Value;
-                    if (item == null)
-                    {
-                        record[i] = "";
-                    }
-                    else
-                    {
-                        record[i] = (string) item;
-                    }
-                   
+                    record[i] = item == null ? " " : ((string) item == "подробнее" ? thickness : (string) item);
                 }
 
                 customerInfo.Add(record);

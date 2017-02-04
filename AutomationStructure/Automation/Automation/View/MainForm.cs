@@ -32,7 +32,14 @@ namespace Automation.View
         }
 
 
-        //new ThicknessMaterialEssential().Show();
+        public void UpdateThicknessColumn(string thicknessExt)
+        {
+            hideThicknessExt = thicknessExt;
+            label2.Text = "Подробная запись кромки:"+thicknessExt.Substring(0,10)+" ...";
+
+        }
+
+        private string hideThicknessExt;
 
 
         public void UpdateCustomerString(string customerRecord)
@@ -75,14 +82,14 @@ namespace Automation.View
 
         private void kitchenUpModules_Click(object sender, EventArgs e)
         {
-            panelCustomer.Height = 50;
+            panelCustomer.Height = 55;
             modulesPanel.Visible = true;
             ModulesTable.AddKitchenRow(modulesDGV, "Кухня верхние модули");
         }
 
         private void kitchenDownModules_Click(object sender, EventArgs e)
         {
-            panelCustomer.Height = 50;
+            panelCustomer.Height = 55;
             modulesPanel.Visible = true;
             ModulesTable.AddKitchenRow(modulesDGV, "Кухня нижние модули");
         }
@@ -90,12 +97,12 @@ namespace Automation.View
 
         private void turn_Click(object sender, EventArgs e)
         {
-            panelCustomer.Height = panelCustomer.Height == 263 ? 50 : 236;
+            panelCustomer.Height = panelCustomer.Height == 263 ? 55 : 263;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string[]> customerRecord = CustomerTable.GetData(customerDGV);
+            List<string[]> customerRecord = CustomerTable.GetData(customerDGV,hideThicknessExt);
             _presenter.SetCustomer(customerRecord);
         }
 
@@ -114,8 +121,54 @@ namespace Automation.View
             var extendOption= sendingCB.EditingControlFormattedValue.ToString();
             if (extendOption == "подробнее")
             {
-                MessageBox.Show("Вызвать продвинутую функцию");
+                ShowThicknessForm();
             }
         }
+
+
+
+        private void ShowThicknessForm()
+        {
+            Form thicknessForm = Application.OpenForms["ThicknessMaterialEssential"];
+            if (thicknessForm==null)
+            {
+                thicknessForm = new ThicknessMaterialEssential(this);
+                thicknessForm.Show();
+            }
+            else
+            {
+                thicknessForm.Focus();
+            }
+        }
+
+
+
+
+        private void customerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                ShowCustomerHelpForm();
+            }
+        }
+
+
+        private void ShowCustomerHelpForm()
+        {
+            Form customerHelpForm = Application.OpenForms["CustomerHelp"];
+            if (customerHelpForm == null)
+            {
+                customerHelpForm = new CustomerHelp();
+                customerHelpForm.Show();
+            }
+            else
+            {
+                customerHelpForm.Focus();
+            }
+        }
+
     }
 }
