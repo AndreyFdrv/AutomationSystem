@@ -97,7 +97,17 @@ namespace Automation.View
 
         private void turn_Click(object sender, EventArgs e)
         {
-            panelCustomer.Height = panelCustomer.Height == 263 ? 55 : 263;
+            if (panelCustomer.Height == 263)
+            {
+                panelCustomer.Height = 55;
+                turnBtn.Image = Automation.Properties.Resources.arrow_down_icon;
+            }
+            else
+            {
+                panelCustomer.Height = 263;
+                turnBtn.Image = Automation.Properties.Resources.arrow_up_icon;
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -170,5 +180,15 @@ namespace Automation.View
             }
         }
 
+        private void modulesDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                new ModuleManager().Show();
+            }
+        }
     }
 }

@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.turnBtn = new System.Windows.Forms.Button();
             this.panelCustomer = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.customerDGV = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +67,6 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -209,7 +210,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.turnBtn);
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -228,16 +229,17 @@
             // 
             // turnBtn
             // 
+            this.turnBtn.Image = global::Automation.Properties.Resources.arrow_up_icon;
             this.turnBtn.Location = new System.Drawing.Point(8, 3);
             this.turnBtn.Name = "turnBtn";
-            this.turnBtn.Size = new System.Drawing.Size(29, 30);
+            this.turnBtn.Size = new System.Drawing.Size(30, 30);
             this.turnBtn.TabIndex = 0;
             this.turnBtn.UseVisualStyleBackColor = true;
             this.turnBtn.Click += new System.EventHandler(this.turn_Click);
             // 
             // panelCustomer
             // 
-            this.panelCustomer.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelCustomer.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panelCustomer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelCustomer.Controls.Add(this.label2);
             this.panelCustomer.Controls.Add(this.button1);
@@ -248,13 +250,21 @@
             this.panelCustomer.Size = new System.Drawing.Size(1150, 263);
             this.panelCustomer.TabIndex = 1;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 228);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 3;
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1061, 220);
+            this.button1.Location = new System.Drawing.Point(1058, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 28);
             this.button1.TabIndex = 2;
-            this.button1.Text = "SaveChanges";
+            this.button1.Text = "Применить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -272,6 +282,7 @@
             this.Column9});
             this.customerDGV.Location = new System.Drawing.Point(6, 72);
             this.customerDGV.Name = "customerDGV";
+            this.customerDGV.RowTemplate.Height = 30;
             this.customerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customerDGV.Size = new System.Drawing.Size(1134, 142);
             this.customerDGV.TabIndex = 1;
@@ -315,9 +326,9 @@
             // 
             // Column9
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightBlue;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column9.HeaderText = "Помощь";
             this.Column9.Name = "Column9";
             this.Column9.Text = "?";
@@ -339,17 +350,16 @@
             this.modulesPanel.Controls.Add(this.label4);
             this.modulesPanel.Location = new System.Drawing.Point(3, 314);
             this.modulesPanel.Name = "modulesPanel";
-            this.modulesPanel.Size = new System.Drawing.Size(1097, 352);
+            this.modulesPanel.Size = new System.Drawing.Size(1145, 352);
             this.modulesPanel.TabIndex = 3;
             this.modulesPanel.Visible = false;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.modulesDGV);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1097, 352);
+            this.groupBox1.Size = new System.Drawing.Size(1145, 352);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление модулей типов изделий";
@@ -365,8 +375,9 @@
             this.modulesDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modulesDGV.Location = new System.Drawing.Point(3, 16);
             this.modulesDGV.Name = "modulesDGV";
-            this.modulesDGV.Size = new System.Drawing.Size(1091, 333);
+            this.modulesDGV.Size = new System.Drawing.Size(1139, 333);
             this.modulesDGV.TabIndex = 2;
+            this.modulesDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.modulesDGV_CellContentClick);
             // 
             // Column6
             // 
@@ -396,14 +407,6 @@
             this.label4.Size = new System.Drawing.Size(0, 13);
             this.label4.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 228);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
-            this.label2.TabIndex = 3;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,6 +415,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

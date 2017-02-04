@@ -58,7 +58,7 @@ namespace Automation.View
         {
             string thicknessResult = GetResult();
             _form.UpdateThicknessColumn(thicknessResult);
-
+            Close();
 
 
         }

@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Automation.View
 {
-    public partial class TypesProductionFm : Form
+    public partial class ModuleManager : Form
     {
-        public TypesProductionFm()
+        public ModuleManager()
         {
+            
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new ModuleConfigurator().ShowDialog();
         }
     }
 }
