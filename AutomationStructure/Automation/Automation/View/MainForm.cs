@@ -12,7 +12,7 @@ namespace Automation.View
         public Presenter _presenter;
         public MainForm()
         {
-            
+
             InitializeComponent();
             InitCustomerTable();
         }
@@ -27,19 +27,13 @@ namespace Automation.View
         private void InitCustomerTable()
         {
             CustomerTable.InitCustomerTable(customerDGV);
-            customerDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            //customerDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            customerDGV.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.customerDGV_EditingControlShowing);
         }
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            //TODO: сделать проверку на выбор итема в датагриде
 
-            if (customerDGV.Rows[1].Cells[4].Value != null)
-            {
-                new ThicknessMaterialEssential().Show();
-            }
+        //new ThicknessMaterialEssential().Show();
 
-        }
 
         public void UpdateCustomerString(string customerRecord)
         {
@@ -77,7 +71,7 @@ namespace Automation.View
         {
             Close();
         }
-        
+
 
         private void kitchenUpModules_Click(object sender, EventArgs e)
         {
@@ -103,6 +97,25 @@ namespace Automation.View
         {
             List<string[]> customerRecord = CustomerTable.GetData(customerDGV);
             _presenter.SetCustomer(customerRecord);
-         }
+        }
+
+        private void customerDGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (customerDGV.CurrentCell.ColumnIndex == 4 && e.Control is ComboBox)
+            {
+                ComboBox comboBox = e.Control as ComboBox;
+                comboBox.SelectedIndexChanged += LastColumnComboSelectionChanged;
+            }
+        }
+
+        private void LastColumnComboSelectionChanged(object sender, EventArgs e)
+        {
+            var sendingCB = sender as DataGridViewComboBoxEditingControl;
+            var extendOption= sendingCB.EditingControlFormattedValue.ToString();
+            if (extendOption == "подробнее")
+            {
+                MessageBox.Show("Вызвать продвинутую функцию");
+            }
+        }
     }
 }

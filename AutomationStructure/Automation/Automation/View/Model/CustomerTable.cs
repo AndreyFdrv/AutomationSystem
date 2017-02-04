@@ -46,7 +46,7 @@ namespace Automation.View.Model
             comboboxCell2.Items.Add("18 мм");
             comboboxCell2.Items.Add("20 мм");
             comboboxCell2.Items.Add("22 мм");
-            comboboxCell2.Items.Add("ещё...");
+            comboboxCell2.Items.Add("подробнее");
 
 
             var comboboxCell3 = (DataGridViewComboBoxCell)dataGridView1.Rows[2].Cells[4];
