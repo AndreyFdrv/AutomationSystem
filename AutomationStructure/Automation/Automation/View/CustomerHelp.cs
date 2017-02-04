@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Automation.View
+namespace Automation
 {
-    public partial class TypesProductionFm : Form
+    public partial class CustomerHelp : Form
     {
-        public TypesProductionFm()
+
+      
+        public CustomerHelp()
         {
             InitializeComponent();
         }

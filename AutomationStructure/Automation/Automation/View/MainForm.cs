@@ -12,7 +12,7 @@ namespace Automation.View
         public Presenter _presenter;
         public MainForm()
         {
-            
+
             InitializeComponent();
             InitCustomerTable();
         }
@@ -27,19 +27,20 @@ namespace Automation.View
         private void InitCustomerTable()
         {
             CustomerTable.InitCustomerTable(customerDGV);
-            customerDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            //customerDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            customerDGV.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.customerDGV_EditingControlShowing);
         }
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+
+        public void UpdateThicknessColumn(string thicknessExt)
         {
-            //TODO: сделать проверку на выбор итема в датагриде
-
-            if (customerDGV.Rows[1].Cells[4].Value != null)
-            {
-                new ThicknessMaterialEssential().Show();
-            }
+            hideThicknessExt = thicknessExt;
+            label2.Text = "Подробная запись кромки:"+thicknessExt.Substring(0,10)+" ...";
 
         }
+
+        private string hideThicknessExt;
+
 
         public void UpdateCustomerString(string customerRecord)
         {
@@ -77,18 +78,18 @@ namespace Automation.View
         {
             Close();
         }
-        
+
 
         private void kitchenUpModules_Click(object sender, EventArgs e)
         {
-            panelCustomer.Height = 50;
+            panelCustomer.Height = 55;
             modulesPanel.Visible = true;
             ModulesTable.AddKitchenRow(modulesDGV, "Кухня верхние модули");
         }
 
         private void kitchenDownModules_Click(object sender, EventArgs e)
         {
-            panelCustomer.Height = 50;
+            panelCustomer.Height = 55;
             modulesPanel.Visible = true;
             ModulesTable.AddKitchenRow(modulesDGV, "Кухня нижние модули");
         }
@@ -96,13 +97,98 @@ namespace Automation.View
 
         private void turn_Click(object sender, EventArgs e)
         {
-            panelCustomer.Height = panelCustomer.Height == 263 ? 50 : 236;
+            if (panelCustomer.Height == 263)
+            {
+                panelCustomer.Height = 55;
+                turnBtn.Image = Automation.Properties.Resources.arrow_down_icon;
+            }
+            else
+            {
+                panelCustomer.Height = 263;
+                turnBtn.Image = Automation.Properties.Resources.arrow_up_icon;
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string[]> customerRecord = CustomerTable.GetData(customerDGV);
+            List<string[]> customerRecord = CustomerTable.GetData(customerDGV,hideThicknessExt);
             _presenter.SetCustomer(customerRecord);
-         }
+        }
+
+        private void customerDGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (customerDGV.CurrentCell.ColumnIndex == 4 && e.Control is ComboBox)
+            {
+                ComboBox comboBox = e.Control as ComboBox;
+                comboBox.SelectedIndexChanged += LastColumnComboSelectionChanged;
+            }
+        }
+
+        private void LastColumnComboSelectionChanged(object sender, EventArgs e)
+        {
+            var sendingCB = sender as DataGridViewComboBoxEditingControl;
+            var extendOption= sendingCB.EditingControlFormattedValue.ToString();
+            if (extendOption == "подробнее")
+            {
+                ShowThicknessForm();
+            }
+        }
+
+
+
+        private void ShowThicknessForm()
+        {
+            Form thicknessForm = Application.OpenForms["ThicknessMaterialEssential"];
+            if (thicknessForm==null)
+            {
+                thicknessForm = new ThicknessMaterialEssential(this);
+                thicknessForm.Show();
+            }
+            else
+            {
+                thicknessForm.Focus();
+            }
+        }
+
+
+
+
+        private void customerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                ShowCustomerHelpForm();
+            }
+        }
+
+
+        private void ShowCustomerHelpForm()
+        {
+            Form customerHelpForm = Application.OpenForms["CustomerHelp"];
+            if (customerHelpForm == null)
+            {
+                customerHelpForm = new CustomerHelp();
+                customerHelpForm.Show();
+            }
+            else
+            {
+                customerHelpForm.Focus();
+            }
+        }
+
+        private void modulesDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                new ModuleManager().Show();
+            }
+        }
     }
 }

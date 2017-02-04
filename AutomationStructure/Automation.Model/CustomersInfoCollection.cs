@@ -34,13 +34,19 @@ namespace Automation.Model
                 _records[i].CompanyName = customerData[i][1].ToString();
                 _records[i].Color = customerData[i][2].ToString();
                 _records[i].CodeColor = customerData[i][3].ToString();
-                _records[i].CompanyName = customerData[i][4].ToString();
+                _records[i].ThicknessMaterial = customerData[i][4].ToString();
             }
         }
 
         public string GetTotalCustomerRecord()
         {
-            return _records.Aggregate(string.Empty, (current, t) => current + ("Материал:" + t.Material + " Фирма изготовитель:" + t.CompanyName + "\n"));
+            return _records.Aggregate(string.Empty,
+                (current, t) => current + ("Материал: " + t.Material +
+                                           " ,Фирма изготовитель: " + t.CompanyName +
+                                           " ,Цвет: "+t.Color+
+                                           " ,Код цвета: "+t.CodeColor+
+                                           " ,Толщина материала: "+t.ThicknessMaterial+
+                                           "\n"));
         }
     }
 }

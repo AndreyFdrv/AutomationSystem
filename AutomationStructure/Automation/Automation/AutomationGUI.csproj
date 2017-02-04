@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\CustomerHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CustomerHelp.Designer.cs">
+      <DependentUpon>CustomerHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presenter.cs" />
     <Compile Include="View\About.cs">
       <SubType>Form</SubType>
@@ -62,18 +68,27 @@
     <Compile Include="View\Model\CustomerTable.cs" />
     <Compile Include="View\Model\Dialogs.cs" />
     <Compile Include="View\Model\ModulesTable.cs" />
+    <Compile Include="View\ModuleConfigurator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ModuleConfigurator.Designer.cs">
+      <DependentUpon>ModuleConfigurator.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ThicknessMaterialEssential.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\ThicknessMaterialEssential.Designer.cs">
       <DependentUpon>ThicknessMaterialEssential.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\TypesProductionFm.cs">
+    <Compile Include="View\ModuleManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\TypesProductionFm.Designer.cs">
-      <DependentUpon>TypesProductionFm.cs</DependentUpon>
+    <Compile Include="View\ModuleManager.Designer.cs">
+      <DependentUpon>ModuleManager.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CustomerHelp.resx">
+      <DependentUpon>CustomerHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,12 +103,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\ModuleConfigurator.resx">
+      <DependentUpon>ModuleConfigurator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ThicknessMaterialEssential.resx">
       <DependentUpon>ThicknessMaterialEssential.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\TypesProductionFm.resx">
-      <DependentUpon>TypesProductionFm.cs</DependentUpon>
+    <EmbeddedResource Include="View\ModuleManager.resx">
+      <DependentUpon>ModuleManager.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -108,12 +127,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\arrow-up-icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Automation.Model\Automation.Model.csproj">
       <Project>{2f62a103-3468-4957-9a2a-faf8dec4d44c}</Project>
       <Name>Automation.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-down-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
