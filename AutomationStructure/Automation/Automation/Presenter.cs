@@ -10,7 +10,9 @@ namespace Automation
 {
    public class Presenter
     {
-        //знает о модели
+        private BLService _blService;
+        private MainForm _view;
+
         public void UpdateCustomerString()
         {
             string customerRecord = _blService.GetTotalCustomerRecord();
@@ -18,8 +20,7 @@ namespace Automation
         }
 
        
-        private BLService _blService;
-        private MainForm _view;
+        
 
         public Presenter(BLService model, MainForm view)
         {
@@ -42,5 +43,8 @@ namespace Automation
             _blService.SetCustomer(customerRecord);
             UpdateCustomerString();
         }
+
+        
+
     }
 }

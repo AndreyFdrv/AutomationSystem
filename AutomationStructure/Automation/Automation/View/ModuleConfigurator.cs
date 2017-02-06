@@ -13,8 +13,11 @@ namespace Automation.View
 {
     public partial class ModuleConfigurator : Form
     {
-        public ModuleConfigurator()
+        private ModuleManager _moduleManager;
+
+        public ModuleConfigurator(ModuleManager moduleManager)
         {
+            _moduleManager = moduleManager;
             InitializeComponent();
             LoadPictures();
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,5 +19,27 @@ namespace Automation.Model
         {
             _modules = new List<AbstractModule>();
         }
+
+        public int GetCountModules()
+        {
+            return _modules.Count;
+        }
+
+        public void AddNewModule()
+        {
+            
+        }
+
+        public void DeleteModule()
+        {
+            
+        }
+
+        public void UpdateModule()
+        {
+            
+        }
+
+
     }
 }

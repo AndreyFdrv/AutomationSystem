@@ -12,15 +12,54 @@ namespace Automation.View
 {
     public partial class ModuleManager : Form
     {
-        public ModuleManager()
+        //Presenter 
+        public Presenter Presenter { get; set; }
+        
+
+
+        public ModuleManager(Presenter presenter, string productName)
+        {
+            Presenter = presenter;
+            InitializeComponent();
+            LoadModules(productName);
+        }
+
+        private void LoadModules(string productName)
         {
             
+            
+        }
+
+
+        public ModuleManager()
+        {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void add_Click(object sender, EventArgs e)
         {
-            new ModuleConfigurator().ShowDialog();
+            new ModuleConfigurator(this).ShowDialog();
         }
+
+        private void addSimilarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void applyBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        //Functions
+
+
     }
 }

@@ -85,6 +85,7 @@ namespace Automation.View
             panelCustomer.Height = 55;
             modulesPanel.Visible = true;
             ModulesTable.AddKitchenRow(modulesDGV, "Кухня верхние модули");
+            
         }
 
         private void kitchenDownModules_Click(object sender, EventArgs e)
@@ -187,7 +188,8 @@ namespace Automation.View
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                new ModuleManager().Show();
+                string productName = senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                new ModuleManager(_presenter,productName).Show();
             }
         }
     }
