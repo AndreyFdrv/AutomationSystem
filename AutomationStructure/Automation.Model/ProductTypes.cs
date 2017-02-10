@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Automation.Model
 {
-    enum ProductType
+    public enum ProductTypes
     {
-        KitchenUpModules,
-        KitchenDownModules
-
+        KITCHEN_UP,
+        KITCHEN_DOWN
     }
-
 }

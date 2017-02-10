@@ -19,14 +19,13 @@ namespace Automation.Model
 
         public void AddNewProduct(string nameProduct)
         {
-            Product product = new Product();
-            product.NameProduct = nameProduct;
+            Product product = new Product(nameProduct);
             _products.Add(product);
         }
 
         public void DeleteProduct(string nameProduct)
         {
-            Product product = _products.First(x => x.NameProduct == nameProduct);
+            Product product = _products.First(x => x.Type == x.GetType(nameProduct));
             if (product != null)
             {
                 _products.Remove(product);
@@ -35,11 +34,15 @@ namespace Automation.Model
 
         public int GetCountModules(string nameProduct)
         {
-            Product product = _products.First(x => x.NameProduct == nameProduct);
+            Product product = _products.First(x => x.Type ==x.GetType(nameProduct));
             return product.GetCountModules();
 
         }
 
+        public Product GetProduct(NewModuleData data)
+        {
+            return _products.First(x => x.Type == data.type);
+        }
     }
 
 }

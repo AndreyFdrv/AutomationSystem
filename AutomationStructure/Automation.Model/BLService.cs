@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Automation.Model
 {
     public  class BLService
@@ -52,6 +53,12 @@ namespace Automation.Model
         public void SetCustomer(List<string[]> customerRecord)
         {
             _order.SetCustomer(customerRecord);
+        }
+
+        public void AddNewModule(NewModuleData data)
+        {
+            var product = _order.productsCollection.GetProduct(data);
+            product.AddNewModule(data);
         }
     }
 }

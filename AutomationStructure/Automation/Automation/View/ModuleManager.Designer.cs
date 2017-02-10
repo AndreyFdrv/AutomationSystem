@@ -66,7 +66,7 @@
             this.groupBox1.Size = new System.Drawing.Size(262, 258);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Модули";
+            this.groupBox1.Text = "Список модулей";
             // 
             // addSimilarBtn
             // 
@@ -125,7 +125,7 @@
             this.groupBox3.Size = new System.Drawing.Size(803, 258);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Настройка модуля";
             // 
             // applyBtn
             // 
