@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Automation.Model;
+using Automation.View.Model;
 
 namespace Automation.View
 {
@@ -42,6 +44,8 @@ namespace Automation.View
             //передаём в главную форму и даём команду создать новый модуль
             string moduleName = textBox1.Text;
             string moduleType = _pathesToImages[_index];
+            NewModuleData data = new NewModuleData() {NameModule = moduleName, TypeModule = moduleType};
+            _moduleManager.SetNewModuleData(data);
             Close();
             
         }

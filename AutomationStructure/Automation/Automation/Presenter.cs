@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Automation.Model;
 using Automation.View;
+using Automation.View.Model;
 
 namespace Automation
 {
@@ -44,7 +45,10 @@ namespace Automation
             UpdateCustomerString();
         }
 
-        
 
+       public void AddNewModule(NewModuleData data)
+       {
+           _blService.AddNewModule(data);
+       }
     }
 }
