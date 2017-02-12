@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Automation.Model.Modules;
@@ -13,6 +15,7 @@ namespace Automation.Model
         public ProductTypes Type { get; set; }
         
         private List<AbstractModule> _modules;
+        
 
 
         public Product(string nameProduct)
@@ -28,19 +31,40 @@ namespace Automation.Model
 
         public void AddNewModule(NewModuleData data)
         {
-            
-        }
-        
-
-
-        public void DeleteModule()
-        {
-            
+            var module = GetModuleByType();
+            module.Name = data.Name;
+            module.Sсheme =  data.Scheme;
+            _modules.Add(module);
         }
 
-        public void UpdateModule()
+        private AbstractModule GetModuleByType()
         {
-            
+            AbstractModule module = null;
+            switch (Type)
+            {
+               case ProductTypes.KITCHEN_UP:
+                    module = new KitchenUpModule();
+                    break;
+                    case ProductTypes.KITCHEN_DOWN:
+                    module = new KitchenDownModule();
+                    break;
+            }
+            return module;
+        }
+
+        public void DeleteModule(string moduleName)
+        {
+            var module = _modules.First(x => x.Name == moduleName);
+            _modules.Remove(module);
+
+        }
+
+        public void UpdateModule(object data, string moduleName)
+        {
+            var module = _modules.First(x => x.Name == moduleName);
+            //обновление данных
+            module.SetupData();
+
         }
         
         public ProductTypes GetType(string nameProduct)
@@ -58,6 +82,14 @@ namespace Automation.Model
             return type;
         }
 
+        public DataTable GetInfoForView()
+        {
+            DataTable information = new DataTable();
+            //подготавливаем список строк из модулей.
+
+
+            return information;
+        }
        
     }
 }

@@ -13,15 +13,9 @@ namespace Automation
     {
         private BLService _blService;
         private MainForm _view;
-
-        public void UpdateCustomerString()
-        {
-            string customerRecord = _blService.GetTotalCustomerRecord();
-            _view.UpdateCustomerString(customerRecord);
-        }
+        public ModuleManager Manager { get; set; }
 
        
-        
 
         public Presenter(BLService model, MainForm view)
         {
@@ -36,7 +30,7 @@ namespace Automation
 
         internal void OpenProject(string pathToFile)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void SetCustomer(List<string[]> customerRecord)
@@ -49,6 +43,35 @@ namespace Automation
        public void AddNewModule(NewModuleData data)
        {
            _blService.AddNewModule(data);
+           UpdateModuleList();
+          // UpdateModuleDetail();
+          // UpdateAllModuleInfo();
        }
+
+
+
+        #region For Update View
+
+
+        
+        private void UpdateModuleList()
+        {
+
+        }
+
+
+        private void UpdateCustomerString()
+        {
+            string customerRecord = _blService.GetTotalCustomerRecord();
+            _view.UpdateCustomerString(customerRecord);
+        }
+
+        #endregion
+
+
+        internal void AddNewProduct(string nameProduct)
+        {
+            _blService.AddNewProduct( nameProduct);
+        }
     }
 }

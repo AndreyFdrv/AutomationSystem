@@ -11,8 +11,8 @@ namespace Automation.Model.Modules
 
         //поля состояния
 
-        protected string Name { get; set; }
-        protected int Sсheme { get; set; }
+        public string Name { get; set; }
+        public string Sсheme { get; set; }
 
         protected Dimensions dimentions;
 
@@ -20,6 +20,9 @@ namespace Automation.Model.Modules
 
         public abstract DataTable GetModuleView();
 
+        public abstract void SetupData();
+
+        public abstract DataTable GetView();
 
     }
 

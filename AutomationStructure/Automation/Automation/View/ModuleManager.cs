@@ -25,7 +25,7 @@ namespace Automation.View
             Presenter = presenter;
             _productName = productName;
             InitializeComponent();
-       //     LoadModules(productName);
+        //  LoadModules(productName);
         }
 
         private void LoadModules(string productName)
@@ -45,6 +45,7 @@ namespace Automation.View
             AddNewModule();
         }
 
+
         private void AddNewModule()
         {
             new ModuleConfigurator(this).ShowDialog();
@@ -52,7 +53,8 @@ namespace Automation.View
 
         public void SetNewModuleData(NewModuleData data)
         {
-            data.type = GetTypeProduct();
+            //data.Type = GetTypeProduct();
+            Presenter.Manager = this;
             Presenter.AddNewModule(data);
         }
 
@@ -71,6 +73,26 @@ namespace Automation.View
             }
 
             return productType;
+
+        }
+
+        public void UpdateModuleList(List<string> modulesName)
+        {
+            listBox1.Items.Clear();
+            foreach (var name in modulesName)
+            {
+                listBox1.Items.Add(name);
+            }
+        }
+
+        public void UpdateAllModuleInfo(DataTable modulesInfoTbl)
+        {
+            dataGridView1.DataSource = modulesInfoTbl;
+        }
+
+        public void UpdateModuleDetail(DataTable moduleDetailsTbl )
+        {
+            dataGridView2.DataSource = moduleDetailsTbl;
 
         }
 

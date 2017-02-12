@@ -9,8 +9,8 @@ namespace Automation.Model
 {
     public  class BLService
     {
-        //Действия, которые позволяет выполнить сервис модели
-        Order _order;
+
+        private Order _order;
 
 
         public void MakeNewProject()
@@ -59,6 +59,11 @@ namespace Automation.Model
         {
             var product = _order.productsCollection.GetProduct(data);
             product.AddNewModule(data);
+        }
+
+        public void AddNewProduct(string nameProduct)
+        {
+            _order.productsCollection.AddNewProduct(nameProduct);
         }
     }
 }
