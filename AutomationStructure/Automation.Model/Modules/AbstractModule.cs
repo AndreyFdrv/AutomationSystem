@@ -24,6 +24,9 @@ namespace Automation.Model.Modules
 
         public abstract DataTable GetView();
 
+        public abstract DataTable GetInfoTable();
+
+
     }
 
 

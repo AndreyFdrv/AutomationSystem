@@ -43,6 +43,11 @@ namespace Automation.Model
         {
             return _products.First(x => x.Type == data.Type);
         }
+
+        public Product GetProductByType(ProductTypes type)
+        {
+            return _products.First(x => x.Type == type);
+        }
     }
 
 }

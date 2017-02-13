@@ -24,6 +24,7 @@ namespace Automation.View
             LoadPictures();
         }
 
+       
 
         private List<string> _pathesToImages;
         private int _index;
@@ -41,7 +42,7 @@ namespace Automation.View
 
         private void applyBtn_Click(object sender, EventArgs e)
         {
-            //передаём в главную форму и даём команду создать новый модуль
+            
             if (textBox1.Text.Length==0)
             {
                 MessageBox.Show("Введите название нового модуля");

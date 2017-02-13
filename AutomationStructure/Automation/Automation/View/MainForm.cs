@@ -84,7 +84,7 @@ namespace Automation.View
         {
             panelCustomer.Height = 55;
             modulesPanel.Visible = true;
-            ModulesTable.AddKitchenRow(modulesDGV, "Кухня верхние модули");
+            ModulesTable.AddProductRowDgv(modulesDGV, "Кухня верхние модули");
             //добавляем в модель
             _presenter.AddNewProduct("Кухня верхние модули");
 
@@ -94,7 +94,7 @@ namespace Automation.View
         {
             panelCustomer.Height = 55;
             modulesPanel.Visible = true;
-            ModulesTable.AddKitchenRow(modulesDGV, "Кухня нижние модули");
+            ModulesTable.AddProductRowDgv(modulesDGV, "Кухня нижние модули");
             _presenter.AddNewProduct("Кухня нижние модули");
         }
 
@@ -194,6 +194,18 @@ namespace Automation.View
                 string productName = senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
                 new ModuleManager(_presenter,productName).Show();
             }
+        }
+
+        public void UpdateModulesCount(int count, string nameProduct)
+        {
+            for (int i = 0; i < modulesDGV.RowCount; i++)
+            {
+                if (modulesDGV.Rows[i].Cells[0].Value.ToString()==nameProduct)
+                {
+                    modulesDGV.Rows[i].Cells[1].Value = count;
+                }
+            }
+            
         }
     }
 }

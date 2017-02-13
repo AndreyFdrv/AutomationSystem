@@ -25,29 +25,35 @@ namespace Automation.View
             Presenter = presenter;
             _productName = productName;
             InitializeComponent();
-        //  LoadModules(productName);
-        }
-
-        private void LoadModules(string productName)
-        {
-            
+           LoadModulesList();
+           UpdateTotalModulesDatagrid();
             
         }
-
 
         public ModuleManager()
         {
             InitializeComponent();
         }
 
+
+        private void LoadModulesList()
+        {
+            Presenter.UpdateModuleList(GetTypeProduct());
+        }
+
+        private void UpdateTotalModulesDatagrid()
+        {
+            Presenter.UpdateTotalModules(GetTypeProduct());
+        }
+        
         private void add_Click(object sender, EventArgs e)
         {
             AddNewModule();
         }
-
-
+        
         private void AddNewModule()
         {
+            
             new ModuleConfigurator(this).ShowDialog();
         }
 
@@ -56,6 +62,8 @@ namespace Automation.View
             //data.Type = GetTypeProduct();
             Presenter.Manager = this;
             Presenter.AddNewModule(data);
+            Presenter.UpdateModuleList(GetTypeProduct());
+            Presenter.UpdateModulesCount(GetTypeProduct());
         }
 
         private ProductTypes GetTypeProduct()
@@ -111,10 +119,27 @@ namespace Automation.View
 
         }
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox1.Items.Count!=0)
+            {
+                Presenter.ShowDetailData(listBox1.SelectedItem.ToString(),GetTypeProduct());
+            }
+        }
+
 
 
         //Functions
 
 
+        public void UpdateDetailDataDataGrid(DataTable table)
+        {
+            dataGridView2.DataSource = table;
+        }
+
+        public void UpdateTotalModulesInfo(DataTable table)
+        {
+            dataGridView1.DataSource = table;
+        }
     }
 }

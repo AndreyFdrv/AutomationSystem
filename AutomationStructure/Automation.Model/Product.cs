@@ -15,7 +15,11 @@ namespace Automation.Model
         public ProductTypes Type { get; set; }
         
         private List<AbstractModule> _modules;
-        
+
+        public List<string> GetNamesModules()
+        {
+            return _modules.Select(module => module.Name).ToList();
+        }
 
 
         public Product(string nameProduct)
@@ -82,14 +86,21 @@ namespace Automation.Model
             return type;
         }
 
-        public DataTable GetInfoForView()
+      
+        public DataTable GetTotalDetailInfo()
         {
-            DataTable information = new DataTable();
-            //подготавливаем список строк из модулей.
-
-
-            return information;
+            foreach (var module in _modules)
+            {
+                
+            }
+            return null;
         }
-       
+
+        public DataTable GetDetailInfo(string moduleName)
+        {
+            var module = _modules.First(x => x.Name == moduleName);
+            DataTable table = module.GetInfoTable();
+            return table;
+        }
     }
 }

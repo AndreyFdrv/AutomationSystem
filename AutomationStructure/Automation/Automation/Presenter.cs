@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,19 +44,22 @@ namespace Automation
        public void AddNewModule(NewModuleData data)
        {
            _blService.AddNewModule(data);
-           UpdateModuleList();
+           //UpdateModuleList();
           // UpdateModuleDetail();
           // UpdateAllModuleInfo();
        }
 
-
+       
 
         #region For Update View
 
 
         
-        private void UpdateModuleList()
+        public void UpdateModuleList(ProductTypes type)
         {
+            List<string> modulesName = _blService.GetModulesNamesByType(type);
+            Manager.UpdateModuleList(modulesName);
+
 
         }
 
@@ -73,5 +77,23 @@ namespace Automation
         {
             _blService.AddNewProduct( nameProduct);
         }
+
+       public void UpdateModulesCount(ProductTypes type)
+       {
+           var nameProduct = _blService.GetProductNameByType(type);
+           var countModules = _blService.GetCountModules(type);
+           _view.UpdateModulesCount(countModules,nameProduct);
+       }
+
+       public void ShowDetailData(string moduleName, ProductTypes type)
+       {
+           DataTable table =  _blService.GetDetailDataForModule(moduleName, type);
+           Manager.UpdateDetailDataDataGrid(table);
+       }
+
+       public void UpdateTotalModules(ProductTypes type)
+       {
+           
+       }
     }
 }
