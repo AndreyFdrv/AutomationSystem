@@ -8,8 +8,8 @@ namespace Automation.Model
 {
     public class NewModuleData
     {
-        public string NameModule { get; set; }
-        public string TypeModule { get; set; }
-        public ProductTypes type { get; set; }
+        public string Name { get; set; }
+        public string Scheme { get; set; }
+        public ProductTypes Type { get; set; }
     }
 }

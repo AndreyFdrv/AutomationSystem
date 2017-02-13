@@ -26,7 +26,7 @@ namespace Automation
 
             Presenter presenter = new Presenter(model,view);
             view._presenter = presenter;
-            Application.Run(new ModuleManager());
+            Application.Run(view);
         }
     }
 }

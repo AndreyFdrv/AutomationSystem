@@ -12,8 +12,16 @@ namespace Automation.Model.Modules
         public KitchenUpModule()
         {
            _facade = new Facade();
-           
+        }
+
+        public override void SetupData()
+        {
             
+        }
+
+        public override DataTable GetView()
+        {
+            return null;
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,15 +14,9 @@ namespace Automation
     {
         private BLService _blService;
         private MainForm _view;
-
-        public void UpdateCustomerString()
-        {
-            string customerRecord = _blService.GetTotalCustomerRecord();
-            _view.UpdateCustomerString(customerRecord);
-        }
+        public ModuleManager Manager { get; set; }
 
        
-        
 
         public Presenter(BLService model, MainForm view)
         {
@@ -36,7 +31,7 @@ namespace Automation
 
         internal void OpenProject(string pathToFile)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void SetCustomer(List<string[]> customerRecord)
@@ -49,6 +44,56 @@ namespace Automation
        public void AddNewModule(NewModuleData data)
        {
            _blService.AddNewModule(data);
+           //UpdateModuleList();
+          // UpdateModuleDetail();
+          // UpdateAllModuleInfo();
+       }
+
+       
+
+        #region For Update View
+
+
+        
+        public void UpdateModuleList(ProductTypes type)
+        {
+            List<string> modulesName = _blService.GetModulesNamesByType(type);
+            Manager.UpdateModuleList(modulesName);
+
+
+        }
+
+
+        private void UpdateCustomerString()
+        {
+            string customerRecord = _blService.GetTotalCustomerRecord();
+            _view.UpdateCustomerString(customerRecord);
+        }
+
+        #endregion
+
+
+        internal void AddNewProduct(string nameProduct)
+        {
+            _blService.AddNewProduct( nameProduct);
+        }
+
+       public void UpdateModulesCount(ProductTypes type)
+       {
+           var nameProduct = _blService.GetProductNameByType(type);
+           var countModules = _blService.GetCountModules(type);
+           _view.UpdateModulesCount(countModules,nameProduct);
+       }
+
+       public void ShowDetailData(string moduleName, ProductTypes type)
+       {
+           DataTable table =  _blService.GetDetailDataForModule(moduleName, type);
+           Manager.UpdateDetailDataDataGrid(table);
+       }
+
+       public void UpdateTotalModules(ProductTypes type)
+       {
+           
        }
     }
 }
