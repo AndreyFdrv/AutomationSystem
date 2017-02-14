@@ -82,12 +82,12 @@ namespace Automation
        {
            var nameProduct = _blService.GetProductNameByType(type);
            var countModules = _blService.GetCountModules(type);
-           _view.UpdateModulesCount(countModules,nameProduct);
+           _view.UpdateProductCount(countModules,nameProduct);
        }
 
-       public void ShowDetailData(string moduleName, ProductTypes type)
+       public void ShowModuleInformation(string moduleName, ProductTypes type)
        {
-           DataTable table =  _blService.GetDetailDataForModule(moduleName, type);
+           DataTable table = _blService.GetDetailDataForModule(moduleName, type);
            Manager.UpdateDetailDataDataGrid(table);
        }
 

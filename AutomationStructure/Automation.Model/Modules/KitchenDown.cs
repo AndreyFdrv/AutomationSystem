@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Automation.Model.Modules
 {
-    class KitchenDownModule:AbstractModule
+    class KitchenDown:AbstractModule
     {
-        public KitchenDownModule()
+        public KitchenDown()
         {
             _facade = new Facade();
         }
@@ -26,31 +26,21 @@ namespace Automation.Model.Modules
         Facade _facade;
         
 
-        public override DataTable GetModuleView()
-        {
-            return new DataTable();
-        }
+   
 
-        public override void SetupData()
+        public override void SetupModule(DataTable changedInfo)
         {
             throw new NotImplementedException();
         }
 
-        public override DataTable GetView()
+        public override void GetInfoRows(DataTable table)
         {
-            //TODO:Добавить колонки к таблице. мб передавать список строк?
-            DataTable viewTbl = new DataTable();
-            viewTbl.Columns.Add("Название модуля");
-            viewTbl.Columns.Add("Схема модуля");
-           // viewTbl.Columns.Add("Ещё одна колонка");
+            throw new NotImplementedException();
+        }
 
-            DataRow row = viewTbl.NewRow();
-            row[0] = Name;
-            row[1] = Sсheme;
-
-            viewTbl.Rows.Add(row);
-
-            return viewTbl;
+        public override DataTable GetInfoTable()
+        {
+            throw new NotImplementedException();
         }
 
         //TODO:Мб принимать строки?

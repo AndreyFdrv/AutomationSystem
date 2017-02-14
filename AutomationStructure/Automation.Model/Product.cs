@@ -47,10 +47,10 @@ namespace Automation.Model
             switch (Type)
             {
                case ProductTypes.KITCHEN_UP:
-                    module = new KitchenUpModule();
+                    module = new KitchenUp();
                     break;
                     case ProductTypes.KITCHEN_DOWN:
-                    module = new KitchenDownModule();
+                    module = new KitchenDown();
                     break;
             }
             return module;
@@ -67,7 +67,7 @@ namespace Automation.Model
         {
             var module = _modules.First(x => x.Name == moduleName);
             //обновление данных
-            module.SetupData();
+         //   module.SetupData();
 
         }
         
@@ -96,7 +96,7 @@ namespace Automation.Model
             return null;
         }
 
-        public DataTable GetDetailInfo(string moduleName)
+        public DataTable GetModuleDetailInfo(string moduleName)
         {
             var module = _modules.First(x => x.Name == moduleName);
             DataTable table = module.GetInfoTable();

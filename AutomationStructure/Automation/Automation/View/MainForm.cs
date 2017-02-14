@@ -84,7 +84,7 @@ namespace Automation.View
         {
             panelCustomer.Height = 55;
             modulesPanel.Visible = true;
-            ModulesTable.AddProductRowDgv(modulesDGV, "Кухня верхние модули");
+            ModulesTable.AddProductRowDgv(productsDgv, "Кухня верхние модули");
             //добавляем в модель
             _presenter.AddNewProduct("Кухня верхние модули");
 
@@ -94,7 +94,7 @@ namespace Automation.View
         {
             panelCustomer.Height = 55;
             modulesPanel.Visible = true;
-            ModulesTable.AddProductRowDgv(modulesDGV, "Кухня нижние модули");
+            ModulesTable.AddProductRowDgv(productsDgv, "Кухня нижние модули");
             _presenter.AddNewProduct("Кухня нижние модули");
         }
 
@@ -184,7 +184,7 @@ namespace Automation.View
             }
         }
 
-        private void modulesDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void productsDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
 
@@ -196,13 +196,13 @@ namespace Automation.View
             }
         }
 
-        public void UpdateModulesCount(int count, string nameProduct)
+        public void UpdateProductCount(int count, string nameProduct)
         {
-            for (int i = 0; i < modulesDGV.RowCount; i++)
+            for (int i = 0; i < productsDgv.RowCount; i++)
             {
-                if (modulesDGV.Rows[i].Cells[0].Value.ToString()==nameProduct)
+                if (productsDgv.Rows[i].Cells[0].Value.ToString()==nameProduct)
                 {
-                    modulesDGV.Rows[i].Cells[1].Value = count;
+                    productsDgv.Rows[i].Cells[1].Value = count;
                 }
             }
             

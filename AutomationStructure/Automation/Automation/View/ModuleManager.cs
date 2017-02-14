@@ -16,17 +16,17 @@ namespace Automation.View
     {
         //Presenter 
         public Presenter Presenter { get; set; }
-
-
+        
         private string _productName;
 
         public ModuleManager(Presenter presenter, string productName)
         {
             Presenter = presenter;
+            Presenter.Manager = this;
             _productName = productName;
             InitializeComponent();
-           LoadModulesList();
-           UpdateTotalModulesDatagrid();
+            LoadModulesList();
+            UpdateTotalModulesDatagrid();
             
         }
 
@@ -34,6 +34,8 @@ namespace Automation.View
         {
             InitializeComponent();
         }
+
+
 
 
         private void LoadModulesList()
@@ -46,14 +48,9 @@ namespace Automation.View
             Presenter.UpdateTotalModules(GetTypeProduct());
         }
         
-        private void add_Click(object sender, EventArgs e)
-        {
-            AddNewModule();
-        }
-        
+
         private void AddNewModule()
         {
-            
             new ModuleConfigurator(this).ShowDialog();
         }
 
@@ -84,24 +81,15 @@ namespace Automation.View
 
         }
 
-        public void UpdateModuleList(List<string> modulesName)
-        {
-            listBox1.Items.Clear();
-            foreach (var name in modulesName)
-            {
-                listBox1.Items.Add(name);
-            }
-        }
 
-        public void UpdateAllModuleInfo(DataTable modulesInfoTbl)
-        {
-            dataGridView1.DataSource = modulesInfoTbl;
-        }
 
-        public void UpdateModuleDetail(DataTable moduleDetailsTbl )
-        {
-            dataGridView2.DataSource = moduleDetailsTbl;
 
+        //Buttons and events
+
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            AddNewModule();
         }
 
         private void addSimilarBtn_Click(object sender, EventArgs e)
@@ -118,28 +106,47 @@ namespace Automation.View
         {
 
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void modulesLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.Items.Count!=0)
+            if (modulesLbx.Items.Count!=0)
             {
-                Presenter.ShowDetailData(listBox1.SelectedItem.ToString(),GetTypeProduct());
+                Presenter.ShowModuleInformation(modulesLbx.SelectedItem.ToString(),GetTypeProduct());
             }
         }
 
 
 
-        //Functions
+        //Update view methods
 
 
+        public void UpdateModuleList(List<string> modulesName)
+        {
+            modulesLbx.Items.Clear();
+            foreach (var name in modulesName)
+            {
+                modulesLbx.Items.Add(name);
+            }
+        }
+        
+        public void UpdateAllModuleInfo(DataTable modulesInfoTbl)
+        {
+            allModulesInformationDgv.DataSource = modulesInfoTbl;
+        }
+
+        public void UpdateModuleDetail(DataTable moduleDetailsTbl)
+        {
+            selectedModuleInformationDgv.DataSource = moduleDetailsTbl;
+        }
+        
         public void UpdateDetailDataDataGrid(DataTable table)
         {
-            dataGridView2.DataSource = table;
+            selectedModuleInformationDgv.DataSource = table;
         }
 
         public void UpdateTotalModulesInfo(DataTable table)
         {
-            dataGridView1.DataSource = table;
+            allModulesInformationDgv.DataSource = table;
         }
     }
 }
