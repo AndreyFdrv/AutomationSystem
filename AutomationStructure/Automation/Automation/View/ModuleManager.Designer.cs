@@ -135,9 +135,9 @@
             this.applyBtn.Name = "applyBtn";
             this.applyBtn.Size = new System.Drawing.Size(78, 29);
             this.applyBtn.TabIndex = 1;
-            this.applyBtn.Text = "Применить";
+            this.applyBtn.Text = "Обновить";
             this.applyBtn.UseVisualStyleBackColor = true;
-            this.applyBtn.Click += new System.EventHandler(this.applyBtn_Click);
+            this.applyBtn.Click += new System.EventHandler(this.UpdateModuleInfoBtn);
             // 
             // selectedModuleInformationDgv
             // 

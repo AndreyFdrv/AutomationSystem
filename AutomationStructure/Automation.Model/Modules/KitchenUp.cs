@@ -27,7 +27,36 @@ namespace Automation.Model.Modules
 
         public override void SetupModule(DataTable changedInfo)
         {
-            
+            //TODO:Дописать обновление данных модуля
+            int countRows = changedInfo.Rows.Count;
+            DataRow row = changedInfo.Rows[0];
+            Name = row[0].ToString();
+            Sсheme = row[1].ToString();
+            _dimentions.Lenght = double.Parse(row[2].ToString());
+            _dimentions.Width = double.Parse(row[3].ToString());
+            _dimentions.Depth = double.Parse(row[4].ToString()) ;
+            _dimentions.A = double.Parse(row[5].ToString());
+            _dimentions.B = double.Parse(row[6].ToString()); 
+            _dimentions.C = double.Parse(row[7].ToString());
+            _dimentions.D = double.Parse(row[8].ToString());
+             Material = row[9].ToString();
+            BackWall = row[10].ToString();
+            ShelfPO = row[11].ToString();
+            ShelfMinusTwoMM = row[12].ToString();
+            ShelfForRazdel = row[13].ToString();
+            ShelfGlass = row[14].ToString();
+
+            if (_dimentions.A > 0 & _dimentions.B > 0 & _dimentions.C > 0)
+            {
+                CalculateFacade();
+            }
+
+            _facade._records[0].NumberOnScheme = int.Parse(row[15].ToString());
+            _facade._records[0].HorisontalDimension = double.Parse(row[16].ToString());
+            //row[17] = _facade._records[0].VerticalDimension= double.
+           // row[18] = _facade._records[0].Material;
+
+
         }
 
         public override void GetInfoRows(DataTable table)

@@ -69,7 +69,7 @@ namespace Automation.Model
 
         public List<string> GetModulesNamesByType(ProductTypes type)
         {
-            var product = _order.productsCollection.GetProductByType(type);
+            var product = _order.productsCollection.GetProduct(type);
             return product.GetNamesModules();
         }
         
@@ -97,31 +97,38 @@ namespace Automation.Model
 
         public DataTable GetDetailDataForModule(string moduleName, ProductTypes type)
         {
-            var product = _order.productsCollection.GetProductByType(type);
+            var product = _order.productsCollection.GetProduct(type);
             DataTable moduleInfo = product.GetModuleDetailInfo(moduleName);
             return moduleInfo;
         }
 
         public DataTable GetTotalModulesInfo(ProductTypes type)
         {
-            var product = _order.productsCollection.GetProductByType(type);
+            var product = _order.productsCollection.GetProduct(type);
             DataTable table = product.GetTotalDetailInfo();
             return table;
         }
 
         public void DeleteModule(string nameModule, ProductTypes type)
         {
-            var product = _order.productsCollection.GetProductByType(type);
+            var product = _order.productsCollection.GetProduct(type);
             product.DeleteModule(nameModule);
 
         }
 
         public void AddSimilarModule(string similarName, ProductTypes type)
         {
-            var product = _order.productsCollection.GetProductByType(type);
+            var product = _order.productsCollection.GetProduct(type);
             var module = product.GetCloneLastModule();
             module.Name = similarName;
             product.AddSimilarModule(module);
+
+        }
+
+        public void UpdateModuleInfo(DataTable moduleInfoTable, string nameModule, ProductTypes type)
+        {
+            var product = _order.productsCollection.GetProduct(type);
+            product.UpdateModule(moduleInfoTable, nameModule);
 
         }
     }

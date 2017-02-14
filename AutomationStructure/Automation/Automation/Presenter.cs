@@ -107,5 +107,10 @@ namespace Automation
             UpdateTotalModules(type);
            
        }
+
+       public void UpdateModuleInfo(DataTable moduleInfoTable, string nameModule, ProductTypes type)
+       {
+           _blService.UpdateModuleInfo(moduleInfoTable, nameModule, type);
+       }
     }
 }

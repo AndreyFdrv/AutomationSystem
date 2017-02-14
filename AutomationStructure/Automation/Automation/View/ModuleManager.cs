@@ -114,9 +114,11 @@ namespace Automation.View
             }
         }
 
-        private void applyBtn_Click(object sender, EventArgs e)
-        {
+        DataTable _moduleInfoTable;
 
+        private void UpdateModuleInfoBtn(object sender, EventArgs e)
+        {
+            Presenter.UpdateModuleInfo(_moduleInfoTable, modulesLbx.SelectedItem.ToString(), GetTypeProduct());
         }
         
         private void modulesLbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,7 +160,8 @@ namespace Automation.View
 
         public void UpdateTotalModulesInfo(DataTable table)
         {
-            allModulesInformationDgv.DataSource = table;
+            _moduleInfoTable = table;
+            allModulesInformationDgv.DataSource = _moduleInfoTable;
         }
     }
 }
