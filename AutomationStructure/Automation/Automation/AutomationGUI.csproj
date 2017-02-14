@@ -74,6 +74,12 @@
     <Compile Include="View\ModuleConfigurator.Designer.cs">
       <DependentUpon>ModuleConfigurator.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\SimilarModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SimilarModule.Designer.cs">
+      <DependentUpon>SimilarModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ThicknessMaterialEssential.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="View\ModuleConfigurator.resx">
       <DependentUpon>ModuleConfigurator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SimilarModule.resx">
+      <DependentUpon>SimilarModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ThicknessMaterialEssential.resx">
       <DependentUpon>ThicknessMaterialEssential.cs</DependentUpon>

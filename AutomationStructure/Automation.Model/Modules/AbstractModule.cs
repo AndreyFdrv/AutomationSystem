@@ -7,7 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Automation.Model.Modules
 {
-    abstract class AbstractModule
+   public abstract class AbstractModule: ICloneable
     {
 
         //поля состояния
@@ -23,6 +23,10 @@ namespace Automation.Model.Modules
         public abstract void SetupModule(DataTable changedInfo);
         public abstract void GetInfoRows(DataTable table);
         public abstract DataTable GetInfoTable();
+
+        public abstract DataTable GetEmptyTable();
+
+        public abstract object Clone();
     }
 
 

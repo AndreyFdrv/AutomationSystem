@@ -89,11 +89,18 @@ namespace Automation.Model
       
         public DataTable GetTotalDetailInfo()
         {
-            foreach (var module in _modules)
+            DataTable emptyTable = null;
+            if (_modules.Count!=0)
             {
-                
+               emptyTable = _modules[0].GetEmptyTable();
+                foreach (var module in _modules)
+                {
+                    module.GetInfoRows(emptyTable);
+                }
             }
-            return null;
+            return emptyTable;
+
+
         }
 
         public DataTable GetModuleDetailInfo(string moduleName)
@@ -101,6 +108,18 @@ namespace Automation.Model
             var module = _modules.First(x => x.Name == moduleName);
             DataTable table = module.GetInfoTable();
             return table;
+        }
+
+        public AbstractModule GetCloneLastModule()
+        {
+            var lastModule =  _modules.Last();
+            var newCloneModule =  (AbstractModule)lastModule.Clone();
+            return newCloneModule;
+        }
+
+        public void AddSimilarModule(AbstractModule module)
+        {
+            _modules.Add(module);
         }
     }
 }

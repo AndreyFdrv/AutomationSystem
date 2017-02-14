@@ -61,6 +61,7 @@ namespace Automation.View
             Presenter.AddNewModule(data);
             Presenter.UpdateModuleList(GetTypeProduct());
             Presenter.UpdateModulesCount(GetTypeProduct());
+            Presenter.UpdateTotalModules(GetTypeProduct());
         }
 
         private ProductTypes GetTypeProduct()
@@ -94,12 +95,23 @@ namespace Automation.View
 
         private void addSimilarBtn_Click(object sender, EventArgs e)
         {
+            SimilarModule similarModule = new SimilarModule();
+            similarModule.OnApplyedName += AddSimilarModule;
+            similarModule.Show();
 
+        }
+
+        private void AddSimilarModule(object sender, SimilarEventArgs e)
+        {
+            Presenter.AddSimilarModule(e.SimilarName, GetTypeProduct());
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-
+            if (modulesLbx.Items.Count!=0)
+            {
+                Presenter.DeleteModule(modulesLbx.SelectedItem.ToString(), GetTypeProduct());
+            }
         }
 
         private void applyBtn_Click(object sender, EventArgs e)

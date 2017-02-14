@@ -43,6 +43,16 @@ namespace Automation.Model.Modules
             throw new NotImplementedException();
         }
 
+        public override DataTable GetEmptyTable()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override object Clone()
+        {
+            throw new NotImplementedException();
+        }
+
         //TODO:Мб принимать строки?
         public void SetupData(params string[] parameters )
         {

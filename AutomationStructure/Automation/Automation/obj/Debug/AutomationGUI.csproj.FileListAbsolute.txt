@@ -47,3 +47,4 @@ C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation
 C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.csproj.GenerateResource.Cache
 C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe
 C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.SimilarModule.resources

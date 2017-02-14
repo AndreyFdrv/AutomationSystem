@@ -106,6 +106,13 @@ namespace Automation.Model.Modules
         
         public override DataTable GetInfoTable()
         {
+            DataTable table = GetEmptyTable();
+            GetInfoRows(table);
+            return table;
+        }
+
+        public override DataTable GetEmptyTable()
+        {
             DataTable table = new DataTable();
             table.Columns.Add("Название модуля");
             table.Columns.Add("Схема");
@@ -127,9 +134,12 @@ namespace Automation.Model.Modules
             table.Columns.Add("Вертикальный размер");
             table.Columns.Add("Горизонтальный размер");
             table.Columns.Add("Материал фасада");
-
-            GetInfoRows(table);
             return table;
+        }
+
+        public override object Clone()
+        {
+            return MemberwiseClone();
         }
     }
 }

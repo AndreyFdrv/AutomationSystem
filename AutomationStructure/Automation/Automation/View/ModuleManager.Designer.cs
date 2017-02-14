@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModuleManager));
             this.allModulesInformationDgv = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.addSimilarBtn = new System.Windows.Forms.Button();
-            this.deleteBtn = new System.Windows.Forms.Button();
-            this.addBtn = new System.Windows.Forms.Button();
+            this.addSimilarModuleBtn = new System.Windows.Forms.Button();
+            this.deleteModuleBtn = new System.Windows.Forms.Button();
+            this.addNewModuleBtn = new System.Windows.Forms.Button();
             this.modulesLbx = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -58,9 +58,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.addSimilarBtn);
-            this.groupBox1.Controls.Add(this.deleteBtn);
-            this.groupBox1.Controls.Add(this.addBtn);
+            this.groupBox1.Controls.Add(this.addSimilarModuleBtn);
+            this.groupBox1.Controls.Add(this.deleteModuleBtn);
+            this.groupBox1.Controls.Add(this.addNewModuleBtn);
             this.groupBox1.Controls.Add(this.modulesLbx);
             this.groupBox1.Location = new System.Drawing.Point(10, 372);
             this.groupBox1.Name = "groupBox1";
@@ -69,35 +69,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Список модулей";
             // 
-            // addSimilarBtn
+            // addSimilarModuleBtn
             // 
-            this.addSimilarBtn.Location = new System.Drawing.Point(91, 210);
-            this.addSimilarBtn.Name = "addSimilarBtn";
-            this.addSimilarBtn.Size = new System.Drawing.Size(83, 40);
-            this.addSimilarBtn.TabIndex = 1;
-            this.addSimilarBtn.Text = "Добавить предыдущий";
-            this.addSimilarBtn.UseVisualStyleBackColor = true;
-            this.addSimilarBtn.Click += new System.EventHandler(this.addSimilarBtn_Click);
+            this.addSimilarModuleBtn.Location = new System.Drawing.Point(91, 210);
+            this.addSimilarModuleBtn.Name = "addSimilarModuleBtn";
+            this.addSimilarModuleBtn.Size = new System.Drawing.Size(83, 40);
+            this.addSimilarModuleBtn.TabIndex = 1;
+            this.addSimilarModuleBtn.Text = "Добавить предыдущий";
+            this.addSimilarModuleBtn.UseVisualStyleBackColor = true;
+            this.addSimilarModuleBtn.Click += new System.EventHandler(this.addSimilarBtn_Click);
             // 
-            // deleteBtn
+            // deleteModuleBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(180, 211);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(75, 39);
-            this.deleteBtn.TabIndex = 1;
-            this.deleteBtn.Text = "Удалить";
-            this.deleteBtn.UseVisualStyleBackColor = true;
-            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            this.deleteModuleBtn.Location = new System.Drawing.Point(180, 211);
+            this.deleteModuleBtn.Name = "deleteModuleBtn";
+            this.deleteModuleBtn.Size = new System.Drawing.Size(75, 39);
+            this.deleteModuleBtn.TabIndex = 1;
+            this.deleteModuleBtn.Text = "Удалить";
+            this.deleteModuleBtn.UseVisualStyleBackColor = true;
+            this.deleteModuleBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
-            // addBtn
+            // addNewModuleBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(8, 211);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(75, 39);
-            this.addBtn.TabIndex = 1;
-            this.addBtn.Text = "Добавить";
-            this.addBtn.UseVisualStyleBackColor = true;
-            this.addBtn.Click += new System.EventHandler(this.add_Click);
+            this.addNewModuleBtn.Location = new System.Drawing.Point(8, 211);
+            this.addNewModuleBtn.Name = "addNewModuleBtn";
+            this.addNewModuleBtn.Size = new System.Drawing.Size(75, 39);
+            this.addNewModuleBtn.TabIndex = 1;
+            this.addNewModuleBtn.Text = "Добавить";
+            this.addNewModuleBtn.UseVisualStyleBackColor = true;
+            this.addNewModuleBtn.Click += new System.EventHandler(this.add_Click);
             // 
             // modulesLbx
             // 
@@ -174,9 +174,9 @@
 
         private System.Windows.Forms.DataGridView allModulesInformationDgv;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button addSimilarBtn;
-        private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button addSimilarModuleBtn;
+        private System.Windows.Forms.Button deleteModuleBtn;
+        private System.Windows.Forms.Button addNewModuleBtn;
         private System.Windows.Forms.ListBox modulesLbx;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;

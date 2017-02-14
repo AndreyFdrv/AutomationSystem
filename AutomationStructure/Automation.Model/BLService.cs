@@ -101,5 +101,28 @@ namespace Automation.Model
             DataTable moduleInfo = product.GetModuleDetailInfo(moduleName);
             return moduleInfo;
         }
+
+        public DataTable GetTotalModulesInfo(ProductTypes type)
+        {
+            var product = _order.productsCollection.GetProductByType(type);
+            DataTable table = product.GetTotalDetailInfo();
+            return table;
+        }
+
+        public void DeleteModule(string nameModule, ProductTypes type)
+        {
+            var product = _order.productsCollection.GetProductByType(type);
+            product.DeleteModule(nameModule);
+
+        }
+
+        public void AddSimilarModule(string similarName, ProductTypes type)
+        {
+            var product = _order.productsCollection.GetProductByType(type);
+            var module = product.GetCloneLastModule();
+            module.Name = similarName;
+            product.AddSimilarModule(module);
+
+        }
     }
 }
