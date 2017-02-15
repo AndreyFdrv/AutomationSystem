@@ -53,17 +53,13 @@ namespace Automation
 
         #region For Update View
 
-
         
         public void UpdateModuleList(ProductTypes type)
         {
             List<string> modulesName = _blService.GetModulesNamesByType(type);
             Manager.UpdateModuleList(modulesName);
-
-
         }
-
-
+        
         private void UpdateCustomerString()
         {
             string customerRecord = _blService.GetTotalCustomerRecord();
@@ -73,7 +69,7 @@ namespace Automation
         #endregion
 
 
-        internal void AddNewProduct(string nameProduct)
+       internal void AddNewProduct(string nameProduct)
         {
             _blService.AddNewProduct( nameProduct);
         }
@@ -82,18 +78,39 @@ namespace Automation
        {
            var nameProduct = _blService.GetProductNameByType(type);
            var countModules = _blService.GetCountModules(type);
-           _view.UpdateModulesCount(countModules,nameProduct);
+           _view.UpdateProductCount(countModules,nameProduct);
        }
 
-       public void ShowDetailData(string moduleName, ProductTypes type)
+       public void ShowModuleInformation(string moduleName, ProductTypes type)
        {
-           DataTable table =  _blService.GetDetailDataForModule(moduleName, type);
+           DataTable table = _blService.GetDetailDataForModule(moduleName, type);
            Manager.UpdateDetailDataDataGrid(table);
        }
 
        public void UpdateTotalModules(ProductTypes type)
        {
+           DataTable table = _blService.GetTotalModulesInfo(type);
+           Manager.UpdateAllModuleInfo(table);
+       }
+
+       public void DeleteModule(string nameModule, ProductTypes type)
+       {
+           _blService.DeleteModule(nameModule, type);
+            UpdateModuleList(type);
+            UpdateTotalModules(type);
+       }
+
+       public void AddSimilarModule(string similarName, ProductTypes type)
+       {
+           _blService.AddSimilarModule(similarName, type);
+            UpdateModuleList(type);
+            UpdateTotalModules(type);
            
+       }
+
+       public void UpdateModuleInfo(DataTable moduleInfoTable, string nameModule, ProductTypes type)
+       {
+           _blService.UpdateModuleInfo(moduleInfoTable, nameModule, type);
        }
     }
 }

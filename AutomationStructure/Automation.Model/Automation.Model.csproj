@@ -45,8 +45,8 @@
     <Compile Include="Modules\AbstractModule.cs" />
     <Compile Include="CustomersInfoCollection.cs" />
     <Compile Include="CustomerRecord.cs" />
-    <Compile Include="Modules\KitchenDownModule.cs" />
-    <Compile Include="Modules\KitchenUpModule.cs" />
+    <Compile Include="Modules\KitchenDown.cs" />
+    <Compile Include="Modules\KitchenUp.cs" />
     <Compile Include="NewModuleData.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />

@@ -62,7 +62,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.modulesPanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.modulesDGV = new System.Windows.Forms.DataGridView();
+            this.productsDgv = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -74,7 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerDGV)).BeginInit();
             this.modulesPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.modulesDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDgv)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -356,7 +356,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.modulesDGV);
+            this.groupBox1.Controls.Add(this.productsDgv);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1145, 352);
@@ -364,20 +364,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление модулей типов изделий";
             // 
-            // modulesDGV
+            // productsDgv
             // 
-            this.modulesDGV.AllowUserToAddRows = false;
-            this.modulesDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.modulesDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productsDgv.AllowUserToAddRows = false;
+            this.productsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productsDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
             this.Column7,
             this.Column8});
-            this.modulesDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.modulesDGV.Location = new System.Drawing.Point(3, 16);
-            this.modulesDGV.Name = "modulesDGV";
-            this.modulesDGV.Size = new System.Drawing.Size(1139, 333);
-            this.modulesDGV.TabIndex = 2;
-            this.modulesDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.modulesDGV_CellContentClick);
+            this.productsDgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productsDgv.Location = new System.Drawing.Point(3, 16);
+            this.productsDgv.Name = "productsDgv";
+            this.productsDgv.Size = new System.Drawing.Size(1139, 333);
+            this.productsDgv.TabIndex = 2;
+            this.productsDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDgv_CellContentClick);
             // 
             // Column6
             // 
@@ -431,7 +431,7 @@
             this.modulesPanel.ResumeLayout(false);
             this.modulesPanel.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.modulesDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,7 +461,7 @@
         private System.Windows.Forms.DataGridView customerDGV;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView modulesDGV;
+        private System.Windows.Forms.DataGridView productsDgv;
         private System.Windows.Forms.ToolStripMenuItem кухняВерхниеМодулиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem кухняНижниеМодулиToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;

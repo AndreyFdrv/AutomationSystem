@@ -37,6 +37,7 @@ namespace Automation.View
             _pathesToImages = pathes.ToList();
             _index = 0;
             label3.Text = _index.ToString();
+           
             pictureBox1.ImageLocation = _pathesToImages[_index];
         }
 
@@ -70,6 +71,7 @@ namespace Automation.View
                 _index -= 1;
                 label3.Text = _index.ToString();
                 pictureBox1.ImageLocation = _pathesToImages[_index];
+                label4.Text = GetShemeName(_pathesToImages[_index]);
             }
            
           
@@ -82,6 +84,7 @@ namespace Automation.View
                 _index += 1;
                 label3.Text = _index.ToString();
                 pictureBox1.ImageLocation = _pathesToImages[_index-1];
+                label4.Text = GetShemeName(_pathesToImages[_index]);
             }
    
            

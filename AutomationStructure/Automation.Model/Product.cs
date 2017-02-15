@@ -47,10 +47,10 @@ namespace Automation.Model
             switch (Type)
             {
                case ProductTypes.KITCHEN_UP:
-                    module = new KitchenUpModule();
+                    module = new KitchenUp();
                     break;
                     case ProductTypes.KITCHEN_DOWN:
-                    module = new KitchenDownModule();
+                    module = new KitchenDown();
                     break;
             }
             return module;
@@ -63,11 +63,11 @@ namespace Automation.Model
 
         }
 
-        public void UpdateModule(object data, string moduleName)
+        public void UpdateModule(DataTable data, string moduleName)
         {
             var module = _modules.First(x => x.Name == moduleName);
-            //обновление данных
-            module.SetupData();
+            module.SetupModule(data);
+       
 
         }
         
@@ -89,18 +89,37 @@ namespace Automation.Model
       
         public DataTable GetTotalDetailInfo()
         {
-            foreach (var module in _modules)
+            DataTable emptyTable = null;
+            if (_modules.Count!=0)
             {
-                
+               emptyTable = _modules[0].GetEmptyTable();
+                foreach (var module in _modules)
+                {
+                    module.GetInfoRows(emptyTable);
+                }
             }
-            return null;
+            return emptyTable;
+
+
         }
 
-        public DataTable GetDetailInfo(string moduleName)
+        public DataTable GetModuleDetailInfo(string moduleName)
         {
             var module = _modules.First(x => x.Name == moduleName);
             DataTable table = module.GetInfoTable();
             return table;
+        }
+
+        public AbstractModule GetCloneLastModule()
+        {
+            var lastModule =  _modules.Last();
+            var newCloneModule =  (AbstractModule)lastModule.Clone();
+            return newCloneModule;
+        }
+
+        public void AddSimilarModule(AbstractModule module)
+        {
+            _modules.Add(module);
         }
     }
 }

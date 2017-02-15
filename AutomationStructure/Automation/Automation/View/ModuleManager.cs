@@ -16,17 +16,17 @@ namespace Automation.View
     {
         //Presenter 
         public Presenter Presenter { get; set; }
-
-
+        
         private string _productName;
 
         public ModuleManager(Presenter presenter, string productName)
         {
             Presenter = presenter;
+            Presenter.Manager = this;
             _productName = productName;
             InitializeComponent();
-           LoadModulesList();
-           UpdateTotalModulesDatagrid();
+            LoadModulesList();
+            UpdateTotalModulesDatagrid();
             
         }
 
@@ -34,6 +34,8 @@ namespace Automation.View
         {
             InitializeComponent();
         }
+
+
 
 
         private void LoadModulesList()
@@ -46,14 +48,9 @@ namespace Automation.View
             Presenter.UpdateTotalModules(GetTypeProduct());
         }
         
-        private void add_Click(object sender, EventArgs e)
-        {
-            AddNewModule();
-        }
-        
+
         private void AddNewModule()
         {
-            
             new ModuleConfigurator(this).ShowDialog();
         }
 
@@ -64,6 +61,7 @@ namespace Automation.View
             Presenter.AddNewModule(data);
             Presenter.UpdateModuleList(GetTypeProduct());
             Presenter.UpdateModulesCount(GetTypeProduct());
+            Presenter.UpdateTotalModules(GetTypeProduct());
         }
 
         private ProductTypes GetTypeProduct()
@@ -84,62 +82,86 @@ namespace Automation.View
 
         }
 
-        public void UpdateModuleList(List<string> modulesName)
-        {
-            listBox1.Items.Clear();
-            foreach (var name in modulesName)
-            {
-                listBox1.Items.Add(name);
-            }
-        }
 
-        public void UpdateAllModuleInfo(DataTable modulesInfoTbl)
-        {
-            dataGridView1.DataSource = modulesInfoTbl;
-        }
 
-        public void UpdateModuleDetail(DataTable moduleDetailsTbl )
-        {
-            dataGridView2.DataSource = moduleDetailsTbl;
 
+        //Buttons and events
+
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            AddNewModule();
         }
 
         private void addSimilarBtn_Click(object sender, EventArgs e)
         {
+            SimilarModule similarModule = new SimilarModule();
+            similarModule.OnApplyedName += AddSimilarModule;
+            similarModule.Show();
 
+        }
+
+        private void AddSimilarModule(object sender, SimilarEventArgs e)
+        {
+            Presenter.AddSimilarModule(e.SimilarName, GetTypeProduct());
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void applyBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBox1.Items.Count!=0)
+            if (modulesLbx.Items.Count!=0)
             {
-                Presenter.ShowDetailData(listBox1.SelectedItem.ToString(),GetTypeProduct());
+                Presenter.DeleteModule(modulesLbx.SelectedItem.ToString(), GetTypeProduct());
+            }
+        }
+
+        DataTable _moduleInfoTable;
+
+        private void UpdateModuleInfoBtn(object sender, EventArgs e)
+        {
+            Presenter.UpdateModuleInfo(_moduleInfoTable, modulesLbx.SelectedItem.ToString(), GetTypeProduct());
+        }
+        
+        private void modulesLbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modulesLbx.Items.Count!=0)
+            {
+                Presenter.ShowModuleInformation(modulesLbx.SelectedItem.ToString(),GetTypeProduct());
             }
         }
 
 
 
-        //Functions
+        //Update view methods
 
 
+        public void UpdateModuleList(List<string> modulesName)
+        {
+            modulesLbx.Items.Clear();
+            foreach (var name in modulesName)
+            {
+                modulesLbx.Items.Add(name);
+            }
+        }
+        
+        public void UpdateAllModuleInfo(DataTable modulesInfoTbl)
+        {
+            allModulesInformationDgv.DataSource = modulesInfoTbl;
+        }
+
+        public void UpdateModuleDetail(DataTable moduleDetailsTbl)
+        {
+            selectedModuleInformationDgv.DataSource = moduleDetailsTbl;
+        }
+        
         public void UpdateDetailDataDataGrid(DataTable table)
         {
-            dataGridView2.DataSource = table;
+            selectedModuleInformationDgv.DataSource = table;
         }
 
         public void UpdateTotalModulesInfo(DataTable table)
         {
-            dataGridView1.DataSource = table;
+            _moduleInfoTable = table;
+            allModulesInformationDgv.DataSource = _moduleInfoTable;
         }
     }
 }

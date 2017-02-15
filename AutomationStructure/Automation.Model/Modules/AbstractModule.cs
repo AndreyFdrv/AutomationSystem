@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Media;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -6,37 +7,31 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Automation.Model.Modules
 {
-    abstract class AbstractModule
+   public abstract class AbstractModule: ICloneable
     {
 
         //поля состояния
 
         public string Name { get; set; }
         public string Sсheme { get; set; }
-
-        protected Dimensions dimentions;
-
+        
         protected string BackWall { get; set;}
+        protected string Material { get; set; }
 
-        public abstract DataTable GetModuleView();
+      
 
-        public abstract void SetupData();
-
-        public abstract DataTable GetView();
-
+        public abstract void SetupModule(DataTable changedInfo);
+        public abstract void GetInfoRows(DataTable table);
         public abstract DataTable GetInfoTable();
 
+        public abstract DataTable GetEmptyTable();
 
+        public abstract object Clone();
     }
 
 
-    class Dimensions
+    public class Dimensions
     {
-
-        public Dimensions()
-        {
-            
-        }
 
         public double Depth { get; set; }
         public double Lenght { get; set; }
@@ -47,16 +42,11 @@ namespace Automation.Model.Modules
         public double D { get; set; }
 
 
-        public double Calculate()
-        {
-            return 0;
-        }
-
     }
 
-    class Facade
+   public class Facade
     {
-        List<FacadeRecord> _records;
+        public List<FacadeRecord> _records;
 
         public Facade()
         {
@@ -74,7 +64,7 @@ namespace Automation.Model.Modules
 
     }
 
-    class FacadeRecord
+  public  class FacadeRecord
     {
         public int NumberOnScheme { get; set; }
 
