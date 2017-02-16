@@ -15,13 +15,14 @@ namespace Automation.View
 {
     public partial class ModuleConfigurator : Form
     {
-        private ModuleManager _moduleManager;
 
-        public ModuleConfigurator(ModuleManager moduleManager)
+        public event EventHandler<ConfiguratorArgs> OnApply;
+
+        public ModuleConfigurator()
         {
-            _moduleManager = moduleManager;
+          
             InitializeComponent();
-            LoadPictures();
+            LoadSchemeImagies();
         }
 
        
@@ -29,35 +30,40 @@ namespace Automation.View
         private List<string> _pathesToImages;
         private int _index;
 
-        private void LoadPictures()
+        private void LoadSchemeImagies()
         {
-            //грузим картинки из папки
+            
             _pathesToImages = new List<string>();
             string[] pathes = Directory.GetFiles(Environment.CurrentDirectory + "\\ModuleTypes");
             _pathesToImages = pathes.ToList();
             _index = 0;
-            label3.Text = _index.ToString();
+            numberLbl.Text = _index.ToString();
            
-            pictureBox1.ImageLocation = _pathesToImages[_index];
+            schemesPbx.ImageLocation = _pathesToImages[_index];
         }
 
         private void applyBtn_Click(object sender, EventArgs e)
         {
             
-            if (textBox1.Text.Length==0)
+            if (moduleNameTxb.Text.Length==0)
             {
-                MessageBox.Show("Введите название нового модуля");
+                MessageBox.Show(@"Введите название нового модуля");
                 return;
             }
-            string moduleName = textBox1.Text;
-            string moduleSheme = GetShemeName(_pathesToImages[_index]);
-            NewModuleData data = new NewModuleData() {Name = moduleName, Scheme=moduleSheme};
-            _moduleManager.SetNewModuleData(data);
+            string moduleName = moduleNameTxb.Text;
+            string moduleScheme = GetSchemeName(_pathesToImages[_index]);
+            ConfiguratorArgs args = new ConfiguratorArgs
+            {
+                moduleName = moduleName,
+                moduleScheme = moduleScheme
+            };
+
+            OnApply(this, args);
             Close();
             
         }
 
-        private string GetShemeName(string pathesToImage)
+        private string GetSchemeName(string pathesToImage)
         {
             FileInfo file = new FileInfo(pathesToImage);
             return file.Name;
@@ -69,9 +75,9 @@ namespace Automation.View
             if (_index > 0)
             {
                 _index -= 1;
-                label3.Text = _index.ToString();
-                pictureBox1.ImageLocation = _pathesToImages[_index];
-                label4.Text = GetShemeName(_pathesToImages[_index]);
+                numberLbl.Text = _index.ToString();
+                schemesPbx.ImageLocation = _pathesToImages[_index];
+                schemeNameLbl.Text = GetSchemeName(_pathesToImages[_index]);
             }
            
           
@@ -82,12 +88,16 @@ namespace Automation.View
             if (_index < _pathesToImages.Count)
             {
                 _index += 1;
-                label3.Text = _index.ToString();
-                pictureBox1.ImageLocation = _pathesToImages[_index-1];
-                label4.Text = GetShemeName(_pathesToImages[_index]);
+                numberLbl.Text = _index.ToString();
+                schemesPbx.ImageLocation = _pathesToImages[_index-1];
+                schemeNameLbl.Text = GetSchemeName(_pathesToImages[_index]);
             }
-   
-           
         }
+    }
+
+    public class ConfiguratorArgs : EventArgs
+    {
+        public string moduleName { get; set; }
+        public string moduleScheme { get; set; }
     }
 }

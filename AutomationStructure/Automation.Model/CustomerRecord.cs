@@ -9,16 +9,14 @@ namespace Automation.Model
         { }
 
         public string Material { get; set; }
-        public string CompanyName { get; set; }
-        public string Color { get; set; }
-        public string CodeColor { get; set; }
+        public string Information { get; set; }
         public string ThicknessMaterial { get; set; }
         public bool HaveSpecificThickness { get; set; }
 
 
         public ThicknessSpecificData GetSpecificData()
         {
-            //Возвращаем объект для 
+           
             return null;
         }
 
@@ -26,9 +24,7 @@ namespace Automation.Model
         public override string ToString()
         {
             return "Материал: " + Material +
-                   "Заказчик:" + CompanyName +
-                   "Цвет:" + Color +
-                   "Код цвета:" + CodeColor +
+                   "Информация:" + Information +
                    "Толщина" + ThicknessMaterial;
         }
     }

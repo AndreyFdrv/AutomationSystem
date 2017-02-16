@@ -53,7 +53,7 @@
             this.allModulesInformationDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.allModulesInformationDgv.Location = new System.Drawing.Point(3, 16);
             this.allModulesInformationDgv.Name = "allModulesInformationDgv";
-            this.allModulesInformationDgv.Size = new System.Drawing.Size(1085, 338);
+            this.allModulesInformationDgv.Size = new System.Drawing.Size(961, 338);
             this.allModulesInformationDgv.TabIndex = 0;
             // 
             // groupBox1
@@ -62,18 +62,18 @@
             this.groupBox1.Controls.Add(this.deleteModuleBtn);
             this.groupBox1.Controls.Add(this.addNewModuleBtn);
             this.groupBox1.Controls.Add(this.modulesLbx);
-            this.groupBox1.Location = new System.Drawing.Point(10, 372);
+            this.groupBox1.Location = new System.Drawing.Point(10, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(262, 258);
+            this.groupBox1.Size = new System.Drawing.Size(115, 624);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Список модулей";
             // 
             // addSimilarModuleBtn
             // 
-            this.addSimilarModuleBtn.Location = new System.Drawing.Point(91, 210);
+            this.addSimilarModuleBtn.Location = new System.Drawing.Point(6, 464);
             this.addSimilarModuleBtn.Name = "addSimilarModuleBtn";
-            this.addSimilarModuleBtn.Size = new System.Drawing.Size(83, 40);
+            this.addSimilarModuleBtn.Size = new System.Drawing.Size(94, 40);
             this.addSimilarModuleBtn.TabIndex = 1;
             this.addSimilarModuleBtn.Text = "Добавить предыдущий";
             this.addSimilarModuleBtn.UseVisualStyleBackColor = true;
@@ -81,9 +81,9 @@
             // 
             // deleteModuleBtn
             // 
-            this.deleteModuleBtn.Location = new System.Drawing.Point(180, 211);
+            this.deleteModuleBtn.Location = new System.Drawing.Point(6, 524);
             this.deleteModuleBtn.Name = "deleteModuleBtn";
-            this.deleteModuleBtn.Size = new System.Drawing.Size(75, 39);
+            this.deleteModuleBtn.Size = new System.Drawing.Size(94, 39);
             this.deleteModuleBtn.TabIndex = 1;
             this.deleteModuleBtn.Text = "Удалить";
             this.deleteModuleBtn.UseVisualStyleBackColor = true;
@@ -91,9 +91,9 @@
             // 
             // addNewModuleBtn
             // 
-            this.addNewModuleBtn.Location = new System.Drawing.Point(8, 211);
+            this.addNewModuleBtn.Location = new System.Drawing.Point(6, 407);
             this.addNewModuleBtn.Name = "addNewModuleBtn";
-            this.addNewModuleBtn.Size = new System.Drawing.Size(75, 39);
+            this.addNewModuleBtn.Size = new System.Drawing.Size(94, 39);
             this.addNewModuleBtn.TabIndex = 1;
             this.addNewModuleBtn.Text = "Добавить";
             this.addNewModuleBtn.UseVisualStyleBackColor = true;
@@ -104,16 +104,16 @@
             this.modulesLbx.FormattingEnabled = true;
             this.modulesLbx.Location = new System.Drawing.Point(6, 16);
             this.modulesLbx.Name = "modulesLbx";
-            this.modulesLbx.Size = new System.Drawing.Size(249, 186);
+            this.modulesLbx.Size = new System.Drawing.Size(96, 368);
             this.modulesLbx.TabIndex = 0;
             this.modulesLbx.SelectedIndexChanged += new System.EventHandler(this.modulesLbx_SelectedIndexChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.allModulesInformationDgv);
-            this.groupBox2.Location = new System.Drawing.Point(7, 6);
+            this.groupBox2.Location = new System.Drawing.Point(131, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1091, 357);
+            this.groupBox2.Size = new System.Drawing.Size(967, 357);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Модули";
@@ -122,16 +122,16 @@
             // 
             this.groupBox3.Controls.Add(this.applyBtn);
             this.groupBox3.Controls.Add(this.selectedModuleInformationDgv);
-            this.groupBox3.Location = new System.Drawing.Point(289, 372);
+            this.groupBox3.Location = new System.Drawing.Point(134, 372);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(803, 258);
+            this.groupBox3.Size = new System.Drawing.Size(958, 258);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Настройка модуля";
             // 
             // applyBtn
             // 
-            this.applyBtn.Location = new System.Drawing.Point(718, 216);
+            this.applyBtn.Location = new System.Drawing.Point(871, 217);
             this.applyBtn.Name = "applyBtn";
             this.applyBtn.Size = new System.Drawing.Size(78, 29);
             this.applyBtn.TabIndex = 1;
@@ -145,7 +145,7 @@
             this.selectedModuleInformationDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.selectedModuleInformationDgv.Location = new System.Drawing.Point(6, 19);
             this.selectedModuleInformationDgv.Name = "selectedModuleInformationDgv";
-            this.selectedModuleInformationDgv.Size = new System.Drawing.Size(791, 183);
+            this.selectedModuleInformationDgv.Size = new System.Drawing.Size(946, 183);
             this.selectedModuleInformationDgv.TabIndex = 0;
             // 
             // ModuleManager

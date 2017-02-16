@@ -8,20 +8,14 @@ namespace Automation.Model
 {
     class Order
     {
-        public CustomersInfoCollection customersInfoCollection;
-        public ProductsCollection productsCollection;
-
-        public string NameOrder { get; set; }
+        public CustomersInfoCollection CustomersCollection { get; private set; }
+        public ProductsInfoCollection ProductsCollection { get; private set; }
 
         public Order()
         {
-            customersInfoCollection = new CustomersInfoCollection();
-            productsCollection = new ProductsCollection();
+            CustomersCollection = new CustomersInfoCollection();
+            ProductsCollection = new ProductsInfoCollection();
         }
 
-        internal void SetCustomer(List<string[]> customerRecord)
-        {
-            customersInfoCollection.SetData(customerRecord);
-        }
     }
 }

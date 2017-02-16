@@ -91,6 +91,27 @@ namespace Automation.View
 
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int index = comboBox1.SelectedIndex;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                var columnCell = (DataGridViewComboBoxCell)row.Cells[2];
+                columnCell.Value = columnCell.Items[index];
+            }
+
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                var columnCell = (DataGridViewComboBoxCell)row.Cells[2];
+                columnCell.Value = columnCell.Items[index];
+            }
+
+            foreach (DataGridViewRow row in dataGridView3.Rows)
+            {
+                var columnCell = (DataGridViewComboBoxCell)row.Cells[2];
+                columnCell.Value = columnCell.Items[index];
+            }
+        }
     }
 }

@@ -27,7 +27,6 @@ namespace Automation.View
         private void InitCustomerTable()
         {
             CustomerTable.InitCustomerTable(customerDGV);
-            //customerDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             customerDGV.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.customerDGV_EditingControlShowing);
         }
 
@@ -35,7 +34,7 @@ namespace Automation.View
         public void UpdateThicknessColumn(string thicknessExt)
         {
             hideThicknessExt = thicknessExt;
-            label2.Text = "Подробная запись кромки:"+thicknessExt.Substring(0,10)+" ...";
+            label2.Text = @"Подробная запись кромки: "+thicknessExt.Substring(0,30)+" ...";
 
         }
 
@@ -85,7 +84,6 @@ namespace Automation.View
             panelCustomer.Height = 55;
             modulesPanel.Visible = true;
             ModulesTable.AddProductRowDgv(productsDgv, "Кухня верхние модули");
-            //добавляем в модель
             _presenter.AddNewProduct("Кухня верхние модули");
 
         }
@@ -122,7 +120,7 @@ namespace Automation.View
 
         private void customerDGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            if (customerDGV.CurrentCell.ColumnIndex == 4 && e.Control is ComboBox)
+            if (customerDGV.CurrentCell.ColumnIndex == 2 && e.Control is ComboBox)
             {
                 ComboBox comboBox = e.Control as ComboBox;
                 comboBox.SelectedIndexChanged += LastColumnComboSelectionChanged;
@@ -133,7 +131,7 @@ namespace Automation.View
         {
             var sendingCB = sender as DataGridViewComboBoxEditingControl;
             var extendOption= sendingCB.EditingControlFormattedValue.ToString();
-            if (extendOption == "подробнее")
+            if (extendOption == "персонально")
             {
                 ShowThicknessForm();
             }

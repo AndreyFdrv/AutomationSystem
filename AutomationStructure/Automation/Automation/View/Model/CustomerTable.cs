@@ -14,19 +14,20 @@ namespace Automation.View.Model
             dataGridView1.Rows.Add();
             dataGridView1.Rows.Add();
             dataGridView1.Rows.Add();
+            dataGridView1.Rows.Add();
 
             dataGridView1.Columns[0].Width = 200;
-            dataGridView1.Columns[1].Width = 200;
+            dataGridView1.Columns[1].Width = 500;
             dataGridView1.Columns[2].Width = 200;
-            dataGridView1.Columns[3].Width = 200;
-            dataGridView1.Columns[4].Width = 200;
+           
             //
             dataGridView1.Rows[0].Cells[0].Value = "ЛДСП";
             dataGridView1.Rows[1].Cells[0].Value = "Кромка для ЛДСП";
             dataGridView1.Rows[2].Cells[0].Value = "Задняя панель";
+            dataGridView1.Rows[3].Cells[0].Value = "Фасад";
 
 
-            var comboboxCell = (DataGridViewComboBoxCell)dataGridView1.Rows[0].Cells[4];
+            var comboboxCell = (DataGridViewComboBoxCell)dataGridView1.Rows[0].Cells[2];
             comboboxCell.Items.Clear();
             comboboxCell.Value = null;
 
@@ -37,19 +38,17 @@ namespace Automation.View.Model
             comboboxCell.Items.Add("22 мм");
 
 
-            var comboboxCell2 = (DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[4];
+            var comboboxCell2 = (DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[2];
             comboboxCell2.Items.Clear();
             comboboxCell2.Value = null;
-
-            comboboxCell2.Items.Add("10 мм");
-            comboboxCell2.Items.Add("16 мм");
-            comboboxCell2.Items.Add("18 мм");
-            comboboxCell2.Items.Add("20 мм");
-            comboboxCell2.Items.Add("22 мм");
-            comboboxCell2.Items.Add("подробнее");
+            comboboxCell2.Items.Add("нет");
+            comboboxCell2.Items.Add("0.4 мм");
+            comboboxCell2.Items.Add("2 мм");
+            comboboxCell2.Items.Add("эконом. 2 мм");
+            comboboxCell2.Items.Add("персонально");
 
 
-            var comboboxCell3 = (DataGridViewComboBoxCell)dataGridView1.Rows[2].Cells[4];
+            var comboboxCell3 = (DataGridViewComboBoxCell)dataGridView1.Rows[2].Cells[2];
             comboboxCell3.Items.Clear();
             comboboxCell3.Value = null;
 
@@ -63,7 +62,7 @@ namespace Automation.View.Model
             comboboxCell3.Items.Add("12 мм");
             comboboxCell3.Items.Add("16 мм");
 
-            var helpButton = (DataGridViewButtonColumn) dataGridView1.Columns[5];
+            var helpButton = (DataGridViewButtonColumn) dataGridView1.Columns[3];
             helpButton.UseColumnTextForButtonValue = true;
             helpButton.Text = "?";
 
@@ -74,9 +73,9 @@ namespace Automation.View.Model
             List<string[]> customerInfo = new List<string[]>();
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                string[] record = new string[5];
+                string[] record = new string[3];
 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     var item = row.Cells[i].Value;
                     record[i] = item == null ? " " : ((string) item == "подробнее" ? thickness : (string) item);

@@ -13,112 +13,107 @@ namespace Automation.Model
 
         private Order _order;
 
+        #region Project Methods
+
 
         public void MakeNewProject()
         {
-           _order = new Order();
+            _order = new Order();
         }
 
-        public void SaveCurrentProject()
-        {
-            
-        }
 
-        public void GetModelToXML()
-        {
-            
-        }
+        #endregion
 
-        public void LoadProject()
-        {
-            
-        }
-
-        //большой метод
-        public void ApplyChangesToModel()
-        {
-            
-        }
-
-        public void GetViewFromModel()
-        {
-            
-        }
+        #region Customer Methods
 
         public string GetTotalCustomerRecord()
         {
-            return _order.customersInfoCollection.GetTotalCustomerRecord();
+            return _order.CustomersCollection.GetTotalCustomerRecord();
         }
 
 
         public void SetCustomer(List<string[]> customerRecord)
         {
-            _order.SetCustomer(customerRecord);
+
+            _order.CustomersCollection.SetInputData(customerRecord);
         }
 
-        public void AddNewModule(NewModuleData data)
-        {
-            var product = _order.productsCollection.GetProduct(data);
-            product.AddNewModule(data);
-        }
+
+        #endregion
+        
+        #region Product Methods
 
         public void AddNewProduct(string nameProduct)
         {
-            _order.productsCollection.AddNewProduct(nameProduct);
+            _order.ProductsCollection.AddProduct(nameProduct);
         }
+
+        #endregion
+        
+        #region Modules Methods
+
+
+        public void AddNewModule(NewModuleData data)
+        {
+            var product = _order.ProductsCollection.GetProduct(data);
+            product.AddNewModule(data);
+        }
+
 
         public List<string> GetModulesNamesByType(ProductTypes type)
         {
-            var product = _order.productsCollection.GetProduct(type);
+            var product = _order.ProductsCollection.GetProduct(type);
             return product.GetNamesModules();
         }
-        
+
 
         public string GetProductNameByType(ProductTypes type)
         {
             string result = string.Empty;
             switch (type)
             {
-                    case ProductTypes.KITCHEN_UP:
+                case ProductTypes.KITCHEN_UP:
                     result = "Кухня верхние модули";
                     break;
                 case ProductTypes.KITCHEN_DOWN:
                     result = "Кухня нижние модули";
                     break;
-           }
+            }
             return result;
         }
 
+
+
         public int GetCountModules(ProductTypes type)
         {
-            var count = _order.productsCollection.GetCountModules(GetProductNameByType(type));
+            var count = _order.ProductsCollection.GetCountModules(GetProductNameByType(type));
             return count;
         }
 
         public DataTable GetDetailDataForModule(string moduleName, ProductTypes type)
         {
-            var product = _order.productsCollection.GetProduct(type);
+            var product = _order.ProductsCollection.GetProduct(type);
             DataTable moduleInfo = product.GetModuleDetailInfo(moduleName);
             return moduleInfo;
         }
 
         public DataTable GetTotalModulesInfo(ProductTypes type)
         {
-            var product = _order.productsCollection.GetProduct(type);
+            var product = _order.ProductsCollection.GetProduct(type);
             DataTable table = product.GetTotalDetailInfo();
             return table;
         }
 
         public void DeleteModule(string nameModule, ProductTypes type)
         {
-            var product = _order.productsCollection.GetProduct(type);
+            var product = _order.ProductsCollection.GetProduct(type);
             product.DeleteModule(nameModule);
 
         }
 
         public void AddSimilarModule(string similarName, ProductTypes type)
         {
-            var product = _order.productsCollection.GetProduct(type);
+            var product = _order.ProductsCollection.GetProduct(type);
             var module = product.GetCloneLastModule();
             module.Name = similarName;
             product.AddSimilarModule(module);
@@ -127,8 +122,10 @@ namespace Automation.Model
 
         public void UpdateModuleInfo(DataTable moduleInfoTable, string nameModule, ProductTypes type)
         {
-            var product = _order.productsCollection.GetProduct(type);
+            var product = _order.ProductsCollection.GetProduct(type);
             product.UpdateModule(moduleInfoTable, nameModule);
+
+            #endregion
 
         }
     }

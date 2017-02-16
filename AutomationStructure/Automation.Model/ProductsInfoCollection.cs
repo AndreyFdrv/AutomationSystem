@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace Automation.Model
 {
-    public class ProductsCollection
+    public class ProductsInfoCollection
     {
         private List<Product> _products;
 
-        public ProductsCollection()
+        public ProductsInfoCollection()
         {
             _products = new List<Product>();
         }
 
-        public void AddNewProduct(string nameProduct)
+        public void AddProduct(string nameProduct)
         {
             Product product = new Product(nameProduct);
             _products.Add(product);
@@ -36,7 +36,6 @@ namespace Automation.Model
         {
             Product product = _products.First(x => x.Type ==x.GetType(nameProduct));
             return product.GetCountModules();
-
         }
 
         public Product GetProduct(NewModuleData data)

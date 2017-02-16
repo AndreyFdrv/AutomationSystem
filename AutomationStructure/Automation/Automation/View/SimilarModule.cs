@@ -17,7 +17,7 @@ namespace Automation.View
             InitializeComponent();
         }
 
-        public event EventHandler<SimilarEventArgs> OnApplyedName;
+        public event EventHandler<SimilarEventArgs> OnApply;
 
         private void button1_Click(object sender,EventArgs e)
         {
@@ -25,7 +25,7 @@ namespace Automation.View
             {
                 SimilarEventArgs ea = new SimilarEventArgs();
                 ea.SimilarName = textBox1.Text;
-                OnApplyedName(sender, ea);
+                OnApply(sender, ea);
                 Close();
             }
             else

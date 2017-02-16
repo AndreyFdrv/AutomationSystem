@@ -55,8 +55,6 @@
             this.customerDGV = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
@@ -252,10 +250,9 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 228);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.Size = new System.Drawing.Size(1023, 22);
             this.label2.TabIndex = 3;
             // 
             // button1
@@ -276,8 +273,6 @@
             this.customerDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3,
-            this.Column4,
             this.Column5,
             this.Column9});
             this.customerDGV.Location = new System.Drawing.Point(6, 72);
@@ -296,21 +291,9 @@
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Фирма изготовитель";
+            this.Column2.HeaderText = "Информация";
             this.Column2.Name = "Column2";
-            this.Column2.Width = 90;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Цвет";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 90;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Код цвета";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 90;
+            this.Column2.Width = 500;
             // 
             // Column5
             // 
@@ -393,9 +376,9 @@
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "Новый модуль";
+            this.Column8.HeaderText = "";
             this.Column8.Name = "Column8";
-            this.Column8.Text = "Добавить";
+            this.Column8.Text = "Подробнее";
             this.Column8.ToolTipText = "Позволяет добавить новый модуль";
             this.Column8.UseColumnTextForButtonValue = true;
             // 
@@ -464,18 +447,16 @@
         private System.Windows.Forms.DataGridView productsDgv;
         private System.Windows.Forms.ToolStripMenuItem кухняВерхниеМодулиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem кухняНижниеМодулиToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewButtonColumn Column8;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn Column9;
-        private System.Windows.Forms.Label label2;
     }
 }
 

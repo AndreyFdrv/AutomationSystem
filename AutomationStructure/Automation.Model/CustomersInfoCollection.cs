@@ -22,19 +22,18 @@ namespace Automation.Model
         private void InitCustomerRecords()
         {
             _records.Add(new CustomerRecord { Material = "ЛДСП" });
-            _records.Add(new CustomerRecord { Material = "bla" });
-            _records.Add(new CustomerRecord { Material = "blabla" });
+            _records.Add(new CustomerRecord { Material = "Кромка для ЛДСП" });
+            _records.Add(new CustomerRecord { Material = "Задняя панель" });
+            _records.Add(new CustomerRecord { Material = "Фасад" });
         }
 
-        public void SetData(List<string[]> customerData)
+        public void SetInputData(List<string[]> customerData)
         {
             for (int i = 0; i < customerData.Count; i++)
             {
                 _records[i].Material = customerData[i][0].ToString();
-                _records[i].CompanyName = customerData[i][1].ToString();
-                _records[i].Color = customerData[i][2].ToString();
-                _records[i].CodeColor = customerData[i][3].ToString();
-                _records[i].ThicknessMaterial = customerData[i][4].ToString();
+                _records[i].Information = customerData[i][1].ToString();
+                _records[i].ThicknessMaterial = customerData[i][2].ToString();
             }
         }
 
@@ -42,11 +41,11 @@ namespace Automation.Model
         {
             return _records.Aggregate(string.Empty,
                 (current, t) => current + ("Материал: " + t.Material +
-                                           " ,Фирма изготовитель: " + t.CompanyName +
-                                           " ,Цвет: "+t.Color+
-                                           " ,Код цвета: "+t.CodeColor+
+                                           " ,Информация: "+t.Information+
                                            " ,Толщина материала: "+t.ThicknessMaterial+
                                            "\n"));
         }
+
+
     }
 }

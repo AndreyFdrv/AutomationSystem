@@ -37,7 +37,6 @@ namespace Automation.View
 
 
 
-
         private void LoadModulesList()
         {
             Presenter.UpdateModuleList(GetTypeProduct());
@@ -49,19 +48,11 @@ namespace Automation.View
         }
         
 
-        private void AddNewModule()
-        {
-            new ModuleConfigurator(this).ShowDialog();
-        }
 
         public void SetNewModuleData(NewModuleData data)
         {
             //data.Type = GetTypeProduct();
-            Presenter.Manager = this;
-            Presenter.AddNewModule(data);
-            Presenter.UpdateModuleList(GetTypeProduct());
-            Presenter.UpdateModulesCount(GetTypeProduct());
-            Presenter.UpdateTotalModules(GetTypeProduct());
+           
         }
 
         private ProductTypes GetTypeProduct()
@@ -90,13 +81,24 @@ namespace Automation.View
 
         private void add_Click(object sender, EventArgs e)
         {
-            AddNewModule();
+            ModuleConfigurator configuratorModule = new ModuleConfigurator();
+            configuratorModule.OnApply += SetNewModuleInfo;
+            configuratorModule.ShowDialog();
+        }
+
+        private void SetNewModuleInfo(object sender, ConfiguratorArgs e)
+        {
+            Presenter.Manager = this;
+            Presenter.AddNewModule(new NewModuleData { Name = e.moduleName, Scheme = e.moduleScheme, Type = GetTypeProduct()});
+            Presenter.UpdateModuleList(GetTypeProduct());
+            Presenter.UpdateModulesCount(GetTypeProduct());
+            Presenter.UpdateTotalModules(GetTypeProduct());
         }
 
         private void addSimilarBtn_Click(object sender, EventArgs e)
         {
             SimilarModule similarModule = new SimilarModule();
-            similarModule.OnApplyedName += AddSimilarModule;
+            similarModule.OnApply += AddSimilarModule;
             similarModule.Show();
 
         }

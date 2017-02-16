@@ -50,7 +50,7 @@
     <Compile Include="NewModuleData.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />
-    <Compile Include="ProductsCollection.cs" />
+    <Compile Include="ProductsInfoCollection.cs" />
     <Compile Include="ProductTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThicknessSpecificData.cs" />

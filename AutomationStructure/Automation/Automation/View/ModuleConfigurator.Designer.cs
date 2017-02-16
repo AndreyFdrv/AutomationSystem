@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModuleConfigurator));
             this.applyBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.schemesPbx = new System.Windows.Forms.PictureBox();
             this.BackBtn = new System.Windows.Forms.Button();
             this.NextBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.moduleNameTxb = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.numberLbl = new System.Windows.Forms.Label();
+            this.schemeNameLbl = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.schemesPbx)).BeginInit();
             this.SuspendLayout();
             // 
             // applyBtn
@@ -46,19 +46,19 @@
             this.applyBtn.Location = new System.Drawing.Point(585, 511);
             this.applyBtn.Name = "applyBtn";
             this.applyBtn.Size = new System.Drawing.Size(84, 33);
-            this.applyBtn.TabIndex = 0;
+            this.applyBtn.TabIndex = 5;
             this.applyBtn.Text = "Применить";
             this.applyBtn.UseVisualStyleBackColor = true;
             this.applyBtn.Click += new System.EventHandler(this.applyBtn_Click);
             // 
-            // pictureBox1
+            // schemesPbx
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 84);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(657, 361);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.schemesPbx.Location = new System.Drawing.Point(12, 84);
+            this.schemesPbx.Name = "schemesPbx";
+            this.schemesPbx.Size = new System.Drawing.Size(657, 361);
+            this.schemesPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.schemesPbx.TabIndex = 1;
+            this.schemesPbx.TabStop = false;
             // 
             // BackBtn
             // 
@@ -89,13 +89,13 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Название модуля:";
             // 
-            // textBox1
+            // moduleNameTxb
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(310, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "тест";
+            this.moduleNameTxb.Location = new System.Drawing.Point(133, 17);
+            this.moduleNameTxb.Name = "moduleNameTxb";
+            this.moduleNameTxb.Size = new System.Drawing.Size(310, 20);
+            this.moduleNameTxb.TabIndex = 0;
+            this.moduleNameTxb.Text = "тест";
             // 
             // label2
             // 
@@ -106,36 +106,36 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Номер:";
             // 
-            // label3
+            // numberLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 534);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
-            this.label3.TabIndex = 6;
+            this.numberLbl.AutoSize = true;
+            this.numberLbl.Location = new System.Drawing.Point(65, 534);
+            this.numberLbl.Name = "numberLbl";
+            this.numberLbl.Size = new System.Drawing.Size(0, 13);
+            this.numberLbl.TabIndex = 6;
             // 
-            // label4
+            // schemeNameLbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(169, 530);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "label4";
+            this.schemeNameLbl.AutoSize = true;
+            this.schemeNameLbl.Location = new System.Drawing.Point(169, 530);
+            this.schemeNameLbl.Name = "schemeNameLbl";
+            this.schemeNameLbl.Size = new System.Drawing.Size(35, 13);
+            this.schemeNameLbl.TabIndex = 7;
+            this.schemeNameLbl.Text = "schemeNameLbl";
             // 
             // ModuleConfigurator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 556);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.schemeNameLbl);
+            this.Controls.Add(this.numberLbl);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.moduleNameTxb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NextBtn);
             this.Controls.Add(this.BackBtn);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.schemesPbx);
             this.Controls.Add(this.applyBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -144,7 +144,7 @@
             this.Name = "ModuleConfigurator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Конфигурирование модуля";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schemesPbx)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,13 +153,13 @@
         #endregion
 
         private System.Windows.Forms.Button applyBtn;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox schemesPbx;
         private System.Windows.Forms.Button BackBtn;
         private System.Windows.Forms.Button NextBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox moduleNameTxb;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label numberLbl;
+        private System.Windows.Forms.Label schemeNameLbl;
     }
 }
