@@ -38,7 +38,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.numberLbl = new System.Windows.Forms.Label();
             this.schemeNameLbl = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.schemesPbx)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // applyBtn
@@ -53,9 +55,10 @@
             // 
             // schemesPbx
             // 
-            this.schemesPbx.Location = new System.Drawing.Point(12, 84);
+            this.schemesPbx.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schemesPbx.Location = new System.Drawing.Point(3, 16);
             this.schemesPbx.Name = "schemesPbx";
-            this.schemesPbx.Size = new System.Drawing.Size(657, 361);
+            this.schemesPbx.Size = new System.Drawing.Size(650, 375);
             this.schemesPbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.schemesPbx.TabIndex = 1;
             this.schemesPbx.TabStop = false;
@@ -83,7 +86,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 22);
+            this.label1.Location = new System.Drawing.Point(15, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 3;
@@ -91,7 +94,7 @@
             // 
             // moduleNameTxb
             // 
-            this.moduleNameTxb.Location = new System.Drawing.Point(133, 17);
+            this.moduleNameTxb.Location = new System.Drawing.Point(133, 22);
             this.moduleNameTxb.Name = "moduleNameTxb";
             this.moduleNameTxb.Size = new System.Drawing.Size(310, 20);
             this.moduleNameTxb.TabIndex = 0;
@@ -100,7 +103,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 531);
+            this.label2.Location = new System.Drawing.Point(15, 528);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 5;
@@ -109,7 +112,7 @@
             // numberLbl
             // 
             this.numberLbl.AutoSize = true;
-            this.numberLbl.Location = new System.Drawing.Point(65, 534);
+            this.numberLbl.Location = new System.Drawing.Point(65, 528);
             this.numberLbl.Name = "numberLbl";
             this.numberLbl.Size = new System.Drawing.Size(0, 13);
             this.numberLbl.TabIndex = 6;
@@ -117,17 +120,28 @@
             // schemeNameLbl
             // 
             this.schemeNameLbl.AutoSize = true;
-            this.schemeNameLbl.Location = new System.Drawing.Point(169, 530);
+            this.schemeNameLbl.Location = new System.Drawing.Point(120, 528);
             this.schemeNameLbl.Name = "schemeNameLbl";
-            this.schemeNameLbl.Size = new System.Drawing.Size(35, 13);
+            this.schemeNameLbl.Size = new System.Drawing.Size(86, 13);
             this.schemeNameLbl.TabIndex = 7;
             this.schemeNameLbl.Text = "schemeNameLbl";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.schemesPbx);
+            this.groupBox1.Location = new System.Drawing.Point(13, 64);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(656, 394);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Форма модуля";
             // 
             // ModuleConfigurator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 556);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.schemeNameLbl);
             this.Controls.Add(this.numberLbl);
             this.Controls.Add(this.label2);
@@ -135,7 +149,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NextBtn);
             this.Controls.Add(this.BackBtn);
-            this.Controls.Add(this.schemesPbx);
             this.Controls.Add(this.applyBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -143,8 +156,9 @@
             this.MinimizeBox = false;
             this.Name = "ModuleConfigurator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Конфигурирование модуля";
+            this.Text = "Конфигурирование нового модуля";
             ((System.ComponentModel.ISupportInitialize)(this.schemesPbx)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +175,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label numberLbl;
         private System.Windows.Forms.Label schemeNameLbl;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -3,11 +3,10 @@ using System.Globalization;
 
 namespace Automation.Model
 {
+    [Serializable]
     public class CustomerRecord
     {
-        public CustomerRecord()
-        { }
-
+ 
         public string Material { get; set; }
         public string Information { get; set; }
         public string ThicknessMaterial { get; set; }

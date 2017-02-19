@@ -7,9 +7,12 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Automation.Model.Modules;
+using  Automation.Model.Modules.KitchenUpModule;
+
 
 namespace Automation.Model
 {
+    [Serializable]
     public class Product
     {
         public ProductTypes Type { get; set; }
@@ -105,6 +108,7 @@ namespace Automation.Model
 
         public DataTable GetModuleDetailInfo(string moduleName)
         {
+
             var module = _modules.First(x => x.Name == moduleName);
             DataTable table = module.GetInfoTable();
             return table;

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Automation.Model
 {
-    class Order
+   [Serializable]
+   public class Order
     {
         public CustomersInfoCollection CustomersCollection { get; private set; }
         public ProductsInfoCollection ProductsCollection { get; private set; }

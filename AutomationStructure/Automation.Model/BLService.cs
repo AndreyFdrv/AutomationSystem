@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -124,9 +125,18 @@ namespace Automation.Model
         {
             var product = _order.ProductsCollection.GetProduct(type);
             product.UpdateModule(moduleInfoTable, nameModule);
+        }
 
-            #endregion
+        #endregion
 
+        public Order GetCurrentOrder()
+        {
+            return _order;
+        }
+
+        public void SetCurrentOrder(Order order)
+        {
+            _order = order;
         }
     }
 }

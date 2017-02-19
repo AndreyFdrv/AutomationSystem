@@ -277,7 +277,7 @@
             this.Column9});
             this.customerDGV.Location = new System.Drawing.Point(6, 72);
             this.customerDGV.Name = "customerDGV";
-            this.customerDGV.RowTemplate.Height = 30;
+            this.customerDGV.RowTemplate.Height = 25;
             this.customerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customerDGV.Size = new System.Drawing.Size(1134, 142);
             this.customerDGV.TabIndex = 1;

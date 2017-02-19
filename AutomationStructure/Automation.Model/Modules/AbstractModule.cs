@@ -7,10 +7,9 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Automation.Model.Modules
 {
-   public abstract class AbstractModule: ICloneable
+    [Serializable]
+    public abstract class AbstractModule: ICloneable
     {
-
-        //поля состояния
 
         public string Name { get; set; }
         public string Sсheme { get; set; }

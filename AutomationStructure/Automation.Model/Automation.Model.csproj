@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,7 +48,9 @@
     <Compile Include="CustomersInfoCollection.cs" />
     <Compile Include="CustomerRecord.cs" />
     <Compile Include="Modules\KitchenDown.cs" />
-    <Compile Include="Modules\KitchenUp.cs" />
+    <Compile Include="Modules\KitchenUpModule\KitchenUp.cs" />
+    <Compile Include="Modules\KitchenUpModule\KitchenUpFacadeCalculator.cs" />
+    <Compile Include="Modules\KitchenUpModule\KitchenUpViewUtility.cs" />
     <Compile Include="NewModuleData.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />

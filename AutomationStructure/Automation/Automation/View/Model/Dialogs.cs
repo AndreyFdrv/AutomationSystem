@@ -12,7 +12,7 @@ namespace Automation.View.Model
         public static string GetOpenProjectPath()
         {
             string pathToFile=string.Empty;
-            using (OpenFileDialog openFileDialog = new OpenFileDialog { Filter = "файл xml (*xml) | *.xml" })
+            using (OpenFileDialog openFileDialog = new OpenFileDialog { Filter = "файл dat (*dat) | *.dat" })
             {
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -26,7 +26,7 @@ namespace Automation.View.Model
         public static string GetSaveProjectPath()
         {
             string pathToFile = string.Empty;
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog { Filter = "файл xml (*xml) | *.xml" })
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog { Filter = "файл dat (*dat) | *.dat" })
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {

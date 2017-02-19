@@ -21,10 +21,12 @@ namespace Automation.View
 
         public ModuleManager(Presenter presenter, string productName)
         {
+           
             Presenter = presenter;
             Presenter.Manager = this;
             _productName = productName;
             InitializeComponent();
+            this.Text = "Настройка модулей \"" + productName + "\"";
             LoadModulesList();
             UpdateTotalModulesDatagrid();
             
@@ -48,12 +50,6 @@ namespace Automation.View
         }
         
 
-
-        public void SetNewModuleData(NewModuleData data)
-        {
-            //data.Type = GetTypeProduct();
-           
-        }
 
         private ProductTypes GetTypeProduct()
         {
@@ -112,7 +108,9 @@ namespace Automation.View
         {
             if (modulesLbx.Items.Count!=0)
             {
-                Presenter.DeleteModule(modulesLbx.SelectedItem.ToString(), GetTypeProduct());
+                string moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
+                string moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
+                Presenter.DeleteModule(moduleName, GetTypeProduct());
             }
         }
 
@@ -120,14 +118,18 @@ namespace Automation.View
 
         private void UpdateModuleInfoBtn(object sender, EventArgs e)
         {
-            Presenter.UpdateModuleInfo(_moduleInfoTable, modulesLbx.SelectedItem.ToString(), GetTypeProduct());
+            string moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
+            string moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
+            Presenter.UpdateModuleInfo(_moduleInfoTable, moduleName, GetTypeProduct());
         }
         
         private void modulesLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (modulesLbx.Items.Count!=0)
             {
-                Presenter.ShowModuleInformation(modulesLbx.SelectedItem.ToString(),GetTypeProduct());
+                string moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
+                string moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ')+1);
+                Presenter.ShowModuleInformation(moduleName,GetTypeProduct());
             }
         }
 
@@ -139,31 +141,45 @@ namespace Automation.View
         public void UpdateModuleList(List<string> modulesName)
         {
             modulesLbx.Items.Clear();
-            foreach (var name in modulesName)
+            for (int i = 0; i < modulesName.Count; i++)
             {
-                modulesLbx.Items.Add(name);
+                modulesLbx.Items.Add((i+1)+". "+modulesName[i]);
+
             }
+
         }
         
         public void UpdateAllModuleInfo(DataTable modulesInfoTbl)
         {
             allModulesInformationDgv.DataSource = modulesInfoTbl;
+            if (modulesInfoTbl!= null)
+            {
+                allModulesInformationDgv.Columns[0].Frozen = true;
+                allModulesInformationDgv.Columns[1].Frozen = true;
+            }
+          
         }
-
-        public void UpdateModuleDetail(DataTable moduleDetailsTbl)
-        {
-            selectedModuleInformationDgv.DataSource = moduleDetailsTbl;
-        }
+        
         
         public void UpdateDetailDataDataGrid(DataTable table)
         {
-            selectedModuleInformationDgv.DataSource = table;
+            _moduleInfoTable = table;
+            selectedModuleInformationDgv.DataSource = _moduleInfoTable;
+            selectedModuleInformationDgv.Columns[0].Frozen = true;
+            selectedModuleInformationDgv.Columns[1].Frozen = true;
         }
 
-        public void UpdateTotalModulesInfo(DataTable table)
+        private void selectedModuleInformationDgv_Scroll(object sender, ScrollEventArgs e)
         {
-            _moduleInfoTable = table;
-            allModulesInformationDgv.DataSource = _moduleInfoTable;
+         
+                int h = selectedModuleInformationDgv.HorizontalScrollingOffset;
+                allModulesInformationDgv.HorizontalScrollingOffset = h;
+            
+        }
+
+        public void ClearModuleDetailsDgv()
+        {
+            selectedModuleInformationDgv.DataSource = null;
         }
     }
 }

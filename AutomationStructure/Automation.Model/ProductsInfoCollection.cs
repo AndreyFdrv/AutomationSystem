@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Automation.Model
 {
+    [Serializable]
     public class ProductsInfoCollection
     {
         private List<Product> _products;

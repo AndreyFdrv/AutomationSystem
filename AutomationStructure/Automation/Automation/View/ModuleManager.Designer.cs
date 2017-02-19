@@ -81,7 +81,7 @@
             // 
             // deleteModuleBtn
             // 
-            this.deleteModuleBtn.Location = new System.Drawing.Point(6, 524);
+            this.deleteModuleBtn.Location = new System.Drawing.Point(5, 524);
             this.deleteModuleBtn.Name = "deleteModuleBtn";
             this.deleteModuleBtn.Size = new System.Drawing.Size(94, 39);
             this.deleteModuleBtn.TabIndex = 1;
@@ -104,7 +104,7 @@
             this.modulesLbx.FormattingEnabled = true;
             this.modulesLbx.Location = new System.Drawing.Point(6, 16);
             this.modulesLbx.Name = "modulesLbx";
-            this.modulesLbx.Size = new System.Drawing.Size(96, 368);
+            this.modulesLbx.Size = new System.Drawing.Size(96, 342);
             this.modulesLbx.TabIndex = 0;
             this.modulesLbx.SelectedIndexChanged += new System.EventHandler(this.modulesLbx_SelectedIndexChanged);
             // 
@@ -116,18 +116,18 @@
             this.groupBox2.Size = new System.Drawing.Size(967, 357);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Модули";
+            this.groupBox2.Text = "Информация обо всех модулях";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.applyBtn);
             this.groupBox3.Controls.Add(this.selectedModuleInformationDgv);
-            this.groupBox3.Location = new System.Drawing.Point(134, 372);
+            this.groupBox3.Location = new System.Drawing.Point(131, 372);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(958, 258);
+            this.groupBox3.Size = new System.Drawing.Size(967, 258);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Настройка модуля";
+            this.groupBox3.Text = "Настройка выбранного модуля";
             // 
             // applyBtn
             // 
@@ -143,10 +143,11 @@
             // 
             this.selectedModuleInformationDgv.AllowUserToAddRows = false;
             this.selectedModuleInformationDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.selectedModuleInformationDgv.Location = new System.Drawing.Point(6, 19);
+            this.selectedModuleInformationDgv.Location = new System.Drawing.Point(3, 19);
             this.selectedModuleInformationDgv.Name = "selectedModuleInformationDgv";
-            this.selectedModuleInformationDgv.Size = new System.Drawing.Size(946, 183);
+            this.selectedModuleInformationDgv.Size = new System.Drawing.Size(958, 183);
             this.selectedModuleInformationDgv.TabIndex = 0;
+            this.selectedModuleInformationDgv.Scroll += new System.Windows.Forms.ScrollEventHandler(this.selectedModuleInformationDgv_Scroll);
             // 
             // ModuleManager
             // 

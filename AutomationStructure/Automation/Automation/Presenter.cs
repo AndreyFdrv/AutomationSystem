@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Automation.Model;
 using Automation.View;
 using Automation.View.Model;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Automation
 {
@@ -31,7 +33,29 @@ namespace Automation
 
         internal void OpenProject(string pathToFile)
         {
-            
+            Order order = null;
+
+
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            using (FileStream fs = new FileStream(pathToFile,FileMode.OpenOrCreate))
+            {
+                order = (Order)formatter.Deserialize(fs);
+            }
+
+            _blService.SetCurrentOrder(order);
+
+        }
+
+        internal void SaveProject(string pathToFile)
+        {
+            var order = _blService.GetCurrentOrder();
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            using (FileStream fs = new FileStream(pathToFile,FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs,order);
+            }
         }
 
         public void SetCustomer(List<string[]> customerRecord)
@@ -81,7 +105,9 @@ namespace Automation
            _view.UpdateProductCount(countModules,nameProduct);
        }
 
-       public void ShowModuleInformation(string moduleName, ProductTypes type)
+ 
+
+        public void ShowModuleInformation(string moduleName, ProductTypes type)
        {
            DataTable table = _blService.GetDetailDataForModule(moduleName, type);
            Manager.UpdateDetailDataDataGrid(table);
@@ -98,6 +124,7 @@ namespace Automation
            _blService.DeleteModule(nameModule, type);
             UpdateModuleList(type);
             UpdateTotalModules(type);
+           Manager.ClearModuleDetailsDgv();
        }
 
        public void AddSimilarModule(string similarName, ProductTypes type)
@@ -111,6 +138,7 @@ namespace Automation
        public void UpdateModuleInfo(DataTable moduleInfoTable, string nameModule, ProductTypes type)
        {
            _blService.UpdateModuleInfo(moduleInfoTable, nameModule, type);
+            UpdateTotalModules(type);
        }
     }
 }

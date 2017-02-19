@@ -55,6 +55,7 @@ namespace Automation.View
                 return;
             }
             _presenter.OpenProject(pathToFile);
+
         }
 
         private void newProjectMI_Click(object sender, EventArgs e)
@@ -65,7 +66,13 @@ namespace Automation.View
 
         private void save_Click(object sender, EventArgs e)
         {
-
+            string pathToFile = Dialogs.GetSaveProjectPath();
+            if (pathToFile.Length == 0)
+            {
+                return;
+            }
+            _presenter.SaveProject(pathToFile);
+            MessageBox.Show("Проект сохранён.");
         }
 
         private void saveAs_Click(object sender, EventArgs e)

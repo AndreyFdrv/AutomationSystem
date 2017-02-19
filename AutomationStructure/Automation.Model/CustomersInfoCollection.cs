@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Automation.Model
 {
+    [Serializable]
     public class CustomersInfoCollection
     {
 

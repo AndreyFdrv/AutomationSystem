@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Automation.Model
 {
+    [Serializable]
     public enum ProductTypes
     {
         KITCHEN_UP,
