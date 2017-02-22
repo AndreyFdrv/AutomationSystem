@@ -21,42 +21,39 @@ namespace Automation.Model.Modules.KitchenUpModule
         private KitchenUpFacadeCalculator _calculator;
         private Dimensions _dimentions;
         private Facade _facade;
-        private string ShelfPo { get; set; }
-        private string ShelfMinusTwoMm { get; set; }
-        private string ShelfForRazdel { get; set; }
-        private string ShelfGlass { get; set; }
+        private string _shelfPo;
+        private string _shelfMinusTwoMm;
+        private string _shelfForRazdel;
+        private string _shelfGlass;
         
 
         public override void SetupModule(DataTable changedInfo)
         {
-            //todo
+            
             int countRows = changedInfo.Rows.Count;
             DataRow row = changedInfo.Rows[0];
-            Name = row[0].ToString();
-            Sсheme = row[1].ToString();
-            _dimentions.Lenght = double.Parse(row[2].ToString());
-            _dimentions.Width = double.Parse(row[3].ToString());
-            _dimentions.Depth = double.Parse(row[4].ToString()) ;
-            _dimentions.A = double.Parse(row[5].ToString());
-            _dimentions.B = double.Parse(row[6].ToString()); 
-            _dimentions.C = double.Parse(row[7].ToString());
-            _dimentions.D = double.Parse(row[8].ToString());
+            Name = row["Название модуля"].ToString();
+            Sсheme = row["Форма модуля"].ToString();
+            _dimentions.Lenght = double.Parse(row["Высота модуля (мм)"].ToString());
+            _dimentions.Width = double.Parse(row["Ширина модуля (мм)"].ToString());
+            _dimentions.Depth = double.Parse(row["Глубина модуля (мм)"].ToString()) ;
+            _dimentions.A = double.Parse(row["A размер (мм)"].ToString());
+            _dimentions.B = double.Parse(row["B размер (мм)"].ToString()); 
+            _dimentions.C = double.Parse(row["C размер (мм)"].ToString());
+            _dimentions.D = double.Parse(row["D размер (мм)"].ToString());
             
-            BackWall = row[10].ToString();
-            ShelfPo = row[11].ToString();
-            ShelfMinusTwoMm = row[12].ToString();
-            ShelfForRazdel = row[13].ToString();
-            ShelfGlass = row[14].ToString();
+            BackWall = row["Задняя стенка"].ToString();
+            _shelfPo = row["Полка по ширине секции (шт)"].ToString();
+            _shelfMinusTwoMm = row["Полка - 2мм (шт)"].ToString();
+            _shelfForRazdel = row["Полка разделительная (шт)"].ToString();
+            _shelfGlass = row["Полка стеклянная (шт)"].ToString();
+            
+          //  CalculateFacade();
+          
 
-            if (_dimentions.A > 0 & _dimentions.B > 0 & _dimentions.C > 0)
-            {
-                CalculateFacade();
-            }
-
-            _facade._records[0].NumberOnScheme = int.Parse(row[15].ToString());
-           // _facade._records[0].HorisontalDimension = double.Parse(row[16].ToString());
-            //row[17] = _facade._records[0].VerticalDimension= double.
-           // row[18] = _facade._records[0].Material;
+            _facade._records[0].NumberOnScheme = int.Parse(row["№ схемы фасада"].ToString());
+            _facade._records[0].Type = row["Тип фасада"].ToString();
+            _facade._records[0].Material = row["Материал фасада"].ToString();
 
 
         }
@@ -66,57 +63,30 @@ namespace Automation.Model.Modules.KitchenUpModule
           
             int countRows = GetCountRows();
             _facade.InitFacadeRecords(countRows);
-
-
-            //table.Columns.Add("Название модуля");     0
-            //table.Columns.Add("Форма модуля");        1
-            //table.Columns.Add("Высота модуля (мм)");  2   
-            //table.Columns.Add("Ширина модуля (мм)");  3
-            //table.Columns.Add("Глубина модуля (мм)"); 4
-            //table.Columns.Add("A размер (мм)");       5
-            //table.Columns.Add("B размер (мм)");       6
-            //table.Columns.Add("C размер (мм)");       7
-            //table.Columns.Add("D размер (мм)");       8
-            //table.Columns.Add("Задняя стенка");       9
-
-            //table.Columns.Add("Полка по ширине секции (шт)");  10
-            //table.Columns.Add("Полка - 2мм (шт)");             11
-            //table.Columns.Add("Полка разделительная (шт)");    12
-            //table.Columns.Add("Полка стеклянная (шт)");        13
-            //table.Columns.Add("№ схемы фасада");               14
-            //table.Columns.Add("Тип фасада");                   15
-            //table.Columns.Add("Вертикальный размер");          16
-            //table.Columns.Add("Горизонтальный размер");        17
-            //table.Columns.Add("Материал фасада");              18
-
-
+            
             DataRow row = table.NewRow();
-            row[0] = Name;
-            row[1] = Sсheme;
-            row[2] = _dimentions.Lenght;
-            row[3] = _dimentions.Width;
-            row[4] = _dimentions.Depth;
-            row[5] = _dimentions.A;
-            row[6] = _dimentions.B;
-            row[7] = _dimentions.C;
-            row[8] = _dimentions.D;
+            row["Название модуля"] = Name;
+            row["Форма модуля"] = Sсheme;
+            row["Высота модуля (мм)"] = _dimentions.Lenght;
+            row["Ширина модуля (мм)"] = _dimentions.Width;
+            row["Глубина модуля (мм)"] = _dimentions.Depth;
+            row["A размер (мм)"] = _dimentions.A;
+            row["B размер (мм)"] = _dimentions.B;
+            row["C размер (мм)"] = _dimentions.C;
+            row["D размер (мм)"] = _dimentions.D;
            
-            row[9] = BackWall;
-            row[10] = ShelfPo;
-            row[11] = ShelfMinusTwoMm;
-            row[12] = ShelfForRazdel;
-            row[13] = ShelfGlass;
-
-            if (_dimentions.A > 0 & _dimentions.B > 0 & _dimentions.C > 0)
-            {
-                CalculateFacade();
-            }
-
-            row[14] = _facade._records[0].NumberOnScheme;
-            row[15] = _facade._records[0].Type;
-            row[16] = _facade._records[0].VerticalDimension;
-            row[17] = _facade._records[0].HorisontalDimension;
-            row[18] = _facade._records[0].Material;
+            row["Задняя стенка"] = BackWall;
+            row["Полка по ширине секции (шт)"] = _shelfPo;
+            row["Полка - 2мм (шт)"] = _shelfMinusTwoMm;
+            row["Полка разделительная (шт)"] = _shelfForRazdel;
+            row["Полка стеклянная (шт)"] = _shelfGlass;
+            //CalculateFacade();
+            
+            row["№ схемы фасада"] = _facade._records[0].NumberOnScheme;
+            row["Тип фасада"] = _facade._records[0].Type;
+            row["Вертикальный размер"] = _facade._records[0].VerticalDimension;
+            row["Горизонтальный размер"] = _facade._records[0].HorisontalDimension;
+            row["Материал фасада"] = _facade._records[0].Material;
             table.Rows.Add(row);
 
             if (countRows>1)
@@ -124,11 +94,11 @@ namespace Automation.Model.Modules.KitchenUpModule
                 for (int i = 1; i < countRows; i++)
                 {
                     DataRow anotherRow = table.NewRow();
-                    anotherRow[14] = _facade._records[i].NumberOnScheme;
-                    anotherRow[15] = _facade._records[i].Type;
-                    anotherRow[16] = _facade._records[i].VerticalDimension;
-                    anotherRow[17] = _facade._records[i].HorisontalDimension;
-                    anotherRow[18] = _facade._records[i].Material;
+                    anotherRow["№ схемы фасада"] = _facade._records[i].NumberOnScheme;
+                    anotherRow["Тип фасада"] = _facade._records[i].Type;
+                    anotherRow["Вертикальный размер"] = _facade._records[i].VerticalDimension;
+                    anotherRow["Горизонтальный размер"] = _facade._records[i].HorisontalDimension;
+                    anotherRow["Материал фасада"] = _facade._records[i].Material;
                     table.Rows.Add(anotherRow);
                 }
             }

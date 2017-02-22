@@ -15,7 +15,6 @@ namespace Automation.Model.Modules
         public string Sсheme { get; set; }
         
         protected string BackWall { get; set;}
-        protected string Material { get; set; }
 
       
 
