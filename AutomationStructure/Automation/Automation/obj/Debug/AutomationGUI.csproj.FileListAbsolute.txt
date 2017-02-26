@@ -48,3 +48,11 @@ C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation
 C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe
 C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.pdb
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.SimilarModule.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.GridView.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.UI.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\TelerikCommon.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.GridView.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.UI.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe.licenses

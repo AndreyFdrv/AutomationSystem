@@ -5,7 +5,7 @@ using Automation.View.Model;
 
 namespace Automation.View
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Telerik.WinControls.UI.RadForm
     {
 
 
@@ -27,7 +27,7 @@ namespace Automation.View
         private void InitCustomerTable()
         {
             CustomerTable.InitCustomerTable(customerDGV);
-            customerDGV.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.customerDGV_EditingControlShowing);
+            customerDGV.EditingControlShowing += customerDGV_EditingControlShowing;
         }
 
 
@@ -211,6 +211,16 @@ namespace Automation.View
                 }
             }
             
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radMenuItem5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

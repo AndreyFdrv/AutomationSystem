@@ -30,21 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newProjectMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.openProjectMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.saveProjectMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsProjectMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.типИзделияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.кухняВерхниеМодулиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.кухняНижниеМодулиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutMI = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,7 +50,23 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
+            this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
+            this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem2 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem5 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem6 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuSeparatorItem1 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
+            this.radMenuItem7 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem8 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuSeparatorItem2 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
+            this.radMenuItem9 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuSeparatorItem3 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
+            this.radMenuItem10 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem11 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem12 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelCustomer.SuspendLayout();
@@ -73,124 +74,10 @@
             this.modulesPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsDgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 696);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1156, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem,
-            this.типИзделияToolStripMenuItem,
-            this.справкаToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1156, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // файлToolStripMenuItem
-            // 
-            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newProjectMI,
-            this.openProjectMI,
-            this.toolStripSeparator1,
-            this.saveProjectMI,
-            this.saveAsProjectMI,
-            this.toolStripSeparator2,
-            this.exitMI});
-            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.файлToolStripMenuItem.Text = "Файл";
-            // 
-            // newProjectMI
-            // 
-            this.newProjectMI.Name = "newProjectMI";
-            this.newProjectMI.Size = new System.Drawing.Size(162, 22);
-            this.newProjectMI.Text = "Новый проект";
-            this.newProjectMI.Click += new System.EventHandler(this.newProjectMI_Click);
-            // 
-            // openProjectMI
-            // 
-            this.openProjectMI.Name = "openProjectMI";
-            this.openProjectMI.Size = new System.Drawing.Size(162, 22);
-            this.openProjectMI.Text = "Открыть проект";
-            this.openProjectMI.Click += new System.EventHandler(this.openProjectMI_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
-            // 
-            // saveProjectMI
-            // 
-            this.saveProjectMI.Name = "saveProjectMI";
-            this.saveProjectMI.Size = new System.Drawing.Size(162, 22);
-            this.saveProjectMI.Text = "Сохранить";
-            this.saveProjectMI.Click += new System.EventHandler(this.save_Click);
-            // 
-            // saveAsProjectMI
-            // 
-            this.saveAsProjectMI.Name = "saveAsProjectMI";
-            this.saveAsProjectMI.Size = new System.Drawing.Size(162, 22);
-            this.saveAsProjectMI.Text = "Сохранить как...";
-            this.saveAsProjectMI.Click += new System.EventHandler(this.saveAs_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(159, 6);
-            // 
-            // exitMI
-            // 
-            this.exitMI.Name = "exitMI";
-            this.exitMI.Size = new System.Drawing.Size(162, 22);
-            this.exitMI.Text = "Выход";
-            this.exitMI.Click += new System.EventHandler(this.close_Click);
-            // 
-            // типИзделияToolStripMenuItem
-            // 
-            this.типИзделияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.кухняВерхниеМодулиToolStripMenuItem,
-            this.кухняНижниеМодулиToolStripMenuItem});
-            this.типИзделияToolStripMenuItem.Name = "типИзделияToolStripMenuItem";
-            this.типИзделияToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
-            this.типИзделияToolStripMenuItem.Text = "Тип изделия";
-            // 
-            // кухняВерхниеМодулиToolStripMenuItem
-            // 
-            this.кухняВерхниеМодулиToolStripMenuItem.Name = "кухняВерхниеМодулиToolStripMenuItem";
-            this.кухняВерхниеМодулиToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.кухняВерхниеМодулиToolStripMenuItem.Text = "Кухня верхние модули";
-            this.кухняВерхниеМодулиToolStripMenuItem.Click += new System.EventHandler(this.kitchenUpModules_Click);
-            // 
-            // кухняНижниеМодулиToolStripMenuItem
-            // 
-            this.кухняНижниеМодулиToolStripMenuItem.Name = "кухняНижниеМодулиToolStripMenuItem";
-            this.кухняНижниеМодулиToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.кухняНижниеМодулиToolStripMenuItem.Text = "Кухня нижние модули";
-            this.кухняНижниеМодулиToolStripMenuItem.Click += new System.EventHandler(this.kitchenDownModules_Click);
-            // 
-            // справкаToolStripMenuItem
-            // 
-            this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutMI});
-            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.справкаToolStripMenuItem.Text = "Справка";
-            // 
-            // aboutMI
-            // 
-            this.aboutMI.Name = "aboutMI";
-            this.aboutMI.Size = new System.Drawing.Size(149, 22);
-            this.aboutMI.Text = "О программе";
-            this.aboutMI.Click += new System.EventHandler(this.about_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -199,10 +86,9 @@
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panelCustomer);
             this.flowLayoutPanel1.Controls.Add(this.modulesPanel);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 26);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1156, 672);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1173, 672);
             this.flowLayoutPanel1.TabIndex = 2;
             this.flowLayoutPanel1.Visible = false;
             // 
@@ -213,7 +99,7 @@
             this.panel1.Controls.Add(this.turnBtn);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1145, 36);
+            this.panel1.Size = new System.Drawing.Size(1160, 39);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -221,7 +107,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(51, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 13);
+            this.label1.Size = new System.Drawing.Size(125, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "ОФОРМЛЕНИЕ ЗАКАЗА";
             // 
@@ -243,7 +129,7 @@
             this.panelCustomer.Controls.Add(this.button1);
             this.panelCustomer.Controls.Add(this.customerDGV);
             this.panelCustomer.Controls.Add(this.label3);
-            this.panelCustomer.Location = new System.Drawing.Point(3, 45);
+            this.panelCustomer.Location = new System.Drawing.Point(3, 48);
             this.panelCustomer.Name = "panelCustomer";
             this.panelCustomer.Size = new System.Drawing.Size(1150, 263);
             this.panelCustomer.TabIndex = 1;
@@ -323,7 +209,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(9, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Заказчик:";
             // 
@@ -331,7 +217,7 @@
             // 
             this.modulesPanel.Controls.Add(this.groupBox1);
             this.modulesPanel.Controls.Add(this.label4);
-            this.modulesPanel.Location = new System.Drawing.Point(3, 314);
+            this.modulesPanel.Location = new System.Drawing.Point(3, 317);
             this.modulesPanel.Name = "modulesPanel";
             this.modulesPanel.Size = new System.Drawing.Size(1145, 352);
             this.modulesPanel.TabIndex = 3;
@@ -356,9 +242,9 @@
             this.Column7,
             this.Column8});
             this.productsDgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productsDgv.Location = new System.Drawing.Point(3, 16);
+            this.productsDgv.Location = new System.Drawing.Point(3, 18);
             this.productsDgv.Name = "productsDgv";
-            this.productsDgv.Size = new System.Drawing.Size(1139, 333);
+            this.productsDgv.Size = new System.Drawing.Size(1139, 331);
             this.productsDgv.TabIndex = 2;
             this.productsDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDgv_CellContentClick);
             // 
@@ -390,21 +276,145 @@
             this.label4.Size = new System.Drawing.Size(0, 13);
             this.label4.TabIndex = 0;
             // 
+            // radMenu1
+            // 
+            this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem1,
+            this.radMenuItem2,
+            this.radMenuItem3});
+            this.radMenu1.Location = new System.Drawing.Point(0, 0);
+            this.radMenu1.Name = "radMenu1";
+            this.radMenu1.Size = new System.Drawing.Size(1214, 20);
+            this.radMenu1.TabIndex = 3;
+            this.radMenu1.Text = "radMenu1";
+            // 
+            // radMenuItem1
+            // 
+            this.radMenuItem1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem6,
+            this.radMenuSeparatorItem1,
+            this.radMenuItem7,
+            this.radMenuItem8,
+            this.radMenuSeparatorItem2,
+            this.radMenuItem9,
+            this.radMenuSeparatorItem3,
+            this.radMenuItem10});
+            this.radMenuItem1.Name = "radMenuItem1";
+            this.radMenuItem1.Text = "Файл";
+            // 
+            // radMenuItem2
+            // 
+            this.radMenuItem2.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem5});
+            this.radMenuItem2.Name = "radMenuItem2";
+            this.radMenuItem2.Text = "Сервис";
+            // 
+            // radMenuItem3
+            // 
+            this.radMenuItem3.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem4});
+            this.radMenuItem3.Name = "radMenuItem3";
+            this.radMenuItem3.Text = "Справка";
+            // 
+            // radMenuItem4
+            // 
+            this.radMenuItem4.Name = "radMenuItem4";
+            this.radMenuItem4.Text = "О программе";
+            this.radMenuItem4.Click += new System.EventHandler(this.about_Click);
+            // 
+            // radMenuItem5
+            // 
+            this.radMenuItem5.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem11,
+            this.radMenuItem12});
+            this.radMenuItem5.Name = "radMenuItem5";
+            this.radMenuItem5.Text = "Тип изделия";
+            this.radMenuItem5.Click += new System.EventHandler(this.radMenuItem5_Click);
+            // 
+            // radMenuItem6
+            // 
+            this.radMenuItem6.Name = "radMenuItem6";
+            this.radMenuItem6.Text = "Новый проект";
+            this.radMenuItem6.Click += new System.EventHandler(this.newProjectMI_Click);
+            // 
+            // radMenuSeparatorItem1
+            // 
+            this.radMenuSeparatorItem1.Name = "radMenuSeparatorItem1";
+            this.radMenuSeparatorItem1.Text = "radMenuSeparatorItem1";
+            this.radMenuSeparatorItem1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // radMenuItem7
+            // 
+            this.radMenuItem7.Name = "radMenuItem7";
+            this.radMenuItem7.Text = "Открыть проект";
+            this.radMenuItem7.Click += new System.EventHandler(this.openProjectMI_Click);
+            // 
+            // radMenuItem8
+            // 
+            this.radMenuItem8.Name = "radMenuItem8";
+            this.radMenuItem8.Text = "Сохранить проект";
+            this.radMenuItem8.Click += new System.EventHandler(this.save_Click);
+            // 
+            // radMenuSeparatorItem2
+            // 
+            this.radMenuSeparatorItem2.Name = "radMenuSeparatorItem2";
+            this.radMenuSeparatorItem2.Text = "radMenuSeparatorItem2";
+            this.radMenuSeparatorItem2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // radMenuItem9
+            // 
+            this.radMenuItem9.Name = "radMenuItem9";
+            this.radMenuItem9.Text = "Экспорт...";
+            // 
+            // radMenuSeparatorItem3
+            // 
+            this.radMenuSeparatorItem3.Name = "radMenuSeparatorItem3";
+            this.radMenuSeparatorItem3.Text = "radMenuSeparatorItem3";
+            this.radMenuSeparatorItem3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // radMenuItem10
+            // 
+            this.radMenuItem10.Name = "radMenuItem10";
+            this.radMenuItem10.Text = "Выход";
+            this.radMenuItem10.Click += new System.EventHandler(this.close_Click);
+            // 
+            // radMenuItem11
+            // 
+            this.radMenuItem11.Name = "radMenuItem11";
+            this.radMenuItem11.Text = "Кухня верхние модули";
+            this.radMenuItem11.Click += new System.EventHandler(this.kitchenUpModules_Click);
+            // 
+            // radMenuItem12
+            // 
+            this.radMenuItem12.Name = "radMenuItem12";
+            this.radMenuItem12.Text = "Кухня нижние модули";
+            this.radMenuItem12.Click += new System.EventHandler(this.kitchenDownModules_Click);
+            // 
+            // radStatusStrip1
+            // 
+            this.radStatusStrip1.Location = new System.Drawing.Point(0, 699);
+            this.radStatusStrip1.Name = "radStatusStrip1";
+            this.radStatusStrip1.Size = new System.Drawing.Size(1214, 26);
+            this.radStatusStrip1.TabIndex = 4;
+            this.radStatusStrip1.Text = "radStatusStrip1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 718);
+            this.ClientSize = new System.Drawing.Size(1214, 725);
+            this.Controls.Add(this.radStatusStrip1);
+            this.Controls.Add(this.radMenu1);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Автоматизированная система проектирования мебели";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -415,26 +425,15 @@
             this.modulesPanel.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productsDgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newProjectMI;
-        private System.Windows.Forms.ToolStripMenuItem openProjectMI;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem saveProjectMI;
-        private System.Windows.Forms.ToolStripMenuItem saveAsProjectMI;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem exitMI;
-        private System.Windows.Forms.ToolStripMenuItem типИзделияToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutMI;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button turnBtn;
@@ -445,8 +444,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView productsDgv;
-        private System.Windows.Forms.ToolStripMenuItem кухняВерхниеМодулиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem кухняНижниеМодулиToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
@@ -457,6 +454,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn Column9;
+        private Telerik.WinControls.UI.RadMenu radMenu1;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem1;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem6;
+        private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem1;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem7;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem8;
+        private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem2;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem9;
+        private Telerik.WinControls.UI.RadMenuSeparatorItem radMenuSeparatorItem3;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem10;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem2;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem5;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem3;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem4;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem11;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem12;
+        private Telerik.WinControls.UI.RadStatusStrip radStatusStrip1;
     }
 }
 
