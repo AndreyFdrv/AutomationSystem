@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Automation.View
 {
-    public partial class About : Form
+    public partial class About : Telerik.WinControls.UI.RadForm
     {
         public About()
         {

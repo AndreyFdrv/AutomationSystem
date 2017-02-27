@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Automation
 {
-    public partial class CustomerHelp : Form
+    public partial class CustomerHelp : Telerik.WinControls.UI.RadForm
     {
 
       

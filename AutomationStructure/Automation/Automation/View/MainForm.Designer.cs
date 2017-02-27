@@ -35,8 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.turnBtn = new System.Windows.Forms.Button();
             this.panelCustomer = new System.Windows.Forms.Panel();
+            this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.customerDGV = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,10 +52,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem2 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem5 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem6 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuSeparatorItem1 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.radMenuItem7 = new Telerik.WinControls.UI.RadMenuItem();
@@ -64,12 +60,18 @@
             this.radMenuItem9 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuSeparatorItem3 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.radMenuItem10 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem2 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem5 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem11 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem12 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
+            this.office2010SilverTheme1 = new Telerik.WinControls.Themes.Office2010SilverTheme();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDGV)).BeginInit();
             this.modulesPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -86,20 +88,22 @@
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panelCustomer);
             this.flowLayoutPanel1.Controls.Add(this.modulesPanel);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 26);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 20);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1173, 672);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1077, 679);
             this.flowLayoutPanel1.TabIndex = 2;
             this.flowLayoutPanel1.Visible = false;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.turnBtn);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1160, 39);
+            this.panel1.Size = new System.Drawing.Size(1067, 39);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -123,33 +127,34 @@
             // 
             // panelCustomer
             // 
-            this.panelCustomer.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panelCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelCustomer.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelCustomer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelCustomer.Controls.Add(this.radButton1);
             this.panelCustomer.Controls.Add(this.label2);
-            this.panelCustomer.Controls.Add(this.button1);
             this.panelCustomer.Controls.Add(this.customerDGV);
             this.panelCustomer.Controls.Add(this.label3);
             this.panelCustomer.Location = new System.Drawing.Point(3, 48);
             this.panelCustomer.Name = "panelCustomer";
-            this.panelCustomer.Size = new System.Drawing.Size(1150, 263);
+            this.panelCustomer.Size = new System.Drawing.Size(1070, 263);
             this.panelCustomer.TabIndex = 1;
+            // 
+            // radButton1
+            // 
+            this.radButton1.Location = new System.Drawing.Point(978, 223);
+            this.radButton1.Name = "radButton1";
+            this.radButton1.Size = new System.Drawing.Size(82, 29);
+            this.radButton1.TabIndex = 4;
+            this.radButton1.Text = "Применить";
+            this.radButton1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(9, 228);
+            this.label2.Location = new System.Drawing.Point(9, 226);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1023, 22);
+            this.label2.Size = new System.Drawing.Size(829, 22);
             this.label2.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1058, 222);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 28);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Применить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // customerDGV
             // 
@@ -161,11 +166,11 @@
             this.Column2,
             this.Column5,
             this.Column9});
-            this.customerDGV.Location = new System.Drawing.Point(6, 72);
+            this.customerDGV.Location = new System.Drawing.Point(6, 61);
             this.customerDGV.Name = "customerDGV";
             this.customerDGV.RowTemplate.Height = 25;
             this.customerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customerDGV.Size = new System.Drawing.Size(1134, 142);
+            this.customerDGV.Size = new System.Drawing.Size(1054, 151);
             this.customerDGV.TabIndex = 1;
             this.customerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerDGV_CellContentClick);
             // 
@@ -215,23 +220,27 @@
             // 
             // modulesPanel
             // 
+            this.modulesPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.modulesPanel.Controls.Add(this.groupBox1);
             this.modulesPanel.Controls.Add(this.label4);
             this.modulesPanel.Location = new System.Drawing.Point(3, 317);
             this.modulesPanel.Name = "modulesPanel";
-            this.modulesPanel.Size = new System.Drawing.Size(1145, 352);
+            this.modulesPanel.Size = new System.Drawing.Size(1070, 352);
             this.modulesPanel.TabIndex = 3;
             this.modulesPanel.Visible = false;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.productsDgv);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1145, 352);
+            this.groupBox1.Size = new System.Drawing.Size(1070, 352);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление модулей типов изделий";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // productsDgv
             // 
@@ -244,7 +253,7 @@
             this.productsDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productsDgv.Location = new System.Drawing.Point(3, 18);
             this.productsDgv.Name = "productsDgv";
-            this.productsDgv.Size = new System.Drawing.Size(1139, 331);
+            this.productsDgv.Size = new System.Drawing.Size(1064, 331);
             this.productsDgv.TabIndex = 2;
             this.productsDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDgv_CellContentClick);
             // 
@@ -284,7 +293,7 @@
             this.radMenuItem3});
             this.radMenu1.Location = new System.Drawing.Point(0, 0);
             this.radMenu1.Name = "radMenu1";
-            this.radMenu1.Size = new System.Drawing.Size(1214, 20);
+            this.radMenu1.Size = new System.Drawing.Size(1077, 20);
             this.radMenu1.TabIndex = 3;
             this.radMenu1.Text = "radMenu1";
             // 
@@ -301,35 +310,6 @@
             this.radMenuItem10});
             this.radMenuItem1.Name = "radMenuItem1";
             this.radMenuItem1.Text = "Файл";
-            // 
-            // radMenuItem2
-            // 
-            this.radMenuItem2.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem5});
-            this.radMenuItem2.Name = "radMenuItem2";
-            this.radMenuItem2.Text = "Сервис";
-            // 
-            // radMenuItem3
-            // 
-            this.radMenuItem3.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem4});
-            this.radMenuItem3.Name = "radMenuItem3";
-            this.radMenuItem3.Text = "Справка";
-            // 
-            // radMenuItem4
-            // 
-            this.radMenuItem4.Name = "radMenuItem4";
-            this.radMenuItem4.Text = "О программе";
-            this.radMenuItem4.Click += new System.EventHandler(this.about_Click);
-            // 
-            // radMenuItem5
-            // 
-            this.radMenuItem5.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem11,
-            this.radMenuItem12});
-            this.radMenuItem5.Name = "radMenuItem5";
-            this.radMenuItem5.Text = "Тип изделия";
-            this.radMenuItem5.Click += new System.EventHandler(this.radMenuItem5_Click);
             // 
             // radMenuItem6
             // 
@@ -378,6 +358,22 @@
             this.radMenuItem10.Text = "Выход";
             this.radMenuItem10.Click += new System.EventHandler(this.close_Click);
             // 
+            // radMenuItem2
+            // 
+            this.radMenuItem2.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem5});
+            this.radMenuItem2.Name = "radMenuItem2";
+            this.radMenuItem2.Text = "Сервис";
+            // 
+            // radMenuItem5
+            // 
+            this.radMenuItem5.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem11,
+            this.radMenuItem12});
+            this.radMenuItem5.Name = "radMenuItem5";
+            this.radMenuItem5.Text = "Тип изделия";
+            this.radMenuItem5.Click += new System.EventHandler(this.radMenuItem5_Click);
+            // 
             // radMenuItem11
             // 
             this.radMenuItem11.Name = "radMenuItem11";
@@ -390,11 +386,24 @@
             this.radMenuItem12.Text = "Кухня нижние модули";
             this.radMenuItem12.Click += new System.EventHandler(this.kitchenDownModules_Click);
             // 
+            // radMenuItem3
+            // 
+            this.radMenuItem3.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem4});
+            this.radMenuItem3.Name = "radMenuItem3";
+            this.radMenuItem3.Text = "Справка";
+            // 
+            // radMenuItem4
+            // 
+            this.radMenuItem4.Name = "radMenuItem4";
+            this.radMenuItem4.Text = "О программе";
+            this.radMenuItem4.Click += new System.EventHandler(this.about_Click);
+            // 
             // radStatusStrip1
             // 
             this.radStatusStrip1.Location = new System.Drawing.Point(0, 699);
             this.radStatusStrip1.Name = "radStatusStrip1";
-            this.radStatusStrip1.Size = new System.Drawing.Size(1214, 26);
+            this.radStatusStrip1.Size = new System.Drawing.Size(1077, 26);
             this.radStatusStrip1.TabIndex = 4;
             this.radStatusStrip1.Text = "radStatusStrip1";
             // 
@@ -402,10 +411,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1214, 725);
+            this.ClientSize = new System.Drawing.Size(1077, 725);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.radMenu1);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             // 
@@ -420,6 +429,7 @@
             this.panel1.PerformLayout();
             this.panelCustomer.ResumeLayout(false);
             this.panelCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDGV)).EndInit();
             this.modulesPanel.ResumeLayout(false);
             this.modulesPanel.PerformLayout();
@@ -445,7 +455,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView productsDgv;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
@@ -471,6 +480,8 @@
         private Telerik.WinControls.UI.RadMenuItem radMenuItem11;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem12;
         private Telerik.WinControls.UI.RadStatusStrip radStatusStrip1;
+        private Telerik.WinControls.UI.RadButton radButton1;
+        private Telerik.WinControls.Themes.Office2010SilverTheme office2010SilverTheme1;
     }
 }
 

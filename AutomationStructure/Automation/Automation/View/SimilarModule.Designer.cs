@@ -28,59 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.radTextBox1 = new Telerik.WinControls.UI.RadTextBox();
+            this.radButton1 = new Telerik.WinControls.UI.RadButton();
+            ((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(319, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 33);
+            this.label1.Location = new System.Drawing.Point(13, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.Size = new System.Drawing.Size(115, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Имя нового модуля:";
             // 
-            // textBox1
+            // radTextBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 20);
-            this.textBox1.TabIndex = 0;
+            this.radTextBox1.Location = new System.Drawing.Point(133, 29);
+            this.radTextBox1.Name = "radTextBox1";
+            this.radTextBox1.Size = new System.Drawing.Size(173, 20);
+            this.radTextBox1.TabIndex = 4;
+            // 
+            // radButton1
+            // 
+            this.radButton1.Location = new System.Drawing.Point(319, 26);
+            this.radButton1.Name = "radButton1";
+            this.radButton1.Size = new System.Drawing.Size(75, 24);
+            this.radButton1.TabIndex = 5;
+            this.radButton1.Text = "OK";
+            this.radButton1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SimilarModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(411, 87);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.radButton1);
+            this.Controls.Add(this.radTextBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SimilarModule";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Имя подобного модуля";
+            ((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private Telerik.WinControls.UI.RadTextBox radTextBox1;
+        private Telerik.WinControls.UI.RadButton radButton1;
     }
 }

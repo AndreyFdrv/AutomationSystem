@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Automation.View
 {
-    public partial class SimilarModule : Form
+    public partial class SimilarModule : Telerik.WinControls.UI.RadForm
     {
         public SimilarModule()
         {
@@ -21,10 +21,10 @@ namespace Automation.View
 
         private void button1_Click(object sender,EventArgs e)
         {
-            if (textBox1.Text.Length != 0)
+            if (radTextBox1.Text.Length != 0)
             {
                 SimilarEventArgs ea = new SimilarEventArgs();
-                ea.SimilarName = textBox1.Text;
+                ea.SimilarName = radTextBox1.Text;
                 OnApply(sender, ea);
                 Close();
             }

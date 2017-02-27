@@ -28,39 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModuleManager));
-            this.allModulesInformationDgv = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.addSimilarModuleBtn = new System.Windows.Forms.Button();
-            this.deleteModuleBtn = new System.Windows.Forms.Button();
-            this.addNewModuleBtn = new System.Windows.Forms.Button();
             this.modulesLbx = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.applyBtn = new System.Windows.Forms.Button();
             this.selectedModuleInformationDgv = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv)).BeginInit();
+            this.radButton1 = new Telerik.WinControls.UI.RadButton();
+            this.radButton2 = new Telerik.WinControls.UI.RadButton();
+            this.radButton3 = new Telerik.WinControls.UI.RadButton();
+            this.radButton4 = new Telerik.WinControls.UI.RadButton();
+            this.allModulesInformationDgv = new Telerik.WinControls.UI.RadGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
-            // 
-            // allModulesInformationDgv
-            // 
-            this.allModulesInformationDgv.AllowUserToAddRows = false;
-            this.allModulesInformationDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.allModulesInformationDgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.allModulesInformationDgv.Location = new System.Drawing.Point(3, 16);
-            this.allModulesInformationDgv.Name = "allModulesInformationDgv";
-            this.allModulesInformationDgv.Size = new System.Drawing.Size(961, 338);
-            this.allModulesInformationDgv.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.addSimilarModuleBtn);
-            this.groupBox1.Controls.Add(this.deleteModuleBtn);
-            this.groupBox1.Controls.Add(this.addNewModuleBtn);
+            this.groupBox1.Controls.Add(this.radButton4);
+            this.groupBox1.Controls.Add(this.radButton3);
+            this.groupBox1.Controls.Add(this.radButton2);
             this.groupBox1.Controls.Add(this.modulesLbx);
             this.groupBox1.Location = new System.Drawing.Point(10, 6);
             this.groupBox1.Name = "groupBox1";
@@ -68,36 +65,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Список модулей";
-            // 
-            // addSimilarModuleBtn
-            // 
-            this.addSimilarModuleBtn.Location = new System.Drawing.Point(6, 464);
-            this.addSimilarModuleBtn.Name = "addSimilarModuleBtn";
-            this.addSimilarModuleBtn.Size = new System.Drawing.Size(94, 40);
-            this.addSimilarModuleBtn.TabIndex = 1;
-            this.addSimilarModuleBtn.Text = "Добавить предыдущий";
-            this.addSimilarModuleBtn.UseVisualStyleBackColor = true;
-            this.addSimilarModuleBtn.Click += new System.EventHandler(this.addSimilarBtn_Click);
-            // 
-            // deleteModuleBtn
-            // 
-            this.deleteModuleBtn.Location = new System.Drawing.Point(5, 524);
-            this.deleteModuleBtn.Name = "deleteModuleBtn";
-            this.deleteModuleBtn.Size = new System.Drawing.Size(94, 39);
-            this.deleteModuleBtn.TabIndex = 1;
-            this.deleteModuleBtn.Text = "Удалить";
-            this.deleteModuleBtn.UseVisualStyleBackColor = true;
-            this.deleteModuleBtn.Click += new System.EventHandler(this.deleteBtn_Click);
-            // 
-            // addNewModuleBtn
-            // 
-            this.addNewModuleBtn.Location = new System.Drawing.Point(6, 407);
-            this.addNewModuleBtn.Name = "addNewModuleBtn";
-            this.addNewModuleBtn.Size = new System.Drawing.Size(94, 39);
-            this.addNewModuleBtn.TabIndex = 1;
-            this.addNewModuleBtn.Text = "Добавить";
-            this.addNewModuleBtn.UseVisualStyleBackColor = true;
-            this.addNewModuleBtn.Click += new System.EventHandler(this.add_Click);
             // 
             // modulesLbx
             // 
@@ -120,7 +87,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.applyBtn);
+            this.groupBox3.Controls.Add(this.radButton1);
             this.groupBox3.Controls.Add(this.selectedModuleInformationDgv);
             this.groupBox3.Location = new System.Drawing.Point(131, 372);
             this.groupBox3.Name = "groupBox3";
@@ -128,16 +95,6 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Настройка выбранного модуля";
-            // 
-            // applyBtn
-            // 
-            this.applyBtn.Location = new System.Drawing.Point(871, 217);
-            this.applyBtn.Name = "applyBtn";
-            this.applyBtn.Size = new System.Drawing.Size(78, 29);
-            this.applyBtn.TabIndex = 1;
-            this.applyBtn.Text = "Обновить";
-            this.applyBtn.UseVisualStyleBackColor = true;
-            this.applyBtn.Click += new System.EventHandler(this.UpdateModuleInfoBtn);
             // 
             // selectedModuleInformationDgv
             // 
@@ -148,6 +105,56 @@
             this.selectedModuleInformationDgv.Size = new System.Drawing.Size(958, 183);
             this.selectedModuleInformationDgv.TabIndex = 0;
             this.selectedModuleInformationDgv.Scroll += new System.Windows.Forms.ScrollEventHandler(this.selectedModuleInformationDgv_Scroll);
+            // 
+            // radButton1
+            // 
+            this.radButton1.Location = new System.Drawing.Point(876, 215);
+            this.radButton1.Name = "radButton1";
+            this.radButton1.Size = new System.Drawing.Size(83, 29);
+            this.radButton1.TabIndex = 2;
+            this.radButton1.Text = "Обновить";
+            this.radButton1.Click += new System.EventHandler(this.UpdateModuleInfoBtn);
+            // 
+            // radButton2
+            // 
+            this.radButton2.Location = new System.Drawing.Point(6, 364);
+            this.radButton2.Name = "radButton2";
+            this.radButton2.Size = new System.Drawing.Size(93, 35);
+            this.radButton2.TabIndex = 3;
+            this.radButton2.Text = "Добавить";
+            this.radButton2.Click += new System.EventHandler(this.add_Click);
+            // 
+            // radButton3
+            // 
+            this.radButton3.Location = new System.Drawing.Point(6, 405);
+            this.radButton3.Name = "radButton3";
+            this.radButton3.Size = new System.Drawing.Size(93, 35);
+            this.radButton3.TabIndex = 3;
+            this.radButton3.Text = "Добавить предыдущий";
+            this.radButton3.TextWrap = true;
+            this.radButton3.Click += new System.EventHandler(this.addSimilarBtn_Click);
+            // 
+            // radButton4
+            // 
+            this.radButton4.Location = new System.Drawing.Point(6, 453);
+            this.radButton4.Name = "radButton4";
+            this.radButton4.Size = new System.Drawing.Size(93, 34);
+            this.radButton4.TabIndex = 3;
+            this.radButton4.Text = "Удалить";
+            this.radButton4.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // allModulesInformationDgv
+            // 
+            this.allModulesInformationDgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.allModulesInformationDgv.Location = new System.Drawing.Point(3, 18);
+            // 
+            // 
+            // 
+            this.allModulesInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.allModulesInformationDgv.Name = "allModulesInformationDgv";
+            this.allModulesInformationDgv.Size = new System.Drawing.Size(961, 336);
+            this.allModulesInformationDgv.TabIndex = 1;
+            this.allModulesInformationDgv.Text = "radGridView1";
             // 
             // ModuleManager
             // 
@@ -160,28 +167,37 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ModuleManager";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройка модулей ";
-            ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView allModulesInformationDgv;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button addSimilarModuleBtn;
-        private System.Windows.Forms.Button deleteModuleBtn;
-        private System.Windows.Forms.Button addNewModuleBtn;
         private System.Windows.Forms.ListBox modulesLbx;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button applyBtn;
         private System.Windows.Forms.DataGridView selectedModuleInformationDgv;
+        private Telerik.WinControls.UI.RadButton radButton4;
+        private Telerik.WinControls.UI.RadButton radButton3;
+        private Telerik.WinControls.UI.RadButton radButton2;
+        private Telerik.WinControls.UI.RadButton radButton1;
+        private Telerik.WinControls.UI.RadGridView allModulesInformationDgv;
     }
 }

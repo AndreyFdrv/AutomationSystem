@@ -13,7 +13,7 @@ using Automation.View.Model;
 
 namespace Automation.View
 {
-    public partial class ModuleConfigurator : Form
+    public partial class ModuleConfigurator : Telerik.WinControls.UI.RadForm
     {
 
         public event EventHandler<ConfiguratorArgs> OnApply;
@@ -39,7 +39,7 @@ namespace Automation.View
             _index = 0;
             numberLbl.Text = _index.ToString();
            
-            schemesPbx.ImageLocation = _pathesToImages[_index];
+          //  schemesPbx.ImageLocation = _pathesToImages[_index];
         }
 
         private void applyBtn_Click(object sender, EventArgs e)
@@ -69,30 +69,7 @@ namespace Automation.View
             return file.Name;
         }
 
-        private void BackBtn_Click(object sender, EventArgs e)
-        {
-            //назад
-            if (_index > 0)
-            {
-                _index -= 1;
-                numberLbl.Text = _index.ToString();
-                schemesPbx.ImageLocation = _pathesToImages[_index];
-                schemeNameLbl.Text = GetSchemeName(_pathesToImages[_index]);
-            }
-           
-          
-        }
-
-        private void NextBtn_Click(object sender, EventArgs e)
-        {
-            if (_index < _pathesToImages.Count)
-            {
-                _index += 1;
-                numberLbl.Text = _index.ToString();
-                schemesPbx.ImageLocation = _pathesToImages[_index-1];
-                schemeNameLbl.Text = GetSchemeName(_pathesToImages[_index]);
-            }
-        }
+      
     }
 
     public class ConfiguratorArgs : EventArgs

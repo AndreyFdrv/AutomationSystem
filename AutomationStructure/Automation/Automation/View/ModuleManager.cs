@@ -12,7 +12,7 @@ using Automation.View.Model;
 
 namespace Automation.View
 {
-    public partial class ModuleManager : Form
+    public partial class ModuleManager : Telerik.WinControls.UI.RadForm
     {
         //Presenter 
         public Presenter Presenter { get; set; }
@@ -154,8 +154,8 @@ namespace Automation.View
             allModulesInformationDgv.DataSource = modulesInfoTbl;
             if (modulesInfoTbl!= null)
             {
-                allModulesInformationDgv.Columns[0].Frozen = true;
-                allModulesInformationDgv.Columns[1].Frozen = true;
+              //  allModulesInformationDgv.Columns[0].Frozen = true;
+              //  allModulesInformationDgv.Columns[1].Frozen = true;
             }
           
         }
@@ -173,7 +173,7 @@ namespace Automation.View
         {
          
                 int h = selectedModuleInformationDgv.HorizontalScrollingOffset;
-                allModulesInformationDgv.HorizontalScrollingOffset = h;
+              //  allModulesInformationDgv.HorizontalScrollingOffset = h;
             
         }
 

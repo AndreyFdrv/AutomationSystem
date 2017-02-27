@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Automation.View
 {
-    public partial class ThicknessMaterialEssential : Form
+    public partial class ThicknessMaterialEssential : Telerik.WinControls.UI.RadForm
     {
         private MainForm _form;
 

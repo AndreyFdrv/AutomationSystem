@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Automation.View.Model;
+using Telerik.WinControls;
 
 namespace Automation.View
 {
@@ -14,6 +15,8 @@ namespace Automation.View
         {
 
             InitializeComponent();
+            //adding theme
+            ThemeResolutionService.ApplicationThemeName = "Office2010Silver";
             InitCustomerTable();
         }
 
@@ -219,6 +222,11 @@ namespace Automation.View
         }
 
         private void radMenuItem5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
