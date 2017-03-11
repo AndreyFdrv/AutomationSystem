@@ -99,6 +99,7 @@
             this.radListView1.Size = new System.Drawing.Size(664, 412);
             this.radListView1.TabIndex = 0;
             this.radListView1.Text = "radListView1";
+            this.radListView1.ViewTypeChanged += new System.EventHandler(this.radListView1_ViewTypeChanged);
             // 
             // moduleNameTxb
             // 

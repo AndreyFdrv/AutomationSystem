@@ -21,12 +21,12 @@ namespace Automation
             Application.SetCompatibleTextRenderingDefault(false);
           
 
-            BLService model = new BLService();
-            MainForm view = new MainForm();
+            //BLService model = new BLService();
+            //MainForm view = new MainForm();
 
-            Presenter presenter = new Presenter(model,view);
-            view._presenter = presenter;
-            Application.Run(view);
+            //Presenter presenter = new Presenter(model,view);
+            //view._presenter = presenter;
+            Application.Run(new ModuleConfigurator());
         }
     }
 }

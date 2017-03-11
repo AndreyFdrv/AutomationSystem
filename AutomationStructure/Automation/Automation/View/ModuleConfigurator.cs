@@ -23,6 +23,11 @@ namespace Automation.View
           
             InitializeComponent();
             LoadSchemeImagies();
+
+            radListView1.AllowRemove = false;
+            radListView1.AllowEdit = false;
+            radListView1_ViewTypeChanged(this, EventArgs.Empty);
+
         }
 
        
@@ -58,7 +63,7 @@ namespace Automation.View
                 moduleScheme = moduleScheme
             };
 
-            OnApply(this, args);
+         //   OnApply(this, args);
             Close();
             
         }
@@ -69,7 +74,17 @@ namespace Automation.View
             return file.Name;
         }
 
-      
+        private void radListView1_ViewTypeChanged(object sender, EventArgs e)
+        {
+            SetupIconsView();
+        }
+
+        private void SetupIconsView()
+        {
+            this.radListView1.ItemSize = new Size(295, 120);
+            this.radListView1.ItemSpacing = 5;
+            this.radListView1.GroupIndent = 0;
+        }
     }
 
     public class ConfiguratorArgs : EventArgs
