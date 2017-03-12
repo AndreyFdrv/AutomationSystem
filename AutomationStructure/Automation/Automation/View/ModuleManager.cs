@@ -77,7 +77,7 @@ namespace Automation.View
 
         private void add_Click(object sender, EventArgs e)
         {
-            ModuleConfigurator configuratorModule = new ModuleConfigurator();
+            ModuleConfigurator configuratorModule = new ModuleConfigurator(_productName);
             configuratorModule.OnApply += SetNewModuleInfo;
             configuratorModule.ShowDialog();
         }
@@ -85,7 +85,7 @@ namespace Automation.View
         private void SetNewModuleInfo(object sender, ConfiguratorArgs e)
         {
             Presenter.Manager = this;
-            Presenter.AddNewModule(new NewModuleData { Name = e.moduleName, Scheme = e.moduleScheme, Type = GetTypeProduct()});
+         //   Presenter.AddNewModule(new NewModuleData { Name = e.moduleName, Scheme = e.moduleScheme, Type = GetTypeProduct()});
             Presenter.UpdateModuleList(GetTypeProduct());
             Presenter.UpdateModulesCount(GetTypeProduct());
             Presenter.UpdateTotalModules(GetTypeProduct());
