@@ -49,6 +49,8 @@
     <Reference Include="TelerikCommon, Version=2017.1.117.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\ModuleViewGenerator\KitchenUpView.cs" />
+    <Compile Include="View\ModuleViewGenerator\ViewGenerator.cs" />
     <Compile Include="View\Results.cs">
       <SubType>Form</SubType>
     </Compile>

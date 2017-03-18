@@ -107,7 +107,6 @@ namespace Automation
         public void ShowModuleInformation(string moduleName, ProductTypes type)
        {
            DataTable table = _blService.GetDetailDataForModule(moduleName, type);
-           
            Manager.UpdateDetailDataDataGrid(table);
        }
 

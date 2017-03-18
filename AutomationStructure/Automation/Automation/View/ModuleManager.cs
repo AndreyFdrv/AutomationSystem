@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Automation.Model;
 using Automation.View.Model;
+using Automation.View.ModuleViewGenerator;
 
 namespace Automation.View
 {
@@ -71,9 +72,6 @@ namespace Automation.View
 
 
 
-        //Buttons and events
-
-
         private void add_Click(object sender, EventArgs e)
         {
             ModuleConfigurator configuratorModule = new ModuleConfigurator(_productName);
@@ -84,12 +82,14 @@ namespace Automation.View
         private void SetNewModuleInfo(object sender, ConfiguratorArgs e)
         {
             Presenter.Manager = this;
-            Presenter.AddNewModule(new NewModuleData { Number = e.Number,
-                Scheme = e.SchemeName,SubSchemeIconPath = GetIconPath(e.PathToImageSubScheme),
-                SubScheme = e.SubSchemeName,Type = GetTypeProduct()});
+            Presenter.AddNewModule(new NewModuleData {
+                Number = e.Number,
+                Scheme = e.SchemeName,
+                SubSchemeIconPath = GetIconPath(e.PathToImageSubScheme),
+                SubScheme = e.SubSchemeName,
+                Type = GetTypeProduct()});
             Presenter.UpdateModuleList(GetTypeProduct());
             Presenter.UpdateModulesCount(GetTypeProduct());
-        //    Presenter.UpdateTotalModules(GetTypeProduct());
         }
 
         private string GetIconPath(string pathToImageSubScheme)
@@ -135,14 +135,10 @@ namespace Automation.View
             if (modulesLbx.Items.Count!=0)
             {
                 string moduleNumber = modulesLbx.SelectedItem.ToString();
-             //   string moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ')+1);
                 Presenter.ShowModuleInformation(moduleNumber,GetTypeProduct());
             }
         }
 
-
-
-        //Update view methods
 
 
         public void UpdateModuleList(List<string> modulesNumbers)
@@ -151,8 +147,8 @@ namespace Automation.View
             for (int i = 0; i < modulesNumbers.Count; i++)
             {
                 modulesLbx.Items.Add(modulesNumbers[i]);
-
             }
+            
 
         }
         
@@ -171,16 +167,19 @@ namespace Automation.View
         public void UpdateDetailDataDataGrid(DataTable table)
         {
             _moduleInfoTable = table;
-            selectedModuleInformationDgv.DataSource = _moduleInfoTable;
-            selectedModuleInformationDgv.Columns[0].Frozen = true;
-            selectedModuleInformationDgv.Columns[1].Frozen = true;
+
+            var viewGenerator = GetViewGenerator(ProductName);
+            viewGenerator.SetupView(selectedModuleInformationDgv,table);
+        }
+
+        private ViewGenerator GetViewGenerator(string productName)
+        {
+            return new KitchenUpView();
         }
 
         private void selectedModuleInformationDgv_Scroll(object sender, ScrollEventArgs e)
         {
          
-                int h = selectedModuleInformationDgv.HorizontalScrollingOffset;
-              //  allModulesInformationDgv.HorizontalScrollingOffset = h;
             
         }
 

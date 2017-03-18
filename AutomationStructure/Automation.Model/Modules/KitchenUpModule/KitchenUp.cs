@@ -32,7 +32,8 @@ namespace Automation.Model.Modules.KitchenUpModule
             
             int countRows = changedInfo.Rows.Count;
             DataRow row = changedInfo.Rows[0];
-            Name = row["Название модуля"].ToString();
+            Number = row["Номер модуля"].ToString();
+            IconPath = row["Изображение"].ToString();
             Sсheme = row["Форма модуля"].ToString();
             _dimentions.Lenght = double.Parse(row["Высота модуля (мм)"].ToString());
             _dimentions.Width = double.Parse(row["Ширина модуля (мм)"].ToString());
@@ -66,8 +67,8 @@ namespace Automation.Model.Modules.KitchenUpModule
             
             DataRow row = table.NewRow();
             row["Номер модуля"] = Number; 
-            row["Название модуля"] = Name;
             row["Форма модуля"] = Sсheme;
+            row["Изображение"] = IconPath;
             row["Высота модуля (мм)"] = _dimentions.Lenght;
             row["Ширина модуля (мм)"] = _dimentions.Width;
             row["Глубина модуля (мм)"] = _dimentions.Depth;
@@ -145,8 +146,8 @@ namespace Automation.Model.Modules.KitchenUpModule
         {
             DataTable table = new DataTable();
             table.Columns.Add("Номер модуля");
-            table.Columns.Add("Название модуля");
             table.Columns.Add("Форма модуля");
+            table.Columns.Add("Изображение");
             table.Columns.Add("Высота модуля (мм)");
             table.Columns.Add("Ширина модуля (мм)");
             table.Columns.Add("Глубина модуля (мм)");
