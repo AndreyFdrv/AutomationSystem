@@ -15,21 +15,7 @@ namespace Automation.View.ModuleViewGenerator
     public class KitchenUpView: ViewGenerator
     {
 
-        public void GetColumnsForView(DataGridView dataGridView, string schemeName)
-        {
-            DataGridViewComboBoxColumn backWallColumn = GetBackWallColumns();
-            DataGridViewComboBoxColumn facadeMaterialColumn = GetFacadeMaterial();
-            DataGridViewComboBoxColumn facadeTypeColumn = GetFacadeType();
-            DataGridViewComboBoxColumn shelfPoColumn = GetShelfPO();
-            DataGridViewComboBoxColumn shelfMinus = GetShelfMinus2MM();
-            SetSchemeImage(dataGridView,schemeName);
-            dataGridView.Columns.Add(backWallColumn);
-            dataGridView.Columns.Add(facadeMaterialColumn);
-            dataGridView.Columns.Add(facadeTypeColumn);
-            dataGridView.Columns.Add(shelfPoColumn);
-            dataGridView.Columns.Add(shelfMinus);
-            
-        }
+
 
         private void SetSchemeImage(DataGridView dgv, string schemeName)
         {
@@ -41,13 +27,13 @@ namespace Automation.View.ModuleViewGenerator
 
         }
 
-        private DataGridViewComboBoxColumn GetBackWallColumns()
+        private GridViewComboBoxColumn GetBackWallColumns()
         {
-            DataGridViewComboBoxColumn column = new DataGridViewComboBoxColumn();
+            GridViewComboBoxColumn column = new GridViewComboBoxColumn();
 
-            column.Name = "Задняя стенка";
+            column.Name = "Задняя стенка2";
             column.HeaderText = "Задняя стенка";
-            column.DataPropertyName = "Задняя стенка";
+            column.FieldName = "Задняя стенка";
             column.DataSource = new List<string>
             {
                 "Гв (Крепление на гвозди)",
@@ -59,12 +45,12 @@ namespace Automation.View.ModuleViewGenerator
           
         }
 
-        private DataGridViewComboBoxColumn GetFacadeMaterial()
+        private GridViewComboBoxColumn GetFacadeMaterial()
         {
-            DataGridViewComboBoxColumn column = new DataGridViewComboBoxColumn();
+            GridViewComboBoxColumn column = new GridViewComboBoxColumn();
             column.Name = "Материал фасада";
             column.HeaderText = "Материал фасада";
-            column.DataPropertyName = "Материал фасада";
+            column.FieldName = "Материал фасада";
             column.DataSource = new List<string>
             {
                 "нет",
@@ -77,12 +63,12 @@ namespace Automation.View.ModuleViewGenerator
             return column;
         }
 
-        private DataGridViewComboBoxColumn GetFacadeType()
+        private GridViewComboBoxColumn GetFacadeType()
         {
-            DataGridViewComboBoxColumn column = new DataGridViewComboBoxColumn();
+            GridViewComboBoxColumn column = new GridViewComboBoxColumn();
             column.Name = "Тип фасада";
             column.HeaderText = "Тип фасада";
-            column.DataPropertyName = "Тип фасада";
+            column.FieldName = "Тип фасада";
             column.DataSource = new List<string>
             {
                 "накидной"
@@ -90,13 +76,13 @@ namespace Automation.View.ModuleViewGenerator
             return column;
         }
 
-        private DataGridViewComboBoxColumn GetShelfPO()
+        private GridViewComboBoxColumn GetShelfPO()
         {
-            DataGridViewComboBoxColumn column = new DataGridViewComboBoxColumn
+            GridViewComboBoxColumn column = new GridViewComboBoxColumn
             {
                 Name = "Полка по ширине секции (шт)",
                 HeaderText = "Полка по ширине секции (шт)",
-                DataPropertyName = "Полка по ширине секции (шт)",
+                FieldName = "Полка по ширине секции (шт)",
                 DataSource = new List<string>
                 {
                     "1",
@@ -115,13 +101,13 @@ namespace Automation.View.ModuleViewGenerator
             return column;
         }
 
-        private DataGridViewComboBoxColumn GetShelfMinus2MM()
+        private GridViewComboBoxColumn GetShelfMinus2MM()
         {
-            DataGridViewComboBoxColumn column = new DataGridViewComboBoxColumn
+            GridViewComboBoxColumn column = new GridViewComboBoxColumn
             {
                 Name = "Полка - 2мм (шт)",
                 HeaderText = "Полка - 2мм (шт)",
-                DataPropertyName = "Полка - 2мм (шт)",
+                FieldName = "Полка - 2мм (шт)",
                 DataSource = new List<string>
                 {
                     "1",
@@ -139,26 +125,54 @@ namespace Automation.View.ModuleViewGenerator
             return column;
         }
 
+  
 
         public override void SetupView(RadGridView dgv, DataTable table)
         {
             dgv.DataSource = table;
+            
+            
 
             //pinned
             dgv.Columns[0].IsPinned = true;
             dgv.Columns[1].IsPinned = true;
+            dgv.Columns[2].IsPinned = true;
 
-            dgv.Columns[0].Width = 100;
-            dgv.Columns[1].Width = 100;
-            dgv.Columns[2].Width = 100;
-            dgv.Columns[3].Width = 100;
-            dgv.Columns[4].Width = 100;
-            dgv.Columns[5].Width = 100;
-            dgv.Columns[6].Width = 100;
-            dgv.Columns[7].Width = 100;
-            dgv.Columns[8].Width = 100;
+            dgv.Columns["Номер модуля"].Width = 100;
+            dgv.Columns["Форма модуля"].Width = 100;
+            
 
-            int stop = 10;
+            dgv.Columns["Изображение"].Width = 100;
+            dgv.Columns["Высота модуля (мм)"].Width = 100;
+            dgv.Columns["Ширина модуля (мм)"].Width = 100;
+            dgv.Columns["Глубина модуля (мм)"].Width = 100;
+            dgv.Columns["A размер (мм)"].Width = 100;
+            dgv.Columns["B размер (мм)"].Width = 100;
+            dgv.Columns["C размер (мм)"].Width = 100;
+            dgv.Columns["D размер (мм)"].Width = 100;
+            dgv.Columns["Задняя стенка"].Width = 100; //10
+            dgv.Columns["Задняя стенка"].IsVisible = false;
+
+            dgv.Columns["Полка по ширине секции (шт)"].Width = 100;
+            dgv.Columns["Полка - 2мм (шт)"].Width = 100;
+            dgv.Columns["Полка разделительная (шт)"].Width = 100;
+            dgv.Columns["Полка стеклянная (шт)"].Width = 100;
+            dgv.Columns["№ схемы фасада"].Width = 100;
+            dgv.Columns["Тип фасада"].Width = 100;
+            dgv.Columns["Вертикальный размер"].Width = 100;
+            dgv.Columns["Материал фасада"].Width = 100;
+
+
+
+
+            var backwall = GetBackWallColumns();
+            dgv.Columns.Insert(10,backwall);
+
+            foreach (var column in dgv.Columns )
+            {
+                column.WrapText = true;
+
+            }
         }
     }
 }
