@@ -33,7 +33,9 @@ namespace Automation.View
                         NumberOfColors = 2,
                         ImageAlignment = ContentAlignment.MiddleCenter,
                         TextImageRelation = TextImageRelation.ImageAboveText,
-                        TextAlignment = ContentAlignment.BottomCenter
+                        TextAlignment = ContentAlignment.BottomCenter,
+                        Tag =  productName + "\\" + scheme.Folder + "\\" + scheme.ImagePath
+
                     };
                     radListView1.Items.Add(item);
                 }
@@ -53,7 +55,8 @@ namespace Automation.View
             }
 
             var subSchemeName = radListView1.SelectedItem.Text;
-            onTypeChanged(this, new SchemeArgs {SubSchemeName = subSchemeName});
+            var subSchemePath = radListView1.SelectedItem.Tag.ToString();
+            onTypeChanged(this, new SchemeArgs {SubSchemeName = subSchemeName, SubSchemePath = subSchemePath});
             Close();
         }
 
@@ -66,5 +69,6 @@ namespace Automation.View
     public class SchemeArgs : EventArgs
     {
         public string SubSchemeName { get; set; }
+        public string SubSchemePath { get; set; }
     }
 }

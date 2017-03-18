@@ -15,8 +15,10 @@ namespace Automation.Model.Modules
         public string Sсheme { get; set; }
         
         protected string BackWall { get; set;}
+        public string Number { get; set; }
+        public string SubScheme { get; set; }
+        public string IconPath { get; set; }
 
-      
 
         public abstract void SetupModule(DataTable changedInfo);
         public abstract void GetInfoRows(DataTable table);

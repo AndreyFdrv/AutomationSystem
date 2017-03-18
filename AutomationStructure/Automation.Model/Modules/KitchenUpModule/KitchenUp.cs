@@ -65,6 +65,7 @@ namespace Automation.Model.Modules.KitchenUpModule
             _facade.InitFacadeRecords(countRows);
             
             DataRow row = table.NewRow();
+            row["Номер модуля"] = Number; 
             row["Название модуля"] = Name;
             row["Форма модуля"] = Sсheme;
             row["Высота модуля (мм)"] = _dimentions.Lenght;
@@ -143,6 +144,7 @@ namespace Automation.Model.Modules.KitchenUpModule
         public override DataTable GetEmptyTable()
         {
             DataTable table = new DataTable();
+            table.Columns.Add("Номер модуля");
             table.Columns.Add("Название модуля");
             table.Columns.Add("Форма модуля");
             table.Columns.Add("Высота модуля (мм)");

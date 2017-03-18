@@ -67,6 +67,12 @@ namespace Automation.Model
             return product.GetNamesModules();
         }
 
+        public List<string> GetModulesNumbersByType(ProductTypes type)
+        {
+            var product = _order.ProductsCollection.GetProduct(type);
+            return product.GetNumbersModules();
+        } 
+
 
         public string GetProductNameByType(ProductTypes type)
         {
@@ -94,7 +100,7 @@ namespace Automation.Model
         public DataTable GetDetailDataForModule(string moduleName, ProductTypes type)
         {
             var product = _order.ProductsCollection.GetProduct(type);
-            DataTable moduleInfo = product.GetModuleDetailInfo(moduleName);
+            DataTable moduleInfo = product.GetModuleDetailInfoByNumber(moduleName);
             return moduleInfo;
         }
 

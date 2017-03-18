@@ -58,3 +58,4 @@ C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automa
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe.licenses
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.Themes.Office2010Silver.dll
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.SubSchemeModule.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.Results.resources

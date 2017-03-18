@@ -49,6 +49,12 @@
     <Reference Include="TelerikCommon, Version=2017.1.117.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\Results.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Results.Designer.cs">
+      <DependentUpon>Results.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SubSchemeModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
       <DependentUpon>ModuleManager.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="View\Results.resx">
+      <DependentUpon>Results.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\SubSchemeModule.resx">
       <DependentUpon>SubSchemeModule.cs</DependentUpon>
     </EmbeddedResource>

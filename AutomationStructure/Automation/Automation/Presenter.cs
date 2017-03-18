@@ -68,9 +68,6 @@ namespace Automation
        public void AddNewModule(NewModuleData data)
        {
            _blService.AddNewModule(data);
-           //UpdateModuleList();
-          // UpdateModuleDetail();
-          // UpdateAllModuleInfo();
        }
 
        
@@ -80,8 +77,8 @@ namespace Automation
         
         public void UpdateModuleList(ProductTypes type)
         {
-            List<string> modulesName = _blService.GetModulesNamesByType(type);
-            Manager.UpdateModuleList(modulesName);
+            List<string> modulesNumbers= _blService.GetModulesNumbersByType(type);
+            Manager.UpdateModuleList(modulesNumbers);
         }
         
         private void UpdateCustomerString()

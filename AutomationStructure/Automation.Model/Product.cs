@@ -40,7 +40,10 @@ namespace Automation.Model
         {
             var module = GetModuleByType();
             module.Name = data.Name;
+            module.Number = data.Number;
+            module.SubScheme = data.SubScheme;
             module.Sсheme =  data.Scheme;
+            module.IconPath = data.SubSchemeIconPath;
             _modules.Add(module);
         }
 
@@ -106,10 +109,17 @@ namespace Automation.Model
 
         }
 
-        public DataTable GetModuleDetailInfo(string moduleName)
+        public DataTable GetModuleDetailInfoByName(string moduleName)
         {
 
             var module = _modules.First(x => x.Name == moduleName);
+            DataTable table = module.GetInfoTable();
+            return table;
+        }
+
+        public DataTable GetModuleDetailInfoByNumber(string moduleNumber)
+        {
+            var module = _modules.First(x => x.Number == moduleNumber);
             DataTable table = module.GetInfoTable();
             return table;
         }
@@ -124,6 +134,11 @@ namespace Automation.Model
         public void AddSimilarModule(AbstractModule module)
         {
             _modules.Add(module);
+        }
+
+        public List<string> GetNumbersModules()
+        {
+            return _modules.Select(module => module.Number).ToList();
         }
     }
 }

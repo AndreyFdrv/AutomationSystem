@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,8 +49,6 @@ namespace Automation.View
         {
             Presenter.UpdateTotalModules(GetTypeProduct());
         }
-        
-
 
         private ProductTypes GetTypeProduct()
         {
@@ -85,10 +84,18 @@ namespace Automation.View
         private void SetNewModuleInfo(object sender, ConfiguratorArgs e)
         {
             Presenter.Manager = this;
-         //   Presenter.AddNewModule(new NewModuleData { Name = e.moduleName, Scheme = e.moduleScheme, Type = GetTypeProduct()});
+            Presenter.AddNewModule(new NewModuleData { Number = e.Number,
+                Scheme = e.SchemeName,SubSchemeIconPath = GetIconPath(e.PathToImageSubScheme),
+                SubScheme = e.SubSchemeName,Type = GetTypeProduct()});
             Presenter.UpdateModuleList(GetTypeProduct());
             Presenter.UpdateModulesCount(GetTypeProduct());
-            Presenter.UpdateTotalModules(GetTypeProduct());
+        //    Presenter.UpdateTotalModules(GetTypeProduct());
+        }
+
+        private string GetIconPath(string pathToImageSubScheme)
+        {
+            pathToImageSubScheme = pathToImageSubScheme.Remove(pathToImageSubScheme.Length - 4) + "_icon.png";
+            return pathToImageSubScheme;
         }
 
         private void addSimilarBtn_Click(object sender, EventArgs e)
@@ -127,9 +134,9 @@ namespace Automation.View
         {
             if (modulesLbx.Items.Count!=0)
             {
-                string moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
-                string moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ')+1);
-                Presenter.ShowModuleInformation(moduleName,GetTypeProduct());
+                string moduleNumber = modulesLbx.SelectedItem.ToString();
+             //   string moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ')+1);
+                Presenter.ShowModuleInformation(moduleNumber,GetTypeProduct());
             }
         }
 
@@ -138,12 +145,12 @@ namespace Automation.View
         //Update view methods
 
 
-        public void UpdateModuleList(List<string> modulesName)
+        public void UpdateModuleList(List<string> modulesNumbers)
         {
             modulesLbx.Items.Clear();
-            for (int i = 0; i < modulesName.Count; i++)
+            for (int i = 0; i < modulesNumbers.Count; i++)
             {
-                modulesLbx.Items.Add((i+1)+". "+modulesName[i]);
+                modulesLbx.Items.Add(modulesNumbers[i]);
 
             }
 

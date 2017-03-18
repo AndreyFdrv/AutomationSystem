@@ -89,10 +89,11 @@ namespace Automation.View
             {
                 Number = moduleNumber,
                 SchemeName = moduleSchemeName,
-                SubSchemeName = modulSubSchemeName
+                SubSchemeName = modulSubSchemeName,
+                PathToImageSubScheme = imageSubSchemePath
             };
 
-         //   OnApply(this, args);
+            OnApply(this, args);
             Close();
             
         }
@@ -163,9 +164,12 @@ namespace Automation.View
             subSchemeSelector.Show();
         }
 
+        private string imageSubSchemePath;
+
         private void SetSubSchemeType(object sender, SchemeArgs e)
         {
             subSchemeTxb.Text = e.SubSchemeName;
+            imageSubSchemePath = e.SubSchemePath;
         }
 
         private void radButton3_Click(object sender, EventArgs e)
@@ -197,6 +201,7 @@ namespace Automation.View
         public string Number { get; set; }
         public string SchemeName { get; set; }
         public string SubSchemeName { get; set; }
+        public string PathToImageSubScheme { get; set; }
 
     }
 }
