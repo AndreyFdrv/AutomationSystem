@@ -49,6 +49,12 @@
     <Reference Include="TelerikCommon, Version=2017.1.117.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\ModuleViewGenerator\BigModuleImageInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ModuleViewGenerator\BigModuleImageInfo.Designer.cs">
+      <DependentUpon>BigModuleImageInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ModuleViewGenerator\KitchenUpView.cs" />
     <Compile Include="View\ModuleViewGenerator\ViewGenerator.cs" />
     <Compile Include="View\Results.cs">
@@ -112,6 +118,9 @@
       <DependentUpon>ModuleManager.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="View\ModuleViewGenerator\BigModuleImageInfo.resx">
+      <DependentUpon>BigModuleImageInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Results.resx">
       <DependentUpon>Results.cs</DependentUpon>
     </EmbeddedResource>

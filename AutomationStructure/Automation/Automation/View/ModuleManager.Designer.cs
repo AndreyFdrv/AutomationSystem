@@ -61,7 +61,7 @@
             this.groupBox1.Controls.Add(this.radButton3);
             this.groupBox1.Controls.Add(this.radButton2);
             this.groupBox1.Controls.Add(this.modulesLbx);
-            this.groupBox1.Location = new System.Drawing.Point(1107, 201);
+            this.groupBox1.Location = new System.Drawing.Point(1431, 201);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(93, 451);
             this.groupBox1.TabIndex = 1;
@@ -110,7 +110,7 @@
             this.groupBox2.Controls.Add(this.allModulesInformationDgv);
             this.groupBox2.Location = new System.Drawing.Point(4, 201);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1097, 451);
+            this.groupBox2.Size = new System.Drawing.Size(1421, 451);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация обо всех модулях";
@@ -124,7 +124,7 @@
             // 
             this.allModulesInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.allModulesInformationDgv.Name = "allModulesInformationDgv";
-            this.allModulesInformationDgv.Size = new System.Drawing.Size(1091, 430);
+            this.allModulesInformationDgv.Size = new System.Drawing.Size(1415, 430);
             this.allModulesInformationDgv.TabIndex = 1;
             this.allModulesInformationDgv.Text = "radGridView1";
             // 
@@ -141,13 +141,18 @@
             // 
             // selectedModuleInformationDgv
             // 
-            this.selectedModuleInformationDgv.EnableFastScrolling = true;
+            this.selectedModuleInformationDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.selectedModuleInformationDgv.Cursor = System.Windows.Forms.Cursors.Default;
+            this.selectedModuleInformationDgv.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.selectedModuleInformationDgv.ForeColor = System.Drawing.Color.Black;
+            this.selectedModuleInformationDgv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.selectedModuleInformationDgv.Location = new System.Drawing.Point(6, 21);
             // 
             // 
             // 
             this.selectedModuleInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.selectedModuleInformationDgv.Name = "selectedModuleInformationDgv";
+            this.selectedModuleInformationDgv.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.selectedModuleInformationDgv.Size = new System.Drawing.Size(1426, 162);
             this.selectedModuleInformationDgv.TabIndex = 3;
             this.selectedModuleInformationDgv.Text = "radGridView1";

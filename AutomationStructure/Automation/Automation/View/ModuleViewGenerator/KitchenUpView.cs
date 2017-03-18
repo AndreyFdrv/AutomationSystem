@@ -48,7 +48,7 @@ namespace Automation.View.ModuleViewGenerator
         private GridViewComboBoxColumn GetFacadeMaterial()
         {
             GridViewComboBoxColumn column = new GridViewComboBoxColumn();
-            column.Name = "Материал фасада";
+            column.Name = "Материал фасада2";
             column.HeaderText = "Материал фасада";
             column.FieldName = "Материал фасада";
             column.DataSource = new List<string>
@@ -66,7 +66,7 @@ namespace Automation.View.ModuleViewGenerator
         private GridViewComboBoxColumn GetFacadeType()
         {
             GridViewComboBoxColumn column = new GridViewComboBoxColumn();
-            column.Name = "Тип фасада";
+            column.Name = "Тип фасада2";
             column.HeaderText = "Тип фасада";
             column.FieldName = "Тип фасада";
             column.DataSource = new List<string>
@@ -80,7 +80,7 @@ namespace Automation.View.ModuleViewGenerator
         {
             GridViewComboBoxColumn column = new GridViewComboBoxColumn
             {
-                Name = "Полка по ширине секции (шт)",
+                Name = "Полка по ширине секции (шт)2",
                 HeaderText = "Полка по ширине секции (шт)",
                 FieldName = "Полка по ширине секции (шт)",
                 DataSource = new List<string>
@@ -105,7 +105,7 @@ namespace Automation.View.ModuleViewGenerator
         {
             GridViewComboBoxColumn column = new GridViewComboBoxColumn
             {
-                Name = "Полка - 2мм (шт)",
+                Name = "Полка - 2мм (шт)2",
                 HeaderText = "Полка - 2мм (шт)",
                 FieldName = "Полка - 2мм (шт)",
                 DataSource = new List<string>
@@ -125,24 +125,45 @@ namespace Automation.View.ModuleViewGenerator
             return column;
         }
 
-  
+        private GridViewImageColumn GetIcon()
+        {
+            GridViewImageColumn column = new GridViewImageColumn
+            {
+                Name ="Icon",
+                HeaderText = "Изображение"
+        };
+
+            return column;
+
+        }
+
+        private  DataTable resultTable;
 
         public override void SetupView(RadGridView dgv, DataTable table)
         {
+
+            resultTable = table;
+
             dgv.DataSource = table;
-            
-            
+
+            dgv.MasterTemplate.AllowAddNewRow = false;
+            dgv.Rows[0].Height = 40;
+
+            dgv.CellFormatting += Dgv_CellFormatting;
 
             //pinned
             dgv.Columns[0].IsPinned = true;
             dgv.Columns[1].IsPinned = true;
             dgv.Columns[2].IsPinned = true;
+            //dgv.Columns[3].IsPinned = true;
 
             dgv.Columns["Номер модуля"].Width = 100;
             dgv.Columns["Форма модуля"].Width = 100;
             
 
             dgv.Columns["Изображение"].Width = 100;
+            dgv.Columns["Изображение"].IsVisible = false;
+
             dgv.Columns["Высота модуля (мм)"].Width = 100;
             dgv.Columns["Ширина модуля (мм)"].Width = 100;
             dgv.Columns["Глубина модуля (мм)"].Width = 100;
@@ -154,13 +175,23 @@ namespace Automation.View.ModuleViewGenerator
             dgv.Columns["Задняя стенка"].IsVisible = false;
 
             dgv.Columns["Полка по ширине секции (шт)"].Width = 100;
+            dgv.Columns["Полка по ширине секции (шт)"].IsVisible = false;
+
             dgv.Columns["Полка - 2мм (шт)"].Width = 100;
+            dgv.Columns["Полка - 2мм (шт)"].IsVisible = false;
+
             dgv.Columns["Полка разделительная (шт)"].Width = 100;
             dgv.Columns["Полка стеклянная (шт)"].Width = 100;
             dgv.Columns["№ схемы фасада"].Width = 100;
+
             dgv.Columns["Тип фасада"].Width = 100;
+            dgv.Columns["Тип фасада"].IsVisible = false;
+
+            dgv.Columns["Горизонтальный размер"].Width = 100;
             dgv.Columns["Вертикальный размер"].Width = 100;
-            dgv.Columns["Материал фасада"].Width = 100;
+
+            dgv.Columns["Материал фасада"].Width = 100; //18
+            dgv.Columns["Материал фасада"].IsVisible = false;
 
 
 
@@ -168,11 +199,51 @@ namespace Automation.View.ModuleViewGenerator
             var backwall = GetBackWallColumns();
             dgv.Columns.Insert(10,backwall);
 
+            var facadeMaterial = GetFacadeMaterial();
+            dgv.Columns.Insert(20,facadeMaterial);
+
+            var facadeType = GetFacadeType();
+            dgv.Columns.Insert(16,facadeType);
+
+            var shelfPo = GetShelfPO();
+            dgv.Columns.Insert(11,shelfPo);
+
+            var shelfMin = GetShelfMinus2MM();
+            dgv.Columns.Insert(12,shelfMin);
+
+            var iconCol = GetIcon();
+            dgv.Columns.Insert(3,iconCol);
+
+
             foreach (var column in dgv.Columns )
             {
                 column.WrapText = true;
+                column.Width = 150;
+            }
+
+            dgv.Columns[3].IsPinned = true;
+
+
+            dgv.Refresh();
+
+        }
+
+        private void Dgv_CellFormatting(object sender, CellFormattingEventArgs e)
+        {
+            try
+            {
+                if (e.CellElement.ColumnIndex == 3 && e.CellElement.RowIndex==0)
+                {
+                    var pathToImage = Environment.CurrentDirectory+"\\"+ resultTable.Rows[0]["Изображение"];
+                    e.CellElement.Image = Image.FromFile(pathToImage);
+                }
 
             }
+            catch (Exception ex)
+            {
+                
+            }
+        
         }
     }
 }
