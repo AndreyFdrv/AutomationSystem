@@ -14,6 +14,12 @@ namespace Automation.View
         public Results()
         {
             InitializeComponent();
+            LoadImage();
+        }
+
+        private void LoadImage()
+        {
+            pictureBox1.Load(Environment.CurrentDirectory+"\\"+ "Кухня верхние модули\\scheme 1\\kitchen-upper-module-table-type1-subtype1_F1-01-0001_result.png");
         }
     }
 }

@@ -11,9 +11,20 @@ namespace Automation.View.ModuleViewGenerator
 {
     public partial class BigModuleImageInfo : Telerik.WinControls.UI.RadForm
     {
-        public BigModuleImageInfo()
+        public BigModuleImageInfo(string pathImage)
         {
             InitializeComponent();
+            LoadImage(pathImage);
+        }
+
+        private void LoadImage(string pathImage)
+        {
+            pictureBox1.Load(Environment.CurrentDirectory+"\\"+pathImage);
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Close();
         }
     }
 }

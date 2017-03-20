@@ -149,7 +149,7 @@ namespace Automation.View.ModuleViewGenerator
             dgv.MasterTemplate.AllowAddNewRow = false;
             dgv.Rows[0].Height = 40;
 
-            dgv.CellFormatting += Dgv_CellFormatting;
+          
 
             //pinned
             dgv.Columns[0].IsPinned = true;
@@ -223,19 +223,40 @@ namespace Automation.View.ModuleViewGenerator
 
             dgv.Columns[3].IsPinned = true;
 
+            dgv.CellFormatting += Dgv_CellFormatting;
+
+            dgv.CellDoubleClick += Dgv_CellDoubleClick;
 
             dgv.Refresh();
 
+        }
+
+        private void Dgv_CellDoubleClick(object sender, GridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex==3)
+            {
+                var path = resultTable.Rows[e.RowIndex][2].ToString();
+                var parts = path.Split('_');
+                var bigImagePath = parts[0] + "_" + parts[1] + "_big.png";
+                //MessageBox.Show(bigImagePath);
+                new BigModuleImageInfo(bigImagePath).Show();
+
+            }
+           
         }
 
         private void Dgv_CellFormatting(object sender, CellFormattingEventArgs e)
         {
             try
             {
-                if (e.CellElement.ColumnIndex == 3 && e.CellElement.RowIndex==0)
+                if (e.CellElement.ColumnIndex == 3 )
                 {
-                    var pathToImage = Environment.CurrentDirectory+"\\"+ resultTable.Rows[0]["Изображение"];
-                    e.CellElement.Image = Image.FromFile(pathToImage);
+                    if (resultTable.Rows[e.RowIndex]["Изображение"].ToString().Length != 0)
+                    {
+                        var pathToImage = Environment.CurrentDirectory + "\\" + resultTable.Rows[e.RowIndex]["Изображение"];
+                        e.CellElement.Image = Image.FromFile(pathToImage);
+                    }
+                   
                 }
 
             }
