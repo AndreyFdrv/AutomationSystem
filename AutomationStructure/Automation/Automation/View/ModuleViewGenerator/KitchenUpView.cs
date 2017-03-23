@@ -16,17 +16,6 @@ namespace Automation.View.ModuleViewGenerator
     {
 
 
-
-        private void SetSchemeImage(DataGridView dgv, string schemeName)
-        {
-            string pathToFile = Environment.CurrentDirectory + "\\KitchenUPShemes\\" + schemeName;
-            Bitmap image = new Bitmap(pathToFile);
-            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
-            imageColumn.DataPropertyName = "Форма модуля";
-            dgv.Rows[0].Cells["Форма модуля"].Value = image;
-
-        }
-
         private GridViewComboBoxColumn GetBackWallColumns()
         {
             GridViewComboBoxColumn column = new GridViewComboBoxColumn();
@@ -39,7 +28,7 @@ namespace Automation.View.ModuleViewGenerator
                 "Гв (Крепление на гвозди)",
                 "Ч+Гв (выпиливание четверти под заднюю панель, крепление на гвозди)",
                 "ПАЗ (выпиливание штробы, в неё вставляем ДВП",
-                "Что это такое"
+                "Что это?"
             };
             return column;
           
@@ -58,7 +47,7 @@ namespace Automation.View.ModuleViewGenerator
                 "Гориз (тоже ЛДСП, фактура гориз.)",
                 "Глухой (фасад глухой)",
                 "Стекло (фасад со стеклом)",
-                "Что это? (помощь)"
+                "Что это?"
             };
             return column;
         }
@@ -141,6 +130,8 @@ namespace Automation.View.ModuleViewGenerator
 
         public override void SetupView(RadGridView dgv, DataTable table)
         {
+            dgv.Columns.Clear();
+            dgv.DataSource = null;
 
             resultTable = table;
 
@@ -152,9 +143,9 @@ namespace Automation.View.ModuleViewGenerator
           
 
             //pinned
-            dgv.Columns[0].IsPinned = true;
-            dgv.Columns[1].IsPinned = true;
-            dgv.Columns[2].IsPinned = true;
+            //dgv.Columns[0].IsPinned = true;
+            //dgv.Columns[1].IsPinned = true;
+            //dgv.Columns[2].IsPinned = true;
             //dgv.Columns[3].IsPinned = true;
 
             dgv.Columns["Номер модуля"].Width = 100;
@@ -195,7 +186,6 @@ namespace Automation.View.ModuleViewGenerator
 
 
 
-
             var backwall = GetBackWallColumns();
             dgv.Columns.Insert(10,backwall);
 
@@ -221,14 +211,147 @@ namespace Automation.View.ModuleViewGenerator
                 column.Width = 150;
             }
 
-            dgv.Columns[3].IsPinned = true;
+            dgv.Columns[0].Width = 70;
+            dgv.Columns[1].Width = 90;
+            dgv.Columns[2].Width = 90;
+            dgv.Columns[3].Width = 90;
+
+        
+
+            var view = SetColumnGroupsView(dgv);
+            dgv.ViewDefinition = view;
+
+            //dgv.Columns[0].IsPinned = true;
+            //dgv.Columns[1].IsPinned = true;
+            //dgv.Columns[2].IsPinned = true;
+            //dgv.Columns[3].IsPinned = true;
 
             dgv.CellFormatting += Dgv_CellFormatting;
 
             dgv.CellDoubleClick += Dgv_CellDoubleClick;
 
+            dgv.CellBeginEdit += Dgv_CellBeginEdit;
+
             dgv.Refresh();
 
+        }
+
+        private ColumnGroupsViewDefinition SetColumnGroupsView(RadGridView dgv)
+        {
+            ColumnGroupsViewDefinition view = new ColumnGroupsViewDefinition();
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("Num"));
+            view.ColumnGroups[0].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[0].Rows[0].Columns.Add(dgv.Columns["Номер модуля"]);
+            view.ColumnGroups[0].ShowHeader = false;
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("F"));
+            view.ColumnGroups[1].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[1].Rows[0].Columns.Add(dgv.Columns["Форма модуля"]);
+            view.ColumnGroups[1].ShowHeader = false;
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("I"));
+            view.ColumnGroups[2].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[2].Rows[0].Columns.Add(dgv.Columns["Icon"]);
+            view.ColumnGroups[2].ShowHeader = false;
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("Размеры"));
+            view.ColumnGroups[3].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["Высота модуля (мм)"]);
+            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["Ширина модуля (мм)"]);
+            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["Глубина модуля (мм)"]);
+            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["A размер (мм)"]);
+            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["B размер (мм)"]);
+            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["C размер (мм)"]);
+            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["D размер (мм)"]);
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("z"));
+            view.ColumnGroups[4].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[4].Rows[0].Columns.Add(dgv.Columns["Задняя стенка2"]);
+            view.ColumnGroups[4].ShowHeader = false;
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("ppse"));
+            view.ColumnGroups[5].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[5].Rows[0].Columns.Add(dgv.Columns["Полка по ширине секции (шт)2"]);
+            view.ColumnGroups[5].ShowHeader = false;
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("ppmin"));
+            view.ColumnGroups[6].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[6].Rows[0].Columns.Add(dgv.Columns["Полка - 2мм (шт)2"]);
+            view.ColumnGroups[6].ShowHeader = false;
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("ppraz"));
+            view.ColumnGroups[7].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[7].Rows[0].Columns.Add(dgv.Columns["Полка разделительная (шт)"]);
+            view.ColumnGroups[7].ShowHeader = false;
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("ppraz"));
+            view.ColumnGroups[8].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[8].Rows[0].Columns.Add(dgv.Columns["Полка стеклянная (шт)"]);
+            view.ColumnGroups[8].ShowHeader = false;
+
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("Фасад"));
+            view.ColumnGroups[9].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["№ схемы фасада"]);
+            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Тип фасада2"]);
+            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Горизонтальный размер"]);
+            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Вертикальный размер"]);
+            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Материал фасада2"]);
+    
+
+
+            return view;
+        }
+
+        private string _columnName=string.Empty;
+
+        private void Dgv_CellBeginEdit(object sender, GridViewCellCancelEventArgs e)
+        {
+
+            if (e.Column.Name == "Полка по ширине секции (шт)2" ||
+                e.Column.Name == "Задняя стенка2" ||
+                e.Column.Name == "Материал фасада2")
+            {
+                _columnName = e.Column.Name;
+                ((RadDropDownListEditorElement)((RadDropDownListEditor)e.ActiveEditor).EditorElement).SelectedIndexChanged-=  Form1_SelectedIndexChanged;
+                ((RadDropDownListEditorElement)((RadDropDownListEditor)e.ActiveEditor).EditorElement).SelectedIndexChanged += Form1_SelectedIndexChanged;
+            }
+        }
+
+        private void Form1_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            RadDropDownListEditorElement editor = sender as RadDropDownListEditorElement;
+          
+            if (editor?.SelectedItem != null && editor.SelectedItem.Text == "Что это?")
+            {
+                //вызов формы
+                ShowHelpForm(_columnName);
+            }
+        }
+
+        private void ShowHelpForm(string columnName)
+        {
+            var path = resultTable.Rows[0][2].ToString();
+            var parts = path.Split('_');
+            string bigImagePath = string.Empty;
+
+            switch (columnName)
+            {
+                case "Полка по ширине секции (шт)2":
+                    bigImagePath = parts[0] + "_" + parts[1] + "_polka-help.png";
+                    new BigModuleImageInfo(bigImagePath).Show();
+                    break;
+                case "Задняя стенка2":
+                    bigImagePath = parts[0] + "_" + parts[1] + "_stenka-help.png";
+                    new BigModuleImageInfo(bigImagePath).Show();
+                    break;
+                case "Материал фасада2":
+                    bigImagePath = parts[0] + "_" + parts[1] + "_material-help.png";
+                    new BigModuleImageInfo(bigImagePath).Show();
+                    break;
+                    
+            }
         }
 
         private void Dgv_CellDoubleClick(object sender, GridViewCellEventArgs e)
@@ -238,7 +361,6 @@ namespace Automation.View.ModuleViewGenerator
                 var path = resultTable.Rows[e.RowIndex][2].ToString();
                 var parts = path.Split('_');
                 var bigImagePath = parts[0] + "_" + parts[1] + "_big.png";
-                //MessageBox.Show(bigImagePath);
                 new BigModuleImageInfo(bigImagePath).Show();
 
             }
@@ -262,9 +384,8 @@ namespace Automation.View.ModuleViewGenerator
             }
             catch (Exception ex)
             {
-                
+                // ignored
             }
-        
         }
     }
 }

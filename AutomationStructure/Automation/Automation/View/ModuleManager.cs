@@ -126,8 +126,10 @@ namespace Automation.View
         private void UpdateModuleInfoBtn(object sender, EventArgs e)
         {
             string moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
-            string moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
-            Presenter.UpdateModuleInfo(_moduleInfoTable, moduleName, GetTypeProduct());
+            string moduleNumber = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
+            Presenter.UpdateModuleInfo(_moduleInfoTable, moduleNumber, GetTypeProduct());
+            Presenter.ShowModuleInformation(moduleNumber, GetTypeProduct());
+
         }
         
         private void modulesLbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -154,12 +156,19 @@ namespace Automation.View
         
         public void UpdateAllModuleInfo(DataTable modulesInfoTbl)
         {
-            allModulesInformationDgv.DataSource = modulesInfoTbl;
-            if (modulesInfoTbl!= null)
+
+            if (modulesInfoTbl!=null)
             {
-              //  allModulesInformationDgv.Columns[0].Frozen = true;
-              //  allModulesInformationDgv.Columns[1].Frozen = true;
+                var viewGenerator = GetViewGenerator(ProductName);
+                viewGenerator.SetupView(allModulesInformationDgv,modulesInfoTbl);
             }
+
+            //allModulesInformationDgv.DataSource = modulesInfoTbl;
+            //if (modulesInfoTbl!= null)
+            //{
+            //  //  allModulesInformationDgv.Columns[0].Frozen = true;
+            //  //  allModulesInformationDgv.Columns[1].Frozen = true;
+            //}
           
         }
         

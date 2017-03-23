@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
@@ -19,7 +20,16 @@ namespace Automation.View.ModuleViewGenerator
 
         private void LoadImage(string pathImage)
         {
-            pictureBox1.Load(Environment.CurrentDirectory+"\\"+pathImage);
+            if (pathImage!=null)
+            {
+                var fullPath = Environment.CurrentDirectory + "\\" + pathImage;
+                if (File.Exists(fullPath))
+                {
+                    pictureBox1.Load(fullPath);
+                }
+               
+            }
+           
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)

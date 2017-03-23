@@ -127,10 +127,10 @@ namespace Automation.Model
 
         }
 
-        public void UpdateModuleInfo(DataTable moduleInfoTable, string nameModule, ProductTypes type)
+        public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductTypes type)
         {
             var product = _order.ProductsCollection.GetProduct(type);
-            product.UpdateModule(moduleInfoTable, nameModule);
+            product.UpdateModule(moduleInfoTable, numberModule);
         }
 
         #endregion

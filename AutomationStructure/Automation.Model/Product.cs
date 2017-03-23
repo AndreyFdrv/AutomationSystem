@@ -69,9 +69,9 @@ namespace Automation.Model
 
         }
 
-        public void UpdateModule(DataTable data, string moduleName)
+        public void UpdateModule(DataTable data, string moduleNumber)
         {
-            var module = _modules.First(x => x.Name == moduleName);
+            var module = _modules.First(x => x.Number == moduleNumber);
             module.SetupModule(data);
        
 

@@ -124,6 +124,7 @@
             // 
             this.allModulesInformationDgv.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.allModulesInformationDgv.Name = "allModulesInformationDgv";
+            this.allModulesInformationDgv.ReadOnly = true;
             this.allModulesInformationDgv.Size = new System.Drawing.Size(1415, 430);
             this.allModulesInformationDgv.TabIndex = 1;
             this.allModulesInformationDgv.Text = "radGridView1";

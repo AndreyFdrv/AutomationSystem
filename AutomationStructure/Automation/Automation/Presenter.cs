@@ -113,6 +113,7 @@ namespace Automation
        public void UpdateTotalModules(ProductTypes type)
        {
            DataTable table = _blService.GetTotalModulesInfo(type);
+           
            Manager.UpdateAllModuleInfo(table);
        }
 
@@ -132,9 +133,9 @@ namespace Automation
            
        }
 
-       public void UpdateModuleInfo(DataTable moduleInfoTable, string nameModule, ProductTypes type)
+       public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductTypes type)
        {
-           _blService.UpdateModuleInfo(moduleInfoTable, nameModule, type);
+           _blService.UpdateModuleInfo(moduleInfoTable, numberModule, type);
             UpdateTotalModules(type);
        }
     }

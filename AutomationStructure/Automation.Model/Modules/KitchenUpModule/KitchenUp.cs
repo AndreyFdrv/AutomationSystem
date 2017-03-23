@@ -48,8 +48,10 @@ namespace Automation.Model.Modules.KitchenUpModule
             _shelfMinusTwoMm = row["Полка - 2мм (шт)"].ToString();
             _shelfForRazdel = row["Полка разделительная (шт)"].ToString();
             _shelfGlass = row["Полка стеклянная (шт)"].ToString();
-            
-          //  CalculateFacade();
+
+            var formula = IconPath.Split('_')[1];
+            KitchenUpFacadeCalculator calculator = new KitchenUpFacadeCalculator();
+            calculator.CalculateDimentions(_facade, _dimentions, formula);
           
 
             _facade._records[0].NumberOnScheme = int.Parse(row["№ схемы фасада"].ToString());
@@ -82,7 +84,6 @@ namespace Automation.Model.Modules.KitchenUpModule
             row["Полка - 2мм (шт)"] = _shelfMinusTwoMm;
             row["Полка разделительная (шт)"] = _shelfForRazdel;
             row["Полка стеклянная (шт)"] = _shelfGlass;
-            //CalculateFacade();
             
             row["№ схемы фасада"] = _facade._records[0].NumberOnScheme;
             row["Тип фасада"] = _facade._records[0].Type;
@@ -108,14 +109,6 @@ namespace Automation.Model.Modules.KitchenUpModule
 
         }
         
-
-        private void CalculateFacade()
-        {
-            if (_dimentions.A>0 & _dimentions.B>0 & _dimentions.C>0)
-            {
-                _calculator.CalculateDimentions(_facade, _dimentions, base.Sсheme);
-            }
-        }
 
         private int GetCountRows()
         {
