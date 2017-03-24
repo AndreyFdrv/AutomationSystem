@@ -122,7 +122,7 @@ namespace Automation.Model
         {
             var product = _order.ProductsCollection.GetProduct(type);
             var module = product.GetCloneLastModule();
-            module.Name = similarName;
+            module.Number = similarName;
             product.AddSimilarModule(module);
 
         }
@@ -143,6 +143,13 @@ namespace Automation.Model
         public void SetCurrentOrder(Order order)
         {
             _order = order;
+        }
+
+        public bool IsModuleExist(string number, ProductTypes type)
+        {
+            var product = _order.ProductsCollection.GetProduct(type);
+            return product.IsModuleExist(number);
+
         }
     }
 }

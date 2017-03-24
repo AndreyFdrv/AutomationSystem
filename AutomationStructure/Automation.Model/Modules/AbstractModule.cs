@@ -29,7 +29,7 @@ namespace Automation.Model.Modules
         public abstract object Clone();
     }
 
-
+    [Serializable]
     public class Dimensions
     {
 
@@ -44,7 +44,8 @@ namespace Automation.Model.Modules
 
     }
 
-   public class Facade
+    [Serializable]
+    public class Facade
     {
         public List<FacadeRecord> _records;
 
@@ -64,7 +65,8 @@ namespace Automation.Model.Modules
 
     }
 
-  public  class FacadeRecord
+    [Serializable]
+    public  class FacadeRecord
     {
         public int NumberOnScheme { get; set; }
 

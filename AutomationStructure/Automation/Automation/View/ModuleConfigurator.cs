@@ -27,10 +27,19 @@ namespace Automation.View
             InitializeComponent();
             ProductName = productName;
             LoadSchemeImagies(productName);
+            SetupFirstModule();
 
             radListView1.AllowRemove = false;
             radListView1.AllowEdit = false;
            
+        }
+
+        private void SetupFirstModule()
+        {
+            if (radListView1.Items.Count!=0)
+            {
+                schemeTxb.Text = radListView1.SelectedItem.Text;
+            }
         }
 
 
@@ -99,43 +108,6 @@ namespace Automation.View
         }
 
 
-
-
-        private void radButton2_Click(object sender, EventArgs e)
-        {
-            radListView1.ItemSize = new Size(200,200);
-            radListView1.ItemSpacing = 10;
-           // radListView1.Padding = Padding()
-            //adding item
-            ListViewDataItem item = new ListViewDataItem("Module 1")
-            {
-                BackColor = Color.WhiteSmoke,
-                Image = Image.FromFile(Environment.CurrentDirectory + "\\1.png"),
-                Font = new Font("Segoe UI",10, FontStyle.Bold),
-                Text = "Module 1",
-                NumberOfColors = 2,
-                ImageAlignment = ContentAlignment.MiddleCenter,
-                TextImageRelation = TextImageRelation.ImageAboveText,
-                TextAlignment = ContentAlignment.BottomCenter,
-            
-            };
-
-            ListViewDataItem item2 = new ListViewDataItem("Module 2")
-            {
-                BackColor = Color.WhiteSmoke,
-                Image = Image.FromFile(Environment.CurrentDirectory + "\\1.png"),
-                Text = "Module 2",
-                NumberOfColors = 2,
-                ImageAlignment = ContentAlignment.MiddleCenter,
-                TextImageRelation = TextImageRelation.ImageAboveText,
-                TextAlignment = ContentAlignment.BottomCenter,
-             
-            };
-
-            radListView1.Items.Add(item);
-            radListView1.Items.Add(item2);
-
-        }
 
   
 

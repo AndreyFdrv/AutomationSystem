@@ -115,14 +115,22 @@ namespace Automation
            DataTable table = _blService.GetTotalModulesInfo(type);
            
            Manager.UpdateAllModuleInfo(table);
+           
        }
 
        public void DeleteModule(string nameModule, ProductTypes type)
        {
-           _blService.DeleteModule(nameModule, type);
-            UpdateModuleList(type);
-            UpdateTotalModules(type);
-           Manager.ClearModuleDetailsDgv();
+           if (_blService.GetCountModules(type)>0)
+           {
+                _blService.DeleteModule(nameModule, type);
+                UpdateModuleList(type);
+                UpdateTotalModules(type);
+                Manager.ClearModuleDetailsDgv();
+            }
+           
+           
+           
+           
        }
 
        public void AddSimilarModule(string similarName, ProductTypes type)
@@ -137,6 +145,11 @@ namespace Automation
        {
            _blService.UpdateModuleInfo(moduleInfoTable, numberModule, type);
             UpdateTotalModules(type);
+       }
+
+       public bool IsModuleExist(string number, ProductTypes getTypeProduct)
+       {
+           return _blService.IsModuleExist(number, getTypeProduct);
        }
     }
 }

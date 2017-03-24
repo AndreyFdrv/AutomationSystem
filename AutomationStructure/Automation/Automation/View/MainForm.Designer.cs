@@ -64,8 +64,8 @@
             this.radMenuItem5 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem11 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem12 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem13 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuSeparatorItem4 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
+            this.radMenuItem13 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
@@ -368,6 +368,7 @@
             this.radMenuItem13});
             this.radMenuItem2.Name = "radMenuItem2";
             this.radMenuItem2.Text = "Сервис";
+            this.radMenuItem2.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
             // radMenuItem5
             // 
@@ -390,17 +391,17 @@
             this.radMenuItem12.Text = "Кухня нижние модули";
             this.radMenuItem12.Click += new System.EventHandler(this.kitchenDownModules_Click);
             // 
-            // radMenuItem13
-            // 
-            this.radMenuItem13.Name = "radMenuItem13";
-            this.radMenuItem13.Text = "Результаты";
-            this.radMenuItem13.Click += new System.EventHandler(this.radMenuItem13_Click);
-            // 
             // radMenuSeparatorItem4
             // 
             this.radMenuSeparatorItem4.Name = "radMenuSeparatorItem4";
             this.radMenuSeparatorItem4.Text = "radMenuSeparatorItem4";
             this.radMenuSeparatorItem4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // radMenuItem13
+            // 
+            this.radMenuItem13.Name = "radMenuItem13";
+            this.radMenuItem13.Text = "Результаты";
+            this.radMenuItem13.Click += new System.EventHandler(this.radMenuItem13_Click);
             // 
             // radMenuItem3
             // 

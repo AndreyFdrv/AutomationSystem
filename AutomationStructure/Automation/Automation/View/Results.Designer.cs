@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Results));
             this.radPageView1 = new Telerik.WinControls.UI.RadPageView();
             this.radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
-            this.radPageViewPage2 = new Telerik.WinControls.UI.RadPageViewPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.radPageViewPage2 = new Telerik.WinControls.UI.RadPageViewPage();
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).BeginInit();
             this.radPageView1.SuspendLayout();
             this.radPageViewPage1.SuspendLayout();
@@ -60,14 +61,6 @@
             this.radPageViewPage1.Size = new System.Drawing.Size(996, 641);
             this.radPageViewPage1.Text = "Кухня верхние модули";
             // 
-            // radPageViewPage2
-            // 
-            this.radPageViewPage2.ItemSize = new System.Drawing.SizeF(131F, 28F);
-            this.radPageViewPage2.Location = new System.Drawing.Point(10, 37);
-            this.radPageViewPage2.Name = "radPageViewPage2";
-            this.radPageViewPage2.Size = new System.Drawing.Size(996, 573);
-            this.radPageViewPage2.Text = "Кухня нижние модули";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(3, 0);
@@ -77,12 +70,21 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // radPageViewPage2
+            // 
+            this.radPageViewPage2.ItemSize = new System.Drawing.SizeF(131F, 28F);
+            this.radPageViewPage2.Location = new System.Drawing.Point(10, 37);
+            this.radPageViewPage2.Name = "radPageViewPage2";
+            this.radPageViewPage2.Size = new System.Drawing.Size(996, 573);
+            this.radPageViewPage2.Text = "Кухня нижние модули";
+            // 
             // Results
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1017, 689);
             this.Controls.Add(this.radPageView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Results";
             // 
             // 

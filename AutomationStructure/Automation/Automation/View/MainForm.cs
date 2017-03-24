@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Automation.View.Helps;
 using Automation.View.Model;
 using Telerik.WinControls;
 
@@ -65,6 +66,8 @@ namespace Automation.View
         {
             flowLayoutPanel1.Visible = true;
             _presenter.NewProject();
+            radMenuItem2.Visibility= ElementVisibility.Visible;
+            
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -78,10 +81,7 @@ namespace Automation.View
             MessageBox.Show("Проект сохранён.");
         }
 
-        private void saveAs_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void close_Click(object sender, EventArgs e)
         {
@@ -173,17 +173,31 @@ namespace Automation.View
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                ShowCustomerHelpForm();
+                switch (e.RowIndex)
+                {
+                    case 0:ShowCustomerHelpForm("ЛДСП ПОМОЩЬ", "Ldsp.png","Ldsp_help.rtf");
+                        break;
+                    case 1:
+                        ShowCustomerHelpForm("ДВП ПОМОЩЬ","Dvp.png", "Ldsp_help.rtf");
+                        break;
+                    case 2:
+                        ShowCustomerHelpForm("КРОМКА ПОМОЩЬ", "Kromka.png", "Kromka_help.rtf");
+                        break;
+                    case 3:
+                        ShowCustomerHelpForm("ФАСАД ПОМОЩЬ", "Fasad.png", "Fasad_help.rtf");
+                        break;
+                }
+               
             }
         }
 
 
-        private void ShowCustomerHelpForm()
+        private void ShowCustomerHelpForm(string title, string imageName, string textName)
         {
-            Form customerHelpForm = Application.OpenForms["CustomerHelp"];
+            Form customerHelpForm = Application.OpenForms["Helper"];
             if (customerHelpForm == null)
             {
-                customerHelpForm = new CustomerHelp();
+                customerHelpForm = new Helper(title, imageName, textName);
                 customerHelpForm.Show();
             }
             else

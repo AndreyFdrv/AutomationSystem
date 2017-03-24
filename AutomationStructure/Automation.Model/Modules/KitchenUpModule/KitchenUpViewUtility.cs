@@ -54,7 +54,7 @@ namespace Automation.Model.Modules.KitchenUpModule
                 "Что это такое"
             };
             return column;
-            int stop;
+
         }
 
         private DataGridViewComboBoxColumn GetFacadeMaterial()

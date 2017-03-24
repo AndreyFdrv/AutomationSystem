@@ -2,7 +2,9 @@
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -109,7 +111,6 @@ namespace Automation.Model.Modules.KitchenUpModule
 
         }
         
-
         private int GetCountRows()
         {
             int count = 1;
@@ -163,7 +164,17 @@ namespace Automation.Model.Modules.KitchenUpModule
 
         public override object Clone()
         {
-            return MemberwiseClone();
+            using (MemoryStream stream = new MemoryStream())
+            {
+                if (this.GetType().IsSerializable)
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(stream, this);
+                    stream.Position = 0;
+                    return formatter.Deserialize(stream);
+                }
+                return null;
+            }
         }
     }
 }

@@ -64,7 +64,7 @@ namespace Automation.Model
 
         public void DeleteModule(string moduleName)
         {
-            var module = _modules.First(x => x.Name == moduleName);
+            var module = _modules.First(x => x.Number == moduleName);
             _modules.Remove(module);
 
         }
@@ -139,6 +139,12 @@ namespace Automation.Model
         public List<string> GetNumbersModules()
         {
             return _modules.Select(module => module.Number).ToList();
+        }
+
+        public bool IsModuleExist(string number)
+        {
+            return _modules.Exists(module => module.Number == number);
+
         }
     }
 }

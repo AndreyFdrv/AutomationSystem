@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimilarModule));
             this.label1 = new System.Windows.Forms.Label();
             this.radTextBox1 = new Telerik.WinControls.UI.RadTextBox();
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
@@ -47,7 +48,7 @@
             // 
             // radTextBox1
             // 
-            this.radTextBox1.Location = new System.Drawing.Point(133, 29);
+            this.radTextBox1.Location = new System.Drawing.Point(134, 29);
             this.radTextBox1.Name = "radTextBox1";
             this.radTextBox1.Size = new System.Drawing.Size(173, 20);
             this.radTextBox1.TabIndex = 4;
@@ -69,6 +70,7 @@
             this.Controls.Add(this.radButton1);
             this.Controls.Add(this.radTextBox1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SimilarModule";

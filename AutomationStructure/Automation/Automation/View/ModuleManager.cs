@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Automation.Model;
 using Automation.View.Model;
 using Automation.View.ModuleViewGenerator;
+using Telerik.WinControls.UI;
 
 namespace Automation.View
 {
@@ -31,27 +32,30 @@ namespace Automation.View
             this.Text = "Настройка модулей \"" + productName + "\"";
             LoadModulesList();
             UpdateTotalModulesDatagrid();
-            
+
+
         }
+
 
         public ModuleManager()
         {
             InitializeComponent();
+
         }
 
 
 
         private void LoadModulesList()
         {
-            Presenter.UpdateModuleList(GetTypeProduct());
+            Presenter.UpdateModuleList(GetProductType());
         }
 
         private void UpdateTotalModulesDatagrid()
         {
-            Presenter.UpdateTotalModules(GetTypeProduct());
+            Presenter.UpdateTotalModules(GetProductType());
         }
 
-        private ProductTypes GetTypeProduct()
+        private ProductTypes GetProductType()
         {
             ProductTypes productType=ProductTypes.KITCHEN_UP;
 
@@ -82,14 +86,27 @@ namespace Automation.View
         private void SetNewModuleInfo(object sender, ConfiguratorArgs e)
         {
             Presenter.Manager = this;
-            Presenter.AddNewModule(new NewModuleData {
-                Number = e.Number,
-                Scheme = e.SchemeName,
-                SubSchemeIconPath = GetIconPath(e.PathToImageSubScheme),
-                SubScheme = e.SubSchemeName,
-                Type = GetTypeProduct()});
-            Presenter.UpdateModuleList(GetTypeProduct());
-            Presenter.UpdateModulesCount(GetTypeProduct());
+
+            if (!Presenter.IsModuleExist(e.Number, GetProductType()))
+            {
+                Presenter.AddNewModule(new NewModuleData
+                {
+                    Number = e.Number,
+                    Scheme = e.SchemeName,
+                    SubSchemeIconPath = GetIconPath(e.PathToImageSubScheme),
+                    SubScheme = e.SubSchemeName,
+                    Type = GetProductType()
+                });
+                Presenter.UpdateModuleList(GetProductType());
+                Presenter.UpdateModulesCount(GetProductType());
+                Presenter.UpdateTotalModules(GetProductType());
+            }
+            else
+            {
+                MessageBox.Show("Такой модуль уже существует. Измените номер модуля");
+            }
+
+         
         }
 
         private string GetIconPath(string pathToImageSubScheme)
@@ -108,7 +125,12 @@ namespace Automation.View
 
         private void AddSimilarModule(object sender, SimilarEventArgs e)
         {
-            Presenter.AddSimilarModule(e.SimilarName, GetTypeProduct());
+            if (!Presenter.IsModuleExist(e.SimilarName, GetProductType()))
+            {
+                Presenter.AddSimilarModule(e.SimilarName, GetProductType());
+            }
+            else MessageBox.Show("Модуль с таким номером уже существует. Введите другой номер");
+
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
@@ -117,7 +139,7 @@ namespace Automation.View
             {
                 string moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
                 string moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
-                Presenter.DeleteModule(moduleName, GetTypeProduct());
+                Presenter.DeleteModule(moduleName, GetProductType());
             }
         }
 
@@ -127,9 +149,9 @@ namespace Automation.View
         {
             string moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
             string moduleNumber = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
-            Presenter.UpdateModuleInfo(_moduleInfoTable, moduleNumber, GetTypeProduct());
-            Presenter.ShowModuleInformation(moduleNumber, GetTypeProduct());
-
+            Presenter.UpdateModuleInfo(_moduleInfoTable, moduleNumber, GetProductType());
+            Presenter.ShowModuleInformation(moduleNumber, GetProductType());
+            Presenter.UpdateTotalModules(GetProductType());
         }
         
         private void modulesLbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -137,7 +159,7 @@ namespace Automation.View
             if (modulesLbx.Items.Count!=0)
             {
                 string moduleNumber = modulesLbx.SelectedItem.ToString();
-                Presenter.ShowModuleInformation(moduleNumber,GetTypeProduct());
+                Presenter.ShowModuleInformation(moduleNumber,GetProductType());
             }
         }
 
@@ -157,28 +179,40 @@ namespace Automation.View
         public void UpdateAllModuleInfo(DataTable modulesInfoTbl)
         {
 
-            if (modulesInfoTbl!=null)
+            if (modulesInfoTbl != null && modulesInfoTbl.Rows.Count != 0)
             {
-                var viewGenerator = GetViewGenerator(ProductName);
-                viewGenerator.SetupView(allModulesInformationDgv,modulesInfoTbl);
+                    var viewGenerator = GetViewGenerator(ProductName);
+                    viewGenerator.SetupView(allModulesInformationDgv, modulesInfoTbl);
+
+            }
+            else
+            {
+                allModulesInformationDgv.DataSource = null;
+                allModulesInformationDgv.Columns.Clear();
+                allModulesInformationDgv.Refresh();
             }
 
-            //allModulesInformationDgv.DataSource = modulesInfoTbl;
-            //if (modulesInfoTbl!= null)
-            //{
-            //  //  allModulesInformationDgv.Columns[0].Frozen = true;
-            //  //  allModulesInformationDgv.Columns[1].Frozen = true;
-            //}
+            
           
         }
         
         
         public void UpdateDetailDataDataGrid(DataTable table)
         {
-            _moduleInfoTable = table;
+            if (table.Rows.Count!=0)
+            {
+                _moduleInfoTable = table;
+                var viewGenerator = GetViewGenerator(ProductName);
+                viewGenerator.SetupView(selectedModuleInformationDgv, table);
+            }
+            else
+            {
+                selectedModuleInformationDgv.DataSource = null;
+                selectedModuleInformationDgv.Refresh();
+                
+            }
+          
 
-            var viewGenerator = GetViewGenerator(ProductName);
-            viewGenerator.SetupView(selectedModuleInformationDgv,table);
         }
 
         private ViewGenerator GetViewGenerator(string productName)
@@ -186,15 +220,19 @@ namespace Automation.View
             return new KitchenUpView();
         }
 
-        private void selectedModuleInformationDgv_Scroll(object sender, ScrollEventArgs e)
-        {
-         
-            
-        }
+   
 
         public void ClearModuleDetailsDgv()
         {
+            
+            selectedModuleInformationDgv.ViewDefinition=new TableViewDefinition();
             selectedModuleInformationDgv.DataSource = null;
+            selectedModuleInformationDgv.Columns.Clear();
+            selectedModuleInformationDgv.Refresh();
+
+      
         }
+
+  
     }
 }

@@ -27,6 +27,7 @@ namespace Automation.View
         {
             dataGridView3.Rows.Add();
             dataGridView3.Rows[0].Cells[1].Value = "Периметр фасада";
+            dataGridView3.Rows[0].Cells[0].Style.BackColor = Color.Red;
         }
 
         private void LoadSecondTable()
@@ -35,9 +36,12 @@ namespace Automation.View
             dataGridView2.Rows.Add();
             dataGridView2.Rows.Add();
 
-            dataGridView2.Rows[0].Cells[1].Value = "Перед (видимая)";
-            dataGridView2.Rows[1].Cells[1].Value = "Лево/право";
+            dataGridView2.Rows[0].Cells[1].Value = "Фронт";
+            dataGridView2.Rows[0].Cells[0].Style.BackColor = Color.LightSkyBlue;
+            dataGridView2.Rows[1].Cells[1].Value = "Бока Лево/право";
+            dataGridView2.Rows[1].Cells[0].Style.BackColor = Color.Peru;
             dataGridView2.Rows[2].Cells[1].Value = "Задняя часть";
+            dataGridView2.Rows[2].Cells[0].Style.BackColor = Color.AntiqueWhite;
         }
 
         private void LoadFirstTable()
@@ -46,12 +50,18 @@ namespace Automation.View
             dataGridView1.Rows.Add();
             dataGridView1.Rows.Add();
             dataGridView1.Rows.Add();
+            dataGridView1.Rows.Add();
 
-            dataGridView1.Rows[0].Cells[1].Value = "Перед (видимая)";
+            dataGridView1.Rows[0].Cells[1].Value = "Фронт";
+            dataGridView1.Rows[0].Cells[0].Style.BackColor= Color.LightGray;
             dataGridView1.Rows[1].Cells[1].Value = "Верх";
+            dataGridView1.Rows[1].Cells[0].Style.BackColor = Color.Red;
             dataGridView1.Rows[2].Cells[1].Value = "Низ";
-            dataGridView1.Rows[3].Cells[1].Value = "Задняя часть";
-
+            dataGridView1.Rows[2].Cells[0].Style.BackColor = Color.BlueViolet;
+            dataGridView1.Rows[3].Cells[1].Value = "Бока лево/право";
+            dataGridView1.Rows[3].Cells[0].Style.BackColor = Color.ForestGreen;
+            dataGridView1.Rows[4].Cells[1].Value = "Задн.";
+            dataGridView1.Rows[4].Cells[0].Style.BackColor = Color.AntiqueWhite;
         }
 
         private void button1_Click(object sender, EventArgs e)
