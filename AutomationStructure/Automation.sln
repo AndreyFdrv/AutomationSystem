@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.Model", "Automat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationGUI", "Automation\Automation\AutomationGUI.csproj", "{998769D3-13F4-4B4B-A6F5-AC77ED12DC1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationControls", "AutomationControls\AutomationControls.csproj", "{2924AFF0-EF4B-4419-B89C-0E86349E9C34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{998769D3-13F4-4B4B-A6F5-AC77ED12DC1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{998769D3-13F4-4B4B-A6F5-AC77ED12DC1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{998769D3-13F4-4B4B-A6F5-AC77ED12DC1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2924AFF0-EF4B-4419-B89C-0E86349E9C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2924AFF0-EF4B-4419-B89C-0E86349E9C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2924AFF0-EF4B-4419-B89C-0E86349E9C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2924AFF0-EF4B-4419-B89C-0E86349E9C34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

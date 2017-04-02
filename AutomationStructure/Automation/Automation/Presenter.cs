@@ -151,5 +151,15 @@ namespace Automation
        {
            return _blService.IsModuleExist(number, getTypeProduct);
        }
+
+       public List<Product> GetAllProducts()
+       {
+           return _blService.GetCurrentOrder().ProductsCollection.GetAllProducts();
+       }
+
+        public Product GetProductByName(string productName)
+       {
+           return _blService.GetCurrentOrder().ProductsCollection.GetProduct((ProductTypes)Enum.Parse(typeof(ProductTypes),productName));
+       }
     }
 }

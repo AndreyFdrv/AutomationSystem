@@ -53,6 +53,11 @@ namespace Automation.Model.Modules
             throw new NotImplementedException();
         }
 
+        public override Result Calculate()
+        {
+            return null;
+        }
+
         //TODO:Мб принимать строки?
         public void SetupData(params string[] parameters )
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,6 +62,8 @@ namespace Automation.Model
             }
             return module;
         }
+
+        
 
         public void DeleteModule(string moduleName)
         {
@@ -145,6 +148,11 @@ namespace Automation.Model
         {
             return _modules.Exists(module => module.Number == number);
 
+        }
+
+        public List<AbstractModule> GetAllProducts()
+        {
+            return _modules;
         }
     }
 }

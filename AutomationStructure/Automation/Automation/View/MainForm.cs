@@ -247,7 +247,7 @@ namespace Automation.View
 
         private void radMenuItem13_Click(object sender, EventArgs e)
         {
-            new Results().Show();
+            new Results(_presenter).Show();
         }
     }
 }

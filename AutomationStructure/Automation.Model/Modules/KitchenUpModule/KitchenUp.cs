@@ -11,27 +11,27 @@ using System.Threading.Tasks;
 namespace Automation.Model.Modules.KitchenUpModule
 {
     [Serializable]
-    class KitchenUp: AbstractModule
+    class KitchenUp : AbstractModule
     {
         public KitchenUp()
         {
-           _facade = new Facade();
-           _dimentions = new Dimensions();
-           _calculator = new KitchenUpFacadeCalculator();
+            _facade = new Facade();
+            _dimentions = new Dimensions();
+           
         }
 
-        private KitchenUpFacadeCalculator _calculator;
+
         private Dimensions _dimentions;
         private Facade _facade;
         private string _shelfPo;
         private string _shelfMinusTwoMm;
         private string _shelfForRazdel;
         private string _shelfGlass;
-        
+
 
         public override void SetupModule(DataTable changedInfo)
         {
-            
+
             int countRows = changedInfo.Rows.Count;
             DataRow row = changedInfo.Rows[0];
             Number = row["Номер модуля"].ToString();
@@ -39,12 +39,12 @@ namespace Automation.Model.Modules.KitchenUpModule
             Sсheme = row["Форма модуля"].ToString();
             _dimentions.Lenght = double.Parse(row["Высота модуля (мм)"].ToString());
             _dimentions.Width = double.Parse(row["Ширина модуля (мм)"].ToString());
-            _dimentions.Depth = double.Parse(row["Глубина модуля (мм)"].ToString()) ;
+            _dimentions.Depth = double.Parse(row["Глубина модуля (мм)"].ToString());
             _dimentions.A = double.Parse(row["A размер (мм)"].ToString());
-            _dimentions.B = double.Parse(row["B размер (мм)"].ToString()); 
+            _dimentions.B = double.Parse(row["B размер (мм)"].ToString());
             _dimentions.C = double.Parse(row["C размер (мм)"].ToString());
             _dimentions.D = double.Parse(row["D размер (мм)"].ToString());
-            
+
             BackWall = row["Задняя стенка"].ToString();
             _shelfPo = row["Полка по ширине секции (шт)"].ToString();
             _shelfMinusTwoMm = row["Полка - 2мм (шт)"].ToString();
@@ -54,7 +54,7 @@ namespace Automation.Model.Modules.KitchenUpModule
             var formula = IconPath.Split('_')[1];
             KitchenUpFacadeCalculator calculator = new KitchenUpFacadeCalculator();
             calculator.CalculateDimentions(_facade, _dimentions, formula);
-          
+
 
             _facade._records[0].NumberOnScheme = int.Parse(row["№ схемы фасада"].ToString());
             _facade._records[0].Type = row["Тип фасада"].ToString();
@@ -65,12 +65,12 @@ namespace Automation.Model.Modules.KitchenUpModule
 
         public override void GetInfoRows(DataTable table)
         {
-          
+
             int countRows = GetCountRows();
             _facade.InitFacadeRecords(countRows);
-            
+
             DataRow row = table.NewRow();
-            row["Номер модуля"] = Number; 
+            row["Номер модуля"] = Number;
             row["Форма модуля"] = Sсheme;
             row["Изображение"] = IconPath;
             row["Высота модуля (мм)"] = _dimentions.Lenght;
@@ -80,13 +80,13 @@ namespace Automation.Model.Modules.KitchenUpModule
             row["B размер (мм)"] = _dimentions.B;
             row["C размер (мм)"] = _dimentions.C;
             row["D размер (мм)"] = _dimentions.D;
-           
+
             row["Задняя стенка"] = BackWall;
             row["Полка по ширине секции (шт)"] = _shelfPo;
             row["Полка - 2мм (шт)"] = _shelfMinusTwoMm;
             row["Полка разделительная (шт)"] = _shelfForRazdel;
             row["Полка стеклянная (шт)"] = _shelfGlass;
-            
+
             row["№ схемы фасада"] = _facade._records[0].NumberOnScheme;
             row["Тип фасада"] = _facade._records[0].Type;
             row["Вертикальный размер"] = _facade._records[0].VerticalDimension;
@@ -94,7 +94,7 @@ namespace Automation.Model.Modules.KitchenUpModule
             row["Материал фасада"] = _facade._records[0].Material;
             table.Rows.Add(row);
 
-            if (countRows>1)
+            if (countRows > 1)
             {
                 for (int i = 1; i < countRows; i++)
                 {
@@ -110,11 +110,11 @@ namespace Automation.Model.Modules.KitchenUpModule
 
 
         }
-        
+
         private int GetCountRows()
         {
             int count = 1;
-        
+
             switch (Sсheme)
             {
                 case "1.jpg":
@@ -123,12 +123,12 @@ namespace Automation.Model.Modules.KitchenUpModule
                 case "2+B.jpg":
                     count = 2;
                     break;
-                    
+
             }
 
             return count;
         }
-        
+
         public override DataTable GetInfoTable()
         {
             DataTable table = GetEmptyTable();
@@ -175,6 +175,40 @@ namespace Automation.Model.Modules.KitchenUpModule
                 }
                 return null;
             }
+        }
+
+        public override Result Calculate()
+        {
+            KitchenUpCalculator calculator = new KitchenUpCalculator
+            {
+                Name = Name,
+                Sсheme = Sсheme,
+                IconPath = IconPath,
+                BackWall = BackWall,
+                Number = Number,
+                SubScheme = SubScheme,
+                _dimentions = _dimentions,
+                _facade = _facade,
+                _shelfPo = _shelfPo,
+                _shelfMinusTwoMm = _shelfMinusTwoMm,
+                _shelfForRazdel = _shelfForRazdel,
+                _shelfGlass = _shelfGlass
+            };
+
+            Result result = new Result
+            {
+                ModuleName = calculator.GetModuleName(),
+                ImagePath = calculator.GetImagePath(),
+                DimensionInfo = calculator.GetDimensionInfo(),
+                DetailsInfo = calculator.GetDetailsInfo(),
+                FurnitureInfo = calculator.GetFurnitureInfo(),
+                ShelfInfo = calculator.GetShelfInfo(),
+                LoopsInfo = calculator.GetLoopsInfo()
+            };
+          
+
+            return result;
+
         }
     }
 }

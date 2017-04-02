@@ -18,6 +18,11 @@ namespace Automation.Model
             _products = new List<Product>();
         }
 
+        public List<Product> GetAllProducts()
+        {
+            return _products;
+        } 
+
         public void AddProduct(string nameProduct)
         {
             Product product = new Product(nameProduct);

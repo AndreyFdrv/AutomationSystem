@@ -27,6 +27,8 @@ namespace Automation.Model.Modules
         public abstract DataTable GetEmptyTable();
 
         public abstract object Clone();
+
+        public abstract Result Calculate();
     }
 
     [Serializable]
