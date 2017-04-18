@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Automation.Model;
+using Automation.View.Model;
 
 namespace Automation.View
 {
@@ -19,9 +20,16 @@ namespace Automation.View
         {
             _form = mf;
             InitializeComponent();
+            LoadComboboxData();
             LoadFirstTable();
             LoadSecondTable();
             LoadThirdTable();
+        }
+
+        private void LoadComboboxData()
+        {
+            comboBox1.DataSource = CustomerTable.KromkaThickness.Keys.Where(x => x != "персонально").ToList();
+            comboBox1.SelectedIndex = -1;
         }
 
         private void LoadThirdTable()

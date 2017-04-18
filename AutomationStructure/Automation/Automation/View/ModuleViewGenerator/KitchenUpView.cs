@@ -26,9 +26,10 @@ namespace Automation.View.ModuleViewGenerator
             column.FieldName = "Задняя стенка";
             column.DataSource = new List<string>
             {
-                "Гв (Крепление на гвозди)",
-                "Ч+Гв (выпиливание четверти под заднюю панель, крепление на гвозди)",
-                "ПАЗ (выпиливание штробы, в неё вставляем ДВП",
+                "ГВ",
+                "Четверть",
+                "ПАЗ",
+                "ЛДСП",
                 "Что это?"
             };
             return column;
@@ -62,6 +63,7 @@ namespace Automation.View.ModuleViewGenerator
             {
                 "Накладной",
                 "Внутренний",
+                "Другой",
                 "Что это?"
             };
             return column;

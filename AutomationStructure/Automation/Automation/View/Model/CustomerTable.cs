@@ -10,6 +10,37 @@ namespace Automation.View.Model
 {
     public static class CustomerTable
     {
+        private static Dictionary<string, int> LdspThickness { get; } = new Dictionary<string, int>
+        {
+            {"10 мм", 10},
+            {"16 мм", 16},
+            {"18 мм", 18},
+            {"20 мм", 20},
+            {"22 мм", 22}
+        };
+
+        public static Dictionary<string, double> KromkaThickness { get; } = new Dictionary<string, double>
+        {
+            {"нет", 0},
+            {"0.4 мм", 0.4},
+            {"2 мм", 2},
+            {"эконом. 2 мм", 2},
+            {"персонально", 0}
+        };
+
+        private static Dictionary<string, double> BackWallThickness { get; } = new Dictionary<string, double>
+        {
+            {"нет", 0},
+            {"3 мм", 3},
+            {"4 мм (станд.) ДВА, фанера", 4},
+            {"4,2 мм ДВП импорт.", 4.2},
+            {"6 мм", 6},
+            {"8 мм", 8},
+            {"10 мм", 10},
+            {"12 мм", 12},
+            {"16 мм", 16}
+        };
+
         public static void InitCustomerTable(DataGridView dataGridView1)
         {
             dataGridView1.Rows.Add();
@@ -20,8 +51,7 @@ namespace Automation.View.Model
             dataGridView1.Columns[0].Width = 200;
             dataGridView1.Columns[1].Width = 500;
             dataGridView1.Columns[2].Width = 200;
-           
-            //
+  
             dataGridView1.Rows[0].Cells[0].Value = "ЛДСП";
             dataGridView1.Rows[1].Cells[0].Value = "Кромка для ЛДСП";
             dataGridView1.Rows[2].Cells[0].Value = "Задняя панель";
@@ -32,41 +62,32 @@ namespace Automation.View.Model
             comboboxCell.Items.Clear();
             comboboxCell.Value = null;
 
-            comboboxCell.Items.Add("10 мм");
-            comboboxCell.Items.Add("16 мм");
-            comboboxCell.Items.Add("18 мм");
-            comboboxCell.Items.Add("20 мм");
-            comboboxCell.Items.Add("22 мм");
-
+            SetCell(LdspThickness.Keys.ToList(), comboboxCell);
 
             var comboboxCell2 = (DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[2];
             comboboxCell2.Items.Clear();
             comboboxCell2.Value = null;
-            comboboxCell2.Items.Add("нет");
-            comboboxCell2.Items.Add("0.4 мм");
-            comboboxCell2.Items.Add("2 мм");
-            comboboxCell2.Items.Add("эконом. 2 мм");
-            comboboxCell2.Items.Add("персонально");
 
+            SetCell(KromkaThickness.Keys.ToList(), comboboxCell2);
 
             var comboboxCell3 = (DataGridViewComboBoxCell)dataGridView1.Rows[2].Cells[2];
             comboboxCell3.Items.Clear();
             comboboxCell3.Value = null;
 
-            comboboxCell3.Items.Add("нет");
-            comboboxCell3.Items.Add("3 мм");
-            comboboxCell3.Items.Add("4 мм (станд.) ДВА, фанера");
-            comboboxCell3.Items.Add("4,2 мм ДВП импорт.");
-            comboboxCell3.Items.Add("6 мм");
-            comboboxCell3.Items.Add("8 мм");
-            comboboxCell3.Items.Add("10 мм");
-            comboboxCell3.Items.Add("12 мм");
-            comboboxCell3.Items.Add("16 мм");
+            SetCell(BackWallThickness.Keys.ToList(),comboboxCell3);
 
             var helpButton = (DataGridViewButtonColumn) dataGridView1.Columns[3];
             helpButton.UseColumnTextForButtonValue = true;
             helpButton.Text = "?";
 
+        }
+
+        private static void SetCell(List<string> titles, DataGridViewComboBoxCell comboboxCell)
+        {
+            foreach (var title in titles)
+            {
+                comboboxCell.Items.Add(title);
+            }
         }
 
         public static List<string[]> GetData(DataGridView dataGridView, string thickness)

@@ -224,7 +224,7 @@ namespace Automation.Model.Modules.KitchenUpModule
                 case "ГВ":
                     result = _dimentions.Depth - (ModuleThickness.F + ModuleThickness.DVP + ModuleThickness.B);
                     break;
-                case "1/4 ":
+                case "Четверть":
                     result = _dimentions.Depth - (ModuleThickness.F + ModuleThickness.B);
                     break;
             }
@@ -241,10 +241,10 @@ namespace Automation.Model.Modules.KitchenUpModule
             string result = string.Empty;
             switch (BackWall)
             {
-                case "":
+                case "ПАЗ":
                     result = "Паз под ДВП";
                     break;
-                case "1":
+                case "Четверть":
                     result = "Четверть";
                     break;
             }
@@ -281,16 +281,16 @@ namespace Automation.Model.Modules.KitchenUpModule
             double result = 0;
             switch (BackWall)
             {
-                case "1":
+                case "ГВ":
                     result = _dimentions.Depth - 5;
                     break;
-                case "2":
+                case "Четверть":
                     result = _dimentions.Depth - (5 + ModuleThickness.DVP);
                     break;
-                case "3":
+                case "ПАЗ":
                     result = _dimentions.Depth - (5 + 20);
                     break;
-                case "4":
+                case "ЛДСП":
                     result = _dimentions.Depth - (5 + ModuleThickness.Plate);
                     break;
             }
@@ -332,16 +332,16 @@ namespace Automation.Model.Modules.KitchenUpModule
             double result=0;
             switch (BackWall)
             {
-                case "1":
+                case "ГВ":
                     result = _dimentions.Lenght - 2;
                     break;
-                case "2":
+                case "Четверть":
                     result = _dimentions.Lenght - 10;
                     break;
-                case "3":
+                case "ПАЗ":
                     result = _dimentions.Lenght - 8;
                     break;
-                case "4":
+                case "ЛДСП":
                     result = _dimentions.Lenght - (ModuleThickness.Plate*2);
                     break;
             }
@@ -354,16 +354,16 @@ namespace Automation.Model.Modules.KitchenUpModule
             double result = 0;
             switch (BackWall)
             {
-                case "1":
+                case "ГВ":
                     result = _dimentions.Width - 2;
                     break;
-                case "2":
+                case "Четверть":
                     result = _dimentions.Width - 10;
                     break;
-                case "3":
+                case "ПАЗ":
                     result = _dimentions.Width - 8;
                     break;
-                case "4":
+                case "ЛДСП":
                     result = _dimentions.Width - (ModuleThickness.Plate * 2);
                     break;
             }
@@ -602,17 +602,17 @@ namespace Automation.Model.Modules.KitchenUpModule
         {
             string result = string.Empty;
 
-            if (_facade._records[0].Type == "other" || (int)ModuleThickness.FF == 0)
+            if (_facade._records[0].Type == "Другой" || (int)ModuleThickness.FF == 0)
             {
                 result = "";
             }
 
-            if (_facade._records[0].Type =="" && ModuleThickness.FF==0.4)
+            if (_facade._records[0].Type !="Другой" && ModuleThickness.FF==0.4)
             {
                 result = "I";
             }
 
-            if (_facade._records[0].Type == "" && ModuleThickness.FF == 0.4)
+            if (_facade._records[0].Type != "Другой" && ModuleThickness.FF == 2)
             {
                 result = "V";
             }

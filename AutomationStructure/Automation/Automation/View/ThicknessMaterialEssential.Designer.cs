@@ -212,11 +212,6 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "нет",
-            "0,4 мм",
-            "2 мм",
-            "эконом. 2 мм"});
             this.comboBox1.Location = new System.Drawing.Point(498, 17);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(120, 21);
