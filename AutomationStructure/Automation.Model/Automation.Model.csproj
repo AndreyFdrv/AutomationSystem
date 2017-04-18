@@ -53,6 +53,7 @@
     <Compile Include="Modules\KitchenUpModule\KitchenUpFacadeCalculator.cs" />
     <Compile Include="Modules\KitchenUpModule\KitchenUpViewUtility.cs" />
     <Compile Include="Modules\Result.cs" />
+    <Compile Include="ModuleThickness.cs" />
     <Compile Include="NewModuleData.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />

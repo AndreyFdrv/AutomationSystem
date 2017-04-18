@@ -387,6 +387,7 @@
             // 
             // radMenuItem12
             // 
+            this.radMenuItem12.Enabled = false;
             this.radMenuItem12.Name = "radMenuItem12";
             this.radMenuItem12.Text = "Кухня нижние модули";
             this.radMenuItem12.Click += new System.EventHandler(this.kitchenDownModules_Click);

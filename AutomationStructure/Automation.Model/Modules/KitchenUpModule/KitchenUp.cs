@@ -205,7 +205,6 @@ namespace Automation.Model.Modules.KitchenUpModule
                 ShelfInfo = calculator.GetShelfInfo(),
                 LoopsInfo = calculator.GetLoopsInfo()
             };
-          
 
             return result;
 

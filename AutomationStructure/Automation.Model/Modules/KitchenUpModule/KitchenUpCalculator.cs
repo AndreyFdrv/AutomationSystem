@@ -98,18 +98,18 @@ namespace Automation.Model.Modules.KitchenUpModule
             DataTable detailsInfo = new DataTable();
             SetDetailsInfoColumns(detailsInfo);
 
-            detailsInfo.Rows.Add("1","Бока","4","12","5","34","6","7");
-            detailsInfo.Rows.Add("2", "Верх-низ", "8", "56", "9", "78", "10", "11");
-            detailsInfo.Rows.Add("3 Полки", "Не съёмные", "12", "910", "13", "1112", "14", "15");
-            detailsInfo.Rows.Add("", "Съёмные (-2мм)", "16", "1314", "17", "1516", "18", "19");
-            detailsInfo.Rows.Add("4", "Разделитель секции", "20","1718", "21", "1920", "22", "23");
-            detailsInfo.Rows.Add("5", "Задняя стенка", "41","" , "42", "", "43", "44");
+            detailsInfo.Rows.Add("1","Бока",MF4(),DF1()+"|"+DF2(),MF5(), DF3() + "|" + DF4(), MF6(),MF7());
+            detailsInfo.Rows.Add("2", "Верх-низ", MF8(), DF5() + "|" + DF6(), MF9(), DF7() + "|" + DF8(), MF10(), MF11());
+            detailsInfo.Rows.Add("3 Полки", "Не съёмные", MF12(), DF9() + "|" + DF10(), MF13(), DF11() + "|" + DF12(), MF14(), MF15());
+            detailsInfo.Rows.Add("", "Съёмные (-2мм)", MF16(), DF13() + "|" + DF14(), MF17(), DF15() + "|" + DF16(), MF18(), MF19());
+            detailsInfo.Rows.Add("4", "Разделитель секции","20" , DF17() + "|" + DF18(), "21", DF19() + "|" + DF20(), "22", "23");
+            detailsInfo.Rows.Add("5", "Задняя стенка", MF41(),"" , MF42(), "", MF43(), "44");
 
-            detailsInfo.Rows.Add("Ф1", "Фасад 1", "24", "21", "25", "21", "", "");
+            detailsInfo.Rows.Add("Ф1", "Фасад 1", "24", DF21() , "25", DF21(), "", "");
             detailsInfo.Rows.Add("Ф2", "Фасад 2", "26", "", "27", "", "", "");
             detailsInfo.Rows.Add("Ф3", "Фасад 3", "28", "", "29", "", "", "");
             detailsInfo.Rows.Add("Ф4", "Фасад 4", "30", "", "31", "", "", "");
-            detailsInfo.Rows.Add("3", "Полка стекло", "32", "", "33", "", "34", "");
+            detailsInfo.Rows.Add("3", "Полка стекло", MF32(), "", MF33(), "", MF34(), "");
             return detailsInfo;
 
         }
@@ -151,6 +151,8 @@ namespace Automation.Model.Modules.KitchenUpModule
             detailsInfo.Columns.Add("Примечание");
         }
         
+
+
 
         public DataTable GetFurnitureInfo()
         {
@@ -205,5 +207,421 @@ namespace Automation.Model.Modules.KitchenUpModule
 
             return loopsInfo;
         }
+
+        #region Calculation formules
+
+        //main formules
+        private double MF4()
+        {
+            return _dimentions.Lenght - (ModuleThickness.H + ModuleThickness.D);
+        }
+
+        private double MF5()
+        {
+            double result = 0;
+            switch (BackWall)
+            {
+                case "ГВ":
+                    result = _dimentions.Depth - (ModuleThickness.F + ModuleThickness.DVP + ModuleThickness.B);
+                    break;
+                case "1/4 ":
+                    result = _dimentions.Depth - (ModuleThickness.F + ModuleThickness.B);
+                    break;
+            }
+            return result;
+        }
+
+        private double MF6()
+        {
+            return 2;
+        }
+
+        private string MF7()
+        {
+            string result = string.Empty;
+            switch (BackWall)
+            {
+                case "":
+                    result = "Паз под ДВП";
+                    break;
+                case "1":
+                    result = "Четверть";
+                    break;
+            }
+            return result;
+        }
+
+        private double MF8()
+        {
+            return _dimentions.Width - (ModuleThickness.Plate*2);
+        }
+
+        private double MF9()
+        {
+            return MF5();
+        }
+
+        private double MF10()
+        {
+            return 2;
+        }
+
+        private double MF11()
+        {
+            return 7;
+        }
+
+        private double MF12()
+        {
+            return _dimentions.Width - (ModuleThickness.Plate*2);
+        }
+
+        private double MF13()
+        {
+            double result = 0;
+            switch (BackWall)
+            {
+                case "1":
+                    result = _dimentions.Depth - 5;
+                    break;
+                case "2":
+                    result = _dimentions.Depth - (5 + ModuleThickness.DVP);
+                    break;
+                case "3":
+                    result = _dimentions.Depth - (5 + 20);
+                    break;
+                case "4":
+                    result = _dimentions.Depth - (5 + ModuleThickness.Plate);
+                    break;
+            }
+            return result;
+        }
+
+        private string MF14()
+        {
+            return _shelfForRazdel;
+        }
+
+        private string MF15()
+        {
+            return "";
+        }
+
+        private double MF16()
+        {
+            return _dimentions.Width - ((ModuleThickness.Plate*2) + 2 + (ModuleThickness.LRP*2));
+        }
+
+        private double MF17()
+        {
+            return MF13();
+        }
+
+        private string MF18()
+        {
+            return _shelfMinusTwoMm;
+        }
+
+        private string MF19()
+        {
+            return "";
+        }
+
+        private double MF41()
+        {
+            double result=0;
+            switch (BackWall)
+            {
+                case "1":
+                    result = _dimentions.Lenght - 2;
+                    break;
+                case "2":
+                    result = _dimentions.Lenght - 10;
+                    break;
+                case "3":
+                    result = _dimentions.Lenght - 8;
+                    break;
+                case "4":
+                    result = _dimentions.Lenght - (ModuleThickness.Plate*2);
+                    break;
+            }
+            return result;
+
+        }
+
+        private double MF42()
+        {
+            double result = 0;
+            switch (BackWall)
+            {
+                case "1":
+                    result = _dimentions.Width - 2;
+                    break;
+                case "2":
+                    result = _dimentions.Width - 10;
+                    break;
+                case "3":
+                    result = _dimentions.Width - 8;
+                    break;
+                case "4":
+                    result = _dimentions.Width - (ModuleThickness.Plate * 2);
+                    break;
+            }
+            return result;
+        }
+
+        private string MF43()
+        {
+            return "";
+        }
+
+        private double MF32()
+        {
+            return _dimentions.Width - (ModuleThickness.Plate*2 + 3);
+        }
+
+        private double MF33()
+        {
+            return MF13();
+        }
+
+        private string MF34()
+        {
+            return _shelfGlass;
+        }
+
+        #endregion
+
+        #region Calculation dop formules 
+
+        public string DF1()
+        {
+            string result = string.Empty;
+            switch (ModuleThickness.F.ToString())
+            {
+                case "0":
+                    result="";
+                    break;
+                case "0.4":
+                    result= "I";
+                    break;
+                case "2":
+                    result= "V";
+                    break;
+            }
+            return result;
+        }
+
+        public string DF2()
+        {
+            string result = string.Empty;
+            switch (ModuleThickness.B.ToString())
+            {
+                case "0":
+                    result="";
+                    break;
+                case "0.4":
+                    result= "I";
+                    break;
+                case "2":
+                    result= "V";
+                    break;
+            }
+            return result;
+        }
+
+        public string DF3()
+        {
+            string result = string.Empty;
+            switch (ModuleThickness.H.ToString())
+            {
+                case "0":
+                    result = "";
+                    break;
+                case "0.4":
+                    result = "I";
+                    break;
+                case "2":
+                    result = "V";
+                    break;
+            }
+            return result;
+        }
+
+        public string DF4()
+        {
+            string result = string.Empty;
+            switch (ModuleThickness.D.ToString())
+            {
+                case "0":
+                    result = "";
+                    break;
+                case "0.4":
+                    result = "I";
+                    break;
+                case "2":
+                    result = "V";
+                    break;
+            }
+            return result;
+        }
+
+        public string DF5()
+        {
+            return DF1();
+        }
+
+        public string DF6()
+        {
+            return DF2();
+        }
+
+        public string DF7()
+        {
+            return "";
+        }
+
+        public string DF8()
+        {
+            return "";
+        }
+
+        public string DF9()
+        {
+            string result = string.Empty;
+            switch (ModuleThickness.FP.ToString())
+            {
+                case "0":
+                    result = "";
+                    break;
+                case "0.4":
+                    result = "I";
+                    break;
+                case "2":
+                    result = "V";
+                    break;
+            }
+            return result;
+        }
+
+        public string DF10()
+        {
+            string result = string.Empty;
+            switch (ModuleThickness.BP.ToString())
+            {
+                case "0":
+                    result = "";
+                    break;
+                case "0.4":
+                    result = "I";
+                    break;
+                case "2":
+                    result = "V";
+                    break;
+            }
+            return result;
+        }
+
+        public string DF11()
+        {
+            return "";
+        }
+
+        public string DF12()
+        {
+            return "";
+        }
+
+        public string DF13()
+        {
+            return DF9();
+        }
+
+        public string DF14()
+        {
+            return DF10();
+        }
+
+        public string DF15()
+        {
+            string result = string.Empty;
+            switch (ModuleThickness.LRP.ToString())
+            {
+                case "0":
+                    result = "";
+                    break;
+                case "0.4":
+                    result = "I";
+                    break;
+                case "2":
+                    result = "V";
+                    break;
+            }
+            return result;
+        }
+
+        public string DF16()
+        {
+            string result = string.Empty;
+            switch (ModuleThickness.LRP.ToString())
+            {
+                case "0":
+                    result = "";
+                    break;
+                case "0.4":
+                    result = "I";
+                    break;
+                case "2":
+                    result = "V";
+                    break;
+            }
+            return result;
+        }
+
+        public string DF17()
+        {
+            return DF9();
+        }
+
+        public string DF18()
+        {
+            return DF10();
+        }
+
+        public string DF19()
+        {
+            return DF11();
+        }
+
+        public string DF20()
+        {
+            return DF12();
+        }
+
+        public string DF21()
+        {
+            string result = string.Empty;
+
+            if (_facade._records[0].Type == "other" || (int)ModuleThickness.FF == 0)
+            {
+                result = "";
+            }
+
+            if (_facade._records[0].Type =="" && ModuleThickness.FF==0.4)
+            {
+                result = "I";
+            }
+
+            if (_facade._records[0].Type == "" && ModuleThickness.FF == 0.4)
+            {
+                result = "V";
+            }
+
+            return result;
+        }
+
+
+        #endregion
+
     }
 }

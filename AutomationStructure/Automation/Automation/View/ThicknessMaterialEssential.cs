@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Automation.Model;
 
 namespace Automation.View
 {
@@ -67,10 +68,24 @@ namespace Automation.View
         private void button1_Click(object sender, EventArgs e)
         {
             string thicknessResult = GetResult();
+            SetupModuleThickness();
             _form.UpdateThicknessColumn(thicknessResult);
             Close();
+        }
 
+        private void SetupModuleThickness()
+        {
+            ModuleThickness.F = ModuleThickness.InputConverter(dataGridView1.Rows[0].Cells[2].Value.ToString());
+            ModuleThickness.H = ModuleThickness.InputConverter(dataGridView1.Rows[1].Cells[2].Value.ToString());
+            ModuleThickness.D = ModuleThickness.InputConverter(dataGridView1.Rows[2].Cells[2].Value.ToString());
+            ModuleThickness.LR = ModuleThickness.InputConverter(dataGridView1.Rows[3].Cells[2].Value.ToString());
+            ModuleThickness.B = ModuleThickness.InputConverter(dataGridView1.Rows[4].Cells[2].Value.ToString());
 
+            ModuleThickness.FP = ModuleThickness.InputConverter(dataGridView2.Rows[0].Cells[2].Value.ToString());
+            ModuleThickness.LRP = ModuleThickness.InputConverter(dataGridView2.Rows[1].Cells[2].Value.ToString());
+            ModuleThickness.BP = ModuleThickness.InputConverter(dataGridView2.Rows[2].Cells[2].Value.ToString());
+
+            ModuleThickness.FF = ModuleThickness.InputConverter(dataGridView3.Rows[0].Cells[2].Value.ToString());
         }
 
         private string GetResult()
@@ -122,6 +137,11 @@ namespace Automation.View
                 var columnCell = (DataGridViewComboBoxCell)row.Cells[2];
                 columnCell.Value = columnCell.Items[index];
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

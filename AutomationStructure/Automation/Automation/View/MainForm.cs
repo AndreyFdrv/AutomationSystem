@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Automation.Model;
 using Automation.View.Helps;
 using Automation.View.Model;
 using Telerik.WinControls;
@@ -14,9 +15,7 @@ namespace Automation.View
         public Presenter _presenter;
         public MainForm()
         {
-
             InitializeComponent();
-            //adding theme
             ThemeResolutionService.ApplicationThemeName = "Office2010Silver";
             InitCustomerTable();
         }
@@ -25,15 +24,12 @@ namespace Automation.View
         {
             new About().Show();
         }
-
-
-
+        
         private void InitCustomerTable()
         {
             CustomerTable.InitCustomerTable(customerDGV);
             customerDGV.EditingControlShowing += customerDGV_EditingControlShowing;
         }
-
 
         public void UpdateThicknessColumn(string thicknessExt)
         {
@@ -49,7 +45,6 @@ namespace Automation.View
         {
             label3.Text = customerRecord;
         }
-
 
         private void openProjectMI_Click(object sender, EventArgs e)
         {
@@ -80,15 +75,12 @@ namespace Automation.View
             _presenter.SaveProject(pathToFile);
             MessageBox.Show("Проект сохранён.");
         }
-
- 
-
+        
         private void close_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-
+        
         private void kitchenUpModules_Click(object sender, EventArgs e)
         {
             panelCustomer.Height = 55;
@@ -105,7 +97,6 @@ namespace Automation.View
             ModulesTable.AddProductRowDgv(productsDgv, "Кухня нижние модули");
             _presenter.AddNewProduct("Кухня нижние модули");
         }
-
 
         private void turn_Click(object sender, EventArgs e)
         {
@@ -126,6 +117,17 @@ namespace Automation.View
         {
             List<string[]> customerRecord = CustomerTable.GetData(customerDGV,hideThicknessExt);
             _presenter.SetCustomer(customerRecord);
+            SetMoluleThickness();
+
+        }
+
+        private void SetMoluleThickness()
+        {
+            var thickness = customerDGV.Rows[1].Cells[2].Value;
+            if (thickness!=null && thickness.ToString()!="персонально")
+            {
+                ModuleThickness.SetAllSameValues(thickness.ToString());
+            }
         }
 
         private void customerDGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -147,8 +149,6 @@ namespace Automation.View
             }
         }
 
-
-
         private void ShowThicknessForm()
         {
             Form thicknessForm = Application.OpenForms["ThicknessMaterialEssential"];
@@ -162,9 +162,6 @@ namespace Automation.View
                 thicknessForm.Focus();
             }
         }
-
-
-
 
         private void customerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -190,8 +187,7 @@ namespace Automation.View
                
             }
         }
-
-
+        
         private void ShowCustomerHelpForm(string title, string imageName, string textName)
         {
             Form customerHelpForm = Application.OpenForms["Helper"];
