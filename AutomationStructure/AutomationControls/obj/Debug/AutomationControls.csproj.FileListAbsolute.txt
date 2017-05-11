@@ -13,3 +13,4 @@ C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControl
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\obj\Debug\AutomationControls.dll
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\obj\Debug\AutomationControls.pdb
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\obj\Debug\AutomationControls.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\obj\Debug\AutomationControls.ModuleReport.resources

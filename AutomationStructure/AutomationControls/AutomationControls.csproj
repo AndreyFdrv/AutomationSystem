@@ -53,12 +53,21 @@
     <Compile Include="ModuleInfo.Designer.cs">
       <DependentUpon>ModuleInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModuleReport.Designer.cs">
+      <DependentUpon>ModuleReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ModuleInfo.resx">
       <DependentUpon>ModuleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleReport.resx">
+      <DependentUpon>ModuleReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

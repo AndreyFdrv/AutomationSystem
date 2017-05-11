@@ -34,10 +34,13 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.radPageViewPage2 = new Telerik.WinControls.UI.RadPageViewPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.radPageViewPage3 = new Telerik.WinControls.UI.RadPageViewPage();
+            this.reportModule = new AutomationControls.ModuleReport();
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).BeginInit();
             this.radPageView1.SuspendLayout();
             this.radPageViewPage1.SuspendLayout();
             this.radPageViewPage2.SuspendLayout();
+            this.radPageViewPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,11 +48,12 @@
             // 
             this.radPageView1.Controls.Add(this.radPageViewPage1);
             this.radPageView1.Controls.Add(this.radPageViewPage2);
+            this.radPageView1.Controls.Add(this.radPageViewPage3);
             this.radPageView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPageView1.Location = new System.Drawing.Point(0, 0);
             this.radPageView1.Name = "radPageView1";
-            this.radPageView1.SelectedPage = this.radPageViewPage1;
-            this.radPageView1.Size = new System.Drawing.Size(1108, 747);
+            this.radPageView1.SelectedPage = this.radPageViewPage3;
+            this.radPageView1.Size = new System.Drawing.Size(1107, 817);
             this.radPageView1.TabIndex = 0;
             this.radPageView1.Text = "radPageView1";
             // 
@@ -60,7 +64,7 @@
             this.radPageViewPage1.ItemSize = new System.Drawing.SizeF(134F, 28F);
             this.radPageViewPage1.Location = new System.Drawing.Point(10, 37);
             this.radPageViewPage1.Name = "radPageViewPage1";
-            this.radPageViewPage1.Size = new System.Drawing.Size(1087, 699);
+            this.radPageViewPage1.Size = new System.Drawing.Size(1086, 769);
             this.radPageViewPage1.Text = "Кухня верхние модули";
             this.radPageViewPage1.Title = "KITCHEN_UP";
             // 
@@ -71,7 +75,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1087, 699);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1086, 769);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // radPageViewPage2
@@ -95,11 +99,28 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1087, 699);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // radPageViewPage3
+            // 
+            this.radPageViewPage3.Controls.Add(this.reportModule);
+            this.radPageViewPage3.ItemSize = new System.Drawing.SizeF(112F, 28F);
+            this.radPageViewPage3.Location = new System.Drawing.Point(10, 37);
+            this.radPageViewPage3.Name = "radPageViewPage3";
+            this.radPageViewPage3.Size = new System.Drawing.Size(1086, 769);
+            this.radPageViewPage3.Text = "Отчёт по модулям";
+            // 
+            // reportModule
+            // 
+            this.reportModule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportModule.Location = new System.Drawing.Point(0, 0);
+            this.reportModule.Name = "reportModule";
+            this.reportModule.Size = new System.Drawing.Size(1086, 769);
+            this.reportModule.TabIndex = 0;
+            // 
             // Results
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 747);
+            this.ClientSize = new System.Drawing.Size(1107, 817);
             this.Controls.Add(this.radPageView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Results";
@@ -113,6 +134,7 @@
             this.radPageView1.ResumeLayout(false);
             this.radPageViewPage1.ResumeLayout(false);
             this.radPageViewPage2.ResumeLayout(false);
+            this.radPageViewPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -125,5 +147,7 @@
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPage1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Telerik.WinControls.UI.RadPageViewPage radPageViewPage3;
+        private AutomationControls.ModuleReport reportModule;
     }
 }

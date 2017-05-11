@@ -1,0 +1,4 @@
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\bin\Release\Automation.Model.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\bin\Release\Automation.Model.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\obj\Release\Automation.Model.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\obj\Release\Automation.Model.pdb

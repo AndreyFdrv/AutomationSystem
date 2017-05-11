@@ -55,14 +55,13 @@
     <Compile Include="View\Helps\Helper.Designer.cs">
       <DependentUpon>Helper.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ModuleViewGenerator\BigModuleImageInfo.cs">
+    <Compile Include="View\BigModuleImageInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ModuleViewGenerator\BigModuleImageInfo.Designer.cs">
+    <Compile Include="View\BigModuleImageInfo.Designer.cs">
       <DependentUpon>BigModuleImageInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ModuleViewGenerator\KitchenUpView.cs" />
-    <Compile Include="View\ModuleViewGenerator\KitchenUpViewDifinition.cs" />
     <Compile Include="View\ModuleViewGenerator\ViewGenerator.cs" />
     <Compile Include="View\Results.cs">
       <SubType>Form</SubType>
@@ -122,7 +121,7 @@
     <EmbeddedResource Include="View\Helps\Helper.resx">
       <DependentUpon>Helper.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ModuleViewGenerator\BigModuleImageInfo.resx">
+    <EmbeddedResource Include="View\BigModuleImageInfo.resx">
       <DependentUpon>BigModuleImageInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Results.resx">

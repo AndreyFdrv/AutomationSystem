@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,36 +37,6 @@ namespace Automation.Model.Modules.KitchenUpModule
 
         private string _bigImage;
 
-        public KitchenUpCalculator(string name,
-            string sсheme,
-            string backWall, 
-            string number, 
-            string subScheme, 
-            string iconPath,
-            Dimensions _dimentions,
-            Facade _facade,
-            string _shelfPo,
-            string _shelfMinusTwoMm,
-            string _shelfForRazdel,
-            string _shelfGlass)
-        {
-            Name = name;
-            Sсheme = sсheme;
-            BackWall = backWall;
-            Number = number;
-            SubScheme = subScheme;
-            IconPath = iconPath;
-            this._dimentions = _dimentions;
-            this._facade = _facade;
-            this._shelfPo = _shelfPo;
-            this._shelfMinusTwoMm = _shelfMinusTwoMm;
-            this._shelfForRazdel = _shelfForRazdel;
-            this._shelfGlass = _shelfGlass;
-        }
-
-        public KitchenUpCalculator()
-        {
-        }
 
         public string GetModuleName()
         {
@@ -78,10 +49,18 @@ namespace Automation.Model.Modules.KitchenUpModule
             dimensionsInfo.Columns.Add("Высота H");
             dimensionsInfo.Columns.Add("Ширина W");
             dimensionsInfo.Columns.Add("Глубина T");
+            dimensionsInfo.Columns.Add("А");
+            dimensionsInfo.Columns.Add("B");
+            dimensionsInfo.Columns.Add("C");
+            dimensionsInfo.Columns.Add("D");
             DataRow row = dimensionsInfo.NewRow();
             row[0] = _dimentions.Lenght;
             row[1] = _dimentions.Width;
             row[2] = _dimentions.Depth;
+            row[3] = _dimentions.A;
+            row[4] = _dimentions.B;
+            row[5] = _dimentions.C;
+            row[6] = _dimentions.D;
             dimensionsInfo.Rows.Add(row);
 
             return dimensionsInfo;
@@ -99,13 +78,13 @@ namespace Automation.Model.Modules.KitchenUpModule
             SetDetailsInfoColumns(detailsInfo);
 
             detailsInfo.Rows.Add("1","Бока",MF4(),DF1()+"|"+DF2(),MF5(), DF3() + "|" + DF4(), MF6(),MF7());
-            detailsInfo.Rows.Add("2", "Верх-низ", MF8(), DF5() + "|" + DF6(), MF9(), DF7() + "|" + DF8(), MF10(), MF11());
+            detailsInfo.Rows.Add("2", "Верх-низ", MF8(), DF5() + "|" + DF6(), MF9(), DF7()+ "|" + DF8(), MF10(), MF11());
             detailsInfo.Rows.Add("3 Полки", "Не съёмные", MF12(), DF9() + "|" + DF10(), MF13(), DF11() + "|" + DF12(), MF14(), MF15());
             detailsInfo.Rows.Add("", "Съёмные (-2мм)", MF16(), DF13() + "|" + DF14(), MF17(), DF15() + "|" + DF16(), MF18(), MF19());
             detailsInfo.Rows.Add("4", "Разделитель секции","20" , DF17() + "|" + DF18(), "21", DF19() + "|" + DF20(), "22", "23");
             detailsInfo.Rows.Add("5", "Задняя стенка", MF41(),"" , MF42(), "", MF43(), "44");
 
-            detailsInfo.Rows.Add("Ф1", "Фасад 1", "24", DF21() , "25", DF21(), "", "");
+            detailsInfo.Rows.Add("Ф1", "Фасад 1", MF24(), DF21() ,MF25(), DF21(), "", "");
             detailsInfo.Rows.Add("Ф2", "Фасад 2", "26", "", "27", "", "", "");
             detailsInfo.Rows.Add("Ф3", "Фасад 3", "28", "", "29", "", "", "");
             detailsInfo.Rows.Add("Ф4", "Фасад 4", "30", "", "31", "", "", "");
@@ -166,7 +145,7 @@ namespace Automation.Model.Modules.KitchenUpModule
             furnitureInfo.Columns.Add("Обычные навесные");
             furnitureInfo.Columns.Add("Регулируемые навесные");
             furnitureInfo.Columns.Add("Газлифты");
-            furnitureInfo.Rows.Add("35", "36", "37", "38", "39", "40", "45", "46");
+            furnitureInfo.Rows.Add("35", "36", "37", "38", "39", "40", MF45(), "46");
 
             return furnitureInfo;
         }
@@ -225,6 +204,8 @@ namespace Automation.Model.Modules.KitchenUpModule
                     result = _dimentions.Depth - (ModuleThickness.F + ModuleThickness.DVP + ModuleThickness.B);
                     break;
                 case "Четверть":
+                case "ПАЗ":
+                case "ЛДСП":
                     result = _dimentions.Depth - (ModuleThickness.F + ModuleThickness.B);
                     break;
             }
@@ -375,177 +356,265 @@ namespace Automation.Model.Modules.KitchenUpModule
             return "";
         }
 
-        private double MF32()
+        private string MF32()
         {
-            return _dimentions.Width - (ModuleThickness.Plate*2 + 3);
+            _shelfGlass= _shelfGlass ?? "0";
+            return int.Parse(_shelfGlass) > 0 ? MF16().ToString() : "";
         }
 
-        private double MF33()
+        private string MF33()
         {
-            return MF13();
+            return int.Parse(_shelfGlass) > 0 ? MF17().ToString() : "";
         }
 
         private string MF34()
         {
-            return _shelfGlass;
+            return int.Parse(_shelfGlass) > 0 ? _shelfGlass : "";
         }
+
+        private double MF24()
+        {
+            var moduleForm = 1;
+            double result = 0;
+            if (moduleForm == 1)
+            {
+                switch (_facade._records[0].Material)
+                {
+                    case "Верт.":
+                        result =_dimentions.Lenght - 4;
+                        break;
+                    case "Гориз.":
+                        result =  _dimentions.Width - 4;
+                        break;
+                    case "нет":
+                        result = _dimentions.Lenght - 4;
+                        break;
+                }
+            }
+            else if(moduleForm ==2)
+            {
+                switch (_facade._records[0].Material)
+                {
+                    case "Верт.":
+                        result = _dimentions.Lenght -_dimentions.A - 4;
+                        break;
+                    case "Гориз.":
+                        result = _dimentions.Width - 4;
+                        break;
+                    case "нет":
+                        result = _dimentions.Lenght - _dimentions.A - 4;
+                        break;
+                }
+            }
+            else if (moduleForm == 3)
+            {
+                switch (_facade._records[0].Material)
+                {
+                    case "Верт.":
+                        result = _dimentions.Lenght - _dimentions.A - 4;
+                        break;
+                    case "Гориз.":
+                        result = _dimentions.Width - 4;
+                        break;
+                    case "нет":
+                        result = _dimentions.Lenght - _dimentions.A - 4;
+                        break;
+                }
+            }
+            return result;
+
+        }
+
+        private double MF25()
+        {
+            var moduleForm = 1;
+            double result = 0;
+            if (moduleForm == 1)
+            {
+                switch (_facade._records[0].Material)
+                {
+                    case "Верт.":
+                        result = _dimentions.Width - 4;
+                        break;
+                    case "Гориз.":
+                        result = _dimentions.Lenght - 4;
+                        break;
+                    case "нет":
+                        result = _dimentions.Width - 4;
+                        break;
+                }
+            }
+            else if (moduleForm == 2)
+            {
+                switch (_facade._records[0].Material)
+                {
+                    case "Верт.":
+                        result = _dimentions.Width  - 4;
+                        break;
+                    case "Гориз.":
+                        result = _dimentions.Lenght-_dimentions.A - 4;
+                        break;
+                    case "нет":
+                        result = _dimentions.Width - 4;
+                        break;
+                }
+            }
+            else if (moduleForm == 3)
+            {
+                switch (_facade._records[0].Material)
+                {
+                    case "Верт.":
+                        result = _dimentions.Width - 4;
+                        break;
+                    case "Гориз.":
+                        result = _dimentions.Lenght - _dimentions.A - 4;
+                        break;
+                    case "нет":
+                        result = _dimentions.Width - 4;
+                        break;
+                }
+            }
+            return result;
+        }
+
+        public string MF45()
+        {
+            var moduleForm = 1;
+            string result = "";
+            if (moduleForm == 1)
+            {
+                switch (_facade._records[0].Material)
+                {
+                    case "Верт.":
+                        result = "фактура ЛДСП вертик.";
+                        break;
+                    case "Гориз.":
+                        result = "фактура ЛДСП гориз.";
+                        break;
+                    case "нет":
+                        result = "на заказ";
+                        break;
+                }
+            }
+            else if (moduleForm == 2)
+            {
+                switch (_facade._records[0].Material)
+                {
+                    case "Верт.":
+                        result = "фактура ЛДСП вертик.";
+                        break;
+                    case "Гориз.":
+                        result = "фактура ЛДСП гориз.";
+                        break;
+                    case "нет":
+                        result = "на заказ";
+                        break;
+                }
+            }
+            else if (moduleForm == 3)
+            {
+                switch (_facade._records[0].Material)
+                {
+                    case "Верт.":
+                        result = "фактура ЛДСП вертик.";
+                        break;
+                    case "Гориз.":
+                        result = "фактура ЛДСП гориз.";
+                        break;
+                    case "нет":
+                        result = "на заказ";
+                        break;
+                }
+            }
+            return result;
+        }
+
 
         #endregion
 
         #region Calculation dop formules 
 
-        public string DF1()
+        private string DF1()
         {
-            string result = string.Empty;
-            switch (ModuleThickness.F.ToString())
-            {
-                case "0":
-                    result="";
-                    break;
-                case "0.4":
-                    result= "I";
-                    break;
-                case "2":
-                    result= "V";
-                    break;
-            }
-            return result;
+            return GetKromkaThickness(ModuleThickness.F);
         }
 
-        public string DF2()
+        private string DF2()
         {
-            string result = string.Empty;
-            switch (ModuleThickness.B.ToString())
-            {
-                case "0":
-                    result="";
-                    break;
-                case "0.4":
-                    result= "I";
-                    break;
-                case "2":
-                    result= "V";
-                    break;
-            }
-            return result;
+            return GetKromkaThickness(ModuleThickness.B);
         }
 
-        public string DF3()
+        private string DF3()
         {
-            string result = string.Empty;
-            switch (ModuleThickness.H.ToString())
-            {
-                case "0":
-                    result = "";
-                    break;
-                case "0.4":
-                    result = "I";
-                    break;
-                case "2":
-                    result = "V";
-                    break;
-            }
-            return result;
+            return GetKromkaThickness(ModuleThickness.H);
         }
 
-        public string DF4()
+        private string DF4()
         {
-            string result = string.Empty;
-            switch (ModuleThickness.D.ToString())
-            {
-                case "0":
-                    result = "";
-                    break;
-                case "0.4":
-                    result = "I";
-                    break;
-                case "2":
-                    result = "V";
-                    break;
-            }
-            return result;
+            return GetKromkaThickness(ModuleThickness.D);
+
         }
 
-        public string DF5()
+        private string DF5()
         {
             return DF1();
         }
 
-        public string DF6()
+        private string DF6()
         {
             return DF2();
         }
 
-        public string DF7()
+        private string DF7()
         {
             return "";
         }
 
-        public string DF8()
+        private string DF8()
         {
             return "";
         }
 
-        public string DF9()
+        private string DF9()
         {
-            string result = string.Empty;
-            switch (ModuleThickness.FP.ToString())
-            {
-                case "0":
-                    result = "";
-                    break;
-                case "0.4":
-                    result = "I";
-                    break;
-                case "2":
-                    result = "V";
-                    break;
-            }
-            return result;
+            return GetKromkaThickness(ModuleThickness.FP);
+
         }
 
-        public string DF10()
+        private string DF10()
         {
-            string result = string.Empty;
-            switch (ModuleThickness.BP.ToString())
-            {
-                case "0":
-                    result = "";
-                    break;
-                case "0.4":
-                    result = "I";
-                    break;
-                case "2":
-                    result = "V";
-                    break;
-            }
-            return result;
+            return GetKromkaThickness(ModuleThickness.BP);
         }
 
-        public string DF11()
+        private string DF11()
         {
             return "";
         }
 
-        public string DF12()
+        private string DF12()
         {
             return "";
         }
 
-        public string DF13()
+        private string DF13()
         {
             return DF9();
         }
 
-        public string DF14()
+        private string DF14()
         {
             return DF10();
         }
 
-        public string DF15()
+        private string DF15()
+        {
+            return GetKromkaThickness(ModuleThickness.LRP);
+        }
+
+        private string GetKromkaThickness(double par)
         {
             string result = string.Empty;
-            switch (ModuleThickness.LRP.ToString())
+            switch (par.ToString())
             {
                 case "0":
                     result = "";
@@ -560,59 +629,46 @@ namespace Automation.Model.Modules.KitchenUpModule
             return result;
         }
 
-        public string DF16()
+        private string DF16()
         {
-            string result = string.Empty;
-            switch (ModuleThickness.LRP.ToString())
-            {
-                case "0":
-                    result = "";
-                    break;
-                case "0.4":
-                    result = "I";
-                    break;
-                case "2":
-                    result = "V";
-                    break;
-            }
-            return result;
+            return GetKromkaThickness(ModuleThickness.LRP);
         }
 
-        public string DF17()
+        private string DF17()
         {
             return DF9();
         }
 
-        public string DF18()
+        private string DF18()
         {
             return DF10();
         }
 
-        public string DF19()
+        private string DF19()
         {
             return DF11();
         }
 
-        public string DF20()
+        private string DF20()
         {
             return DF12();
         }
 
-        public string DF21()
+        private string DF21()
         {
             string result = string.Empty;
 
-            if (_facade._records[0].Type == "Другой" || (int)ModuleThickness.FF == 0)
+            if (_facade._records[0].Type == "нет" || (int)ModuleThickness.FF == 0)
             {
                 result = "";
             }
 
-            if (_facade._records[0].Type !="Другой" && ModuleThickness.FF==0.4)
+            if (_facade._records[0].Type !="нет" && ModuleThickness.FF==0.4)
             {
                 result = "I";
             }
 
-            if (_facade._records[0].Type != "Другой" && ModuleThickness.FF == 2)
+            if (_facade._records[0].Type != "нет" && ModuleThickness.FF == 2)
             {
                 result = "V";
             }

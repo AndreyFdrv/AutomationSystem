@@ -27,6 +27,7 @@ namespace Automation.Model.Modules.KitchenUpModule
         private string _shelfMinusTwoMm;
         private string _shelfForRazdel;
         private string _shelfGlass;
+        private string _calcMode;
 
 
         public override void SetupModule(DataTable changedInfo)
@@ -52,11 +53,20 @@ namespace Automation.Model.Modules.KitchenUpModule
             _shelfGlass = row["Полка стеклянная (шт)"].ToString();
 
             var formula = IconPath.Split('_')[1];
-            KitchenUpFacadeCalculator calculator = new KitchenUpFacadeCalculator();
-            calculator.CalculateDimentions(_facade, _dimentions, formula);
-
-
             _facade._records[0].NumberOnScheme = int.Parse(row["№ схемы фасада"].ToString());
+            _calcMode = row["Режим расчёта"].ToString();
+
+            if (_calcMode == "Автоматически")
+            {
+                KitchenUpFacadeCalculator calculator = new KitchenUpFacadeCalculator();
+                calculator.CalculateDimentions(_facade, _dimentions, formula);
+            }
+            else
+            {
+                _facade._records[0].HorisontalDimension = double.Parse(row["Горизонтальный размер"].ToString());
+                _facade._records[0].VerticalDimension = double.Parse(row["Вертикальный размер"].ToString());
+            }
+            
             _facade._records[0].Type = row["Тип фасада"].ToString();
             _facade._records[0].Material = row["Материал фасада"].ToString();
 
@@ -89,6 +99,7 @@ namespace Automation.Model.Modules.KitchenUpModule
 
             row["№ схемы фасада"] = _facade._records[0].NumberOnScheme;
             row["Тип фасада"] = _facade._records[0].Type;
+            row["Режим расчёта"] = _calcMode;
             row["Вертикальный размер"] = _facade._records[0].VerticalDimension;
             row["Горизонтальный размер"] = _facade._records[0].HorisontalDimension;
             row["Материал фасада"] = _facade._records[0].Material;
@@ -156,6 +167,7 @@ namespace Automation.Model.Modules.KitchenUpModule
             table.Columns.Add("Полка стеклянная (шт)");
             table.Columns.Add("№ схемы фасада");
             table.Columns.Add("Тип фасада");
+            table.Columns.Add("Режим расчёта");
             table.Columns.Add("Вертикальный размер");
             table.Columns.Add("Горизонтальный размер");
             table.Columns.Add("Материал фасада");
@@ -166,7 +178,7 @@ namespace Automation.Model.Modules.KitchenUpModule
         {
             using (MemoryStream stream = new MemoryStream())
             {
-                if (this.GetType().IsSerializable)
+                if (GetType().IsSerializable)
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
                     formatter.Serialize(stream, this);

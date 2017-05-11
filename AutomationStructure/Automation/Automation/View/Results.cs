@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Windows.Forms;
-using Automation.Model.Modules;
-using Automation.View.ModuleViewGenerator;
+using Automation.Model;
 using AutomationControls;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
@@ -25,6 +18,7 @@ namespace Automation.View
             Presenter = presenter;
             HideAllPages();
             LoadProducts();
+            LoadReport();
         }
 
         private void HideAllPages()
@@ -45,15 +39,15 @@ namespace Automation.View
                 if (products.Contains(page.Title))
                 {
                     LoadModules(page);
-                   // LoadReport(page);
                     page.Item.Visibility = ElementVisibility.Visible;
                 }
             }
         }
 
-        private void LoadReport(RadPageViewPage page)
+        private void LoadReport()
         {
-
+            radPageViewPage3.Visible = Visible;
+           reportModule.BindData(Report.GetLdspInfo(),Report.GetBackWallInfo(),Report.GetFurnitureInfo(),Report.GetFasadeInfo());
         }
 
         private void LoadModules(RadPageViewPage page)

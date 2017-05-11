@@ -2,12 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Net.Mime;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Automation.View.Helps;
 using Telerik.WinControls.UI;
 
 namespace Automation.View.ModuleViewGenerator
@@ -45,10 +40,8 @@ namespace Automation.View.ModuleViewGenerator
             column.DataSource = new List<string>
             {
                 "нет",
-                "Верт (тоже ЛДСП, фактура верт.)",
-                "Гориз (тоже ЛДСП, фактура гориз.)",
-                "Глухой (фасад глухой)",
-                "Стекло (фасад со стеклом)",
+                "Верт.",
+                "Гориз."
             };
             return column;
         }
@@ -88,6 +81,22 @@ namespace Automation.View.ModuleViewGenerator
                     "8",
                     "9",
                     "10",
+                }
+            };
+            return column;
+        }
+
+        private GridViewComboBoxColumn GetCalculationType()
+        {
+            GridViewComboBoxColumn column = new GridViewComboBoxColumn
+            {
+                Name = "Режим расчёта2",
+                HeaderText = @"Режим расчёта",
+                FieldName = @"Режим расчёта",
+                DataSource = new List<string>
+                {
+                    "Автоматически",
+                    "Вручную"
                 }
             };
             return column;
@@ -135,82 +144,30 @@ namespace Automation.View.ModuleViewGenerator
         {
             dgv.Columns.Clear();
             dgv.DataSource = null;
-
             resultTable = table;
-
             dgv.DataSource = table;
-
             dgv.MasterTemplate.AllowAddNewRow = false;
 
             foreach (var row in dgv.Rows)
             {
                 row.Height = 50;
             }
-           // dgv.Rows[0].Height = 40;
 
-          
-
-            //pinned
-            //dgv.Columns[0].IsPinned = true;
-            //dgv.Columns[1].IsPinned = true;
-            //dgv.Columns[2].IsPinned = true;
-            //dgv.Columns[3].IsPinned = true;
-
-            dgv.Columns["Номер модуля"].Width = 100;
-            dgv.Columns["Форма модуля"].Width = 100;
-            
-
-            dgv.Columns["Изображение"].Width = 100;
             dgv.Columns["Изображение"].IsVisible = false;
-
-            dgv.Columns["Высота модуля (мм)"].Width = 100;
-            dgv.Columns["Ширина модуля (мм)"].Width = 100;
-            dgv.Columns["Глубина модуля (мм)"].Width = 100;
-            dgv.Columns["A размер (мм)"].Width = 100;
-            dgv.Columns["B размер (мм)"].Width = 100;
-            dgv.Columns["C размер (мм)"].Width = 100;
-            dgv.Columns["D размер (мм)"].Width = 100;
-            dgv.Columns["Задняя стенка"].Width = 100; //10
             dgv.Columns["Задняя стенка"].IsVisible = false;
-
-            dgv.Columns["Полка по ширине секции (шт)"].Width = 100;
             dgv.Columns["Полка по ширине секции (шт)"].IsVisible = false;
-
-            dgv.Columns["Полка - 2мм (шт)"].Width = 100;
             dgv.Columns["Полка - 2мм (шт)"].IsVisible = false;
-
-            dgv.Columns["Полка разделительная (шт)"].Width = 100;
-            dgv.Columns["Полка стеклянная (шт)"].Width = 100;
-            dgv.Columns["№ схемы фасада"].Width = 100;
-
-            dgv.Columns["Тип фасада"].Width = 100;
             dgv.Columns["Тип фасада"].IsVisible = false;
-
-            dgv.Columns["Горизонтальный размер"].Width = 100;
-            dgv.Columns["Вертикальный размер"].Width = 100;
-
-            dgv.Columns["Материал фасада"].Width = 100; //18
             dgv.Columns["Материал фасада"].IsVisible = false;
+            dgv.Columns["Режим расчёта"].IsVisible = false;
 
-
-
-            var backwall = GetBackWallColumns();
-            dgv.Columns.Insert(10,backwall);
-
-            var facadeMaterial = GetFacadeMaterial();
-            dgv.Columns.Insert(20,facadeMaterial);
-
-            var facadeType = GetFacadeType();
-            dgv.Columns.Insert(16,facadeType);
-
-            var shelfPo = GetShelfPO();
-            dgv.Columns.Insert(11,shelfPo);
-
-            var shelfMin = GetShelfMinus2MM();
-            dgv.Columns.Insert(12,shelfMin);
-
-            var iconCol = GetIcon();
-            dgv.Columns.Insert(3,iconCol);
+            dgv.Columns.Insert(10, GetBackWallColumns());
+            dgv.Columns.Insert(20, GetFacadeMaterial());
+            dgv.Columns.Insert(16, GetFacadeType());
+            dgv.Columns.Insert(17,GetCalculationType());
+            dgv.Columns.Insert(11, GetShelfPO());
+            dgv.Columns.Insert(12, GetShelfMinus2MM());
+            dgv.Columns.Insert(3, GetIcon());
 
 
             foreach (var column in dgv.Columns )
@@ -223,26 +180,14 @@ namespace Automation.View.ModuleViewGenerator
             dgv.Columns[1].Width = 90;
             dgv.Columns[2].Width = 90;
             dgv.Columns[3].Width = 90;
-
-        
-
        
             var view = SetColumnGroupsView(dgv);
             dgv.ViewDefinition = view;
-       
-           
 
             dgv.CellFormatting += Dgv_CellFormatting;
-
-     
             dgv.CellClick += Dgv_CellClick;
-
             dgv.CellBeginEdit += Dgv_CellBeginEdit;
 
-            //dgv.Columns[0].IsPinned = true;
-            //dgv.Columns[1].IsPinned = true;
-            //dgv.Columns[2].IsPinned = true;
-            //dgv.Columns[3].IsPinned = true;
 
             dgv.Refresh();
 
@@ -329,6 +274,7 @@ namespace Automation.View.ModuleViewGenerator
             view.ColumnGroups[9].Rows.Add(new GridViewColumnGroupRow());
             view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["№ схемы фасада"]);
             view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Тип фасада2"]);
+            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Режим расчёта2"]);
             view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Горизонтальный размер"]);
             view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Вертикальный размер"]);
             view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Материал фасада2"]);

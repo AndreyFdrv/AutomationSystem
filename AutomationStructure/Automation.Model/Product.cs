@@ -62,7 +62,6 @@ namespace Automation.Model
             }
             return module;
         }
-
         
 
         public void DeleteModule(string moduleName)
@@ -94,7 +93,6 @@ namespace Automation.Model
             }
             return type;
         }
-
       
         public DataTable GetTotalDetailInfo()
         {
@@ -110,14 +108,6 @@ namespace Automation.Model
             return emptyTable;
 
 
-        }
-
-        public DataTable GetModuleDetailInfoByName(string moduleName)
-        {
-
-            var module = _modules.First(x => x.Name == moduleName);
-            DataTable table = module.GetInfoTable();
-            return table;
         }
 
         public DataTable GetModuleDetailInfoByNumber(string moduleNumber)
