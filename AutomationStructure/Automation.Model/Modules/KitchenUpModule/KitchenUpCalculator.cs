@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Data;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,18 +142,147 @@ namespace Automation.Model.Modules.KitchenUpModule
             furnitureInfo.Columns.Add("Петли");
             furnitureInfo.Columns.Add("Конфирмат");
             furnitureInfo.Columns.Add("Эксцентрик");
-            furnitureInfo.Columns.Add("Полко держатель");
+            furnitureInfo.Columns.Add("Полко держатели");
+            furnitureInfo.Columns.Add("Полко держатели для стеклянных полок");
             furnitureInfo.Columns.Add("Ручки");
             furnitureInfo.Columns.Add("Обычные навесные");
             furnitureInfo.Columns.Add("Регулируемые навесные");
             furnitureInfo.Columns.Add("Газлифты");
-            furnitureInfo.Rows.Add("35", "36", "37", "38", "39", "40", MF45(), "46");
+            furnitureInfo.Rows.Add("Кол-во",MF35(), MF36(), MF37(), MF38_1(),MF38_2(), MF39(), MF40(), F45(),"?");
 
             return furnitureInfo;
         }
 
+
+        private int MF35()
+        {
+            var fasadeHeight = (int) _dimentions.Lenght;
+            if (fasadeHeight>0 && fasadeHeight<800)
+            {
+                return 2;
+            }
+
+            if(fasadeHeight>=800 && fasadeHeight<1200)
+            {
+                return 3;
+            }
+
+            if (fasadeHeight>=1200 && fasadeHeight<1500)
+            {
+                return 4;
+            }
+
+            if (fasadeHeight>=1500 && fasadeHeight<=2400)
+            {
+                return 5;
+            }
+            return 0;
+        }
+
+        private int MF36()
+        {
+            //"не разъёмная (конф.)",
+            //    "разъёмная (эксцентр.)",
+            if (moduleAssembly == "разъёмная (эксцентр.)")
+            {
+                return 0;
+            }
+
+            if (moduleAssembly == "не разъёмная (конф.)" && moduleForm = 0)
+            {
+                return 8 + (int.Parse(_shelfForRazdel) * 4);
+            }
+
+            if (moduleAssembly == "не разъёмная (конф.)" && (moduleForm = 1||moduleForm=2) )
+            {
+                return 8 + (int.Parse(_shelfForRazdel)*4) + 4;
+            }
+
+            return 0;
+
+        }
+
+        private int MF37()
+        {
+            if (moduleAssembly == "не разъёмная (конф.)")
+            {
+                return 0;
+            }
+
+            if (moduleAssembly == "разъёмная (эксцентр.)" && moduleForm = 0)
+            {
+                return 8 + (int.Parse(_shelfForRazdel) * 4);
+            }
+
+            if (moduleAssembly == "разъёмная (эксцентр.)" && (moduleForm = 1 || moduleForm = 2))
+            {
+                return 8 + (int.Parse(_shelfForRazdel) * 4) + 4;
+            }
+
+            return 0;
+
+        }
+
+        private int MF38_1()
+        {
+            return int.Parse(_shelfMinusTwoMm)*4;
+        }
+
+        private int MF38_2()
+        {
+            return int.Parse(_shelfGlass)*4;
+        }
+
+        private int MF39()
+        {
+            switch (moduleForm)
+            {
+                case 0:
+                case 1:
+                case 2:
+                    return 1;
+                   
+            }
+            return 0;
+        }
+
+        private int MF40()
+        {
+            switch (BackWall)
+            {
+                case "ГВ":
+                    return 2;
+                case "Четверть":
+                    return 2;
+                case "ПАЗ":
+                    return 0;
+                case "ЛДСП":
+                    return 2;
+            }
+            return 0;
+        }
+
+        private int F45()
+        {
+            switch (BackWall)
+            {
+                case "ГВ":
+                    return 0;
+                case "Четверть":
+                    return 0;
+                case "ПАЗ":
+                    return 2;
+                case "ЛДСП":
+                    return 0;
+            }
+            return 0;
+        }
+
         public DataTable GetShelfInfo()
         {
+            var plateE = int.Parse(_shelfGlass) > 0 ? 5 : int.Parse(_shelfForRazdel);
+
+
             DataTable shelfInfo = new DataTable();
             shelfInfo.Columns.Add("Полки");
             shelfInfo.Columns.Add("1");
@@ -167,6 +298,12 @@ namespace Automation.Model.Modules.KitchenUpModule
             shelfInfo.Rows.Add("L", "", "", "", "", "", "", "", "" );
             shelfInfo.Rows.Add("M", "", "", "", "", "", "", "", "" );
 
+            //вычисление на месте
+            //TODO: дописать метод вычисления 
+            List<double> Kitems = new List<double>();
+            List<double> Litems = new List<double>();
+            List<double> Mitems = new List<double>();
+
             return shelfInfo;
 
 
@@ -180,11 +317,40 @@ namespace Automation.Model.Modules.KitchenUpModule
             loopsInfo.Columns.Add("2");
             loopsInfo.Columns.Add("3");
             loopsInfo.Columns.Add("4");
-            loopsInfo.Rows.Add("на фасаде", "", "", "", "");
-            loopsInfo.Rows.Add("на модуле", "", "", "", "");
-
-
+            loopsInfo.Rows.Add("на фасаде", L1(), L2(), L3(), "");
+            loopsInfo.Rows.Add("на модуле", ML1(), ML2(), ML3(), "");
             return loopsInfo;
+        }
+
+        private int L1()
+        {
+            return 100;
+        }
+
+        private int ML1()
+        {
+            return 100 + 2;
+        }
+
+        private double L2()
+        {
+            return _dimentions.Lenght - 100;
+        }
+
+        private double ML2()
+        {
+            return _dimentions.Lenght - 100 - 2;
+        }
+
+        private double L3()
+        {
+            return (_dimentions.Lenght - 4)/2;
+
+        }
+
+        private double ML3()
+        {
+            return _dimentions.Lenght/2;
         }
 
         #region Calculation formules

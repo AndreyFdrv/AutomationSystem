@@ -31,6 +31,21 @@ namespace Automation.View.ModuleViewGenerator
           
         }
 
+        private GridViewComboBoxColumn GetModuleAssembly()
+        {
+            GridViewComboBoxColumn column = new GridViewComboBoxColumn();
+            column.Name = "Сборка модуля2";
+            column.HeaderText = "Сборка модуля";
+            column.FieldName = "Сборка модуля";
+            column.DataSource = new List<string>
+            {
+                "не разъёмная (конф.)",
+                "разъёмная (эксцентр.)",
+             
+            };
+            return column;
+        }
+
         private GridViewComboBoxColumn GetFacadeMaterial()
         {
             GridViewComboBoxColumn column = new GridViewComboBoxColumn();
@@ -160,7 +175,9 @@ namespace Automation.View.ModuleViewGenerator
             dgv.Columns["Тип фасада"].IsVisible = false;
             dgv.Columns["Материал фасада"].IsVisible = false;
             dgv.Columns["Режим расчёта"].IsVisible = false;
+            dgv.Columns["Сборка модуля"].IsVisible = false;
 
+            dgv.Columns.Insert(10, GetModuleAssembly());
             dgv.Columns.Insert(10, GetBackWallColumns());
             dgv.Columns.Insert(20, GetFacadeMaterial());
             dgv.Columns.Insert(16, GetFacadeType());
@@ -243,6 +260,11 @@ namespace Automation.View.ModuleViewGenerator
             view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["B размер (мм)"]);
             view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["C размер (мм)"]);
             view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["D размер (мм)"]);
+
+            view.ColumnGroups.Add(new GridViewColumnGroup("zertg"));
+            view.ColumnGroups[4].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[4].Rows[0].Columns.Add(dgv.Columns["Сборка модуля2"]);
+            view.ColumnGroups[4].ShowHeader = false;
 
             view.ColumnGroups.Add(new GridViewColumnGroup("z"));
             view.ColumnGroups[4].Rows.Add(new GridViewColumnGroupRow());

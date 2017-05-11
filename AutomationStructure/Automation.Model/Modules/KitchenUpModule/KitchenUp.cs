@@ -28,6 +28,7 @@ namespace Automation.Model.Modules.KitchenUpModule
         private string _shelfForRazdel;
         private string _shelfGlass;
         private string _calcMode;
+        private string _moduleAssembly;
 
 
         public override void SetupModule(DataTable changedInfo)
@@ -45,7 +46,7 @@ namespace Automation.Model.Modules.KitchenUpModule
             _dimentions.B = double.Parse(row["B размер (мм)"].ToString());
             _dimentions.C = double.Parse(row["C размер (мм)"].ToString());
             _dimentions.D = double.Parse(row["D размер (мм)"].ToString());
-
+            _moduleAssembly = row["Сборка модуля"].ToString();
             BackWall = row["Задняя стенка"].ToString();
             _shelfPo = row["Полка по ширине секции (шт)"].ToString();
             _shelfMinusTwoMm = row["Полка - 2мм (шт)"].ToString();
@@ -90,7 +91,7 @@ namespace Automation.Model.Modules.KitchenUpModule
             row["B размер (мм)"] = _dimentions.B;
             row["C размер (мм)"] = _dimentions.C;
             row["D размер (мм)"] = _dimentions.D;
-
+            row["Сборка модуля"] = _moduleAssembly;
             row["Задняя стенка"] = BackWall;
             row["Полка по ширине секции (шт)"] = _shelfPo;
             row["Полка - 2мм (шт)"] = _shelfMinusTwoMm;
@@ -160,6 +161,7 @@ namespace Automation.Model.Modules.KitchenUpModule
             table.Columns.Add("B размер (мм)");
             table.Columns.Add("C размер (мм)");
             table.Columns.Add("D размер (мм)");
+            table.Columns.Add("Сборка модуля");
             table.Columns.Add("Задняя стенка");
             table.Columns.Add("Полка по ширине секции (шт)");
             table.Columns.Add("Полка - 2мм (шт)");
