@@ -132,9 +132,6 @@ namespace Automation.Model.Modules.KitchenUpModule
             detailsInfo.Columns.Add("Примечание");
         }
         
-
-
-
         public DataTable GetFurnitureInfo()
         {
             DataTable furnitureInfo = new DataTable();
@@ -152,8 +149,7 @@ namespace Automation.Model.Modules.KitchenUpModule
 
             return furnitureInfo;
         }
-
-
+        
         private int MF35()
         {
             var fasadeHeight = (int) _dimentions.Lenght;
@@ -179,6 +175,10 @@ namespace Automation.Model.Modules.KitchenUpModule
             return 0;
         }
 
+        //TODO:изменить переменные как надо
+        string moduleAssembly = "не разъёмная (конф.)";
+        int moduleForm = 1;
+
         private int MF36()
         {
             //"не разъёмная (конф.)",
@@ -188,12 +188,12 @@ namespace Automation.Model.Modules.KitchenUpModule
                 return 0;
             }
 
-            if (moduleAssembly == "не разъёмная (конф.)" && moduleForm = 0)
+            if (moduleAssembly == "не разъёмная (конф.)" && moduleForm == 0)
             {
                 return 8 + (int.Parse(_shelfForRazdel) * 4);
             }
 
-            if (moduleAssembly == "не разъёмная (конф.)" && (moduleForm = 1||moduleForm=2) )
+            if (moduleAssembly == "не разъёмная (конф.)" && (moduleForm == 1||moduleForm==2) )
             {
                 return 8 + (int.Parse(_shelfForRazdel)*4) + 4;
             }
@@ -209,12 +209,12 @@ namespace Automation.Model.Modules.KitchenUpModule
                 return 0;
             }
 
-            if (moduleAssembly == "разъёмная (эксцентр.)" && moduleForm = 0)
+            if (moduleAssembly == "разъёмная (эксцентр.)" && moduleForm == 0)
             {
                 return 8 + (int.Parse(_shelfForRazdel) * 4);
             }
 
-            if (moduleAssembly == "разъёмная (эксцентр.)" && (moduleForm = 1 || moduleForm = 2))
+            if (moduleAssembly == "разъёмная (эксцентр.)" && (moduleForm == 1 || moduleForm == 2))
             {
                 return 8 + (int.Parse(_shelfForRazdel) * 4) + 4;
             }
