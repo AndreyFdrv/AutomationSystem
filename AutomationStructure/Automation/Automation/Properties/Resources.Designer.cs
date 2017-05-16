@@ -61,7 +61,7 @@ namespace Automation.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of Type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap arrow_down_icon {
             get {
@@ -71,7 +71,7 @@ namespace Automation.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of Type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap arrow_up_icon {
             get {

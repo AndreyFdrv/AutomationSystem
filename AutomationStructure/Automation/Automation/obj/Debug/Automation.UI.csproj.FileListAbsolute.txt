@@ -1,0 +1,16 @@
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.Helps.Helper.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ModuleViewGenerator.BigModuleImageInfo.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.Results.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.SubSchemeModule.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.About.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.MainForm.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.Properties.Resources.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ModuleConfigurator.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.SimilarModule.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ThicknessMaterialEssential.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ModuleManager.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.UI.csproj.GenerateResource.Cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe.licenses
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.UI.csprojResolveAssemblyReference.cache

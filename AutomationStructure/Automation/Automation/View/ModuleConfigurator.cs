@@ -48,7 +48,7 @@ namespace Automation.View
 
             doc = XDocument.Load(pathToInfoFile);
 
-            var schemeModules = doc.Root.Elements("type").Select(t => new ModuleItem { Name = t.Attribute("name").Value, Folder = t.Attribute("folder").Value, ImagePath = t.Attribute("imagePath").Value });
+            var schemeModules = doc.Root.Elements("Type").Select(t => new ModuleItem { Name = t.Attribute("name").Value, Folder = t.Attribute("folder").Value, ImagePath = t.Attribute("imagePath").Value });
 
             if (schemeModules.Count()!=0)
             {
@@ -111,7 +111,7 @@ namespace Automation.View
 
         private void OpenSubSchemeSelector()
         {
-            var typeNode = doc.Root.Elements("type").First(t => t.Attribute("name").Value == schemeTxb.Text);
+            var typeNode = doc.Root.Elements("Type").First(t => t.Attribute("name").Value == schemeTxb.Text);
             var items =
                 typeNode.Elements("subType")
                     .Select(

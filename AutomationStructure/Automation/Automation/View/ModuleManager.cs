@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using Automation.Infrastructure;
 using Automation.Model;
 using Automation.View.ModuleViewGenerator;
 using Telerik.WinControls.UI;
@@ -22,7 +23,7 @@ namespace Automation.View
             Presenter.Manager = this;
             _productName = productName;
             InitializeComponent();
-            this.Text = "Настройка модулей \"" + productName + "\"";
+            Text = "Настройка модулей \"" + productName + "\"";
             LoadModulesList();
             UpdateTotalModulesDatagrid();
 
@@ -48,17 +49,17 @@ namespace Automation.View
             Presenter.UpdateTotalModules(GetProductType());
         }
 
-        private ProductTypes GetProductType()
+        private ProductType GetProductType()
         {
-            ProductTypes productType=ProductTypes.KITCHEN_UP;
+            ProductType productType=ProductType.KitchenUp;
 
             switch (_productName)
             {
                 case "Кухня верхние модули":
-                    productType = ProductTypes.KITCHEN_UP;
+                    productType = ProductType.KitchenUp;
                     break;
                 case "Кухня нижние модули":
-                    productType = ProductTypes.KITCHEN_DOWN;
+                    productType = ProductType.KitchenDown;
                     break;
             }
 

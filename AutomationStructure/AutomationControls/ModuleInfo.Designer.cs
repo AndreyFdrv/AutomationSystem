@@ -1,4 +1,4 @@
-﻿namespace AutomationControls
+﻿namespace Automation.Controls
 {
     partial class ModuleInfo
     {

@@ -35,7 +35,7 @@
             this.radPageViewPage2 = new Telerik.WinControls.UI.RadPageViewPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.radPageViewPage3 = new Telerik.WinControls.UI.RadPageViewPage();
-            this.reportModule = new AutomationControls.ModuleReport();
+            this.reportModule = new Controls.ModuleReport();
             ((System.ComponentModel.ISupportInitialize)(this.radPageView1)).BeginInit();
             this.radPageView1.SuspendLayout();
             this.radPageViewPage1.SuspendLayout();
@@ -66,7 +66,7 @@
             this.radPageViewPage1.Name = "radPageViewPage1";
             this.radPageViewPage1.Size = new System.Drawing.Size(1086, 769);
             this.radPageViewPage1.Text = "Кухня верхние модули";
-            this.radPageViewPage1.Title = "KITCHEN_UP";
+            this.radPageViewPage1.Title = "KitchenUp";
             // 
             // flowLayoutPanel2
             // 
@@ -87,7 +87,7 @@
             this.radPageViewPage2.Name = "radPageViewPage2";
             this.radPageViewPage2.Size = new System.Drawing.Size(1087, 699);
             this.radPageViewPage2.Text = "Кухня нижние модули";
-            this.radPageViewPage2.Title = "KITCHEN_DOWN";
+            this.radPageViewPage2.Title = "KitchenDown";
             // 
             // flowLayoutPanel1
             // 
@@ -148,6 +148,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Telerik.WinControls.UI.RadPageViewPage radPageViewPage3;
-        private AutomationControls.ModuleReport reportModule;
+        private Controls.ModuleReport reportModule;
     }
 }

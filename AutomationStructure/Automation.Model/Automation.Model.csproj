@@ -44,23 +44,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLService.cs" />
-    <Compile Include="Modules\AbstractModule.cs" />
-    <Compile Include="CustomersInfoCollection.cs" />
+    <Compile Include="MainModels\CustomersInfoCollection.cs" />
     <Compile Include="CustomerRecord.cs" />
-    <Compile Include="Modules\KitchenDown.cs" />
-    <Compile Include="Modules\KitchenUpModule\KitchenUp.cs" />
-    <Compile Include="Modules\KitchenUpModule\KitchenUpCalculator.cs" />
-    <Compile Include="Modules\KitchenUpModule\KitchenUpFacadeCalculator.cs" />
-    <Compile Include="Modules\Result.cs" />
-    <Compile Include="ModuleThickness.cs" />
+    <Compile Include="Result.cs" />
     <Compile Include="NewModuleData.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="Product.cs" />
-    <Compile Include="ProductsInfoCollection.cs" />
-    <Compile Include="ProductTypes.cs" />
+    <Compile Include="MainModels\Order.cs" />
+    <Compile Include="MainModels\Product.cs" />
+    <Compile Include="MainModels\ProductsInfoCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="ThicknessSpecificData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Automation.Infrastructure\Automation.Infrastructure.csproj">
+      <Project>{6c3d0292-a496-4e11-a2b7-1e09957ab772}</Project>
+      <Name>Automation.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

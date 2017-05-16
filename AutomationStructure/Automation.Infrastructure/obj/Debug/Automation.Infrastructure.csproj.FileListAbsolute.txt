@@ -1,0 +1,5 @@
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Infrastructure\bin\Debug\Automation.Infrastructure.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Infrastructure\bin\Debug\Automation.Infrastructure.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Infrastructure\obj\Debug\Automation.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Infrastructure\obj\Debug\Automation.Infrastructure.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Infrastructure\obj\Debug\Automation.Infrastructure.pdb

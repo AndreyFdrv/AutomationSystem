@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+using Automation.Infrastructure;
 
 
 namespace Automation.Model
@@ -61,28 +57,28 @@ namespace Automation.Model
         }
 
 
-        public List<string> GetModulesNamesByType(ProductTypes type)
+        public List<string> GetModulesNamesByType(ProductType type)
         {
             var product = _order.ProductsCollection.GetProduct(type);
             return product.GetNamesModules();
         }
 
-        public List<string> GetModulesNumbersByType(ProductTypes type)
+        public List<string> GetModulesNumbersByType(ProductType type)
         {
             var product = _order.ProductsCollection.GetProduct(type);
             return product.GetNumbersModules();
         } 
 
 
-        public string GetProductNameByType(ProductTypes type)
+        public string GetProductNameByType(ProductType type)
         {
             string result = string.Empty;
             switch (type)
             {
-                case ProductTypes.KITCHEN_UP:
+                case ProductType.KitchenUp:
                     result = "Кухня верхние модули";
                     break;
-                case ProductTypes.KITCHEN_DOWN:
+                case ProductType.KitchenDown:
                     result = "Кухня нижние модули";
                     break;
             }
@@ -91,34 +87,34 @@ namespace Automation.Model
 
 
 
-        public int GetCountModules(ProductTypes type)
+        public int GetCountModules(ProductType type)
         {
             var count = _order.ProductsCollection.GetCountModules(GetProductNameByType(type));
             return count;
         }
 
-        public DataTable GetDetailDataForModule(string moduleName, ProductTypes type)
+        public DataTable GetDetailDataForModule(string moduleName, ProductType type)
         {
             var product = _order.ProductsCollection.GetProduct(type);
             DataTable moduleInfo = product.GetModuleDetailInfoByNumber(moduleName);
             return moduleInfo;
         }
 
-        public DataTable GetTotalModulesInfo(ProductTypes type)
+        public DataTable GetTotalModulesInfo(ProductType type)
         {
             var product = _order.ProductsCollection.GetProduct(type);
             DataTable table = product.GetTotalDetailInfo();
             return table;
         }
 
-        public void DeleteModule(string nameModule, ProductTypes type)
+        public void DeleteModule(string nameModule, ProductType type)
         {
             var product = _order.ProductsCollection.GetProduct(type);
             product.DeleteModule(nameModule);
 
         }
 
-        public void AddSimilarModule(string similarName, ProductTypes type)
+        public void AddSimilarModule(string similarName, ProductType type)
         {
             var product = _order.ProductsCollection.GetProduct(type);
             var module = product.GetCloneLastModule();
@@ -127,7 +123,7 @@ namespace Automation.Model
 
         }
 
-        public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductTypes type)
+        public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)
         {
             var product = _order.ProductsCollection.GetProduct(type);
             product.UpdateModule(moduleInfoTable, numberModule);
@@ -145,7 +141,7 @@ namespace Automation.Model
             _order = order;
         }
 
-        public bool IsModuleExist(string number, ProductTypes type)
+        public bool IsModuleExist(string number, ProductType type)
         {
             var product = _order.ProductsCollection.GetProduct(type);
             return product.IsModuleExist(number);

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
 using Automation.Model;
-using AutomationControls;
+using Automation.Controls;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
 

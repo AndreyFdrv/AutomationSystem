@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Automation.Infrastructure;
 
 namespace Automation.Model
 {
@@ -14,6 +15,6 @@ namespace Automation.Model
         public string Scheme { get; set; }
         public string SubScheme { get; set; }
         public string SubSchemeIconPath { get; set; }
-        public ProductTypes Type { get; set; }
+        public ProductType Type { get; set; }
     }
 }
