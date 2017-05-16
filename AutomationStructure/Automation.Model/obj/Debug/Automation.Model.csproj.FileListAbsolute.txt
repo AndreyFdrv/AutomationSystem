@@ -12,4 +12,3 @@ C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation
 C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.csprojResolveAssemblyReference.cache
 C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.dll
 C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.pdb
-C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Model\obj\Debug\Automation.Model.csprojResolveAssemblyReference.cache
