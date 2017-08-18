@@ -5,6 +5,9 @@ using Automation.Model;
 using Automation.View;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Automation.Infrastructure;
+using Automation.Model.MainModels;
+
 
 namespace Automation
 {
@@ -71,7 +74,7 @@ namespace Automation
         #region For Update View
 
         
-        public void UpdateModuleList(ProductTypes type)
+        public void UpdateModuleList(ProductType type)
         {
             List<string> modulesNumbers= _blService.GetModulesNumbersByType(type);
             Manager.UpdateModuleList(modulesNumbers);
@@ -91,7 +94,7 @@ namespace Automation
             _blService.AddNewProduct( nameProduct);
         }
 
-       public void UpdateModulesCount(ProductTypes type)
+       public void UpdateModulesCount(ProductType type)
        {
            var nameProduct = _blService.GetProductNameByType(type);
            var countModules = _blService.GetCountModules(type);
@@ -100,13 +103,13 @@ namespace Automation
 
  
 
-        public void ShowModuleInformation(string moduleName, ProductTypes type)
+        public void ShowModuleInformation(string moduleName, ProductType type)
        {
            DataTable table = _blService.GetDetailDataForModule(moduleName, type);
            Manager.UpdateDetailDataDataGrid(table);
        }
 
-       public void UpdateTotalModules(ProductTypes type)
+       public void UpdateTotalModules(ProductType type)
        {
            DataTable table = _blService.GetTotalModulesInfo(type);
            
@@ -114,7 +117,7 @@ namespace Automation
            
        }
 
-       public void DeleteModule(string nameModule, ProductTypes type)
+       public void DeleteModule(string nameModule, ProductType type)
        {
            if (_blService.GetCountModules(type)>0)
            {
@@ -129,7 +132,7 @@ namespace Automation
            
        }
 
-       public void AddSimilarModule(string similarName, ProductTypes type)
+       public void AddSimilarModule(string similarName, ProductType type)
        {
            _blService.AddSimilarModule(similarName, type);
             UpdateModuleList(type);
@@ -137,25 +140,25 @@ namespace Automation
            
        }
 
-       public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductTypes type)
+       public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)
        {
            _blService.UpdateModuleInfo(moduleInfoTable, numberModule, type);
             UpdateTotalModules(type);
        }
 
-       public bool IsModuleExist(string number, ProductTypes getTypeProduct)
+       public bool IsModuleExist(string number, ProductType getTypeProduct)
        {
            return _blService.IsModuleExist(number, getTypeProduct);
        }
 
        public List<Product> GetAllProducts()
        {
-           return _blService.GetCurrentOrder().ProductsCollection.GetAllProducts();
+           return _blService.GetCurrentOrder().Products.GetAllProducts();
        }
 
         public Product GetProductByName(string productName)
        {
-           return _blService.GetCurrentOrder().ProductsCollection.GetProduct((ProductTypes)Enum.Parse(typeof(ProductTypes),productName));
+           return _blService.GetCurrentOrder().Products.GetProduct((ProductType)Enum.Parse(typeof(ProductType),productName));
        }
     }
 }

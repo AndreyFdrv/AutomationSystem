@@ -36,7 +36,6 @@ namespace Automation.View
 
 
         private new string ProductName { get; set; }
-        private List<string> _pathesToImages;
 
 
         XDocument doc;

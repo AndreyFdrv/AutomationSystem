@@ -1,4 +1,4 @@
-﻿namespace AutomationControls
+﻿namespace Automation.Controls
 {
     partial class ModuleInfo
     {
@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition9 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition10 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.moduleNameLbl = new Telerik.WinControls.UI.RadLabel();
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.furnitureDgv = new Telerik.WinControls.UI.RadGridView();
-            this.loopsInfoDgv = new Telerik.WinControls.UI.RadGridView();
-            this.shelfInfoDgv = new Telerik.WinControls.UI.RadGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.modulePbx = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.detailsDgv = new Telerik.WinControls.UI.RadGridView();
             this.mainInfoDgv = new Telerik.WinControls.UI.RadGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.detailsDgv = new Telerik.WinControls.UI.RadGridView();
+            this.loopsInfoDgv = new Telerik.WinControls.UI.RadGridView();
+            this.shelfInfoDgv = new Telerik.WinControls.UI.RadGridView();
+            this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
@@ -54,18 +55,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureDgv.MasterTemplate)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.modulePbx)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainInfoDgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainInfoDgv.MasterTemplate)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.detailsDgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detailsDgv.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loopsInfoDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loopsInfoDgv.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shelfInfoDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shelfInfoDgv.MasterTemplate)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.modulePbx)).BeginInit();
-            this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.detailsDgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.detailsDgv.MasterTemplate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainInfoDgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainInfoDgv.MasterTemplate)).BeginInit();
-            this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -91,11 +93,13 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.08656F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.91344F));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.489451F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 92.51055F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.tableLayoutPanel2.Controls.Add(this.radLabel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.moduleNameLbl, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.radButton1, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -117,7 +121,7 @@
             // 
             this.moduleNameLbl.AutoSize = false;
             this.moduleNameLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.moduleNameLbl.Location = new System.Drawing.Point(79, 3);
+            this.moduleNameLbl.Location = new System.Drawing.Point(67, 3);
             this.moduleNameLbl.Name = "moduleNameLbl";
             this.moduleNameLbl.Size = new System.Drawing.Size(100, 20);
             this.moduleNameLbl.TabIndex = 1;
@@ -145,52 +149,12 @@
             this.furnitureDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.furnitureDgv.MasterTemplate.EnableGrouping = false;
             this.furnitureDgv.MasterTemplate.EnableSorting = false;
-            this.furnitureDgv.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.furnitureDgv.MasterTemplate.ViewDefinition = tableViewDefinition6;
             this.furnitureDgv.Name = "furnitureDgv";
             this.furnitureDgv.ReadOnly = true;
             this.furnitureDgv.Size = new System.Drawing.Size(948, 173);
             this.furnitureDgv.TabIndex = 2;
             this.furnitureDgv.Text = "radGridView1";
-            // 
-            // loopsInfoDgv
-            // 
-            this.loopsInfoDgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loopsInfoDgv.Location = new System.Drawing.Point(3, 303);
-            // 
-            // 
-            // 
-            this.loopsInfoDgv.MasterTemplate.AllowAddNewRow = false;
-            this.loopsInfoDgv.MasterTemplate.AllowDeleteRow = false;
-            this.loopsInfoDgv.MasterTemplate.AllowEditRow = false;
-            this.loopsInfoDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            this.loopsInfoDgv.MasterTemplate.EnableGrouping = false;
-            this.loopsInfoDgv.MasterTemplate.EnableSorting = false;
-            this.loopsInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition4;
-            this.loopsInfoDgv.Name = "loopsInfoDgv";
-            this.loopsInfoDgv.ReadOnly = true;
-            this.loopsInfoDgv.Size = new System.Drawing.Size(483, 109);
-            this.loopsInfoDgv.TabIndex = 1;
-            this.loopsInfoDgv.Text = "radGridView2";
-            // 
-            // shelfInfoDgv
-            // 
-            this.shelfInfoDgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.shelfInfoDgv.Location = new System.Drawing.Point(3, 153);
-            // 
-            // 
-            // 
-            this.shelfInfoDgv.MasterTemplate.AllowAddNewRow = false;
-            this.shelfInfoDgv.MasterTemplate.AllowDeleteRow = false;
-            this.shelfInfoDgv.MasterTemplate.AllowEditRow = false;
-            this.shelfInfoDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            this.shelfInfoDgv.MasterTemplate.EnableGrouping = false;
-            this.shelfInfoDgv.MasterTemplate.EnableSorting = false;
-            this.shelfInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition5;
-            this.shelfInfoDgv.Name = "shelfInfoDgv";
-            this.shelfInfoDgv.ReadOnly = true;
-            this.shelfInfoDgv.Size = new System.Drawing.Size(483, 144);
-            this.shelfInfoDgv.TabIndex = 0;
-            this.shelfInfoDgv.Text = "radGridView1";
             // 
             // tableLayoutPanel3
             // 
@@ -233,26 +197,6 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(495, 545);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // detailsDgv
-            // 
-            this.detailsDgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.detailsDgv.Location = new System.Drawing.Point(3, 3);
-            // 
-            // 
-            // 
-            this.detailsDgv.MasterTemplate.AllowAddNewRow = false;
-            this.detailsDgv.MasterTemplate.AllowDeleteRow = false;
-            this.detailsDgv.MasterTemplate.AllowEditRow = false;
-            this.detailsDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            this.detailsDgv.MasterTemplate.EnableGrouping = false;
-            this.detailsDgv.MasterTemplate.EnableSorting = false;
-            this.detailsDgv.MasterTemplate.ViewDefinition = tableViewDefinition3;
-            this.detailsDgv.Name = "detailsDgv";
-            this.detailsDgv.ReadOnly = true;
-            this.detailsDgv.Size = new System.Drawing.Size(483, 144);
-            this.detailsDgv.TabIndex = 3;
-            this.detailsDgv.Text = "radGridView4";
-            // 
             // mainInfoDgv
             // 
             this.mainInfoDgv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -266,7 +210,7 @@
             this.mainInfoDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.mainInfoDgv.MasterTemplate.EnableGrouping = false;
             this.mainInfoDgv.MasterTemplate.EnableSorting = false;
-            this.mainInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.mainInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition7;
             this.mainInfoDgv.Name = "mainInfoDgv";
             this.mainInfoDgv.ReadOnly = true;
             this.mainInfoDgv.Size = new System.Drawing.Size(489, 118);
@@ -289,6 +233,77 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(489, 415);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
+            // detailsDgv
+            // 
+            this.detailsDgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.detailsDgv.Location = new System.Drawing.Point(3, 3);
+            // 
+            // 
+            // 
+            this.detailsDgv.MasterTemplate.AllowAddNewRow = false;
+            this.detailsDgv.MasterTemplate.AllowDeleteRow = false;
+            this.detailsDgv.MasterTemplate.AllowEditRow = false;
+            this.detailsDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            this.detailsDgv.MasterTemplate.EnableGrouping = false;
+            this.detailsDgv.MasterTemplate.EnableSorting = false;
+            this.detailsDgv.MasterTemplate.ViewDefinition = tableViewDefinition8;
+            this.detailsDgv.Name = "detailsDgv";
+            this.detailsDgv.ReadOnly = true;
+            this.detailsDgv.Size = new System.Drawing.Size(483, 144);
+            this.detailsDgv.TabIndex = 3;
+            this.detailsDgv.Text = "radGridView4";
+            // 
+            // loopsInfoDgv
+            // 
+            this.loopsInfoDgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loopsInfoDgv.Location = new System.Drawing.Point(3, 303);
+            // 
+            // 
+            // 
+            this.loopsInfoDgv.MasterTemplate.AllowAddNewRow = false;
+            this.loopsInfoDgv.MasterTemplate.AllowDeleteRow = false;
+            this.loopsInfoDgv.MasterTemplate.AllowEditRow = false;
+            this.loopsInfoDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            this.loopsInfoDgv.MasterTemplate.EnableGrouping = false;
+            this.loopsInfoDgv.MasterTemplate.EnableSorting = false;
+            this.loopsInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition9;
+            this.loopsInfoDgv.Name = "loopsInfoDgv";
+            this.loopsInfoDgv.ReadOnly = true;
+            this.loopsInfoDgv.Size = new System.Drawing.Size(483, 109);
+            this.loopsInfoDgv.TabIndex = 1;
+            this.loopsInfoDgv.Text = "radGridView2";
+            // 
+            // shelfInfoDgv
+            // 
+            this.shelfInfoDgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.shelfInfoDgv.Location = new System.Drawing.Point(3, 153);
+            // 
+            // 
+            // 
+            this.shelfInfoDgv.MasterTemplate.AllowAddNewRow = false;
+            this.shelfInfoDgv.MasterTemplate.AllowDeleteRow = false;
+            this.shelfInfoDgv.MasterTemplate.AllowEditRow = false;
+            this.shelfInfoDgv.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            this.shelfInfoDgv.MasterTemplate.EnableGrouping = false;
+            this.shelfInfoDgv.MasterTemplate.EnableSorting = false;
+            this.shelfInfoDgv.MasterTemplate.ViewDefinition = tableViewDefinition10;
+            this.shelfInfoDgv.Name = "shelfInfoDgv";
+            this.shelfInfoDgv.ReadOnly = true;
+            this.shelfInfoDgv.Size = new System.Drawing.Size(483, 144);
+            this.shelfInfoDgv.TabIndex = 0;
+            this.shelfInfoDgv.Text = "radGridView1";
+            // 
+            // radButton1
+            // 
+            this.radButton1.Location = new System.Drawing.Point(858, 10);
+            this.radButton1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.radButton1.Name = "radButton1";
+            this.radButton1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.radButton1.Size = new System.Drawing.Size(87, 24);
+            this.radButton1.TabIndex = 2;
+            this.radButton1.Text = "Печать";
+            this.radButton1.Click += new System.EventHandler(this.radButton1_Click);
+            // 
             // ModuleInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,18 +322,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureDgv.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureDgv)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.modulePbx)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mainInfoDgv.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainInfoDgv)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.detailsDgv.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detailsDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loopsInfoDgv.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loopsInfoDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shelfInfoDgv.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shelfInfoDgv)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.modulePbx)).EndInit();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.detailsDgv.MasterTemplate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.detailsDgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainInfoDgv.MasterTemplate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainInfoDgv)).EndInit();
-            this.tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,5 +356,6 @@
         private Telerik.WinControls.UI.RadGridView mainInfoDgv;
         private Telerik.WinControls.UI.RadLabel radLabel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private Telerik.WinControls.UI.RadButton radButton1;
     }
 }

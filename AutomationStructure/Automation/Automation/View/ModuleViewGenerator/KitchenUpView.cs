@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
 
@@ -238,68 +239,72 @@ namespace Automation.View.ModuleViewGenerator
 
             view.ColumnGroups.Add(new GridViewColumnGroup("Num"));
             view.ColumnGroups[0].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[0].Rows[0].Columns.Add(dgv.Columns["Номер модуля"]);
+            view.ColumnGroups[0].Rows[0].ColumnNames.Add("Номер модуля");
             view.ColumnGroups[0].ShowHeader = false;
 
             view.ColumnGroups.Add(new GridViewColumnGroup("F"));
             view.ColumnGroups[1].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[1].Rows[0].Columns.Add(dgv.Columns["Форма модуля"]);
+            view.ColumnGroups[1].Rows[0].ColumnNames.Add("Форма модуля");
             view.ColumnGroups[1].ShowHeader = false;
 
             view.ColumnGroups.Add(new GridViewColumnGroup("I"));
             view.ColumnGroups[2].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[2].Rows[0].Columns.Add(dgv.Columns["Icon"]);
+            view.ColumnGroups[2].Rows[0].ColumnNames.Add("Icon");
             view.ColumnGroups[2].ShowHeader = false;
+
+
+           
 
             view.ColumnGroups.Add(new GridViewColumnGroup("Размеры"));
             view.ColumnGroups[3].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["Высота модуля (мм)"]);
-            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["Ширина модуля (мм)"]);
-            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["Глубина модуля (мм)"]);
-            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["A размер (мм)"]);
-            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["B размер (мм)"]);
-            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["C размер (мм)"]);
-            view.ColumnGroups[3].Rows[0].Columns.Add(dgv.Columns["D размер (мм)"]);
+            view.ColumnGroups[3].Rows[0].ColumnNames.Add("Высота модуля (мм)");
+            view.ColumnGroups[3].Rows[0].ColumnNames.Add("Ширина модуля (мм)");
+            view.ColumnGroups[3].Rows[0].ColumnNames.Add("Глубина модуля (мм)");
+            view.ColumnGroups[3].Rows[0].ColumnNames.Add("A размер (мм)");
+            view.ColumnGroups[3].Rows[0].ColumnNames.Add("B размер (мм)");
+            view.ColumnGroups[3].Rows[0].ColumnNames.Add("C размер (мм)");
+            view.ColumnGroups[3].Rows[0].ColumnNames.Add("D размер (мм)");
 
+         
             view.ColumnGroups.Add(new GridViewColumnGroup("zertg"));
             view.ColumnGroups[4].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[4].Rows[0].Columns.Add(dgv.Columns["Сборка модуля2"]);
+            view.ColumnGroups[4].Rows[0].ColumnNames.Add("Сборка модуля2");
             view.ColumnGroups[4].ShowHeader = false;
 
             view.ColumnGroups.Add(new GridViewColumnGroup("z"));
             view.ColumnGroups[4].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[4].Rows[0].Columns.Add(dgv.Columns["Задняя стенка2"]);
+            view.ColumnGroups[4].Rows[0].ColumnNames.Add("Задняя стенка2");
             view.ColumnGroups[4].ShowHeader = false;
 
             view.ColumnGroups.Add(new GridViewColumnGroup("ppse"));
             view.ColumnGroups[5].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[5].Rows[0].Columns.Add(dgv.Columns["Полка по ширине секции (шт)2"]);
+            view.ColumnGroups[5].Rows[0].ColumnNames.Add("Полка по ширине секции (шт)2");
             view.ColumnGroups[5].ShowHeader = false;
 
             view.ColumnGroups.Add(new GridViewColumnGroup("ppmin"));
             view.ColumnGroups[6].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[6].Rows[0].Columns.Add(dgv.Columns["Полка - 2мм (шт)2"]);
+            view.ColumnGroups[6].Rows[0].ColumnNames.Add("Полка - 2мм (шт)2");
             view.ColumnGroups[6].ShowHeader = false;
 
             view.ColumnGroups.Add(new GridViewColumnGroup("ppraz"));
             view.ColumnGroups[7].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[7].Rows[0].Columns.Add(dgv.Columns["Полка разделительная (шт)"]);
+            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Полка разделительная (шт)");
             view.ColumnGroups[7].ShowHeader = false;
 
             view.ColumnGroups.Add(new GridViewColumnGroup("ppraz"));
             view.ColumnGroups[8].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[8].Rows[0].Columns.Add(dgv.Columns["Полка стеклянная (шт)"]);
+            view.ColumnGroups[8].Rows[0].ColumnNames.Add("Полка стеклянная (шт)");
             view.ColumnGroups[8].ShowHeader = false;
 
 
             view.ColumnGroups.Add(new GridViewColumnGroup("Фасад"));
             view.ColumnGroups[9].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["№ схемы фасада"]);
-            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Тип фасада2"]);
-            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Режим расчёта2"]);
-            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Горизонтальный размер"]);
-            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Вертикальный размер"]);
-            view.ColumnGroups[9].Rows[0].Columns.Add(dgv.Columns["Материал фасада2"]);
+            view.ColumnGroups[9].Rows[0].ColumnNames.Add("№ схемы фасада");
+            view.ColumnGroups[9].Rows[0].ColumnNames.Add("Тип фасада2");
+            view.ColumnGroups[9].Rows[0].ColumnNames.Add("Режим расчёта2");
+            view.ColumnGroups[9].Rows[0].ColumnNames.Add("Горизонтальный размер");
+            view.ColumnGroups[9].Rows[0].ColumnNames.Add("Вертикальный размер");
+            view.ColumnGroups[9].Rows[0].ColumnNames.Add("Материал фасада2");
     
 
 
@@ -366,7 +371,7 @@ namespace Automation.View.ModuleViewGenerator
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // ignored
             }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
 
-namespace AutomationControls
+namespace Automation.Controls
 {
     public partial class ModuleReport : UserControl
     {
