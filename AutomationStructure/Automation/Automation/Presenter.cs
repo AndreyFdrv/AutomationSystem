@@ -6,6 +6,7 @@ using Automation.View;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Automation.Infrastructure;
+using Automation.Model.MainModels;
 
 
 namespace Automation
@@ -152,12 +153,12 @@ namespace Automation
 
        public List<Product> GetAllProducts()
        {
-           return _blService.GetCurrentOrder().ProductsCollection.GetAllProducts();
+           return _blService.GetCurrentOrder().Products.GetAllProducts();
        }
 
         public Product GetProductByName(string productName)
        {
-           return _blService.GetCurrentOrder().ProductsCollection.GetProduct((ProductType)Enum.Parse(typeof(ProductType),productName));
+           return _blService.GetCurrentOrder().Products.GetProduct((ProductType)Enum.Parse(typeof(ProductType),productName));
        }
     }
 }

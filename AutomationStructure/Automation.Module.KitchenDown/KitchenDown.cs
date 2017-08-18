@@ -4,7 +4,7 @@ using Automation.Infrastructure;
 
 namespace Automation.Module.KitchenDown
 {
-    public class KitchenDown:AbstractModule
+    public class KitchenDown:BaseModule
     {
         public KitchenDown()
         {

@@ -5,7 +5,7 @@ using System.Data;
 namespace Automation.Infrastructure
 {
     [Serializable]
-    public abstract class AbstractModule: ICloneable
+    public abstract class BaseModule: ICloneable
     {
 
         public string Name { get; set; }

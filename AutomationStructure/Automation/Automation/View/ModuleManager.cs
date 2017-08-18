@@ -26,8 +26,15 @@ namespace Automation.View
             Text = "Настройка модулей \"" + productName + "\"";
             LoadModulesList();
             UpdateTotalModulesDatagrid();
+            selectedModuleInformationDgv.EnableFastScrolling = true;
+            allModulesInformationDgv.EnableFastScrolling = true;
+            selectedModuleInformationDgv.MasterTemplate.BestFitColumns();
+           // allModulesInformationDgv.MasterTemplate.BestFitColumns();
+          
 
-
+            //allModulesInformationDgv.VirtualMode = true;
+            allModulesInformationDgv.EnableFiltering = false;
+            allModulesInformationDgv.EnableGrouping = false;
         }
 
 

@@ -41,8 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractModule.cs" />
-    <Compile Include="ModuleFactory.cs" />
+    <Compile Include="BaseModule.cs" />
     <Compile Include="ModuleThickness.cs" />
     <Compile Include="ProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

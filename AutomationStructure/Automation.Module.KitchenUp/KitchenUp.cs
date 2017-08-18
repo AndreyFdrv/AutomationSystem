@@ -8,7 +8,7 @@ using Automation.Infrastructure;
 namespace Automation.Module.KitchenUp
 {
     [Serializable]
-    class KitchenUp : AbstractModule
+    public class KitchenUp : BaseModule
     {
         public KitchenUp()
         {

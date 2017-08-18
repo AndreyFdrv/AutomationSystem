@@ -119,7 +119,7 @@
             // 
             // turnBtn
             // 
-            this.turnBtn.Image = global::Automation.Properties.Resources.arrow_up_icon;
+     //       this.turnBtn.Image = global::Automation.Properties.Resources.arrow_up_icon;
             this.turnBtn.Location = new System.Drawing.Point(8, 3);
             this.turnBtn.Name = "turnBtn";
             this.turnBtn.Size = new System.Drawing.Size(30, 30);
@@ -433,7 +433,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.radMenu1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+//            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             // 
             // 

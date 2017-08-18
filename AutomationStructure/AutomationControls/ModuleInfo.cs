@@ -18,16 +18,28 @@ namespace Automation.Controls
             InitializeComponent();
         }
 
+        private string _moduleName;
+        private string _imagePath;
+        private DataTable _mainInfo;
+        private DataTable _detailsInfo;
+        private DataTable _loopsInfo;
+        private DataTable _shelfInfo;
+        private DataTable _furniture;
+
+
 
         public void BindData(string moduleName, string imagePath, DataTable dimensionsInfo, DataTable detailsInfo, DataTable shelfInfo, DataTable furnitureInfo, DataTable loopsInfo)
         {
-            moduleNameLbl.Text = moduleName;
+            moduleNameLbl.Text =_moduleName = moduleName;
             modulePbx.Load(imagePath);
-            mainInfoDgv.DataSource = dimensionsInfo;
-            detailsDgv.DataSource = detailsInfo;
-            loopsInfoDgv.DataSource = loopsInfo;
-            shelfInfoDgv.DataSource = shelfInfo;
-            furnitureDgv.DataSource = furnitureInfo;
+            _imagePath = imagePath;
+            mainInfoDgv.DataSource = _mainInfo =  dimensionsInfo;
+            detailsDgv.DataSource = _detailsInfo = detailsInfo;
+            loopsInfoDgv.DataSource = _loopsInfo = loopsInfo;
+            shelfInfoDgv.DataSource = _shelfInfo = shelfInfo;
+            furnitureDgv.DataSource = _furniture = furnitureInfo;
+
+
         }
 
         public void SetViewDefinitions(ColumnGroupsViewDefinition dimensionsVd, ColumnGroupsViewDefinition detailsVd, ColumnGroupsViewDefinition furnitureVd)
@@ -37,6 +49,10 @@ namespace Automation.Controls
             furnitureDgv.DataSource = furnitureVd;
         }
 
-
+        private void radButton1_Click(object sender, EventArgs e)
+        {
+            new ReportWindow(_moduleName, _imagePath, _mainInfo,_detailsInfo,_loopsInfo, _shelfInfo,_furniture).Show();
+            
+        }
     }
 }

@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.Module.KitchenDo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.Infrastructure", "Automation.Infrastructure\Automation.Infrastructure.csproj", "{6C3D0292-A496-4E11-A2B7-1E09957AB772}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{68C6D328-348E-4AE1-996A-DE06645BA036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.ModuleFactory", "Automation.ModuleFactory\Automation.ModuleFactory.csproj", "{B1802501-3F3A-4655-91B8-1F667968F8C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,8 +49,16 @@ Global
 		{6C3D0292-A496-4E11-A2B7-1E09957AB772}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C3D0292-A496-4E11-A2B7-1E09957AB772}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C3D0292-A496-4E11-A2B7-1E09957AB772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1802501-3F3A-4655-91B8-1F667968F8C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1802501-3F3A-4655-91B8-1F667968F8C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1802501-3F3A-4655-91B8-1F667968F8C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1802501-3F3A-4655-91B8-1F667968F8C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3D1FE7E7-6EB4-45CA-83CA-DDB5DD5DA34B} = {68C6D328-348E-4AE1-996A-DE06645BA036}
+		{F939B1A6-2F07-4233-BE16-90A11458D95C} = {68C6D328-348E-4AE1-996A-DE06645BA036}
 	EndGlobalSection
 EndGlobal

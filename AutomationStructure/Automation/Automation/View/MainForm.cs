@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using Automation.Model;
+using Automation.Properties;
 using Automation.View.Helps;
 using Automation.View.Model;
 using Telerik.WinControls;
@@ -103,12 +105,14 @@ namespace Automation.View
             if (panelCustomer.Height == 263)
             {
                 panelCustomer.Height = 55;
-                turnBtn.Image = Automation.Properties.Resources.arrow_down_icon;
+              
+              
+                turnBtn.Image = Resources.arrow_down_icon;
             }
             else
             {
                 panelCustomer.Height = 263;
-                turnBtn.Image = Automation.Properties.Resources.arrow_up_icon;
+                turnBtn.Image = Resources.arrow_up_icon;
 
             }
         }

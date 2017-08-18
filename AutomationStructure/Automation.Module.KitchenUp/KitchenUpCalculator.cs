@@ -33,7 +33,6 @@ namespace Automation.Module.KitchenUp
         public string _shelfForRazdel;
         public string _shelfGlass;
 
-        private string _bigImage;
 
 
         public string GetModuleName()

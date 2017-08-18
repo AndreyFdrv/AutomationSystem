@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Automation.Model
+namespace Automation.Model.MainModels
 {
    [Serializable]
    public class Order
     {
-        public CustomersInfoCollection CustomersCollection { get; private set; }
-        public ProductsInfoCollection ProductsCollection { get; private set; }
+        public CustomersInfoCollection Customer { get; private set; }
+        public ProductsInfoCollection Products { get; private set; }
 
         public Order()
         {
-            CustomersCollection = new CustomersInfoCollection();
-            ProductsCollection = new ProductsInfoCollection();
+            Customer = new CustomersInfoCollection();
+            Products = new ProductsInfoCollection();
         }
 
     }

@@ -183,9 +183,9 @@
       <Project>{2f62a103-3468-4957-9a2a-faf8dec4d44c}</Project>
       <Name>Automation.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\AutomationControls\AutomationControls.csproj">
+    <ProjectReference Include="..\..\AutomationControls\Automation.Controls.csproj">
       <Project>{2924AFF0-EF4B-4419-B89C-0E86349E9C34}</Project>
-      <Name>AutomationControls</Name>
+      <Name>Automation.Controls</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -61,21 +61,21 @@ namespace Automation.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of Type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap arrow_down_icon {
             get {
-                object obj = ResourceManager.GetObject("arrow-down-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("arrow_down_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of Type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap arrow_up_icon {
             get {
-                object obj = ResourceManager.GetObject("arrow-up-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("arrow_up_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

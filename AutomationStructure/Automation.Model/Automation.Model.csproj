@@ -60,6 +60,10 @@
       <Project>{6c3d0292-a496-4e11-a2b7-1e09957ab772}</Project>
       <Name>Automation.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Automation.ModuleFactory\Automation.ModuleFactory.csproj">
+      <Project>{b1802501-3f3a-4655-91b8-1f667968f8c7}</Project>
+      <Name>Automation.ModuleFactory</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

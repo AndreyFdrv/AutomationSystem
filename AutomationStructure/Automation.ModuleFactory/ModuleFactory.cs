@@ -1,10 +1,14 @@
-﻿namespace Automation.Infrastructure
+﻿using Automation.Infrastructure;
+using Automation.Module.KitchenDown;
+using Automation.Module.KitchenUp;
+
+namespace Automation.ModuleFactory
 {
     public static class ModuleFactory
     {
-        public static AbstractModule GetModule(ProductType type)
+        public static BaseModule GetModule(ProductType type)
         {
-            AbstractModule module = null;
+            BaseModule module = null;
             switch (type)
             {
                 case ProductType.KitchenUp:

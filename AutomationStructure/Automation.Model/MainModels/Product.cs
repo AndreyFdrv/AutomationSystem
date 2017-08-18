@@ -8,7 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Automation.Infrastructure;
-
+using Automation.ModuleFactory;
 
 
 
@@ -19,7 +19,7 @@ namespace Automation.Model
     {
         public ProductType Type { get; set; }
         
-        private List<AbstractModule> _modules;
+        private List<BaseModule> _modules;
 
         public List<string> GetNamesModules()
         {
@@ -29,7 +29,7 @@ namespace Automation.Model
 
         public Product(string nameProduct)
         {
-            _modules = new List<AbstractModule>();
+            _modules = new List<BaseModule>();
             Type = GetType(nameProduct);
         }
 
@@ -49,9 +49,9 @@ namespace Automation.Model
             _modules.Add(module);
         }
 
-        private AbstractModule GetModuleByType()
+        private BaseModule GetModuleByType()
         {
-            AbstractModule module = ModuleFactory.GetModule(Type);
+            BaseModule module = Automation.ModuleFactory.ModuleFactory.GetModule(Type);
             return module;
         }
         
@@ -109,14 +109,14 @@ namespace Automation.Model
             return table;
         }
 
-        public AbstractModule GetCloneLastModule()
+        public BaseModule GetCloneLastModule()
         {
             var lastModule =  _modules.Last();
-            var newCloneModule =  (AbstractModule)lastModule.Clone();
+            var newCloneModule =  (BaseModule)lastModule.Clone();
             return newCloneModule;
         }
 
-        public void AddSimilarModule(AbstractModule module)
+        public void AddSimilarModule(BaseModule module)
         {
             _modules.Add(module);
         }
@@ -132,9 +132,10 @@ namespace Automation.Model
 
         }
 
-        public List<AbstractModule> GetAllProducts()
+        public List<BaseModule> GetAllModules()
         {
             return _modules;
+          
         }
     }
 }

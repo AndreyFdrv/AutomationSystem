@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using Automation.Infrastructure;
+using Automation.Model.MainModels;
 
 
 namespace Automation.Model
@@ -25,14 +26,14 @@ namespace Automation.Model
 
         public string GetTotalCustomerRecord()
         {
-            return _order.CustomersCollection.GetTotalCustomerRecord();
+            return _order.Customer.GetTotalCustomerRecord();
         }
 
 
         public void SetCustomer(List<string[]> customerRecord)
         {
 
-            _order.CustomersCollection.SetInputData(customerRecord);
+            _order.Customer.SetInputData(customerRecord);
         }
 
 
@@ -42,7 +43,7 @@ namespace Automation.Model
 
         public void AddNewProduct(string nameProduct)
         {
-            _order.ProductsCollection.AddProduct(nameProduct);
+            _order.Products.AddProduct(nameProduct);
         }
 
         #endregion
@@ -52,20 +53,20 @@ namespace Automation.Model
 
         public void AddNewModule(NewModuleData data)
         {
-            var product = _order.ProductsCollection.GetProduct(data);
+            var product = _order.Products.GetProduct(data);
             product.AddNewModule(data);
         }
 
 
         public List<string> GetModulesNamesByType(ProductType type)
         {
-            var product = _order.ProductsCollection.GetProduct(type);
+            var product = _order.Products.GetProduct(type);
             return product.GetNamesModules();
         }
 
         public List<string> GetModulesNumbersByType(ProductType type)
         {
-            var product = _order.ProductsCollection.GetProduct(type);
+            var product = _order.Products.GetProduct(type);
             return product.GetNumbersModules();
         } 
 
@@ -89,34 +90,34 @@ namespace Automation.Model
 
         public int GetCountModules(ProductType type)
         {
-            var count = _order.ProductsCollection.GetCountModules(GetProductNameByType(type));
+            var count = _order.Products.GetCountModules(GetProductNameByType(type));
             return count;
         }
 
         public DataTable GetDetailDataForModule(string moduleName, ProductType type)
         {
-            var product = _order.ProductsCollection.GetProduct(type);
+            var product = _order.Products.GetProduct(type);
             DataTable moduleInfo = product.GetModuleDetailInfoByNumber(moduleName);
             return moduleInfo;
         }
 
         public DataTable GetTotalModulesInfo(ProductType type)
         {
-            var product = _order.ProductsCollection.GetProduct(type);
+            var product = _order.Products.GetProduct(type);
             DataTable table = product.GetTotalDetailInfo();
             return table;
         }
 
         public void DeleteModule(string nameModule, ProductType type)
         {
-            var product = _order.ProductsCollection.GetProduct(type);
+            var product = _order.Products.GetProduct(type);
             product.DeleteModule(nameModule);
 
         }
 
         public void AddSimilarModule(string similarName, ProductType type)
         {
-            var product = _order.ProductsCollection.GetProduct(type);
+            var product = _order.Products.GetProduct(type);
             var module = product.GetCloneLastModule();
             module.Number = similarName;
             product.AddSimilarModule(module);
@@ -125,7 +126,7 @@ namespace Automation.Model
 
         public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)
         {
-            var product = _order.ProductsCollection.GetProduct(type);
+            var product = _order.Products.GetProduct(type);
             product.UpdateModule(moduleInfoTable, numberModule);
         }
 
@@ -143,7 +144,7 @@ namespace Automation.Model
 
         public bool IsModuleExist(string number, ProductType type)
         {
-            var product = _order.ProductsCollection.GetProduct(type);
+            var product = _order.Products.GetProduct(type);
             return product.IsModuleExist(number);
 
         }
