@@ -4,61 +4,52 @@ using System.Data;
 using System.Windows.Forms;
 using Automation.Infrastructure;
 using Automation.Model;
+using Automation.Presenters;
 using Automation.View.ModuleViewGenerator;
 using Telerik.WinControls.UI;
 
 namespace Automation.View
 {
-    public partial class ModuleManager : Telerik.WinControls.UI.RadForm
+    public partial class ModuleManager : RadForm
     {
-        //Presenter 
-        public Presenter Presenter { get; set; }
-        
-        private string _productName;
+        private readonly ProductsPresenter _productsPresenter;
+        private readonly ModulePresenter _modulePresenter;
+        private readonly string _productName;
+        private readonly ProductType _productType;
 
-        public ModuleManager(Presenter presenter, string productName)
+        public ModuleManager(ProductsPresenter productsPresenter, ModulePresenter modulePresenter, string productName)
         {
-           
-            Presenter = presenter;
-            Presenter.Manager = this;
+            _productsPresenter = productsPresenter;
+            _modulePresenter = modulePresenter;
             _productName = productName;
+            _productType = GetProductType();
+
             InitializeComponent();
-            Text = "Настройка модулей \"" + productName + "\"";
-            LoadModulesList();
-            UpdateTotalModulesDatagrid();
-            selectedModuleInformationDgv.EnableFastScrolling = true;
-            allModulesInformationDgv.EnableFastScrolling = true;
-            selectedModuleInformationDgv.MasterTemplate.BestFitColumns();
-           // allModulesInformationDgv.MasterTemplate.BestFitColumns();
-          
+            Text = $@"Настройка модулей ""{productName}""";
+            _modulePresenter.UpdateModuleList(_productType);
+            _modulePresenter.UpdateTotalModules(_productType);
 
-            //allModulesInformationDgv.VirtualMode = true;
-            allModulesInformationDgv.EnableFiltering = false;
-            allModulesInformationDgv.EnableGrouping = false;
+            InitGrids();
         }
 
-
-        public ModuleManager()
+        private void InitGrids()
         {
-            InitializeComponent();
-
+            selectedModuleInfoDatagrid.EnableFastScrolling = true;
+            allModulesInfoDatagrid.EnableFastScrolling = true;
+            selectedModuleInfoDatagrid.MasterTemplate.BestFitColumns();
+            allModulesInfoDatagrid.EnableFiltering = false;
+            allModulesInfoDatagrid.EnableGrouping = false;
         }
 
-
-
-        private void LoadModulesList()
+        public sealed override string Text
         {
-            Presenter.UpdateModuleList(GetProductType());
+            get => base.Text;
+            set => base.Text = value;
         }
-
-        private void UpdateTotalModulesDatagrid()
-        {
-            Presenter.UpdateTotalModules(GetProductType());
-        }
-
+        
         private ProductType GetProductType()
         {
-            ProductType productType=ProductType.KitchenUp;
+            var productType = ProductType.KitchenUp;
 
             switch (_productName)
             {
@@ -69,171 +60,141 @@ namespace Automation.View
                     productType = ProductType.KitchenDown;
                     break;
             }
-
             return productType;
-
-        }
-
-
-
-
-        private void add_Click(object sender, EventArgs e)
-        {
-            ModuleConfigurator configuratorModule = new ModuleConfigurator(_productName);
-            configuratorModule.OnApply += SetNewModuleInfo;
-            configuratorModule.ShowDialog();
-        }
-
-        private void SetNewModuleInfo(object sender, ConfiguratorArgs e)
-        {
-            Presenter.Manager = this;
-
-            if (!Presenter.IsModuleExist(e.Number, GetProductType()))
-            {
-                Presenter.AddNewModule(new NewModuleData
-                {
-                    Number = e.Number,
-                    Scheme = e.SchemeName,
-                    SubSchemeIconPath = GetIconPath(e.PathToImageSubScheme),
-                    SubScheme = e.SubSchemeName,
-                    Type = GetProductType()
-                });
-                Presenter.UpdateModuleList(GetProductType());
-                Presenter.UpdateModulesCount(GetProductType());
-                Presenter.UpdateTotalModules(GetProductType());
-            }
-            else
-            {
-                MessageBox.Show("Такой модуль уже существует. Измените номер модуля");
-            }
-
-         
-        }
-
-        private string GetIconPath(string pathToImageSubScheme)
-        {
-            pathToImageSubScheme = pathToImageSubScheme.Remove(pathToImageSubScheme.Length - 4) + "_icon.png";
-            return pathToImageSubScheme;
-        }
-
-        private void addSimilarBtn_Click(object sender, EventArgs e)
-        {
-            SimilarModule similarModule = new SimilarModule();
-            similarModule.OnApply += AddSimilarModule;
-            similarModule.Show();
-
-        }
-
-        private void AddSimilarModule(object sender, SimilarEventArgs e)
-        {
-            if (!Presenter.IsModuleExist(e.SimilarName, GetProductType()))
-            {
-                Presenter.AddSimilarModule(e.SimilarName, GetProductType());
-            }
-            else MessageBox.Show("Модуль с таким номером уже существует. Введите другой номер");
-
-        }
-
-        private void deleteBtn_Click(object sender, EventArgs e)
-        {
-            if (modulesLbx.Items.Count!=0)
-            {
-                string moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
-                string moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
-                Presenter.DeleteModule(moduleName, GetProductType());
-            }
-        }
-
-        DataTable _moduleInfoTable;
-
-        private void UpdateModuleInfoBtn(object sender, EventArgs e)
-        {
-            string moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
-            string moduleNumber = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
-            Presenter.UpdateModuleInfo(_moduleInfoTable, moduleNumber, GetProductType());
-            Presenter.ShowModuleInformation(moduleNumber, GetProductType());
-            Presenter.UpdateTotalModules(GetProductType());
         }
         
-        private void modulesLbx_SelectedIndexChanged(object sender, EventArgs e)
+        private void AddNewModuleButton_Click(object sender, EventArgs e)
         {
-            if (modulesLbx.Items.Count!=0)
+            var moduleConfiguratorForm = new ModuleConfigurator(_productName);
+            moduleConfiguratorForm.OnApply += OnConfiguratorModuleOnOnApply;
+            moduleConfiguratorForm.ShowDialog();
+
+            void OnConfiguratorModuleOnOnApply(object moduleConfiguratorSender, ConfiguratorArgs module)
             {
-                string moduleNumber = modulesLbx.SelectedItem.ToString();
-                Presenter.ShowModuleInformation(moduleNumber,GetProductType());
+                if (!_modulePresenter.IsModuleExist(module.Number, _productType))
+                {
+                    _modulePresenter.SetNewModuleInfo(module, _productType);
+                    _productsPresenter.UpdateProductModulesCount(_productType);
+                }
+                else
+                {
+                    MessageBox.Show(@"Такой модуль уже существует. Измените номер модуля");
+                }
             }
         }
 
+
+        private void AddSimilarModuleButton_Click(object sender, EventArgs e)
+        {
+            var similarModuleForm = new SimilarModule();
+            similarModuleForm.OnApply += OnSimilarModuleFormOnOnApply;
+            similarModuleForm.Show();
+
+            void OnSimilarModuleFormOnOnApply(object similarModuleSender, SimilarEventArgs module)
+            {
+                if (!_modulePresenter.IsModuleExist(module.SimilarName, _productType))
+                {
+                    _modulePresenter.AddSimilarModule(module.SimilarName, _productType);
+                }
+                else
+                    MessageBox.Show(@"Модуль с таким номером уже существует. Введите другой номер");
+            }
+        }
+
+
+        private void DeleteModuleButton_Click(object sender, EventArgs e)
+        {
+            if (modulesLbx.Items.Count != 0)
+            {
+                _modulePresenter.DeleteModule(GetModuleName(), _productType);
+            }
+        }
+
+        private string GetModuleName()
+        {
+            var moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
+            var moduleName = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
+            return moduleName;
+        }
+
+        private DataTable _moduleInfo;
+
+        private void UpdateModuleInfoButton_Click(object sender, EventArgs e)
+        {
+            var moduleName = GetModuleName();
+            _modulePresenter.UpdateModule(moduleName,_productType,_moduleInfo);
+        }
+
+
+        private void ModulesListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modulesLbx.Items.Count != 0)
+            {
+                if (modulesLbx.SelectedItem != null)
+                {
+                    var moduleNumber = modulesLbx.SelectedItem.ToString();
+                    _modulePresenter.ShowModuleInformation(moduleNumber, _productType);
+                }
+
+            }
+        }
 
 
         public void UpdateModuleList(List<string> modulesNumbers)
         {
             modulesLbx.Items.Clear();
-            for (int i = 0; i < modulesNumbers.Count; i++)
+            for (var i = 0; i < modulesNumbers.Count; i++)
             {
-                modulesLbx.Items.Add(modulesNumbers[i]);
+                modulesLbx.Items.Add(i);
             }
-            
-
         }
-        
-        public void UpdateAllModuleInfo(DataTable modulesInfoTbl)
+
+        public void UpdateAllModulesInfo(DataTable modulesInfo)
         {
-
-            if (modulesInfoTbl != null && modulesInfoTbl.Rows.Count != 0)
+            if (modulesInfo != null && modulesInfo.Rows.Count != 0)
             {
-                    var viewGenerator = GetViewGenerator(ProductName);
-                    viewGenerator.SetupView(allModulesInformationDgv, modulesInfoTbl);
-
-            }
-            else
-            {
-                allModulesInformationDgv.DataSource = null;
-                allModulesInformationDgv.Columns.Clear();
-                allModulesInformationDgv.Refresh();
-            }
-
-            
-          
-        }
-        
-        
-        public void UpdateDetailDataDataGrid(DataTable table)
-        {
-            if (table.Rows.Count!=0)
-            {
-                _moduleInfoTable = table;
                 var viewGenerator = GetViewGenerator(ProductName);
-                viewGenerator.SetupView(selectedModuleInformationDgv, table);
+                viewGenerator.SetupView(allModulesInfoDatagrid, modulesInfo);
             }
             else
             {
-                selectedModuleInformationDgv.DataSource = null;
-                selectedModuleInformationDgv.Refresh();
-                
+                allModulesInfoDatagrid.DataSource = null;
+                allModulesInfoDatagrid.Columns.Clear();
+                allModulesInfoDatagrid.Refresh();
             }
-          
+        }
 
+
+        public void UpdateModuleDetailsInDatagrid(DataTable moduleInfo)
+        {
+            if (moduleInfo.Rows.Count != 0)
+            {
+                _moduleInfo = moduleInfo;
+                var viewGenerator = GetViewGenerator(ProductName);
+                viewGenerator.SetupView(selectedModuleInfoDatagrid, moduleInfo);
+            }
+            else
+            {
+                selectedModuleInfoDatagrid.DataSource = null;
+                selectedModuleInfoDatagrid.Refresh();
+            }
         }
 
         private ViewGenerator GetViewGenerator(string productName)
         {
+            //mock
             return new KitchenUpView();
         }
 
-   
 
-        public void ClearModuleDetailsDgv()
+        public void ClearModuleDetailsDatagrid()
         {
-            
-            selectedModuleInformationDgv.ViewDefinition=new TableViewDefinition();
-            selectedModuleInformationDgv.DataSource = null;
-            selectedModuleInformationDgv.Columns.Clear();
-            selectedModuleInformationDgv.Refresh();
-
-      
+            selectedModuleInfoDatagrid.ViewDefinition = new TableViewDefinition();
+            selectedModuleInfoDatagrid.DataSource = null;
+            selectedModuleInfoDatagrid.Columns.Clear();
+            selectedModuleInfoDatagrid.Refresh();
         }
 
-  
+
     }
 }

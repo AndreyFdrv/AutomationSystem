@@ -22,7 +22,7 @@ namespace Automation.View
                 Close();
             }
             else
-                MessageBox.Show("Введите новое название модуля");
+                MessageBox.Show(@"Введите новое название модуля");
         }
     }
 

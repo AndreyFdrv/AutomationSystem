@@ -1,0 +1,64 @@
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.exe.config
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.exe
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.pdb
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\bin\Debug\Automation.Model.dll
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\bin\Debug\Automation.Model.pdb
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.csprojResolveAssemblyReference.cache
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.About.resources
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.Main.resources
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\obj\Debug\Automation.Properties.Resources.resources
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ThicknessMaterialEssential.resources
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.TypesProductionFm.resources
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.csproj.GenerateResource.Cache
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe
+C:\Users\aborodulin\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.pdb
+C:\Users\Leo\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.exe.config
+C:\Users\Leo\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe
+C:\Users\Leo\Documents\Visual Studio 2015\Projects\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.exe.config
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.exe
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Automation.Model.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Automation.Model.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.About.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.Properties.Resources.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ThicknessMaterialEssential.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.csproj.GenerateResource.Cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.MainForm.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ModuleConfigurator.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ModuleManager.resources
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.exe.config
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.exe
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\AutomationGUI.pdb
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Automation.Model.dll
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Automation.Model.pdb
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.csprojResolveAssemblyReference.cache
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.CustomerHelp.resources
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.About.resources
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.MainForm.resources
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.Properties.Resources.resources
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ModuleConfigurator.resources
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ThicknessMaterialEssential.resources
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ModuleManager.resources
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.csproj.GenerateResource.Cache
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe
+C:\Users\aborodulin\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.SimilarModule.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.GridView.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.UI.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\TelerikCommon.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.GridView.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.UI.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\AutomationGUI.exe.licenses
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\Telerik.WinControls.Themes.Office2010Silver.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.SubSchemeModule.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.Results.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.ModuleViewGenerator.BigModuleImageInfo.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\obj\Debug\Automation.View.Helps.Helper.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\AutomationControls.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation\Automation\bin\Debug\AutomationControls.pdb

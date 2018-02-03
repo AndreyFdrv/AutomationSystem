@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Automation.Model
+namespace Automation.Model.MainModels
 {
     [Serializable]
-    public class CustomersInfoCollection
+    public class CustomersInfoCollection: ICustomersInfoCollection
     {
 
-        private List<CustomerRecord> _records;
+        private readonly List<CustomerRecord> _records;
 
 
         public CustomersInfoCollection()
@@ -32,19 +29,16 @@ namespace Automation.Model
         {
             for (int i = 0; i < customerData.Count; i++)
             {
-                _records[i].Material = customerData[i][0].ToString();
-                _records[i].Information = customerData[i][1].ToString();
-                _records[i].ThicknessMaterial = customerData[i][2].ToString();
+                _records[i].Material = customerData[i][0];
+                _records[i].Information = customerData[i][1];
+                _records[i].ThicknessMaterial = customerData[i][2];
             }
         }
 
         public string GetTotalCustomerRecord()
         {
-            return _records.Aggregate(string.Empty,
-                (current, t) => current + ("Материал: " + t.Material +
-                                           " ,Информация: "+t.Information+
-                                           " ,Толщина материала: "+t.ThicknessMaterial+
-                                           "\n"));
+            return _records.Aggregate(string.Empty,(current, t) =>
+                $"{current}Материал: {t.Material} ,Информация: {t.Information} ,Толщина материала: {t.ThicknessMaterial}\n");
         }
 
 

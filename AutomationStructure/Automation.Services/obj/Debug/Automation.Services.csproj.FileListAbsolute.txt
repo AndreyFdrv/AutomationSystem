@@ -1,0 +1,16 @@
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\obj\Debug\Automation.Services.csproj.CoreCompileInputs.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.Services.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.Services.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\obj\Debug\Automation.Services.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\obj\Debug\Automation.Services.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\obj\Debug\Automation.Services.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.Infrastructure.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.Model.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.ModuleFactory.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.Module.KitchenUp.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.Module.KitchenDown.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.Infrastructure.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.Model.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.ModuleFactory.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.Module.KitchenUp.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Services\bin\Debug\Automation.Module.KitchenDown.pdb

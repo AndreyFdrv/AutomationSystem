@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -119,7 +118,6 @@
             // 
             // turnBtn
             // 
-     //       this.turnBtn.Image = global::Automation.Properties.Resources.arrow_up_icon;
             this.turnBtn.Location = new System.Drawing.Point(8, 3);
             this.turnBtn.Name = "turnBtn";
             this.turnBtn.Size = new System.Drawing.Size(30, 30);
@@ -139,7 +137,7 @@
             this.panelCustomer.Controls.Add(this.label3);
             this.panelCustomer.Location = new System.Drawing.Point(3, 48);
             this.panelCustomer.Name = "panelCustomer";
-            this.panelCustomer.Size = new System.Drawing.Size(1070, 263);
+            this.panelCustomer.Size = new System.Drawing.Size(1070, 269);
             this.panelCustomer.TabIndex = 1;
             // 
             // radButton1
@@ -168,11 +166,11 @@
             this.Column2,
             this.Column5,
             this.Column9});
-            this.customerDGV.Location = new System.Drawing.Point(6, 61);
+            this.customerDGV.Location = new System.Drawing.Point(6, 75);
             this.customerDGV.Name = "customerDGV";
             this.customerDGV.RowTemplate.Height = 25;
             this.customerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customerDGV.Size = new System.Drawing.Size(1054, 151);
+            this.customerDGV.Size = new System.Drawing.Size(1054, 137);
             this.customerDGV.TabIndex = 1;
             this.customerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerDGV_CellContentClick);
             // 
@@ -202,9 +200,9 @@
             // 
             // Column9
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightBlue;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column9.HeaderText = "Помощь";
             this.Column9.Name = "Column9";
             this.Column9.Text = "?";
@@ -226,7 +224,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.modulesPanel.Controls.Add(this.groupBox1);
             this.modulesPanel.Controls.Add(this.label4);
-            this.modulesPanel.Location = new System.Drawing.Point(3, 317);
+            this.modulesPanel.Location = new System.Drawing.Point(3, 323);
             this.modulesPanel.Name = "modulesPanel";
             this.modulesPanel.Size = new System.Drawing.Size(1070, 352);
             this.modulesPanel.TabIndex = 3;
@@ -242,7 +240,6 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление модулей типов изделий";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // productsDgv
             // 
@@ -377,7 +374,6 @@
             this.radMenuItem12});
             this.radMenuItem5.Name = "radMenuItem5";
             this.radMenuItem5.Text = "Тип изделия";
-            this.radMenuItem5.Click += new System.EventHandler(this.radMenuItem5_Click);
             // 
             // radMenuItem11
             // 
@@ -402,7 +398,7 @@
             // 
             this.radMenuItem13.Name = "radMenuItem13";
             this.radMenuItem13.Text = "Результаты";
-            this.radMenuItem13.Click += new System.EventHandler(this.radMenuItem13_Click);
+            this.radMenuItem13.Click += new System.EventHandler(this.moduleResultsBtn_Click);
             // 
             // radMenuItem3
             // 
@@ -433,7 +429,6 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.radMenu1);
-//            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             // 
             // 

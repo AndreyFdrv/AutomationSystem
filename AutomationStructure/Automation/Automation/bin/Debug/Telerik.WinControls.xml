@@ -1997,6 +1997,11 @@
             Determines whether the control is properly loaded.
             </summary>
         </member>
+        <member name="P:Telerik.WinControls.RadControl.UseCompatibleTextRenderingDefaultValue">
+            <summary>
+            Set or get the default value for UseCompatibleTextRendering property. 
+            </summary>
+        </member>
         <member name="P:Telerik.WinControls.RadControl.Behavior">
             <summary>Gets the input behavior for the control.</summary>
         </member>
@@ -2206,6 +2211,11 @@
         <member name="P:Telerik.WinControls.RadControl.EnableCodedUITests">
             <summary>
             Gets or sets a value indicating whether the CodedUI Tests functionality is enabled.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.RadControl.EnableCodedUITestsDefaultValue">
+            <summary>
+            Gets or sets the default value for EnableCodedUITests property.
             </summary>
         </member>
         <member name="T:Telerik.WinControls.GradientColorValue">
@@ -14256,6 +14266,16 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:Telerik.WinControls.Properties.Resources.Roboto_Medium">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.Properties.Resources.Roboto_Regular">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
         <member name="P:Telerik.WinControls.Properties.Resources.snapToCtrlBtn">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
@@ -14274,6 +14294,11 @@
         <member name="P:Telerik.WinControls.Properties.Resources.snapToGridBtn">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.Properties.Resources.TelerikWebUI">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
         <member name="P:Telerik.WinControls.Properties.Resources.WinFormsIcon">
@@ -14990,7 +15015,7 @@
         </member>
         <member name="M:Telerik.WinControls.RootRadElement.NotifyControlImageListChanged">
             <summary>
-            This method is uded internally.
+            This method is used internally.
             </summary>
         </member>
         <member name="M:Telerik.WinControls.RootRadElement.Paint(Telerik.WinControls.Paint.IGraphics,System.Drawing.Rectangle)">
@@ -17779,6 +17804,13 @@
                 themes by attributes like Name, certain relations, etc.</para>
             </remarks>
         </member>
+        <member name="M:Telerik.WinControls.ThemeResolutionService.GetCustomFont(System.String)">
+            <summary>
+            Returns a previously loaded font by given font name.
+            </summary>
+            <param name="fontName">The name of font.</param>
+            <returns>The FontFamily or null if font with given name is not loaded.</returns>
+        </member>
         <member name="M:Telerik.WinControls.ThemeResolutionService.SubscribeForThemeChanged(Telerik.WinControls.IThemeChangeListener)">
             <summary>
             Call to subscribe for theme change event, for the specified control theme class name. Note the event may be fired from another thread
@@ -17855,7 +17887,7 @@
         </member>
         <member name="M:Telerik.WinControls.ThemeResolutionService.RegisterThemeFromStorage(Telerik.WinControls.ThemeStorageType,System.String)">
             <summary>
-            Regesters theme from a file or resource that contains a xml-serilized Theme object.
+            Registers theme from a file or resource that contains a XML-serialized Theme object.
             The Visual Style Builder application for example is capable of designing and serializing
             themes. Theme files generally contain Theme with one or several style sheets each assigned a 
             registration that defines which RadControl and/or RadElment the style sheet applies.
@@ -17865,7 +17897,7 @@
         </member>
         <member name="M:Telerik.WinControls.ThemeResolutionService.RegisterThemeFromStorage(Telerik.WinControls.ThemeStorageType,System.Reflection.Assembly,System.String)">
             <summary>
-            Regesters theme from a file or resource that contains a xml-serilized Theme object.
+            Registers theme from a file or resource that contains a XML-serialized Theme object.
             The Visual Style Builder application for example is capable of designing and serializing
             themes. Theme files generally contain Theme with one or several style sheets each assigned a 
             registration that defines which RadControl and/or RadElment the style sheet applies.
@@ -17876,7 +17908,7 @@
         </member>
         <member name="M:Telerik.WinControls.ThemeResolutionService.RegisterThemeFromStorage(Telerik.WinControls.ThemeStorageType,Telerik.WinControls.ThemeResolutionService.ResourceParams)">
             <summary>
-            Regesters theme from a file or resource that contains a xml-serilized Theme object.
+            Registers theme from a file or resource that contains a XML-serialized Theme object.
             The Visual Style Builder application for example is capable of designing and serializing
             themes. Theme files generally contain Theme with one or several style sheets each assigned a 
             registration that defines which RadControl and/or RadElment the style sheet applies.
@@ -17902,7 +17934,7 @@
         </member>
         <member name="M:Telerik.WinControls.ThemeResolutionService.EnsureThemeRegistered(System.String)">
             <summary>
-            Creates and registeres an emty Theme if one is not alreay registered.
+            Creates and registers an empty Theme if one is not already registered.
             </summary>
             <param name="themeName"></param>
             <returns></returns>
@@ -17950,7 +17982,7 @@
             <remarks>
             If the value of this property is null or empty each control will be assigned a theme, corresponding on the 
             <see cref="P:Telerik.WinControls.RadControl.ThemeName"/> property of the control. Otherwise the ThemeName property will be disregarded.
-            If a sopecific control in the application has no theme registered with the name specified by ApplicationThemeName, it will be
+            If a specific control in the application has no theme registered with the name specified by ApplicationThemeName, it will be
             assigned its ControlDefault theme name.
             </remarks>
         </member>

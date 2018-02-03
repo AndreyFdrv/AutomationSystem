@@ -11,5 +11,6 @@ namespace Automation.Infrastructure
         public DataTable ShelfInfo { get; set; }
         public DataTable FurnitureInfo { get; set; }
         public DataTable LoopsInfo { get; set; }
+      
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,7 +7,7 @@ using Telerik.WinControls.UI;
 
 namespace Automation.View
 {
-    public partial class ModuleConfigurator : Telerik.WinControls.UI.RadForm
+    public partial class ModuleConfigurator : RadForm
     {
 
         public event EventHandler<ConfiguratorArgs> OnApply;

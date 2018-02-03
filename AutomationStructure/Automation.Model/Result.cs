@@ -11,5 +11,6 @@ namespace Automation.Model
         public DataTable ShelfInfo { get; set; }
         public DataTable FurnitureInfo { get; set; }
         public DataTable LoopsInfo { get; set; }
+        //public List<CalculationItem> detailsInfoItems { get; set; }
     }
 }

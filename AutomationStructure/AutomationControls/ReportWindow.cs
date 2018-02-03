@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
+using Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution;
 
 namespace Automation.Controls
 {
@@ -21,15 +22,12 @@ namespace Automation.Controls
         private string _moduleName;
         private DataTable _shelfInfo;
 
-        public ReportWindow()
-        {
-            InitializeComponent();
-        }
 
         public ReportWindow(string moduleName, string imagePath, 
             DataTable mainInfo, DataTable detailsInfo, 
             DataTable loopsInfo, DataTable shelfInfo, DataTable furniture)
         {
+            InitializeComponent();
             _moduleName = moduleName;
             _imagePath = imagePath;
             _mainInfo = mainInfo;
@@ -43,15 +41,29 @@ namespace Automation.Controls
         private void Test()
         {
         
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.EnableExternalImages = true;
 
-            //ReportDataSet ds = new ReportDataSet();
-            ReportDataSource firstDs = new ReportDataSource
-            {
-                Name = "main",
-                Value = _mainInfo
-            };
+            ReportDataSource mainDs = new ReportDataSource("Main",_mainInfo);
+            reportViewer1.LocalReport.DataSources.Add(mainDs);
 
-            reportViewer1.LocalReport.DataSources.Add(firstDs);
+            ReportDataSource loopsDs = new ReportDataSource("Loops", _loopsInfo);
+            reportViewer1.LocalReport.DataSources.Add(loopsDs);
+
+            ReportDataSource shelfDs = new ReportDataSource("Shelf", _shelfInfo);
+            reportViewer1.LocalReport.DataSources.Add(shelfDs);
+
+            DataTable common = new DataTable();
+            common.Columns.Add("NumberModule");
+            common.Columns.Add("ImagePath");
+            DataRow row = common.NewRow();
+            row[0] = _moduleName;
+            row[1] = "file:///"+ Environment.CurrentDirectory+"\\"+_imagePath;
+            common.Rows.Add(row);
+            ReportDataSource commonDs = new ReportDataSource("Common",common);
+            reportViewer1.LocalReport.DataSources.Add(commonDs);
+           
+
             reportViewer1.RefreshReport();
         }
 

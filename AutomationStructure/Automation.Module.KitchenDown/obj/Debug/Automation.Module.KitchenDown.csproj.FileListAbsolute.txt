@@ -3,5 +3,6 @@ C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenDown\bin\Debug\Automation.Infrastructure.dll
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenDown\bin\Debug\Automation.Infrastructure.pdb
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenDown\obj\Debug\Automation.Module.KitchenDown.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenDown\obj\Debug\Automation.Module.KitchenDown.csproj.CoreCompileInputs.cache
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenDown\obj\Debug\Automation.Module.KitchenDown.dll
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenDown\obj\Debug\Automation.Module.KitchenDown.pdb

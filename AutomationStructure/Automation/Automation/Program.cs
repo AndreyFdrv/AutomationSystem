@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Automation.Model;
+using Automation.Presenters;
 using Automation.View;
 
 namespace Automation
@@ -16,13 +17,22 @@ namespace Automation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            var view = new MainForm();
 
-            BLService model = new BLService();
-            MainForm view = new MainForm();
+            ProjectPresenter projectPresenter = new ProjectPresenter();
+            CustomerMaterialsPresenter customerMaterialsPresenter = new CustomerMaterialsPresenter(view);
+            ProductsPresenter productsPresenter = new ProductsPresenter(view);
+            ReportPresenter reportPresenter = new ReportPresenter(view);
 
-            Presenter presenter = new Presenter(model, view);
-            view._presenter = presenter;
+            view.ProjectPresenter = projectPresenter;
+            view.CustomerMaterialsPresenter = customerMaterialsPresenter;
+            view.ProductsPresenter = productsPresenter;
+            view.ReportPresenter = reportPresenter;
+
             Application.Run(view);
+            //Presenter presenter = new Presenter(model, view);
+            //view._presenter = presenter;
+            //Application.Run(view);
         }
     }
 }

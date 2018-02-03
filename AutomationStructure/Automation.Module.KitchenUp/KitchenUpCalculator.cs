@@ -2,7 +2,8 @@
 using System.Data;
 using Automation.Infrastructure;
 using Automation.Model;
-
+using System.Linq;
+using System;
 
 namespace Automation.Module.KitchenUp
 {
@@ -43,9 +44,9 @@ namespace Automation.Module.KitchenUp
         public DataTable GetDimensionInfo()
         {
             DataTable dimensionsInfo = new DataTable();
-            dimensionsInfo.Columns.Add("Высота H");
-            dimensionsInfo.Columns.Add("Ширина W");
-            dimensionsInfo.Columns.Add("Глубина T");
+            dimensionsInfo.Columns.Add("Height"); //Высота
+            dimensionsInfo.Columns.Add("Width"); //Ширина
+            dimensionsInfo.Columns.Add("Depth");  //Глубина
             dimensionsInfo.Columns.Add("А");
             dimensionsInfo.Columns.Add("B");
             dimensionsInfo.Columns.Add("C");
@@ -69,23 +70,103 @@ namespace Automation.Module.KitchenUp
         }
 
 
+        List<CalculationItem> detailsInfoItems = new List<CalculationItem>();
+
+        public List<CalculationItem> GetDetailsInfoItems()
+        {
+            return detailsInfoItems;
+        }
+
+        List<CalculationItem> backItems = new List<CalculationItem>();
+
+        public List<CalculationItem> GetBackInfoItems()
+        {
+            return backItems;
+        }
+
+        List<FurnitureCalculationItem> furnitureInfoItems = new List<FurnitureCalculationItem>();
+        
+        public List<FurnitureCalculationItem> GetFurnitureInfoItems()
+        {
+            return furnitureInfoItems;
+        }
+
+        List<FasadeCalculationItem> fasadeInfoItems = new List<FasadeCalculationItem>();
+
+        public List<FasadeCalculationItem> GetFasadeInfoItems()
+        {
+            return fasadeInfoItems;
+        }
+
         public DataTable GetDetailsInfo()
         {
             DataTable detailsInfo = new DataTable();
             SetDetailsInfoColumns(detailsInfo);
 
-            detailsInfo.Rows.Add("1","Бока",MF4(),DF1()+"|"+DF2(),MF5(), DF3() + "|" + DF4(), MF6(),MF7());
-            detailsInfo.Rows.Add("2", "Верх-низ", MF8(), DF5() + "|" + DF6(), MF9(), DF7()+ "|" + DF8(), MF10(), MF11());
+            CalculationItem item = new CalculationItem()
+            {
+                DimentionAlong = MF4().ToString(),
+                DimentionAlongKromka1 = DF1(),
+                DimentionAlongKromka2 = DF2(),
+                DimentionAcross = MF5().ToString(),
+                DimentionAcrossKromka1 = DF3(),
+                DimentionAcrossKromka2 = DF4(),
+                Count = int.Parse(MF6().ToString())
+            };
+
+            detailsInfo.Rows.Add("1","Бока",item.DimentionAlong,item.DimentionAlongKromka1+"|"+item.DimentionAlongKromka2,
+                item.DimentionAcross, item.DimentionAcrossKromka1 + "|" + item.DimentionAcrossKromka2, item.Count,MF7());
+
+            CalculationItem itemUpDown = new CalculationItem()
+            {
+                DimentionAlong = MF8().ToString(),
+                DimentionAlongKromka1 = DF5(),
+                DimentionAlongKromka2 = DF6(),
+                DimentionAcross = MF9().ToString(),
+                DimentionAcrossKromka1 = DF7(),
+                DimentionAcrossKromka2 = DF8(),
+                Count = int.Parse(MF10().ToString())
+            };
+
+            detailsInfo.Rows.Add("2", "Верх-низ", itemUpDown.DimentionAlong, itemUpDown.DimentionAlongKromka1 + "|" + itemUpDown.DimentionAlongKromka2,
+                itemUpDown.DimentionAcross, itemUpDown.DimentionAcrossKromka1 + "|" + itemUpDown.DimentionAcrossKromka2, itemUpDown.Count, MF11());
+
             detailsInfo.Rows.Add("3 Полки", "Не съёмные", MF12(), DF9() + "|" + DF10(), MF13(), DF11() + "|" + DF12(), MF14(), MF15());
             detailsInfo.Rows.Add("", "Съёмные (-2мм)", MF16(), DF13() + "|" + DF14(), MF17(), DF15() + "|" + DF16(), MF18(), MF19());
             detailsInfo.Rows.Add("4", "Разделитель секции","20" , DF17() + "|" + DF18(), "21", DF19() + "|" + DF20(), "22", "23");
-            detailsInfo.Rows.Add("5", "Задняя стенка", MF41(),"" , MF42(), "", MF43(), "44");
+
+            CalculationItem backItem = new CalculationItem()
+            {
+                DimentionAlong = MF41().ToString(),
+                DimentionAcross = MF42().ToString(),
+                Count = MF43(),
+                Note = "44",
+            };
+
+            FasadeCalculationItem fasadeItem = new FasadeCalculationItem()
+            {
+                DimentionAcross = MF24().ToString(),
+                DimentionAcrossKromka1 = DF21().ToString(),
+                DimentionAcrossKromka2 = MF25().ToString(),
+                DimentionAlong = DF21().ToString()
+            };
+
+            detailsInfo.Rows.Add("5", "Задняя стенка", backItem.DimentionAlong, "" , backItem.DimentionAcross, "", MF43(), "");
 
             detailsInfo.Rows.Add("Ф1", "Фасад 1", MF24(), DF21() ,MF25(), DF21(), "", "");
-            detailsInfo.Rows.Add("Ф2", "Фасад 2", "26", "", "27", "", "", "");
-            detailsInfo.Rows.Add("Ф3", "Фасад 3", "28", "", "29", "", "", "");
-            detailsInfo.Rows.Add("Ф4", "Фасад 4", "30", "", "31", "", "", "");
+
+            //TODO: add sub type module with facade calculation 2, 3, 4,
+
+            detailsInfo.Rows.Add("Ф2", "Фасад 2", "", "", "", "", "", "");
+            detailsInfo.Rows.Add("Ф3", "Фасад 3", "", "", "", "", "", "");
+            detailsInfo.Rows.Add("Ф4", "Фасад 4", "", "", "", "", "", "");
             detailsInfo.Rows.Add("3", "Полка стекло", MF32(), "", MF33(), "", MF34(), "");
+
+            detailsInfoItems.Add(item);
+            detailsInfoItems.Add(itemUpDown);
+
+            backItems.Add(backItem);
+            fasadeInfoItems.Add(fasadeItem);
             return detailsInfo;
 
         }
@@ -130,6 +211,19 @@ namespace Automation.Module.KitchenUp
         public DataTable GetFurnitureInfo()
         {
             DataTable furnitureInfo = new DataTable();
+            FurnitureCalculationItem item = new FurnitureCalculationItem()
+            {
+                Loops = MF35().ToString(),
+                Konfirmat = MF36().ToString(),
+                Excentric = MF37().ToString(),
+                PolkoDerz = MF38_1().ToString(),
+                PolkoDerzSteklo = MF38_2().ToString(),
+                Handles = MF39().ToString(),                
+                SimpleNavesn = MF40().ToString(),
+                RegularNaves = F45().ToString(),
+                Gazlifts = "0",
+            };
+
             furnitureInfo.Columns.Add("Наименование");
             furnitureInfo.Columns.Add("Петли");
             furnitureInfo.Columns.Add("Конфирмат");
@@ -140,7 +234,18 @@ namespace Automation.Module.KitchenUp
             furnitureInfo.Columns.Add("Обычные навесные");
             furnitureInfo.Columns.Add("Регулируемые навесные");
             furnitureInfo.Columns.Add("Газлифты");
-            furnitureInfo.Rows.Add("Кол-во",MF35(), MF36(), MF37(), MF38_1(),MF38_2(), MF39(), MF40(), F45(),"?");
+            furnitureInfo.Rows.Add("Кол-во",
+               item.Loops, 
+               item.Konfirmat , 
+               item.Excentric ,
+               item.PolkoDerz,
+               item.PolkoDerzSteklo,
+               item.Handles,
+               item.SimpleNavesn,
+               item.RegularNaves,
+               item.Gazlifts);
+
+            furnitureInfoItems.Add(item);
 
             return furnitureInfo;
         }
@@ -279,39 +384,57 @@ namespace Automation.Module.KitchenUp
 
 
             DataTable shelfInfo = new DataTable();
-            shelfInfo.Columns.Add("Полки");
-            shelfInfo.Columns.Add("1");
-            shelfInfo.Columns.Add("2");
-            shelfInfo.Columns.Add("3");
-            shelfInfo.Columns.Add("4");
-            shelfInfo.Columns.Add("5");
-            shelfInfo.Columns.Add("6");
-            shelfInfo.Columns.Add("Разд.1");
-            shelfInfo.Columns.Add("Разд.2");
-          
-            shelfInfo.Rows.Add("K", "", "", "", "", "", "", "", "" );
-            shelfInfo.Rows.Add("L", "", "", "", "", "", "", "", "" );
-            shelfInfo.Rows.Add("M", "", "", "", "", "", "", "", "" );
+            shelfInfo.Columns.Add(new DataColumn { ColumnName = "Shelfs", Caption = "Полки" });
+            shelfInfo.Columns.Add(new DataColumn { ColumnName = "P_1", Caption = "№ 1" });
+            shelfInfo.Columns.Add(new DataColumn { ColumnName = "P_2", Caption = "№ 2" });
+            shelfInfo.Columns.Add(new DataColumn { ColumnName = "P_3", Caption = "№ 3" });
+            shelfInfo.Columns.Add(new DataColumn { ColumnName = "P_4", Caption = "№ 4" });
+            shelfInfo.Columns.Add(new DataColumn { ColumnName = "P_5", Caption = "№ 5" });
+            shelfInfo.Columns.Add(new DataColumn { ColumnName = "P_6", Caption = "№ 6" });
 
-            //вычисление на месте
-            //TODO: дописать метод вычисления 
-            List<double> Kitems = new List<double>();
-            List<double> Litems = new List<double>();
-            List<double> Mitems = new List<double>();
+            shelfInfo.Columns.Add(new DataColumn { ColumnName = "Razdel_1", Caption =" Разделитель 1" });
+            shelfInfo.Columns.Add(new DataColumn { ColumnName = "Razdel_2", Caption = "Разделитель 2" });
+
+            int countShelfs = int.Parse(_shelfMinusTwoMm);
+            double Kp = (_dimentions.Lenght - (ModuleThickness.LDSPThickness * 2)) / (countShelfs + 1);
+
+            var Ki = new List<string>();
+            var Li = new List<string>();
+            var Mi = new List<string>();
+
+            int maxCountShelfs = 8;
+            for(int n=1;n<=maxCountShelfs; n++)
+            {
+                if (n <= countShelfs)
+                {
+                    Ki.Add(Math.Round(Kp * n + ModuleThickness.LDSPThickness).ToString());
+                    Li.Add(Math.Round((Kp * n) + ModuleThickness.LDSPThickness - (ModuleThickness.LDSPThickness / 2)).ToString());
+                    Mi.Add(Math.Round((Kp * n) - ModuleThickness.LDSPThickness - (ModuleThickness.LDSPThickness / 2) - 3).ToString());
+                }
+                else
+                {
+                    Ki.Add("");
+                    Li.Add("");
+                    Mi.Add("");
+                }
+            }            
+
+            shelfInfo.Rows.Add("K", Ki[0], Ki[1], Ki[2], Ki[3], Ki[4], Ki[5], Ki[6], Ki[7] );
+            shelfInfo.Rows.Add("L", Mi[0], Mi[1], Mi[2], Mi[3], Mi[4], Mi[5], Mi[6], Mi[7]);
+            shelfInfo.Rows.Add("M", Li[0], Li[1], Li[2], Li[3], Li[4], Li[5], Li[6], Li[7]);
 
             return shelfInfo;
-
-
-        }
+        }       
+     
 
         public DataTable GetLoopsInfo()
         {
             DataTable loopsInfo = new DataTable();
-            loopsInfo.Columns.Add("Петли");
-            loopsInfo.Columns.Add("1");
-            loopsInfo.Columns.Add("2");
-            loopsInfo.Columns.Add("3");
-            loopsInfo.Columns.Add("4");
+            loopsInfo.Columns.Add(new DataColumn { ColumnName = "Loops", Caption = "Петли" });
+            loopsInfo.Columns.Add(new DataColumn { ColumnName = "First", Caption = "№ 1" });
+            loopsInfo.Columns.Add(new DataColumn { ColumnName = "Second", Caption = "№ 2" });
+            loopsInfo.Columns.Add(new DataColumn { ColumnName = "Third", Caption = "№ 3" });
+            loopsInfo.Columns.Add(new DataColumn { ColumnName = "Fourth", Caption = "№ 4" });
             loopsInfo.Rows.Add("на фасаде", L1(), L2(), L3(), "");
             loopsInfo.Rows.Add("на модуле", ML1(), ML2(), ML3(), "");
             return loopsInfo;
@@ -329,12 +452,12 @@ namespace Automation.Module.KitchenUp
 
         private double L2()
         {
-            return _dimentions.Lenght - 100;
+            return _dimentions.Lenght - 100-4;
         }
 
         private double ML2()
         {
-            return _dimentions.Lenght - 100 - 2;
+            return _dimentions.Lenght - 100 + 2;
         }
 
         private double L3()
@@ -512,14 +635,18 @@ namespace Automation.Module.KitchenUp
             return result;
         }
 
-        private string MF43()
+        private int MF43()
         {
-            return "";
+            return 1;
         }
 
         private string MF32()
         {
-            _shelfGlass= _shelfGlass ?? "0";
+            if (string.IsNullOrEmpty(_shelfGlass))
+            {
+                _shelfGlass = "0";
+            }
+          //  _shelfGlass =  _shelfGlass ?? "0";
             return int.Parse(_shelfGlass) > 0 ? MF16().ToString() : "";
         }
 
@@ -610,7 +737,7 @@ namespace Automation.Module.KitchenUp
                 switch (_facade._records[0].Material)
                 {
                     case "Верт.":
-                        result = _dimentions.Width  - 4;
+                        result = _dimentions.Width - 4;
                         break;
                     case "Гориз.":
                         result = _dimentions.Lenght-_dimentions.A - 4;
@@ -841,4 +968,7 @@ namespace Automation.Module.KitchenUp
         #endregion
 
     }
+
+
+
 }

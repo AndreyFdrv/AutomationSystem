@@ -3,6 +3,7 @@ using System.Data;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Automation.Infrastructure;
+using System.Collections.Generic;
 
 
 namespace Automation.Module.KitchenUp
@@ -13,12 +14,40 @@ namespace Automation.Module.KitchenUp
         public KitchenUp()
         {
             _facade = new Facade();
-            _dimentions = new Dimensions();
+            dimentions = new Dimensions {
+                Lenght = 800,
+                Width= 400,
+                Depth = 300,
+                A = 0,
+                B = 0,
+                C = 0,
+                D = 0               
+            };
+            setDefaultValues();
            
         }
 
+        private void setDefaultValues()
+        {
+       
+            _moduleAssembly = "не разъёмная (конф.)";
+            BackWall = "ГВ";
+            _shelfMinusTwoMm = "2";
+            _shelfForRazdel = "0";
+            _shelfGlass = "0";
 
-        private Dimensions _dimentions;
+            int countFacades = 1;
+            _facade.InitFacadeRecords(countFacades);
+            _facade._records[0].Type = "Накладной";
+            _facade._records[0].HorisontalDimension = 0;
+            _facade._records[0].VerticalDimension = 0;
+            _calcMode = "Автоматически";
+            _facade._records[0].Material = "Верт.";
+        
+
+        }
+
+        private Dimensions dimentions;
         private Facade _facade;
         private string _shelfPo;
         private string _shelfMinusTwoMm;
@@ -26,6 +55,12 @@ namespace Automation.Module.KitchenUp
         private string _shelfGlass;
         private string _calcMode;
         private string _moduleAssembly;
+
+
+        List<CalculationItem> detailsItems = new List<CalculationItem>();
+        List<CalculationItem> backItems = new List<CalculationItem>();
+        List<FurnitureCalculationItem> furnitureItems = new List<FurnitureCalculationItem>();
+        List<FasadeCalculationItem> fasadeItems = new List<FasadeCalculationItem>();
 
 
         public override void SetupModule(DataTable changedInfo)
@@ -36,19 +71,37 @@ namespace Automation.Module.KitchenUp
             Number = row["Номер модуля"].ToString();
             IconPath = row["Изображение"].ToString();
             Sсheme = row["Форма модуля"].ToString();
-            _dimentions.Lenght = double.Parse(row["Высота модуля (мм)"].ToString());
-            _dimentions.Width = double.Parse(row["Ширина модуля (мм)"].ToString());
-            _dimentions.Depth = double.Parse(row["Глубина модуля (мм)"].ToString());
-            _dimentions.A = double.Parse(row["A размер (мм)"].ToString());
-            _dimentions.B = double.Parse(row["B размер (мм)"].ToString());
-            _dimentions.C = double.Parse(row["C размер (мм)"].ToString());
-            _dimentions.D = double.Parse(row["D размер (мм)"].ToString());
+            dimentions.Lenght = double.Parse(row["Высота модуля (мм)"].ToString());
+            dimentions.Width = double.Parse(row["Ширина модуля (мм)"].ToString());
+            dimentions.Depth = double.Parse(row["Глубина модуля (мм)"].ToString());
+            dimentions.A = double.Parse(row["A размер (мм)"].ToString());
+            dimentions.B = double.Parse(row["B размер (мм)"].ToString());
+            dimentions.C = double.Parse(row["C размер (мм)"].ToString());
+            dimentions.D = double.Parse(row["D размер (мм)"].ToString());
             _moduleAssembly = row["Сборка модуля"].ToString();
             BackWall = row["Задняя стенка"].ToString();
             _shelfPo = row["Полка по ширине секции (шт)"].ToString();
             _shelfMinusTwoMm = row["Полка - 2мм (шт)"].ToString();
-            _shelfForRazdel = row["Полка разделительная (шт)"].ToString();
-            _shelfGlass = row["Полка стеклянная (шт)"].ToString();
+
+            if (string.IsNullOrEmpty(row["Полка разделительная (шт)"].ToString()))
+            {
+                _shelfForRazdel = "0";
+            }
+            else
+            {
+                _shelfForRazdel = row["Полка разделительная (шт)"].ToString();
+            }
+
+            
+            if(string.IsNullOrEmpty(row["Полка стеклянная (шт)"].ToString()))
+            {
+                _shelfGlass = "0";
+            }
+            else
+            {
+                _shelfGlass = row["Полка стеклянная (шт)"].ToString();
+            }
+
 
             var formula = IconPath.Split('_')[1];
             _facade._records[0].NumberOnScheme = int.Parse(row["№ схемы фасада"].ToString());
@@ -57,7 +110,7 @@ namespace Automation.Module.KitchenUp
             if (_calcMode == "Автоматически")
             {
                 KitchenUpFacadeCalculator calculator = new KitchenUpFacadeCalculator();
-                calculator.CalculateDimentions(_facade, _dimentions, formula);
+                calculator.CalculateDimentions(_facade, dimentions, formula);
             }
             else
             {
@@ -81,13 +134,13 @@ namespace Automation.Module.KitchenUp
             row["Номер модуля"] = Number;
             row["Форма модуля"] = Sсheme;
             row["Изображение"] = IconPath;
-            row["Высота модуля (мм)"] = _dimentions.Lenght;
-            row["Ширина модуля (мм)"] = _dimentions.Width;
-            row["Глубина модуля (мм)"] = _dimentions.Depth;
-            row["A размер (мм)"] = _dimentions.A;
-            row["B размер (мм)"] = _dimentions.B;
-            row["C размер (мм)"] = _dimentions.C;
-            row["D размер (мм)"] = _dimentions.D;
+            row["Высота модуля (мм)"] = dimentions.Lenght;
+            row["Ширина модуля (мм)"] = dimentions.Width;
+            row["Глубина модуля (мм)"] = dimentions.Depth;
+            row["A размер (мм)"] = dimentions.A;
+            row["B размер (мм)"] = dimentions.B;
+            row["C размер (мм)"] = dimentions.C;
+            row["D размер (мм)"] = dimentions.D;
             row["Сборка модуля"] = _moduleAssembly;
             row["Задняя стенка"] = BackWall;
             row["Полка по ширине секции (шт)"] = _shelfPo;
@@ -188,6 +241,7 @@ namespace Automation.Module.KitchenUp
             }
         }
 
+
         public override Result Calculate()
         {
             KitchenUpCalculator calculator = new KitchenUpCalculator
@@ -198,7 +252,7 @@ namespace Automation.Module.KitchenUp
                 BackWall = BackWall,
                 Number = Number,
                 SubScheme = SubScheme,
-                _dimentions = _dimentions,
+                _dimentions = dimentions,
                 _facade = _facade,
                 _shelfPo = _shelfPo,
                 _shelfMinusTwoMm = _shelfMinusTwoMm,
@@ -217,8 +271,33 @@ namespace Automation.Module.KitchenUp
                 LoopsInfo = calculator.GetLoopsInfo()
             };
 
+            detailsItems = calculator.GetDetailsInfoItems();
+            backItems = calculator.GetBackInfoItems();
+            furnitureItems = calculator.GetFurnitureInfoItems();
+            fasadeItems = calculator.GetFasadeInfoItems();
+
             return result;
 
+        }
+
+        public override List<CalculationItem> GetBackItems()
+        {
+            return backItems;
+        }
+
+        public override List<CalculationItem> GetDetailsInfo()
+        {
+            return detailsItems;
+        }
+
+        public override List<FurnitureCalculationItem> GetFurnitureItems()
+        {
+            return furnitureItems;
+        }
+
+        public override List<FasadeCalculationItem> GetFasadeItems()
+        {
+            return fasadeItems;
         }
     }
 }

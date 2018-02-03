@@ -1,0 +1,16 @@
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\AutomationControls.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\AutomationControls.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\Telerik.WinControls.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\Telerik.WinControls.GridView.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\Telerik.WinControls.UI.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\TelerikCommon.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\Telerik.WinControls.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\Telerik.WinControls.GridView.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\Telerik.WinControls.UI.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\obj\Debug\AutomationControls.ModuleInfo.resources
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\obj\Debug\AutomationControls.csproj.GenerateResource.Cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\obj\Debug\AutomationControls.dll.licenses
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\obj\Debug\AutomationControls.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\obj\Debug\AutomationControls.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\obj\Debug\AutomationControls.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\obj\Debug\AutomationControls.ModuleReport.resources

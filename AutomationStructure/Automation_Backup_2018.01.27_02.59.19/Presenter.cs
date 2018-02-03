@@ -15,9 +15,7 @@ namespace Automation
     {
         private BLService _blService;
         private MainForm _view;
-        public ModuleManager Manager { get; set; }
-
-       
+        public ModuleManager Manager { get; set; }       
 
         public Presenter(BLService model, MainForm view)
         {
@@ -33,24 +31,18 @@ namespace Automation
         internal void OpenProject(string pathToFile)
         {
             Order order = null;
-
-
             BinaryFormatter formatter = new BinaryFormatter();
-
             using (FileStream fs = new FileStream(pathToFile,FileMode.OpenOrCreate))
             {
                 order = (Order)formatter.Deserialize(fs);
             }
-
             _blService.SetCurrentOrder(order);
-
         }
 
         internal void SaveProject(string pathToFile)
         {
             var order = _blService.GetCurrentOrder();
             BinaryFormatter formatter = new BinaryFormatter();
-
             using (FileStream fs = new FileStream(pathToFile,FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs,order);
@@ -125,11 +117,7 @@ namespace Automation
                 UpdateModuleList(type);
                 UpdateTotalModules(type);
                 Manager.ClearModuleDetailsDgv();
-            }
-           
-           
-           
-           
+            }            
        }
 
        public void AddSimilarModule(string similarName, ProductType type)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using Automation.Infrastructure;
 
@@ -59,6 +60,26 @@ namespace Automation.Module.KitchenDown
         public void SetupData(params string[] parameters )
         {
             //присваиваем значения переменным
+        }
+
+        public override List<CalculationItem> GetBackItems()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<CalculationItem> GetDetailsInfo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<FurnitureCalculationItem> GetFurnitureItems()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<FasadeCalculationItem> GetFasadeItems()
+        {
+            throw new NotImplementedException();
         }
     }
 

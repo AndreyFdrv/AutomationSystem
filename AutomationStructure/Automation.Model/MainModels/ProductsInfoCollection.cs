@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using Automation.Infrastructure;
 
-namespace Automation.Model
+namespace Automation.Model.MainModels
 {
     [Serializable]
-    public class ProductsInfoCollection
+    public class ProductsInfoCollection:IProductsInfoCollection
     {
-        private List<Product> _products;
+        private readonly List<Product> _products;
 
         public ProductsInfoCollection()
         {
@@ -39,11 +35,11 @@ namespace Automation.Model
             }
         }
 
-        public int GetCountModules(string nameProduct)
-        {
-            Product product = _products.First(x => x.Type ==x.GetType(nameProduct));
-            return product.GetCountModules();
-        }
+        //public int GetCountModules(string nameProduct)
+        //{
+        //    Product product = _products.First(x => x.Type ==x.GetType(nameProduct));
+        //    return product.GetCountModules();
+        //}
 
         public Product GetProduct(NewModuleData data)
         {

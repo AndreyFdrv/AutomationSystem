@@ -44,8 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLService.cs" />
+    <Compile Include="CalculationDetailsItem.cs" />
     <Compile Include="MainModels\CustomersInfoCollection.cs" />
     <Compile Include="CustomerRecord.cs" />
+    <Compile Include="MainModels\ICustomersInfoCollection.cs" />
+    <Compile Include="MainModels\IProduct.cs" />
+    <Compile Include="MainModels\IProductsInfoCollection.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="NewModuleData.cs" />
     <Compile Include="MainModels\Order.cs" />

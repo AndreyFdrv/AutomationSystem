@@ -6,147 +6,53 @@ using Automation.Model.MainModels;
 
 namespace Automation.Model
 {
-    public  class BLService
+    public class BlService
     {
 
-        private Order _order;
+        //private Order _order;
 
-        #region Project Methods
-
-
-        public void MakeNewProject()
-        {
-            _order = new Order();
-        }
+        //#region Project Methods
 
 
-        #endregion
-
-        #region Customer Methods
-
-        public string GetTotalCustomerRecord()
-        {
-            return _order.Customer.GetTotalCustomerRecord();
-        }
+        //public void MakeNewProject()
+        //{
+        //    _order = Order.Instance;
+        //}
 
 
-        public void SetCustomer(List<string[]> customerRecord)
-        {
+        //#endregion
 
-            _order.Customer.SetInputData(customerRecord);
-        }
-
-
-        #endregion
+    
         
-        #region Product Methods
+        //#region Product Methods
 
-        public void AddNewProduct(string nameProduct)
-        {
-            _order.Products.AddProduct(nameProduct);
-        }
+        //public void AddNewProduct(string nameProduct)
+        //{
+        //    _order.Products.AddProduct(nameProduct);
+        //}
 
-        #endregion
+        //#endregion
         
-        #region Modules Methods
+        //#region Modules Methods
 
 
-        public void AddNewModule(NewModuleData data)
-        {
-            var product = _order.Products.GetProduct(data);
-            product.AddNewModule(data);
-        }
+        //#endregion
 
+        //public Order GetCurrentOrder()
+        //{
+        //    return _order;
+        //}
 
-        public List<string> GetModulesNamesByType(ProductType type)
-        {
-            var product = _order.Products.GetProduct(type);
-            return product.GetNamesModules();
-        }
+        //public void SetCurrentOrder(Order order)
+        //{
+        //    _order = order;
+        //}
 
-        public List<string> GetModulesNumbersByType(ProductType type)
-        {
-            var product = _order.Products.GetProduct(type);
-            return product.GetNumbersModules();
-        } 
+        //public bool IsModuleExist(string number, ProductType type)
+        //{
+        //    var product = _order.Products.GetProduct(type);
+        //    return product.IsModuleExist(number);
 
-
-        public string GetProductNameByType(ProductType type)
-        {
-            string result = string.Empty;
-            switch (type)
-            {
-                case ProductType.KitchenUp:
-                    result = "Кухня верхние модули";
-                    break;
-                case ProductType.KitchenDown:
-                    result = "Кухня нижние модули";
-                    break;
-            }
-            return result;
-        }
-
-
-
-        public int GetCountModules(ProductType type)
-        {
-            var count = _order.Products.GetCountModules(GetProductNameByType(type));
-            return count;
-        }
-
-        public DataTable GetDetailDataForModule(string moduleName, ProductType type)
-        {
-            var product = _order.Products.GetProduct(type);
-            DataTable moduleInfo = product.GetModuleDetailInfoByNumber(moduleName);
-            return moduleInfo;
-        }
-
-        public DataTable GetTotalModulesInfo(ProductType type)
-        {
-            var product = _order.Products.GetProduct(type);
-            DataTable table = product.GetTotalDetailInfo();
-            return table;
-        }
-
-        public void DeleteModule(string nameModule, ProductType type)
-        {
-            var product = _order.Products.GetProduct(type);
-            product.DeleteModule(nameModule);
-
-        }
-
-        public void AddSimilarModule(string similarName, ProductType type)
-        {
-            var product = _order.Products.GetProduct(type);
-            var module = product.GetCloneLastModule();
-            module.Number = similarName;
-            product.AddSimilarModule(module);
-
-        }
-
-        public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)
-        {
-            var product = _order.Products.GetProduct(type);
-            product.UpdateModule(moduleInfoTable, numberModule);
-        }
-
-        #endregion
-
-        public Order GetCurrentOrder()
-        {
-            return _order;
-        }
-
-        public void SetCurrentOrder(Order order)
-        {
-            _order = order;
-        }
-
-        public bool IsModuleExist(string number, ProductType type)
-        {
-            var product = _order.Products.GetProduct(type);
-            return product.IsModuleExist(number);
-
-        }
+        //}
     }
 }

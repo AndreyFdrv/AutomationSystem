@@ -1,61 +1,54 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using Automation.Infrastructure;
-using Automation.ModuleFactory;
 
-
-
-namespace Automation.Model
+namespace Automation.Model.MainModels
 {
     [Serializable]
-    public class Product
+    public class Product: IProduct
     {
-        public ProductType Type { get; set; }
+        public ProductType Type { get; }
         
-        private List<BaseModule> _modules;
-
-        public List<string> GetNamesModules()
-        {
-            return _modules.Select(module => module.Name).ToList();
-        }
-
-
+        private readonly List<BaseModule> _modules;
+        
+        
         public Product(string nameProduct)
         {
             _modules = new List<BaseModule>();
             Type = GetType(nameProduct);
         }
 
-        public int GetCountModules()
-        {
-            return _modules.Count;
-        }
 
-        public void AddNewModule(NewModuleData data)
+        public void AddModule(NewModuleData data)
         {
             var module = GetModuleByType();
             module.Name = data.Name;
             module.Number = data.Number;
             module.SubScheme = data.SubScheme;
-            module.Sсheme =  data.Scheme;
+            module.Sсheme = data.Scheme;
             module.IconPath = data.SubSchemeIconPath;
             _modules.Add(module);
         }
 
+
+        public List<string> GetModulesNames()
+        {
+            return _modules.Select(module => module.Name).ToList();
+        }
+
+        public int GetModulesCount()
+        {
+            return _modules.Count;
+        }
+
         private BaseModule GetModuleByType()
         {
-            BaseModule module = Automation.ModuleFactory.ModuleFactory.GetModule(Type);
+            BaseModule module = ModuleFactory.ModuleFactory.GetModule(Type);
             return module;
         }
         
-
         public void DeleteModule(string moduleName)
         {
             var module = _modules.First(x => x.Number == moduleName);
@@ -121,7 +114,7 @@ namespace Automation.Model
             _modules.Add(module);
         }
 
-        public List<string> GetNumbersModules()
+        public List<string> GetModulesNumbers()
         {
             return _modules.Select(module => module.Number).ToList();
         }

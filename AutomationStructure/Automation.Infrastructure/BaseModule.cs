@@ -7,7 +7,6 @@ namespace Automation.Infrastructure
     [Serializable]
     public abstract class BaseModule: ICloneable
     {
-
         public string Name { get; set; }
         public string Sсheme { get; set; }
         
@@ -22,25 +21,27 @@ namespace Automation.Infrastructure
         public abstract DataTable GetInfoTable();
 
         public abstract DataTable GetEmptyTable();
-
         public abstract object Clone();
-
         public abstract Result Calculate();
+
+        public abstract List<CalculationItem> GetBackItems();
+        public abstract List<CalculationItem> GetDetailsInfo();
+        public abstract List<FurnitureCalculationItem> GetFurnitureItems();
+        public abstract List<FasadeCalculationItem> GetFasadeItems();
     }
+
 
     [Serializable]
     public class Dimensions
     {
-
         public double Depth { get; set; }
         public double Lenght { get; set; }
         public double Width { get; set; }
+
         public double A { get; set; }
         public double B { get; set; }
         public double C { get; set; }
         public double D { get; set; }
-
-
     }
 
     [Serializable]

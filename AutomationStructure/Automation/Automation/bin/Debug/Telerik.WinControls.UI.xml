@@ -2230,6 +2230,12 @@
             Gets a value indicating whether the SelectedValue property is different after the selection last changed.
             </summary>
         </member>
+        <member name="P:Telerik.WinControls.UI.RadListElement.AllowDragDrop">
+            <summary>
+            Gets or sets value indicating if the user can reorder items via drag and drop. 
+            Always false when kinetic scrolling is enabled.
+            </summary>
+        </member>
         <member name="P:Telerik.WinControls.UI.RadListElement.EnableAlternatingItemColor">
             <summary>
             Gets or sets a value indicating whether alternating item color is enabled.
@@ -5064,8 +5070,7 @@
         </member>
         <member name="T:Telerik.WinControls.UI.RadPopupControlBase">
             <summary>
-            Represents a base class for all popup-forms used throughout
-            the Telerik UI for WinForms suite.
+            Represents a base class for all popup-forms used throughout the suite.
             </summary>
         </member>
         <member name="T:Telerik.WinControls.UI.IPopupControl">
@@ -5859,6 +5864,11 @@
         <member name="P:Telerik.WinControls.UI.BaseComboBoxElement.KeyboardCommandIssued">
             <summary>
             Gets a value indicating whether a keyboard command has been issued.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.BaseComboBoxElement.AutoFilterDelay">
+            <summary>
+            Gets or set the value in Milliseconds indicating delay between last key press and filtering operation
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.BaseComboBoxElement.IsDropDownShown">
@@ -9275,8 +9285,7 @@
         <member name="M:Telerik.WinControls.UI.RadEditorPopupControlBase.#ctor(Telerik.WinControls.RadItem)">
             <summary>
             Creates an instance of the RadEditorPopupControlBase class.
-            This class is used in all popup-powered controls in the
-            Telerik UI for WinForms suite.
+            This class is used in all popup-powered controls.
             </summary>
             <param name="owner">An instance of the RadItem class that 
             represents the owner of the popup.</param>
@@ -9459,6 +9468,12 @@
         <member name="P:Telerik.WinControls.UI.RadFormControlBase.FormBehavior">
             <summary>
             Gets the behavior associated with this form if any.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadFormControlBase.AllowTheming">
+            <summary>
+            Gets or sets a boolean value indicating whether the Form
+            customizes its NC area when under Vista with Composition enabled.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadFormControlBase.AllowShowFocusCues">
@@ -10399,7 +10414,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadContextMenu.ThemeName">
             <summary>
-                Gets or sets control's preffered theme name. Themes are stored and retrieved using
+                Gets or sets control's preferred theme name. Themes are stored and retrieved using
                 APIs of <see cref="T:Telerik.WinControls.ThemeResolutionService"/>.
             </summary>
             <remarks>
@@ -10429,7 +10444,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadContextMenu.EnableAnalytics">
             <summary>
-            Gets or sets a value indicating whether the Analytics functionality is enabled or disbaled for this control.
+            Gets or sets a value indicating whether the Analytics functionality is enabled or disabled for this control.
             </summary>
         </member>
         <member name="T:Telerik.WinControls.UI.RadContextMenuDropDown">
@@ -15000,6 +15015,13 @@
             If the Control is expanded it will be collapsed and vice-versa.
             </summary>
         </member>
+        <member name="M:Telerik.WinControls.UI.RadCollapsiblePanel.ToggleExpandCollapse(System.Boolean,System.Boolean)">
+            <summary>
+            If the Control is expanded it will be collapsed and vice-versa.
+            </summary>
+            <param name="ignoreIsExpanded">if set to <c>true</c> ignores the IsExpanded property.</param>
+            <param name="stopAnimations">if set to <c>true</c> expands the control without animation.</param>
+        </member>
         <member name="M:Telerik.WinControls.UI.RadCollapsiblePanel.OnRightToLeftChanged(System.EventArgs)">
             <summary>
             Raises the <see cref="E:RightToLeftChanged"/> event.
@@ -15317,6 +15339,13 @@
             <summary>
             If the Control is expanded it will be collapsed and vice-versa.
             </summary>
+        </member>
+        <member name="M:Telerik.WinControls.UI.RadCollapsiblePanelElement.ToggleExpandCollapse(System.Boolean,System.Boolean)">
+            <summary>
+            If the Control is expanded it will be collapsed and vice-versa.
+            </summary>
+            <param name="ignoreIsExpanded">if set to <c>true</c> ignores the IsExpanded property.</param>
+            <param name="stopAnimations">if set to <c>true</c> expands the control without animation.</param>
         </member>
         <member name="M:Telerik.WinControls.UI.RadCollapsiblePanelElement.CreateAnimation">
             <summary>
@@ -15670,6 +15699,78 @@
         <member name="F:Telerik.WinControls.UI.RadVerticalAlignment.Stretch">
             <summary>
             The content will stretched so all children have equal height.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterDescriptorItem.DescriptorName">
+            <summary>
+            Gets or sets the name of the descriptor.
+            </summary>
+            <value>The name of the descriptor.</value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterDescriptorItem.DescriptorType">
+            <summary>
+            Gets or sets the type of the descriptor.
+            </summary>
+            <value>The type of the descriptor.</value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterDescriptorItem.IsAutoGenerated">
+            <summary>
+            Gets or sets a value indicating if this descriptor item is auto generated.
+            </summary>
+            <value>The is auto generated.</value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterDescriptorItem.DefaultFilterOperator">
+            <summary>
+            Gets or sets the default filter operator.
+            </summary>
+            <value>The default filter operator.</value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterDescriptorItem.DefaultValue">
+            <summary>
+            Gets or sets the default value.
+            </summary>
+            <value>The default value.</value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterDescriptorItem.FilterOperators">
+            <summary>
+            Gets the filter operators.
+            </summary>
+            <value>The filter operators.</value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterDescriptorItem.FilterOperationContext">
+            <summary>
+            Gets the filter operation context.
+            </summary>
+            <value>The filter operation context.</value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterComboDescriptorItem.DataSource">
+            <summary>
+            Gets or sets the data source that populates the items for the <see cref="T:Telerik.WinControls.UI.TreeViewDropDownListEditor"/>.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterComboDescriptorItem.ValueMember">
+            <summary>		
+            Gets or sets a string that specifies the property or database column from which to get values that correspond to the items in the <see cref="T:Telerik.WinControls.UI.TreeViewDropDownListEditor"/>.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterComboDescriptorItem.DisplayMember">
+            <summary>
+            Gets or sets a string that specifies the property or database column from which to retrieve strings for display in the <see cref="T:Telerik.WinControls.UI.TreeViewDropDownListEditor"/> items.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterComboDescriptorItem.AutoCompleteMode">
+            <summary>
+            Specifies the mode for the automatic completion feature used in the <see cref="T:Telerik.WinControls.UI.TreeViewDropDownListEditor"/>.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterComboDescriptorItem.DropDownStyle">
+            <summary>
+            Gets or sets a value specifying the style of the <see cref="T:Telerik.WinControls.UI.TreeViewDropDownListEditor"/>. 
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterColorPickerEditor.Value">
+            <summary>
+            Gets or sets the editor's value.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.TreeNodeElement.IsSelected">
@@ -16390,6 +16491,12 @@
             </summary>
             <value>The descriptor.</value>
         </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterCriteriaNode.DescriptorItem">
+            <summary>
+            Gets or sets the descriptor item.
+            </summary>
+            <value>The descriptor item.</value>
+        </member>
         <member name="P:Telerik.WinControls.UI.DataFilterCriteriaNode.PropertyName">
             <summary>
             Gets or sets the property name of associated filter descriptor.
@@ -16410,7 +16517,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.DataFilterCriteriaNode.ValueType">
             <summary>
-            Gets or sets the type of the value.
+            Gets the type of the value.
             </summary>
             <value>The type of the value.</value>
         </member>
@@ -16419,24 +16526,6 @@
             Gets or sets the node value.
             </summary>
             <value>The text.</value>
-        </member>
-        <member name="P:Telerik.WinControls.UI.DataFilterDescriptorItem.DescriptorName">
-            <summary>
-            Gets or sets the name of the descriptor.
-            </summary>
-            <value>The name of the descriptor.</value>
-        </member>
-        <member name="P:Telerik.WinControls.UI.DataFilterDescriptorItem.DescriptorType">
-            <summary>
-            Gets or sets the type of the descriptor.
-            </summary>
-            <value>The type of the descriptor.</value>
-        </member>
-        <member name="P:Telerik.WinControls.UI.DataFilterDescriptorItem.IsAutoGenerated">
-            <summary>
-            Gets or sets a value indicating if this descriptor item is auto generated.
-            </summary>
-            <value>The is auto generated.</value>
         </member>
         <member name="M:Telerik.WinControls.UI.TreeViewDragDropService.CreateTreeNode(Telerik.WinControls.UI.RadTreeNode)">
             <summary>
@@ -16470,6 +16559,13 @@
             </summary>
             <param name="dropPosition">The drop position.</param>
             <param name="targetNodeElement">The target node element.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.WinControls.UI.DataFilterDragDropService.CancelPreviewDragDrop(Telerik.WinControls.RadDropEventArgs)">
+            <summary>
+            Cancels the preview drag drop.
+            </summary>
+            <param name="e">The <see cref="T:Telerik.WinControls.RadDropEventArgs"/> instance containing the event data.</param>
             <returns></returns>
         </member>
         <member name="M:Telerik.WinControls.UI.DataFilterEditorElement.GetEditorElement(Telerik.WinControls.UI.IValueEditor)">
@@ -16614,6 +16710,13 @@
             <summary>
             Gets or sets the full desired size calculated by the virtualized container
             </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.DataFilterItemOwnerCollection.Item(System.String)">
+            <summary>
+            Gets the first found item, with property name equal to item descriptor name specified, case-sensitive.
+            </summary>
+            <returns>RadItem if found, null (Nothing in VB.NET) otherwise</returns>
+            <value></value>
         </member>
         <member name="M:Telerik.WinControls.UI.DataFilterOperatorContext.GetOperator(Telerik.WinControls.Data.FilterOperator,System.String)">
             <summary>
@@ -17652,6 +17755,11 @@
         <member name="M:Telerik.WinControls.UI.RadDataFilter.ApplyFilter">
             <summary>
             Applies the filter to the DataSource.
+            </summary>
+        </member>
+        <member name="M:Telerik.WinControls.UI.RadDataFilter.EndInit">
+            <summary>
+            Signals the object that initialization is complete.
             </summary>
         </member>
         <member name="M:Telerik.WinControls.UI.RadDataFilter.LoadXMLWithReader(System.IO.TextReader,System.Type[])">
@@ -18768,11 +18876,20 @@
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:Telerik.WinControls.UI.TreeNodeEditorRequiredEventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="M:Telerik.WinControls.UI.RadDataFilterElement.OnEditing(Telerik.WinControls.UI.TreeNodeEditingEventArgs)">
+        <member name="M:Telerik.WinControls.UI.RadDataFilterElement.OnEditing(System.Object,Telerik.WinControls.UI.TreeNodeEditingEventArgs)">
             <summary>
             Raises the <see cref="E:Editing"/> event.
             </summary>
+            <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:Telerik.WinControls.UI.TreeNodeEditingEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.WinControls.UI.RadDataFilterElement.SetupDropDownList(Telerik.WinControls.UI.DataFilterCriteriaNode,Telerik.WinControls.UI.TreeViewDropDownListEditor)">
+            <summary>
+            Setups the drop down list.
+            </summary>
+            <param name="criteriaNode">The criteria node.</param>
+            <param name="editor">The editor.</param>
+            <returns>The display value.</returns>
         </member>
         <member name="M:Telerik.WinControls.UI.RadDataFilterElement.GetEditor(System.Type)">
             <summary>
@@ -21825,6 +21942,12 @@
             Called when a child item is removed.
             </summary>
             <param name="child">The child item that is removed.</param>
+        </member>
+        <member name="M:Telerik.WinControls.UI.GanttViewDataItem.CreateChildItemsCollection">
+            <summary>
+            Called when the collection that will hold this children of this item is being created.
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Telerik.WinControls.UI.GanttViewDataItem.InvalidateStartAndEnd">
             <summary>
@@ -28052,14 +28175,14 @@
             <param name="g">The IGraphics to use for painting the sign's fill</param>
             <param name="rect">Rectangle containing sign bounds</param>
         </member>
-        <member name="M:Telerik.WinControls.UI.ExpanderItem.PaintBorder(Telerik.WinControls.Paint.IGraphics,System.Drawing.Rectangle)">
+        <member name="M:Telerik.WinControls.UI.ExpanderItem.PaintBorder(Telerik.WinControls.Paint.IGraphics,System.Drawing.RectangleF)">
             <summary>
             Paint the sign's border
             </summary>
             <param name="g">The IGraphics to use for painting the sign's border</param>
             <param name="signBorder">Rectangle containing sign bounds</param>
         </member>
-        <member name="M:Telerik.WinControls.UI.ExpanderItem.PaintSign(Telerik.WinControls.Paint.IGraphics,System.Drawing.Rectangle)">
+        <member name="M:Telerik.WinControls.UI.ExpanderItem.PaintSign(Telerik.WinControls.Paint.IGraphics,System.Drawing.RectangleF)">
             <summary>
             Paints the sign
             </summary>
@@ -28742,6 +28865,13 @@
             <summary>
             Gets all the items currently present within this element.
             </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadPageViewElement.SelectionWrap">
+            <summary>
+            Gets or sets whether the pages will be wrapped around when performing selection using the arrow keys. 
+            If the property is set to true, pressing the right arrow key when the last page is selected will result in selecting the first page.
+            </summary>
+            <value><c>true</c> if [wrapped around]; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:Telerik.WinControls.UI.RadPageViewElement.UpdateSelectedItemContent">
             <summary>
@@ -29501,6 +29631,11 @@
             <param name="e">An <see cref="T:Telerik.WinControls.UI.ListBindingCompleteEventArgs"/> instance that contains the event data.</param>
             <seealso cref="E:Telerik.WinControls.UI.RadListControl.DataBindingComplete"/>
             <seealso cref="T:Telerik.WinControls.UI.ListBindingCompleteEventArgs"/>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadListControl.AllowDragDrop">
+            <summary>
+            Gets or sets value indicating if the user can reorder items via drag and drop.
+            </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadListControl.EnableAlternatingItemColor">
             <summary>
@@ -32970,12 +33105,12 @@
             Represents a property descriptor for <see cref="T:Telerik.WinControls.UI.MultiObjectCollection"/> properties.
             </summary>
         </member>
-        <member name="M:Telerik.WinControls.UI.MultiObjectPropertyDescriptor.#ctor(Telerik.WinControls.UI.MultiObjectCollection,System.ComponentModel.PropertyDescriptor)">
+        <member name="M:Telerik.WinControls.UI.MultiObjectPropertyDescriptor.#ctor(Telerik.WinControls.UI.MultiObjectCollection,System.Collections.Generic.Dictionary{System.Type,System.ComponentModel.PropertyDescriptor})">
             <summary>
             Creates a new instance of the <see cref="T:Telerik.WinControls.UI.MultiObjectPropertyDescriptor"/> class.
             </summary>
             <param name="objects">The collection of objects whose properties will be exposed.</param>
-            <param name="originalProperty">The original property descriptor.</param>
+            <param name="originalProperties">The original property descriptors for the objects.</param>
         </member>
         <member name="M:Telerik.WinControls.UI.MultiObjectPropertyDescriptor.CanResetValue(System.Object)">
             <summary>
@@ -33747,6 +33882,11 @@
             Gets or sets the value by which the search will be performed.
             </summary>
         </member>
+        <member name="P:Telerik.WinControls.UI.PropertyGridToolbarElement.ToolbarElementHeight">
+            <summary>
+            Gets or sets the height of the <see cref="T:Telerik.WinControls.UI.PropertyGridToolbarElement"/>.
+            </summary>
+        </member>
         <member name="M:Telerik.WinControls.UI.PropertyGridSplitElement.BeginResize(System.Int32)">
             <summary>
             Begins the resize of the description element.
@@ -33819,6 +33959,11 @@
             Gets the <see cref="T:Telerik.WinControls.UI.PropertyGridToolbarElement"/>
             </summary>
         </member>
+        <member name="P:Telerik.WinControls.UI.PropertyGridElement.ToolbarElementHeight">
+            <summary>
+            Gets or sets the height of the <see cref="T:Telerik.WinControls.UI.PropertyGridToolbarElement"/>.
+            </summary>
+        </member>
         <member name="P:Telerik.WinControls.UI.PropertyGridElement.ToolbarVisible">
             <summary>
             Gets or sets a value indicating whether the <see cref="T:Telerik.WinControls.UI.PropertyGridToolbarElement"/> should be visible.
@@ -33879,13 +34024,13 @@
             <summary>
             Puts the current item in edit mode.
             </summary>
-            <returns>true if successfull.</returns>
+            <returns>true if successful.</returns>
         </member>
         <member name="M:Telerik.WinControls.UI.RadPropertyGrid.EndEdit">
             <summary>
              Commits any changes and ends the edit operation on the current item.
             </summary>
-            <returns>true if successfull.</returns>
+            <returns>true if successful.</returns>
         </member>
         <member name="M:Telerik.WinControls.UI.RadPropertyGrid.CancelEdit">
             <summary>
@@ -33899,7 +34044,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadPropertyGrid.EnableCustomGrouping">
             <summary>
-            Gets or sets a value indicating whether the data can be grouped programatically. 
+            Gets or sets a value indicating whether the data can be grouped programmatically. 
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadPropertyGrid.IsEditing">
@@ -34192,7 +34337,7 @@
         </member>
         <member name="E:Telerik.WinControls.UI.RadPropertyGrid.PropertyValidated">
             <summary>
-            Fires when a peoperty has finished validating.
+            Fires when a property has finished validating.
             </summary>
         </member>
         <member name="E:Telerik.WinControls.UI.RadPropertyGrid.ValueChanging">
@@ -34865,6 +35010,11 @@
         <member name="E:Telerik.WinControls.UI.RadCalculatorDropDown.CalculatorValueChanged">
             <summary>
             Fires when the value of the calculator is changing.
+            </summary>
+        </member>
+        <member name="E:Telerik.WinControls.UI.RadCalculatorDropDown.ValueChanged">
+            <summary>
+            Event needed by the engine behind simple data binding so that it can work two way. In order to receive notifications for changes in the calculator value subscribe to the CalculatorValueChanged event.
             </summary>
         </member>
         <member name="T:Telerik.WinControls.UI.RadCalculatorDigitButtonElement">
@@ -38810,6 +38960,12 @@
         <member name="P:Telerik.WinControls.UI.RadCalendarElement.ZoomFactor">
             <summary>Gets or sets the zooming factor of a cell which is handled by the fish eye functionality..</summary>
         </member>
+        <member name="P:Telerik.WinControls.UI.RadCalendarElement.HeaderWidth">
+            <summary>Gets or sets the width of header cells.</summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadCalendarElement.HeaderHeight">
+            <summary>Gets or sets the height of header cells.</summary>
+        </member>
         <member name="P:Telerik.WinControls.UI.RadCalendarElement.FastBackwardButton">
             <summary>
             first button
@@ -42126,6 +42282,11 @@
             <summary>
             Gets an instance of the <see cref="T:Telerik.WinControls.UI.DesktopAlertPopup"/>class
             that represents the popup of the desktop alert.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadDesktopAlert.DpiScaleElement">
+            <summary>
+            This element is used for the sole purpose of storing the current DPI scale.
             </summary>
         </member>
         <member name="E:Telerik.WinControls.UI.RadDesktopAlert.Opening">
@@ -47676,6 +47837,13 @@
             Current ForeColor property might be ignored.
             </summary>
         </member>
+        <member name="P:Telerik.WinControls.UI.RadPageView.SelectionWrap">
+            <summary>
+            Gets or sets whether the pages will be wrapped around when performing selection using the arrow keys.
+            If the property is set to true, pressing the right arrow key when the last page is selected will result in selecting the first page.
+            </summary>
+            <value><c>true</c> if [wrapped around]; otherwise, <c>false</c>.</value>
+        </member>
         <member name="P:Telerik.WinControls.UI.RadPageViewObject.Owner">
             <summary>
             Gets the <see cref="T:Telerik.WinControls.UI.RadPageView"/> instance that this object is associated with.
@@ -48580,6 +48748,11 @@
             <summary>
             Gets or sets the desired (measured) size for the owning panel.
             This field is internally updated by a SplitContainerLayoutStrategy upon a layout operation.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.Docking.SplitPanelSizeInfo.DpiScale">
+            <summary>
+            Gets the current DPI scaling.
             </summary>
         </member>
         <member name="T:Telerik.WinControls.UI.Docking.SplitPanelSizeMode">
@@ -57202,9 +57375,8 @@
         <member name="T:Telerik.WinControls.UI.RadMenu">
             <summary>
             	<para>Represents a menu. RadMenu can be horizontal or vertical. You can add,
-                remove, and disable menu items at run-time. It offers full support for the
-                Telerik UI for WinForms theming
-                engine, allowing you to easily construct a variety of stunning visual effects. You
+                remove, and disable menu items at run-time. It offers full theming support,
+                allowing you to easily construct a variety of stunning visual effects. You
                 can nest any other RadControl within a RadMenu. For
                 example, you can create a menu with an embedded textbox or combobox.</para>
             	<para>RadMenu is a simple wrapper for the RadMenuElement class.</para>
@@ -57214,8 +57386,7 @@
             <summary>
             Initializes a new instance of the RadMenu class. RadMenu can be horizontal or
             vertical. You can add, remove, and disable menu items at run-time. It offers full
-            support for the Telerik UI for WinForms
-            theming engine, allowing you to easily construct a variety of stunning visual effects.
+            theming support, allowing you to easily construct a variety of stunning visual effects.
             You can nest any other RadControl within a RadMenu. For
             example, you can create a menu with an embedded textbox or combobox.
             </summary>
@@ -59116,54 +59287,6 @@
             The continue waiting
             </summary>
         </member>
-        <member name="F:Telerik.WinControls.UI.RadWaitingBarElement.IsVerticalProperty">
-            <summary>
-            The is vertical property
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.RadWaitingBarElement.IsWaitingProperty">
-            <summary>
-            The is waiting property
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.RadWaitingBarElement.StretchIndicatorsHorizontallyProperty">
-            <summary>
-            Property indicates whether the indicators are stretched horizontal
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.RadWaitingBarElement.StretchIndicatorsVerticallyProperty">
-            <summary>
-            Property indicates whether the indicators are stretched vertically
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.RadWaitingBarElement.WaitingBarOrientationProperty">
-            <summary>
-            Property that determines
-            When set to vertical the RadWaitingBar WaitingDirection property is set to Bottom
-            When set to horizontal the RadWaitingBar WaitingDirection is property is set to Right
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.RadWaitingBarElement.WaitingDirectionProperty">
-            <summary>
-            The waiting direction property
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.RadWaitingBarElement.WaitingIndicatorSizeProperty">
-            <summary>
-            Property that gets and sets the size of the indicator in pixels
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.RadWaitingBarElement.WaitingSpeedProperty">
-            <summary>
-            Property that gets and sets the speed of the indicator
-            Greater value results in faster indicator
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.RadWaitingBarElement.WaitingStepProperty">
-            <summary>
-            Property that determine the step in pixels which moves the indicator
-            </summary>
-        </member>
         <member name="M:Telerik.WinControls.UI.RadWaitingBarElement.OnStartWaiting(System.EventArgs)">
             <summary>
             Raises the <see cref="E:StartWaiting"/> event.
@@ -59330,16 +59453,6 @@
             Represents waiting bar indicator element
             </summary>
         </member>
-        <member name="F:Telerik.WinControls.UI.WaitingBarIndicatorElement.IsVerticalProperty">
-            <summary>
-            The is vertical property
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.WaitingBarIndicatorElement.OffsetProperty">
-            <summary>
-            The offset property
-            </summary>
-        </member>
         <member name="M:Telerik.WinControls.UI.WaitingBarIndicatorElement.#cctor">
             <summary>
             Initializes the <see cref="T:Telerik.WinControls.UI.WaitingBarIndicatorElement"/> class.
@@ -59381,41 +59494,6 @@
         <member name="M:Telerik.WinControls.UI.WaitingBarSeparatorElement.#cctor">
             <summary>
             Initializes the <see cref="T:Telerik.WinControls.UI.WaitingBarSeparatorElement"/> class.
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.WaitingBarSeparatorElement.DashProperty">
-            <summary>
-            The dash property
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.WaitingBarSeparatorElement.IsVerticalProperty">
-            <summary>
-            The is vertical property
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.WaitingBarSeparatorElement.HatchProperty">
-            <summary>
-            The hatch property
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.WaitingBarSeparatorElement.SeparatorWidthProperty">
-            <summary>
-            The separator width property
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.WaitingBarSeparatorElement.StepWidthProperty">
-            <summary>
-            The step width property
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.WaitingBarSeparatorElement.ProgressOrientationProperty">
-            <summary>
-            The progress orientation property
-            </summary>
-        </member>
-        <member name="F:Telerik.WinControls.UI.WaitingBarSeparatorElement.SweepAngleProperty">
-            <summary>
-            The sweep angle property
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.WaitingBarSeparatorElement.SeparatorWidth">
