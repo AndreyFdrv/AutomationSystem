@@ -17,6 +17,7 @@ namespace Automation.View
         public  CustomerMaterialsPresenter CustomerMaterialsPresenter;
         public  ProductsPresenter ProductsPresenter;
         public  ReportPresenter ReportPresenter;
+        public ModulePresenter ModulePresenter;
 
         public MainForm()
         {
@@ -206,7 +207,7 @@ namespace Automation.View
                 e.RowIndex >= 0)
             {
                 string productName = senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
-              //  new ModuleManager(_presenter, productName).Show();
+                new ModuleManager(ProductsPresenter,ModulePresenter, productName).Show();
             }
         }
         
@@ -238,8 +239,8 @@ namespace Automation.View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            newProjectMI_Click(null, null);
-            kitchenUpModules_Click(null, null);
+            //newProjectMI_Click(null, null);
+            //kitchenUpModules_Click(null, null);
 
             CustomerMaterialsPresenter.InitCustomerTable(customerDGV);
             bindCustomerDGVHandlers();

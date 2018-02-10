@@ -11,7 +11,7 @@ namespace Automation.Model.MainModels
     {
         List<Product> GetAllProducts();
         void AddProduct(string nameProduct);
-        void DeleteProduct(string nameProduct);
+        void DeleteProduct(ProductType type);
         Product GetProduct(NewModuleData data);
         Product GetProduct(ProductType type);
     }

@@ -23,11 +23,14 @@ namespace Automation
             CustomerMaterialsPresenter customerMaterialsPresenter = new CustomerMaterialsPresenter(view);
             ProductsPresenter productsPresenter = new ProductsPresenter(view);
             ReportPresenter reportPresenter = new ReportPresenter(view);
+            ModulePresenter modulePresenter = new ModulePresenter();
+            
 
             view.ProjectPresenter = projectPresenter;
             view.CustomerMaterialsPresenter = customerMaterialsPresenter;
             view.ProductsPresenter = productsPresenter;
             view.ReportPresenter = reportPresenter;
+            view.ModulePresenter = modulePresenter;
 
             Application.Run(view);
             //Presenter presenter = new Presenter(model, view);

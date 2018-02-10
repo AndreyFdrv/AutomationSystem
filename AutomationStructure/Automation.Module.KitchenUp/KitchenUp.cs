@@ -23,11 +23,11 @@ namespace Automation.Module.KitchenUp
                 C = 0,
                 D = 0               
             };
-            setDefaultValues();
+            SetDefaultValues();
            
         }
 
-        private void setDefaultValues()
+        private void SetDefaultValues()
         {
        
             _moduleAssembly = "не разъёмная (конф.)";

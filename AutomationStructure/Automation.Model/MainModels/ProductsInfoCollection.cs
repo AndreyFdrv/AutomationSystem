@@ -26,9 +26,9 @@ namespace Automation.Model.MainModels
             _products.Add(product);
         }
 
-        public void DeleteProduct(string nameProduct)
+        public void DeleteProduct(ProductType type)
         {
-            Product product = _products.First(x => x.Type == x.GetType(nameProduct));
+            Product product = _products.First(x => x.Type == type);
             if (product != null)
             {
                 _products.Remove(product);

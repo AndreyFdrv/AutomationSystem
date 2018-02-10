@@ -23,6 +23,7 @@ namespace Automation.View
             _modulePresenter = modulePresenter;
             _productName = productName;
             _productType = GetProductType();
+            modulePresenter._view = this;
 
             InitializeComponent();
             Text = $@"Настройка модулей ""{productName}""";

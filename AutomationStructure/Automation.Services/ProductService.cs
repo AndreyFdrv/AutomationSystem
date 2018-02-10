@@ -13,22 +13,31 @@ namespace Automation.Services
     {
         public void AddProduct(string nameProduct)
         {
-            
+            var order = Order.Instance;
+            var productsCollection = order.GetProductsInfoCollection();
+            productsCollection.AddProduct(nameProduct);
         }
 
         public Product GetProduct(ProductType type)
         {
-            return null;
+            var order = Order.Instance;
+            var productsCollection = order.GetProductsInfoCollection();
+            return productsCollection.GetProduct(type);
         }
 
         public void DeleteProduct(ProductType type)
         {
-            
+            var order = Order.Instance;
+            var productsCollection = order.GetProductsInfoCollection();
+            productsCollection.DeleteProduct(type);
         }
 
         public int GetProductModulesCount(ProductType type)
         {
-            return 0;
+            var order = Order.Instance;
+            var productsCollection = order.GetProductsInfoCollection();
+            var product = productsCollection.GetProduct(type);
+            return product.GetModulesCount();
         }
 
 

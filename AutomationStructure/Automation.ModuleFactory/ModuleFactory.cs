@@ -1,5 +1,4 @@
 ﻿using Automation.Infrastructure;
-using Automation.Module.KitchenDown;
 using Automation.Module.KitchenUp;
 
 namespace Automation.ModuleFactory
@@ -14,9 +13,7 @@ namespace Automation.ModuleFactory
                 case ProductType.KitchenUp:
                     module = new KitchenUp();
                     break;
-                case ProductType.KitchenDown:
-                    module = new KitchenDown();
-                    break;
+          
             }
             return module;
         }

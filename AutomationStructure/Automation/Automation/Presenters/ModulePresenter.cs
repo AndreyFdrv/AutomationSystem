@@ -10,13 +10,13 @@ namespace Automation.Presenters
     public class ModulePresenter
     {
         private readonly  ModuleService _moduleService;
-        private readonly ModuleManager _view;
+        public ModuleManager _view { get; set; }
 
-        public ModulePresenter(ModuleManager view)
+        public ModulePresenter()
         {
 
             _moduleService = ServiceFactory.ModuleServiceInstance;
-            _view = view;
+          
         }
         
 
