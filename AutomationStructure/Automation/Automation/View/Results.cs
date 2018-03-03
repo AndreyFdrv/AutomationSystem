@@ -30,11 +30,11 @@ namespace Automation.View
         {
             if(e.isGroupMode)
             {
-                int stop = 10;
+              //  int stop = 10;
             }
             else
             {
-                int stop = 10;
+                //int stop = 10;
             }
         }
 

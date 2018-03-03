@@ -37,7 +37,7 @@ namespace Automation.Services
         {
             var product = GetProduct(type);
             var module = product.GetCloneLastModule();
-            module.Number = similarName;
+            module.Name = similarName;
             product.AddSimilarModule(module);
         }
 

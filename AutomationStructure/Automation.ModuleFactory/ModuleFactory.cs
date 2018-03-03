@@ -1,17 +1,17 @@
 ﻿using Automation.Infrastructure;
-using Automation.Module.KitchenUp;
+using Automation.Module.KitchenUp.OneFacade;
 
 namespace Automation.ModuleFactory
 {
     public static class ModuleFactory
     {
-        public static BaseModule GetModule(ProductType type)
+        public static IModule GetModule(string moduleSheme)
         {
-            BaseModule module = null;
-            switch (type)
+            IModule module = null;
+            switch (moduleSheme)
             {
-                case ProductType.KitchenUp:
-                    module = new KitchenUp();
+                case "kitchen-up-one-fasade-left":
+                    module = new KitchenUpModuleOneFacade();
                     break;
           
             }

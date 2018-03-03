@@ -26,15 +26,15 @@ namespace Automation.Model.MainModels
 
         DataTable GetModuleDetailInfoByNumber(string moduleNumber);
 
-        BaseModule GetCloneLastModule();
+        IModule GetCloneLastModule();
 
-        void AddSimilarModule(BaseModule module);
+        void AddSimilarModule(IModule module);
 
         List<string> GetModulesNumbers();
 
         bool IsModuleExist(string number);
 
-        List<BaseModule> GetAllModules();
+        List<IModule> GetAllModules();
 
     }
 }

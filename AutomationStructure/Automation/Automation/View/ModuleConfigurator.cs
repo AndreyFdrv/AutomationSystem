@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -11,6 +12,8 @@ namespace Automation.View
     {
 
         public event EventHandler<ConfiguratorArgs> OnApply;
+        private string modulePath;
+        private new string ProductName { get; set; }
 
         public ModuleConfigurator(string productName)
         {
@@ -30,36 +33,34 @@ namespace Automation.View
             if (radListView1.Items.Count!=0)
             {
                 schemeTxb.Text = radListView1.SelectedItem.Text;
+                modulePath = radListView1.SelectedItem.Tag.ToString();
             }
         }
-
-
-        private new string ProductName { get; set; }
-
-
-        XDocument doc;
+                  
 
         private void LoadSchemeImagies(string productName)
         {
 
-            string pathToInfoFile = Environment.CurrentDirectory + "\\"+productName+"\\info.xml";
+            string pathToModules = Environment.CurrentDirectory.Replace("\\Automation\\Automation\\bin\\Debug", "");
+            var moduleDirectives = Directory.GetDirectories(pathToModules, "*.Module." + productName+".*");
 
-            doc = XDocument.Load(pathToInfoFile);
+            radListView1.ItemSize = new Size(200, 200);
+            radListView1.ItemSpacing = 10;
 
-            var schemeModules = doc.Root.Elements("type").Select(t => new ModuleItem { Name = t.Attribute("name").Value, Folder = t.Attribute("folder").Value, ImagePath = t.Attribute("imagePath").Value });
-
-            if (schemeModules.Count()!=0)
+            foreach (var moduleDirective in moduleDirectives)
             {
-                radListView1.ItemSize = new Size(200, 200);
-                radListView1.ItemSpacing = 10;
-
-                foreach (var scheme in schemeModules)
+                string pathToMainModuleImage = moduleDirective + "\\bin\\Debug\\module_image";
+                var moduleImage = Directory.GetFiles(pathToMainModuleImage, "*.png");
+                if (moduleImage.Length > 0)
                 {
-                    ListViewDataItem item = new ListViewDataItem(scheme.Name)
+                    var schemeName = Path.GetFileNameWithoutExtension(moduleImage[0]);
+
+                    ListViewDataItem item = new ListViewDataItem(schemeName)
                     {
                         BackColor = Color.WhiteSmoke,
-                        Image = Image.FromFile(Environment.CurrentDirectory + "\\"+productName+"\\"+scheme.Folder+"\\"+scheme.ImagePath),
-                        Text = scheme.Name,
+                        Image = Image.FromFile(moduleImage[0]),
+                        Text = schemeName,     
+                        Tag = moduleDirective,
                         NumberOfColors = 2,
                         ImageAlignment = ContentAlignment.MiddleCenter,
                         TextImageRelation = TextImageRelation.ImageAboveText,
@@ -69,27 +70,25 @@ namespace Automation.View
                 }
             }
 
-
-
         }
+
+
 
         private void applyBtn_Click(object sender, EventArgs e)
         {
             
-            if (moduleNumberTxb.Text.Length==0 | schemeTxb.Text.Length==0 | subSchemeTxb.Text.Length==0)
+            if (moduleNumberTxb.Text.Length==0 | schemeTxb.Text.Length==0 | modulePath == null)
             {
                 MessageBox.Show(@"Введите номер нового модуля и выберите форму и подтип формы модуля");
                 return;
             }
             string moduleNumber = moduleNumberTxb.Text;
             string moduleSchemeName = schemeTxb.Text;
-            string modulSubSchemeName = subSchemeTxb.Text;
             ConfiguratorArgs args = new ConfiguratorArgs
             {
-                Number = moduleNumber,
-                SchemeName = moduleSchemeName,
-                SubSchemeName = modulSubSchemeName,
-                PathToImageSubScheme = imageSubSchemePath
+                Name = moduleNumber,
+                Scheme = moduleSchemeName,
+                ModulePath = modulePath
             };
 
             OnApply(this, args);
@@ -97,73 +96,21 @@ namespace Automation.View
             
         }
 
-
-
-  
-
-        private void radListView1_ItemMouseDoubleClick(object sender, ListViewItemEventArgs e)
-        {
-
-            OpenSubSchemeSelector();
-        }
-
-        private void OpenSubSchemeSelector()
-        {
-            var typeNode = doc.Root.Elements("type").First(t => t.Attribute("name").Value == schemeTxb.Text);
-            var items =
-                typeNode.Elements("subType")
-                    .Select(
-                        t =>
-                            new ModuleItem
-                            {
-                                Name = t.Attribute("name").Value,
-                                Folder = t.Attribute("folder").Value,
-                                ImagePath = t.Attribute("imagePath").Value
-                            })
-                    .ToList();
-            SubSchemeModule subSchemeSelector = new SubSchemeModule(items,ProductName);
-            subSchemeSelector.onTypeChanged += SetSubSchemeType;
-            subSchemeSelector.Show();
-        }
-
-        private string imageSubSchemePath;
-
-        private void SetSubSchemeType(object sender, SchemeArgs e)
-        {
-            subSchemeTxb.Text = e.SubSchemeName;
-            imageSubSchemePath = e.SubSchemePath;
-        }
-
-        private void radButton3_Click(object sender, EventArgs e)
-        {
-            if (schemeTxb.Text!= string.Empty)
-            {
-                OpenSubSchemeSelector();
-            }
-            else MessageBox.Show("Сначала выберите форму модуля");
-        }
+      
 
         private void radListView1_ItemMouseClick(object sender, ListViewItemEventArgs e)
         {
             schemeTxb.Text = radListView1.SelectedItem.Text;
+            modulePath = radListView1.SelectedItem.Tag.ToString();
         }
     }
-
-    public class ModuleItem
-    {
-        public string Name { get; set; }
-        public string Folder { get; set; }
-        public string ImagePath { get; set; }
-
-    }
-        
+             
 
     public class ConfiguratorArgs : EventArgs
     {
-        public string Number { get; set; }
-        public string SchemeName { get; set; }
-        public string SubSchemeName { get; set; }
-        public string PathToImageSubScheme { get; set; }
+        public string Name { get; set; }
+        public string Scheme { get; set; }
+        public string ModulePath { get; set; }
 
     }
 }

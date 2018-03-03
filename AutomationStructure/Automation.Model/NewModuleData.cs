@@ -11,10 +11,8 @@ namespace Automation.Model
     public class NewModuleData
     {
         public string Name { get; set; }
-        public string Number { get; set; }
         public string Scheme { get; set; }
-        public string SubScheme { get; set; }
-        public string SubSchemeIconPath { get; set; }
+        public string ModulePath { get; set; }
         public ProductType Type { get; set; }
     }
 }

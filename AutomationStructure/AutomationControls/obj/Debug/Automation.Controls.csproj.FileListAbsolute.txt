@@ -5,9 +5,6 @@ C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControl
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\Telerik.WinControls.UI.dll
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\TelerikCommon.dll
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\Microsoft.SqlServer.Types.dll
-C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\Telerik.WinControls.xml
-C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\Telerik.WinControls.GridView.xml
-C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\Telerik.WinControls.UI.xml
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\AutomationControls\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll

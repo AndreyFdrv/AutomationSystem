@@ -15,11 +15,10 @@ namespace Automation.View.ModuleViewGenerator
         private void LoadImage(string pathImage)
         {
             if (pathImage!=null)
-            {
-                var fullPath = Environment.CurrentDirectory + "\\" + pathImage;
-                if (File.Exists(fullPath))
+            {               
+                if (File.Exists(pathImage))
                 {
-                    pictureBox1.Load(fullPath);
+                    pictureBox1.Load(pathImage);
                 }
                
             }

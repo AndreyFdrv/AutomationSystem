@@ -66,13 +66,14 @@ namespace Automation.View
         
         private void AddNewModuleButton_Click(object sender, EventArgs e)
         {
-            var moduleConfiguratorForm = new ModuleConfigurator(_productName);
+            var productName = GetProductType().ToString();
+            var moduleConfiguratorForm = new ModuleConfigurator(productName);
             moduleConfiguratorForm.OnApply += OnConfiguratorModuleOnOnApply;
             moduleConfiguratorForm.ShowDialog();
 
             void OnConfiguratorModuleOnOnApply(object moduleConfiguratorSender, ConfiguratorArgs module)
             {
-                if (!_modulePresenter.IsModuleExist(module.Number, _productType))
+                if (!_modulePresenter.IsModuleExist(module.Name, _productType))
                 {
                     _modulePresenter.SetNewModuleInfo(module, _productType);
                     _productsPresenter.UpdateProductModulesCount(_productType);
@@ -181,9 +182,8 @@ namespace Automation.View
             }
         }
 
-        private ViewGenerator GetViewGenerator(string productName)
+        private IViewGenerator GetViewGenerator(string productName)
         {
-            //mock
             return new KitchenUpView();
         }
 

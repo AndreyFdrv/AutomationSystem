@@ -18,9 +18,9 @@ namespace Automation.Presenters
             _moduleService = ServiceFactory.ModuleServiceInstance;
           
         }
-        
 
-        public void AddNewModule(NewModuleData data)
+
+        private void AddNewModule(NewModuleData data)
         {
             _moduleService.AddNewModule(data);
         }
@@ -58,7 +58,7 @@ namespace Automation.Presenters
         }
 
 
-        public void UpdateModuleInfo(DataTable moduleInfoTable, string moduleNumber, ProductType type)
+        private void UpdateModuleInfo(DataTable moduleInfoTable, string moduleNumber, ProductType type)
         {
             _moduleService.UpdateModule(moduleInfoTable, moduleNumber, type);
             UpdateTotalModules(type);
@@ -74,10 +74,9 @@ namespace Automation.Presenters
         {
             AddNewModule(new NewModuleData
             {
-                Number = module.Number,
-                Scheme = module.SchemeName,
-                SubSchemeIconPath = module.PathToImageSubScheme.Remove(module.PathToImageSubScheme.Length - 4) + "_icon.png",
-                SubScheme = module.SubSchemeName,
+                Name = module.Name,
+                Scheme = module.Scheme,               
+                ModulePath = module.ModulePath,
                 Type = productType
             });
             UpdateModuleList(productType);

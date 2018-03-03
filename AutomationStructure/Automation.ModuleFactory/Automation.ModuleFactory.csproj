@@ -50,9 +50,9 @@
       <Project>{6c3d0292-a496-4e11-a2b7-1e09957ab772}</Project>
       <Name>Automation.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Automation.Module.KitchenUp\Automation.Module.KitchenUp.csproj">
-      <Project>{3d1fe7e7-6eb4-45ca-83ca-ddb5dd5da34b}</Project>
-      <Name>Automation.Module.KitchenUp</Name>
+    <ProjectReference Include="..\Automation.Module.KitchenUp.OneFacade\Automation.Module.KitchenUp.OneFacade.csproj">
+      <Project>{5968656b-d758-43f1-aba1-e6fa1c5c1ed2}</Project>
+      <Name>Automation.Module.KitchenUp.OneFacade</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
