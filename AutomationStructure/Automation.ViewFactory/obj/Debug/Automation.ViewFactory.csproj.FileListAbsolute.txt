@@ -1,0 +1,17 @@
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Automation.ViewFactory.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Automation.ViewFactory.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Automation.Infrastructure.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Automation.KitchenUp.View.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Telerik.WinControls.GridView.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Telerik.WinControls.UI.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Telerik.WinControls.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\TelerikCommon.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Automation.Infrastructure.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Automation.KitchenUp.View.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Telerik.WinControls.GridView.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Telerik.WinControls.UI.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\bin\Debug\Telerik.WinControls.xml
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\obj\Debug\Automation.ViewFactory.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\obj\Debug\Automation.ViewFactory.csproj.CoreCompileInputs.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\obj\Debug\Automation.ViewFactory.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.ViewFactory\obj\Debug\Automation.ViewFactory.pdb

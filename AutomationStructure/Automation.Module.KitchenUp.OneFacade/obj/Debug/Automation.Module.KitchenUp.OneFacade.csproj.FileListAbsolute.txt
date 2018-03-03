@@ -1,0 +1,8 @@
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp.OneFacade\bin\Debug\Automation.Module.KitchenUp.OneFacade.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp.OneFacade\bin\Debug\Automation.Module.KitchenUp.OneFacade.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp.OneFacade\bin\Debug\Automation.Infrastructure.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp.OneFacade\bin\Debug\Automation.Infrastructure.pdb
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp.OneFacade\obj\Debug\Automation.Module.KitchenUp.OneFacade.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp.OneFacade\obj\Debug\Automation.Module.KitchenUp.OneFacade.csproj.CoreCompileInputs.cache
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp.OneFacade\obj\Debug\Automation.Module.KitchenUp.OneFacade.dll
+C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp.OneFacade\obj\Debug\Automation.Module.KitchenUp.OneFacade.pdb
