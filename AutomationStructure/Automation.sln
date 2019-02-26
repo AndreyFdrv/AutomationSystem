@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.Model", "Automation.Model\Automation.Model.csproj", "{2F62A103-3468-4957-9A2A-FAF8DEC4D44C}"
 EndProject
@@ -60,5 +60,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3D1FE7E7-6EB4-45CA-83CA-DDB5DD5DA34B} = {68C6D328-348E-4AE1-996A-DE06645BA036}
 		{F939B1A6-2F07-4233-BE16-90A11458D95C} = {68C6D328-348E-4AE1-996A-DE06645BA036}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A2CDDC7-BAD7-4C4A-9D2A-518F209614DD}
 	EndGlobalSection
 EndGlobal

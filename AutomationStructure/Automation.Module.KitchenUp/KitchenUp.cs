@@ -36,7 +36,7 @@ namespace Automation.Module.KitchenUp
             Number = row["Номер модуля"].ToString();
             IconPath = row["Изображение"].ToString();
             Sсheme = row["Форма модуля"].ToString();
-            _dimentions.Lenght = double.Parse(row["Высота модуля (мм)"].ToString());
+            _dimentions.Hight = double.Parse(row["Высота модуля (мм)"].ToString());
             _dimentions.Width = double.Parse(row["Ширина модуля (мм)"].ToString());
             _dimentions.Depth = double.Parse(row["Глубина модуля (мм)"].ToString());
             _dimentions.A = double.Parse(row["A размер (мм)"].ToString());
@@ -81,7 +81,7 @@ namespace Automation.Module.KitchenUp
             row["Номер модуля"] = Number;
             row["Форма модуля"] = Sсheme;
             row["Изображение"] = IconPath;
-            row["Высота модуля (мм)"] = _dimentions.Lenght;
+            row["Высота модуля (мм)"] = _dimentions.Hight;
             row["Ширина модуля (мм)"] = _dimentions.Width;
             row["Глубина модуля (мм)"] = _dimentions.Depth;
             row["A размер (мм)"] = _dimentions.A;

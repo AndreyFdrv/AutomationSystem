@@ -33,7 +33,7 @@ namespace Automation.Infrastructure
     {
 
         public double Depth { get; set; }
-        public double Lenght { get; set; }
+        public double Hight { get; set; }
         public double Width { get; set; }
         public double A { get; set; }
         public double B { get; set; }

@@ -160,7 +160,7 @@ namespace Automation.View
             if (modulesLbx.Items.Count!=0)
             {
                 string moduleNumber = modulesLbx.SelectedItem.ToString();
-                Presenter.ShowModuleInformation(moduleNumber,GetProductType());
+                Presenter.ShowModuleInformation(moduleNumber, GetProductType());
             }
         }
 

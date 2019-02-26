@@ -76,7 +76,7 @@ namespace Automation
         
         public void UpdateModuleList(ProductType type)
         {
-            List<string> modulesNumbers= _blService.GetModulesNumbersByType(type);
+            List<string> modulesNumbers = _blService.GetModulesNumbersByType(type);
             Manager.UpdateModuleList(modulesNumbers);
         }
         

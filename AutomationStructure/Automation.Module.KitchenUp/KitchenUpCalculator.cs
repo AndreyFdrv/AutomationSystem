@@ -51,7 +51,7 @@ namespace Automation.Module.KitchenUp
             dimensionsInfo.Columns.Add("C");
             dimensionsInfo.Columns.Add("D");
             DataRow row = dimensionsInfo.NewRow();
-            row[0] = _dimentions.Lenght;
+            row[0] = _dimentions.Hight;
             row[1] = _dimentions.Width;
             row[2] = _dimentions.Depth;
             row[3] = _dimentions.A;
@@ -147,7 +147,7 @@ namespace Automation.Module.KitchenUp
         
         private int MF35()
         {
-            var fasadeHeight = (int) _dimentions.Lenght;
+            var fasadeHeight = (int) _dimentions.Hight;
             if (fasadeHeight>0 && fasadeHeight<800)
             {
                 return 2;
@@ -329,23 +329,23 @@ namespace Automation.Module.KitchenUp
 
         private double L2()
         {
-            return _dimentions.Lenght - 100;
+            return _dimentions.Hight - 100;
         }
 
         private double ML2()
         {
-            return _dimentions.Lenght - 100 - 2;
+            return _dimentions.Hight - 100 - 2;
         }
 
         private double L3()
         {
-            return (_dimentions.Lenght - 4)/2;
+            return (_dimentions.Hight - 4)/2;
 
         }
 
         private double ML3()
         {
-            return _dimentions.Lenght/2;
+            return _dimentions.Hight/2;
         }
 
         #region Calculation formules
@@ -353,7 +353,7 @@ namespace Automation.Module.KitchenUp
         //main formules
         private double MF4()
         {
-            return _dimentions.Lenght - (ModuleThickness.H + ModuleThickness.D);
+            return _dimentions.Hight - (ModuleThickness.UpModule + ModuleThickness.DownModule);
         }
 
         private double MF5()
@@ -362,12 +362,12 @@ namespace Automation.Module.KitchenUp
             switch (BackWall)
             {
                 case "ГВ":
-                    result = _dimentions.Depth - (ModuleThickness.F + ModuleThickness.DVP + ModuleThickness.B);
+                    result = _dimentions.Depth - (ModuleThickness.FrontModule + ModuleThickness.DVP + ModuleThickness.BackModule);
                     break;
                 case "Четверть":
                 case "ПАЗ":
                 case "ЛДСП":
-                    result = _dimentions.Depth - (ModuleThickness.F + ModuleThickness.B);
+                    result = _dimentions.Depth - (ModuleThickness.FrontModule + ModuleThickness.BackModule);
                     break;
             }
             return result;
@@ -451,7 +451,7 @@ namespace Automation.Module.KitchenUp
 
         private double MF16()
         {
-            return _dimentions.Width - ((ModuleThickness.Plate*2) + 2 + (ModuleThickness.LRP*2));
+            return _dimentions.Width - ((ModuleThickness.Plate*2) + 2 + (ModuleThickness.SideShelf * 2));
         }
 
         private double MF17()
@@ -475,16 +475,16 @@ namespace Automation.Module.KitchenUp
             switch (BackWall)
             {
                 case "ГВ":
-                    result = _dimentions.Lenght - 2;
+                    result = _dimentions.Hight - 2;
                     break;
                 case "Четверть":
-                    result = _dimentions.Lenght - 10;
+                    result = _dimentions.Hight - 10;
                     break;
                 case "ПАЗ":
-                    result = _dimentions.Lenght - 8;
+                    result = _dimentions.Hight - 8;
                     break;
                 case "ЛДСП":
-                    result = _dimentions.Lenght - (ModuleThickness.Plate*2);
+                    result = _dimentions.Hight - (ModuleThickness.Plate*2);
                     break;
             }
             return result;
@@ -542,13 +542,13 @@ namespace Automation.Module.KitchenUp
                 switch (_facade._records[0].Material)
                 {
                     case "Верт.":
-                        result =_dimentions.Lenght - 4;
+                        result =_dimentions.Hight - 4;
                         break;
                     case "Гориз.":
                         result =  _dimentions.Width - 4;
                         break;
                     case "нет":
-                        result = _dimentions.Lenght - 4;
+                        result = _dimentions.Hight - 4;
                         break;
                 }
             }
@@ -557,13 +557,13 @@ namespace Automation.Module.KitchenUp
                 switch (_facade._records[0].Material)
                 {
                     case "Верт.":
-                        result = _dimentions.Lenght -_dimentions.A - 4;
+                        result = _dimentions.Hight -_dimentions.A - 4;
                         break;
                     case "Гориз.":
                         result = _dimentions.Width - 4;
                         break;
                     case "нет":
-                        result = _dimentions.Lenght - _dimentions.A - 4;
+                        result = _dimentions.Hight - _dimentions.A - 4;
                         break;
                 }
             }
@@ -572,13 +572,13 @@ namespace Automation.Module.KitchenUp
                 switch (_facade._records[0].Material)
                 {
                     case "Верт.":
-                        result = _dimentions.Lenght - _dimentions.A - 4;
+                        result = _dimentions.Hight - _dimentions.A - 4;
                         break;
                     case "Гориз.":
                         result = _dimentions.Width - 4;
                         break;
                     case "нет":
-                        result = _dimentions.Lenght - _dimentions.A - 4;
+                        result = _dimentions.Hight - _dimentions.A - 4;
                         break;
                 }
             }
@@ -598,7 +598,7 @@ namespace Automation.Module.KitchenUp
                         result = _dimentions.Width - 4;
                         break;
                     case "Гориз.":
-                        result = _dimentions.Lenght - 4;
+                        result = _dimentions.Hight - 4;
                         break;
                     case "нет":
                         result = _dimentions.Width - 4;
@@ -610,10 +610,10 @@ namespace Automation.Module.KitchenUp
                 switch (_facade._records[0].Material)
                 {
                     case "Верт.":
-                        result = _dimentions.Width  - 4;
+                        result = _dimentions.Width - 4;
                         break;
                     case "Гориз.":
-                        result = _dimentions.Lenght-_dimentions.A - 4;
+                        result = _dimentions.Hight - _dimentions.A - 4;
                         break;
                     case "нет":
                         result = _dimentions.Width - 4;
@@ -628,7 +628,7 @@ namespace Automation.Module.KitchenUp
                         result = _dimentions.Width - 4;
                         break;
                     case "Гориз.":
-                        result = _dimentions.Lenght - _dimentions.A - 4;
+                        result = _dimentions.Hight - _dimentions.A - 4;
                         break;
                     case "нет":
                         result = _dimentions.Width - 4;
@@ -697,22 +697,22 @@ namespace Automation.Module.KitchenUp
 
         private string DF1()
         {
-            return GetKromkaThickness(ModuleThickness.F);
+            return GetKromkaThickness(ModuleThickness.FrontModule);
         }
 
         private string DF2()
         {
-            return GetKromkaThickness(ModuleThickness.B);
+            return GetKromkaThickness(ModuleThickness.BackModule);
         }
 
         private string DF3()
         {
-            return GetKromkaThickness(ModuleThickness.H);
+            return GetKromkaThickness(ModuleThickness.UpModule);
         }
 
         private string DF4()
         {
-            return GetKromkaThickness(ModuleThickness.D);
+            return GetKromkaThickness(ModuleThickness.DownModule);
 
         }
 
@@ -738,13 +738,13 @@ namespace Automation.Module.KitchenUp
 
         private string DF9()
         {
-            return GetKromkaThickness(ModuleThickness.FP);
+            return GetKromkaThickness(ModuleThickness.FrontShelf);
 
         }
 
         private string DF10()
         {
-            return GetKromkaThickness(ModuleThickness.BP);
+            return GetKromkaThickness(ModuleThickness.BackShelf);
         }
 
         private string DF11()
@@ -769,7 +769,7 @@ namespace Automation.Module.KitchenUp
 
         private string DF15()
         {
-            return GetKromkaThickness(ModuleThickness.LRP);
+            return GetKromkaThickness(ModuleThickness.SideShelf);
         }
 
         private string GetKromkaThickness(double par)
@@ -792,7 +792,7 @@ namespace Automation.Module.KitchenUp
 
         private string DF16()
         {
-            return GetKromkaThickness(ModuleThickness.LRP);
+            return GetKromkaThickness(ModuleThickness.SideShelf);
         }
 
         private string DF17()
@@ -819,17 +819,17 @@ namespace Automation.Module.KitchenUp
         {
             string result = string.Empty;
 
-            if (_facade._records[0].Type == "нет" || (int)ModuleThickness.FF == 0)
+            if (_facade._records[0].Type == "нет" || (int)ModuleThickness.Facade == 0)
             {
                 result = "";
             }
 
-            if (_facade._records[0].Type !="нет" && ModuleThickness.FF==0.4)
+            if (_facade._records[0].Type !="нет" && ModuleThickness.Facade == 0.4)
             {
                 result = "I";
             }
 
-            if (_facade._records[0].Type != "нет" && ModuleThickness.FF == 2)
+            if (_facade._records[0].Type != "нет" && ModuleThickness.Facade == 2)
             {
                 result = "V";
             }

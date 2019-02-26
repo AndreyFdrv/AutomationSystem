@@ -176,7 +176,8 @@ namespace Automation.View
             {
                 switch (e.RowIndex)
                 {
-                    case 0:ShowCustomerHelpForm("ЛДСП ПОМОЩЬ", "Ldsp.png","Ldsp_help.rtf");
+                    case 0:
+                        ShowCustomerHelpForm("ЛДСП ПОМОЩЬ", "Ldsp.png", "Ldsp_help.rtf");
                         break;
                     case 1:
                         ShowCustomerHelpForm("ДВП ПОМОЩЬ","Dvp.png", "Ldsp_help.rtf");

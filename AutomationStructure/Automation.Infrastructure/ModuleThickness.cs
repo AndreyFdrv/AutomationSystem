@@ -3,15 +3,15 @@
     public static class ModuleThickness
     {
 
-        public static double F { get; set; }
-        public static double H { get; set; }
-        public static double D { get; set; }
-        public static double LR { get; set; }
-        public static double B { get; set; }
-        public static double FP { get; set; }
-        public static double LRP { get; set; }
-        public static double BP { get; set; }
-        public static double FF { get; set; }
+        public static double FrontModule { get; set; }
+        public static double UpModule { get; set; }
+        public static double DownModule { get; set; }
+        public static double SideModule { get; set; }
+        public static double BackModule { get; set; }
+        public static double FrontShelf { get; set; }
+        public static double SideShelf { get; set; }
+        public static double BackShelf { get; set; }
+        public static double Facade { get; set; }
 
         public static double DVP { get; set; }
         public static double Plate { get; set; }
@@ -71,15 +71,15 @@
 
         public static void SetAllSameValues(string value)
         {
-            F = InputConverter(value);
-            H = InputConverter(value);
-            D = InputConverter(value);
-            LR = InputConverter(value);
-            B = InputConverter(value);
-            FP = InputConverter(value);
-            LRP = InputConverter(value);
-            BP = InputConverter(value);
-            FF = InputConverter(value);
+            FrontModule = InputConverter(value);
+            UpModule = InputConverter(value);
+            DownModule = InputConverter(value);
+            SideModule = InputConverter(value);
+            BackModule = InputConverter(value);
+            FrontShelf = InputConverter(value);
+            SideShelf = InputConverter(value);
+            BackShelf = InputConverter(value);
+            Facade = InputConverter(value);
         }
     }
 }

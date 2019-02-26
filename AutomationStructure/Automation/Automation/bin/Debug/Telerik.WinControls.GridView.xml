@@ -553,7 +553,7 @@
         </member>
         <member name="M:Telerik.WinControls.UI.GridViewColumn.GetDefaultMinWidth">
             <summary>
-            Gets a value indicating defaul min with for the inherited column type. If not overriden in inheritor class it defaults to 5.
+            Gets a value indicating default minimum width for the inherited column type. If not overridden in inheritor class it defaults to 5.
             </summary>
             <returns></returns>
         </member>
@@ -619,7 +619,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.GridViewColumn.StretchVertically">
             <summary>
-            Gets or sets a value indicating whether to stretch the column height verticaly. Used with <see cref="T:Telerik.WinControls.UI.ColumnGroupsViewDefinition"/>.
+            Gets or sets a value indicating whether to stretch the column height vertically. Used with <see cref="T:Telerik.WinControls.UI.ColumnGroupsViewDefinition"/>.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.GridViewColumn.AutoSizeMode">
@@ -761,7 +761,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.GridViewColumn.DisableHTMLRendering">
             <summary>
-            Disable or Enamble HTML-like text rendering in the column.
+            Disable or Enable HTML-like text rendering in the column.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.GridViewColumn.WrapText">
@@ -918,6 +918,11 @@
              Gets or sets a value to the data source when the user enters a null value into a cell
             </summary>
         </member>
+        <member name="P:Telerik.WinControls.UI.GridViewDataColumn.ContainsBlanks">
+            <summary>
+             Gets whether the distinct values collection contains null or DbNull.Value. It should be used only after calling the <see cref="M:Telerik.WinControls.UI.GridViewDataColumn.GetDistinctValuesWithFilter"/>
+            </summary>
+        </member>
         <member name="M:Telerik.WinControls.UI.GridViewBrowseColumn.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Telerik.WinControls.UI.GridViewBrowseColumn"/>.
@@ -1023,6 +1028,14 @@
         </member>
         <member name="M:Telerik.WinControls.UI.GridViewCheckBoxColumn.GetDefaultEditorType">
             <commentsfrom cref="M:Telerik.WinControls.UI.GridViewColumn.GetDefaultEditorType" filter=""/>
+        </member>
+        <member name="P:Telerik.WinControls.UI.GridViewCheckBoxColumn.HeaderCheckBoxAlignment">
+            <summary>Gets or sets a value indicating the alignment of the check box.</summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.GridViewCheckBoxColumn.HeaderCheckBoxPosition">
+            <summary>
+            Gets or sets a value indicating the position of the CheckBoxElement along with the text.
+            </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.GridViewCheckBoxColumn.ThreeState">
             <summary>
@@ -1764,6 +1777,12 @@
             </summary>
             <param name="row">The row.</param>
             <returns></returns>
+        </member>
+        <member name="M:Telerik.WinControls.UI.GridViewRatingColumn.GetDefaultEditorType">
+            <summary>
+            Gets the default editor type for the editor provider.
+            </summary>
+            <returns>The default type.</returns>
         </member>
         <member name="P:Telerik.WinControls.UI.GridViewRatingColumn.Maximum">
             <summary>
@@ -2651,6 +2670,28 @@
             Gets the index at which a Move, Remove, ore Replace action occurred.
             </summary>
         </member>
+        <member name="T:Telerik.WinControls.UI.GridViewRowEventArgs">
+            <summary>
+            Provides data for row-related RadGridView events.
+            </summary>
+        </member>
+        <member name="M:Telerik.WinControls.UI.GridViewRowEventArgs.#ctor(Telerik.WinControls.UI.GridViewRowInfo[])">
+            <summary>
+            Initializes a new instance of the GridViewRowEventArgs class.
+            </summary>
+            <param name="rowInfo">The GridViewRowInfo that the event occurred for.</param>
+        </member>
+        <member name="M:Telerik.WinControls.UI.GridViewRowEventArgs.#ctor(Telerik.WinControls.UI.GridViewRowInfo)">
+            <summary>
+            Initializes a new instance of the GridViewRowEventArgs class.
+            </summary>
+            <param name="rowInfo">The GridViewRowInfo that the event occurred for.</param>
+        </member>
+        <member name="P:Telerik.WinControls.UI.GridViewRowEventArgs.Rows">
+            <summary>
+            Gets the GridViewRowInfo associated with the event.
+            </summary>
+        </member>
         <member name="F:Telerik.WinControls.UI.EventDispatcher.Empty">
             <summary>
             Represent empty event dispatcher
@@ -3043,28 +3084,6 @@
             </summary>
             <param name="sender">The event sender, typicaly this is RadGridView</param>
             <param name="e">Instance of GridViewEventArgs containing the row related with this event</param>
-        </member>
-        <member name="T:Telerik.WinControls.UI.GridViewRowEventArgs">
-            <summary>
-            Provides data for row-related RadGridView events.
-            </summary>
-        </member>
-        <member name="M:Telerik.WinControls.UI.GridViewRowEventArgs.#ctor(Telerik.WinControls.UI.GridViewRowInfo[])">
-            <summary>
-            Initializes a new instance of the GridViewRowEventArgs class.
-            </summary>
-            <param name="rowInfo">The GridViewRowInfo that the event occurred for.</param>
-        </member>
-        <member name="M:Telerik.WinControls.UI.GridViewRowEventArgs.#ctor(Telerik.WinControls.UI.GridViewRowInfo)">
-            <summary>
-            Initializes a new instance of the GridViewRowEventArgs class.
-            </summary>
-            <param name="rowInfo">The GridViewRowInfo that the event occurred for.</param>
-        </member>
-        <member name="P:Telerik.WinControls.UI.GridViewRowEventArgs.Rows">
-            <summary>
-            Gets the GridViewRowInfo associated with the event.
-            </summary>
         </member>
         <member name="T:Telerik.WinControls.UI.GroupSummaryEvaluateEventHandler">
             <summary>
@@ -4768,13 +4787,6 @@
             Cancels an asynchronous export operation.
             </summary>
         </member>
-        <member name="M:Telerik.WinControls.Export.GridViewSpreadExport.CheckDateTimeValue(System.DateTime)">
-            <summary>
-            Check if date is supported from MS Excel
-            </summary>
-            <param name="value"></param>
-            <returns>True if value is supported</returns>
-        </member>
         <member name="P:Telerik.WinControls.Export.GridViewSpreadExport.ExportHierarchy">
             <summary>
             Gets or set if child rows should be exported.
@@ -5165,6 +5177,15 @@
             </summary>
             <value>
             The name of the sheet.
+            </value>
+        </member>
+        <member name="P:Telerik.WinControls.Export.GridViewSpreadStreamExport.FileExportMode">
+            <summary>
+            Specifies whether a file will be exported as a new file, or if a file with the same name already exists at the specified path, a new sheet will be added to it.
+            </summary>
+            <value>
+            ExportAsNewSheetInExistingFile - will add a new sheet to the specified file, if it exists
+            ExportInNewFile - will create/override the specified file
             </value>
         </member>
         <member name="P:Telerik.WinControls.Export.GridViewSpreadStreamExport.SheetMaxRows">
@@ -9361,14 +9382,14 @@
             <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> instance containing event data.</param>
             <seealso cref="E:Telerik.WinControls.UI.RadGridView.RowMouseMove"/>
         </member>
-        <member name="M:Telerik.WinControls.UI.RadGridView.OnDefaultValuesNeeded(System.Object,Telerik.WinControls.UI.GridViewRowEventArgs)">
+        <member name="M:Telerik.WinControls.UI.RadGridView.OnDefaultValuesNeeded(System.Object,Telerik.WinControls.UI.DefaultValuesNeededEventArgs)">
             <summary>
             Raises the <see cref="E:Telerik.WinControls.UI.RadGridView.DefaultValuesNeeded"/> event.
             </summary>        
             <param name="sender">The owner control.</param>
-            <param name="e">An instance of <see cref="T:Telerik.WinControls.UI.GridViewRowEventArgs"/> containing event data.</param>
+            <param name="e">An instance of <see cref="T:Telerik.WinControls.UI.DefaultValuesNeededEventArgs"/> containing event data.</param>
             <seealso cref="E:Telerik.WinControls.UI.RadGridView.DefaultValuesNeeded"/>
-            <seealso cref="T:Telerik.WinControls.UI.GridViewRowEventArgs"/>        
+            <seealso cref="T:Telerik.WinControls.UI.DefaultValuesNeededEventArgs"/>        
         </member>
         <member name="M:Telerik.WinControls.UI.RadGridView.OnCellValueNeeded(System.Object,Telerik.WinControls.UI.GridViewCellValueEventArgs)">
             <summary>
@@ -9537,13 +9558,13 @@
         </member>
         <member name="M:Telerik.WinControls.UI.RadGridView.CloseEditor">
             <summary>
-            Ends the edit operation without commiting the changes
+            Ends the edit operation without committing the changes
             </summary>
             <returns>true on success.</returns>
         </member>
         <member name="M:Telerik.WinControls.UI.RadGridView.GetDefaultXmlSerializationInfo">
              <summary>
-             Gets the default serialization info for RadGridView used by Save/Load loyout methods to persist grid settings to/from XML.
+             Gets the default serialization info for RadGridView used by Save/Load layout methods to persist grid settings to/from XML.
              </summary>
             <remarks>
              You can use the serialization info to include/exclude properties of RadGridView and related objects from XML serialization.
@@ -9564,7 +9585,7 @@
             Stores to a stream RadGridView properties, sub-objects and their properties in XML format, using the serialization information provided by the <see cref="P:Telerik.WinControls.UI.RadGridView.XmlSerializationInfo"/> property
             </summary>
             <Rmarks>
-            Writes the Xml content in the stream and leaves the stream open.
+            Writes the XML content in the stream and leaves the stream open.
             </Rmarks>
         </member>
         <member name="M:Telerik.WinControls.UI.RadGridView.SaveLayout(System.String)">
@@ -9843,6 +9864,11 @@
             Current ForeColor property might be ignored.
             </summary>
         </member>
+        <member name="P:Telerik.WinControls.UI.RadGridView.Text">
+            <summary>
+            This property is not relevant for this class.
+            </summary>
+        </member>
         <member name="P:Telerik.WinControls.UI.RadGridView.AutoGenerateColumns">
             <summary>
             Gets or sets a value indicating whether columns are created automatically when the <see cref="P:Telerik.WinControls.UIViewTemplate.DataSource"></see> or <see cref="P:Telerik.WinControls.UIViewTemplate.DataMember"></see> properties are set.
@@ -9933,7 +9959,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadGridView.AllowColumnHeaderContextMenu">
             <summary>
-            Gets or sets a value indicating whether context menu is displayed when user rightclicks on a column header.
+            Gets or sets a value indicating whether context menu is displayed when user right clicks on a column header.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadGridView.AllowRowHeaderContextMenu">
@@ -9957,7 +9983,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadGridView.AllowAutoSizeColumns">
             <summary>
-            Gets or sets a value indicating whether user can automatically resize a column to fit its content by doubleclicking the right border of header cell.
+            Gets or sets a value indicating whether user can automatically resize a column to fit its content by double-clicking the right border of header cell.
             </summary>                
             <seealso cref="P:Telerik.WinControls.UI.RadGridView.Columns"/>
             <seealso cref="T:Telerik.WinControls.UI.GridViewDataColumn"/>
@@ -10017,7 +10043,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadGridView.BottomPinnedRowsMode">
             <summary>
-            Gets or sets a value indicating how bottom pinned rows are layed out.
+            Gets or sets a value indicating how bottom pinned rows are laid out.
             </summary>
             <seealso cref="T:Telerik.WinControls.UI.GridViewBottomPinnedRowsMode"/>
         </member>
@@ -10033,7 +10059,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadGridView.ShowFilteringRow">
             <summary>
-            Gets or sets a value indicating wheter the filtering row should be visible.
+            Gets or sets a value indicating whether the filtering row should be visible.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadGridView.ShowHeaderCellButtons">
@@ -10515,7 +10541,7 @@
             Fires when the user enters the row for new records, so that it can be populated
             with default values.
             </summary>
-            <seealso cref="M:Telerik.WinControls.UI.RadGridView.OnDefaultValuesNeeded(System.Object,Telerik.WinControls.UI.GridViewRowEventArgs)"/>
+            <seealso cref="M:Telerik.WinControls.UI.RadGridView.OnDefaultValuesNeeded(System.Object,Telerik.WinControls.UI.DefaultValuesNeededEventArgs)"/>
             <seealso cref="T:Telerik.WinControls.UI.GridViewRowEventHandler"/>
         </member>
         <member name="E:Telerik.WinControls.UI.RadGridView.NewRowNeeded">
@@ -10724,7 +10750,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadGridView.XmlSerializationInfo">
             <summary>
-            Gets the serialization info for RadGridView used by Save/Load loyout methods to persist grid settings to/from XML.
+            Gets the serialization info for RadGridView used by Save/Load layout methods to persist grid settings to/from XML.
             By default, or when set to null the ComponentXmlSerializationInfo provided by GetDefaultXmlSerializationInfo() will be used.
             </summary>
         </member>
@@ -10904,14 +10930,14 @@
         </member>
         <member name="M:Telerik.WinControls.UI.BaseGridBehavior.RegisterBehavior(System.Type,Telerik.WinControls.UI.IGridBehavior)">
             <summary>
-            Registers <see cref="T:Telerik.WinControls.UI.IGridBehavior"/> instance for specfied row type
+            Registers <see cref="T:Telerik.WinControls.UI.IGridBehavior"/> instance for specified row type
             </summary>
             <param name="rowType">A type inherited from <see cref="T:Telerik.WinControls.UI.GridViewRowInfo"/>.</param>
             <param name="rowBehavior">An instance of <see cref="T:Telerik.WinControls.UI.IGridBehavior"/>.</param>
         </member>
         <member name="M:Telerik.WinControls.UI.BaseGridBehavior.UnregisterBehavior(System.Type)">
             <summary>
-            Unregisters <see cref="T:Telerik.WinControls.UI.IGridBehavior"/> instance for specfied row type
+            Unregisters <see cref="T:Telerik.WinControls.UI.IGridBehavior"/> instance for specified row type
             </summary>
             <param name="rowType">A type inherited from <see cref="T:Telerik.WinControls.UI.GridViewRowInfo"/>.</param>
             <returns>Returns true if succeed, otherwise false.</returns>
@@ -11562,6 +11588,11 @@
         <member name="P:Telerik.WinControls.UI.GridHeaderRowBehavior.ResizingColumn">
             <summary>
             Gets a value indicating whether column resize operation is in action.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.GridHeaderRowBehavior.ResizeCursorDistance">
+            <summary>
+            Gets or sets a value indicating how long for the cell edge will the resizing cursor appear.
             </summary>
         </member>
         <member name="T:Telerik.WinControls.UI.GridHierarchyRowBehavior">
@@ -12319,7 +12350,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadTextBoxControlEditor.CharacterCasing">
             <summary>
-            Indicates if all charactes should be left alone or converted
+            Indicates if all characters should be left alone or converted
             to upper or lower case
             </summary>
         </member>
@@ -12335,12 +12366,12 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadTextBoxControlEditor.AcceptsTab">
             <summary>
-            Gets or sets wheather the editor accepts tha tab key in multiline mode
+            Gets or sets whether the editor accepts the Tab key in multiline mode
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadTextBoxControlEditor.AcceptsReturn">
             <summary>
-            Gets or sets wheather the editor accepts tha tab key in multiline mode
+            Gets or sets whether the editor accepts the Enter key in multiline mode
             </summary>
         </member>
         <member name="M:Telerik.WinControls.UI.RadAutoCompleteBoxEditor.#ctor">
@@ -12356,11 +12387,6 @@
         <member name="P:Telerik.WinControls.UI.GridBrowseEditor.Value">
             <summary>
             Gets or sets the editor's value.
-            </summary>
-        </member>
-        <member name="T:Telerik.WinControls.UI.GridBrowseEditorElement">
-            <summary>
-            Represents a browse editor element.
             </summary>
         </member>
         <member name="T:Telerik.WinControls.UI.RadCalculatorEditor">
@@ -12428,11 +12454,6 @@
         <member name="P:Telerik.WinControls.UI.GridColorPickerEditor.Value">
             <summary>
             Gets or sets the editor's value.
-            </summary>
-        </member>
-        <member name="T:Telerik.WinControls.UI.GridColorPickerElement">
-            <summary>
-            Represents a color editor element used in color picker editors.
             </summary>
         </member>
         <member name="T:Telerik.WinControls.UI.RadDropDownListEditor">
@@ -12541,11 +12562,6 @@
         <member name="P:Telerik.WinControls.UI.GridSpinEditor.ValueType">
             <summary>
             Gets or sets the type of the value to use in the editor.
-            </summary>
-        </member>
-        <member name="T:Telerik.WinControls.UI.GridSpinEditorElement">
-            <summary>
-            Represents a numeric up/down element in RadGridView.
             </summary>
         </member>
         <member name="T:Telerik.WinControls.UI.GridViewEditManager">
@@ -13718,7 +13734,7 @@
             Set the theme name, which should be applied to the expression builder
             </summary>
         </member>
-        <member name="T:Telerik.WinControls.UI.CompositeFilterForm">
+        <member name="T:Telerik.WinControls.UI.CompositeDataFilterForm">
             <summary>
             Displays a form used to crate custom filters.
             </summary>
@@ -13730,7 +13746,7 @@
         </member>
         <member name="M:Telerik.WinControls.UI.BaseCompositeFilterDialog.Initialize(Telerik.WinControls.UI.GridViewDataColumn,Telerik.WinControls.Data.FilterDescriptor,System.Boolean)">
             <summary>
-            Initializes the editors in the dialog with the filter descriptor that is currectly applied to the RadGridView data.
+            Initializes the editors in the dialog with the filter descriptor that is correctly applied to the RadGridView data.
             </summary>
             <param name="dataColumn">The column which represents the property by which data will be filtered</param>
             <param name="filterDescriptor">The filter descriptor that is currently applied to the grid for this column.</param>
@@ -13739,6 +13755,58 @@
         <member name="P:Telerik.WinControls.UI.BaseCompositeFilterDialog.FilterDescriptor">
             <summary>
             Gets the filter descriptor that should be applied to the RadGridView data.
+            </summary>
+        </member>
+        <member name="M:Telerik.WinControls.UI.CompositeDataFilterForm.#ctor">
+            <summary>
+            Initializes a new instance of the CompositeFilterForm class.
+            </summary>
+        </member>
+        <member name="M:Telerik.WinControls.UI.CompositeDataFilterForm.#ctor(Telerik.WinControls.UI.GridViewDataColumn,Telerik.WinControls.Data.FilterDescriptor)">
+            <summary>
+            Initializes a new instance of the CompositeFilterForm class.
+            </summary>
+            <param name="dataColumn">The <see cref="T:Telerik.WinControls.UI.GridViewDataColumn"/>, owner of this form.</param>
+            <param name="filterDescriptor"></param>
+        </member>
+        <member name="F:Telerik.WinControls.UI.CompositeDataFilterForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Telerik.WinControls.UI.CompositeDataFilterForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Telerik.WinControls.UI.CompositeDataFilterForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.CompositeDataFilterForm.DataFilter">
+            <summary>
+            Gets the <see cref="T:Telerik.WinControls.UI.RadDataFilter"/> instance, used to build the filter expression.
+            </summary>
+            <value>The data filter.</value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.CompositeDataFilterForm.FilterDescriptor">
+            <summary>
+            Gets or sets the filter descriptor.
+            </summary>
+            <value>The filter descriptor.</value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.CompositeDataFilterForm.DataType">
+            <summary>
+            Gets the column's data type
+            </summary>
+            <value>The type of the column's data type.</value>
+        </member>
+        <member name="T:Telerik.WinControls.UI.CompositeFilterForm">
+            <summary>
+            Displays a form used to crate custom filters.
             </summary>
         </member>
         <member name="M:Telerik.WinControls.UI.CompositeFilterForm.#ctor">
@@ -14301,7 +14369,7 @@
             </summary>
             <param name="contextMenu">The <see cref="T:Telerik.WinControls.UI.RadDropDownMenu"/> to merge with.</param>
             <param name="parameters">merge parameters.</param>
-            <returns>The merged context menu, if successfull.</returns>
+            <returns>The merged context menu, if successful.</returns>
         </member>
         <member name="M:Telerik.WinControls.UI.GridCellElement.MergeMenus(Telerik.WinControls.UI.IContextMenuProvider,System.Object[])">
             <summary>
@@ -14309,7 +14377,7 @@
             </summary>
             <param name="contextMenuProvider">The <see cref="T:Telerik.WinControls.UI.IContextMenuProvider"/> to merge with.</param>
             <param name="parameters">merge parameters.</param>
-            <returns>The merged context menu, if successfull.</returns>
+            <returns>The merged context menu, if successful.</returns>
         </member>
         <member name="M:Telerik.WinControls.UI.GridCellElement.UpdateInfoCore">
             <summary>
@@ -14323,7 +14391,7 @@
         </member>
         <member name="M:Telerik.WinControls.UI.GridCellElement.ApplyFormatString(System.Object)">
             <summary>
-            Applies the <see cref="P:Telerik.WinControls.UI.GridCellElement.FormatString">format string</see> to the scpecified object.
+            Applies the <see cref="P:Telerik.WinControls.UI.GridCellElement.FormatString">format string</see> to the specified object.
             </summary>
             <param name="value"></param>
             <returns></returns>		
@@ -14475,7 +14543,7 @@
             </summary>
             <param name="contextMenuManager">The <see cref="T:Telerik.WinControls.UI.IContextMenuManager"/> to merge with.</param>
             <param name="parameters">merge parameters.</param>
-            <returns>The merged context menu, if successfull.</returns>
+            <returns>The merged context menu, if successful.</returns>
         </member>
         <member name="M:Telerik.WinControls.UI.GridDataCellElement.GetEditorElement(Telerik.WinControls.UI.IInputEditor)">
             <summary>
@@ -14497,7 +14565,7 @@
         </member>
         <member name="M:Telerik.WinControls.UI.GridDataCellElement.ApplyFormatString(System.Object)">
             <summary>
-            Applies the <see cref="P:Telerik.WinControls.UI.GridViewDataColumn.FormatString">format string</see> to the scpecified object.
+            Applies the <see cref="P:Telerik.WinControls.UI.GridViewDataColumn.FormatString">format string</see> to the specified object.
             </summary>
             <param name="value"></param>
             <returns></returns>
@@ -14514,7 +14582,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.GridDataCellElement.IsInEditMode">
             <summary>
-            Gets a value indicatig where the current cell is in edit mode.
+            Gets a value indicating where the current cell is in edit mode.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.GridDataCellElement.Value">
@@ -14535,7 +14603,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.GridDataCellElement.ExpanderItem">
             <summary>
-             Gets a value that indicates self-referencing expander element assiciated with the cell.
+             Gets a value that indicates self-referencing expander element associated with the cell.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.GridDataCellElement.SelfReferenceLayout">
@@ -14727,6 +14795,11 @@
             </summary>
             <param name="enabled">if set to <c>true</c> [enabled].</param>
         </member>
+        <member name="M:Telerik.WinControls.UI.GridFilterCellElement.SetContentCore(System.Object)">
+            <summary>
+            Sets the actual text of the cell.
+            </summary>
+        </member>
         <member name="M:Telerik.WinControls.UI.GridFilterCellElement.SetFilterOperator(Telerik.WinControls.Data.FilterOperator)">
             <summary>
             Sets the filter operator.
@@ -14750,7 +14823,7 @@
             Validates a descriptor set by the user.
             </summary>
             <param name="descriptor">the descriptor to validate.</param>
-            <returns>true if successfull.</returns>
+            <returns>true if successful.</returns>
         </member>
         <member name="M:Telerik.WinControls.UI.GridFilterCellElement.SetFilterDescriptor(Telerik.WinControls.Data.FilterDescriptor)">
             <summary>
@@ -15367,7 +15440,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadListFilterPopup.ButtonsMenuItem">
             <summary>
-            Gets the menu item that holds the OK and Canel buttons.
+            Gets the menu item that holds the OK and Cancel buttons.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadListFilterPopup.TextBoxMenuItem">
@@ -15790,11 +15863,6 @@
             Gets the paging panel element
             </summary>
         </member>
-        <member name="P:Telerik.WinControls.UI.RadGridViewElement.SelectionRectangle">
-            <summary>
-            Gets the rectangle currently selected when the mouse is dragged
-            </summary>
-        </member>
         <member name="P:Telerik.WinControls.UI.RadGridViewElement.UseScrollbarsInHierarchy">
             <summary>
             Gets or sets a value indicating whether to use dedicated vertical scrollbars in hierarchy.
@@ -16032,6 +16100,16 @@
             The sort order.
             </value>
         </member>
+        <member name="P:Telerik.WinControls.UI.ColumnChooserControl.EnableFiltering">
+            <summary>
+            Gets or sets a value indicating whether the filter text box is visible.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.ColumnChooserControl.FilterTextBox">
+            <summary>
+            Gets the filter text box of this column chooser
+            </summary>
+        </member>
         <member name="E:Telerik.WinControls.UI.ColumnChooserControl.ItemElementCreating">
             <summary>
             Occurs when a new item element is being created. The created item is then added to the Column chooser.
@@ -16104,6 +16182,16 @@
             Gets the scroll viewer.
             </summary>
             <value>The scroll viewer.</value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.ColumnChooserElement.EnableFiltering">
+            <summary>
+            Gets or sets a value indicating whether the filter text box is visible.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.ColumnChooserElement.FilterTextBox">
+            <summary>
+            Gets the filter text box of this column chooser element
+            </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.ColumnChooserElement.GridViewElement">
             <summary>
@@ -16199,6 +16287,11 @@
             <value>
             The sort order.
             </value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.GridViewColumnChooser.EnableFilter">
+            <summary>
+            Gets or sets a value indicating whether the filter text box is visible.
+            </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.GridViewColumnChooser.Template">
             <summary>
@@ -17146,11 +17239,6 @@
         <member name="P:Telerik.WinControls.UI.GridTableElement.ScrollBehavior">
             <summary>
             Gets the <see cref="T:Telerik.WinControls.UI.ScrollServiceBehavior"/> that is responsible for the kinetic scrolling option.
-            </summary>
-        </member>
-        <member name="P:Telerik.WinControls.UI.GridTableElement.ShowTranslucentSelectionRectangle">
-            <summary>
-            Gets or sets a value indicating whether to show translucent selection rectangle.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.GridTableElement.RowHeight">
@@ -19546,6 +19634,11 @@
             Current ForeColor property might be ignored.
             </summary>
         </member>
+        <member name="P:Telerik.WinControls.UI.RadVirtualGrid.Text">
+            <summary>
+            This property is not relevant for this class.
+            </summary>
+        </member>
         <member name="P:Telerik.WinControls.UI.RadVirtualGrid.BeginEditMode">
             <summary>
             Gets or sets the method for entering edit mode.
@@ -21120,6 +21213,11 @@
             Gets or sets the spacing between adjucent items.
             </summary>
         </member>
+        <member name="P:Telerik.WinControls.UI.VirtualGridTableViewState.DpiScale">
+            <summary>
+            Gets the current DPI scale factor.
+            </summary>
+        </member>
         <member name="E:Telerik.WinControls.UI.VirtualGridTableViewState.PageIndexChanging">
             <summary>
             Occurs before the page index changes.
@@ -21786,12 +21884,6 @@
         <member name="T:Telerik.WinControls.UI.GridViewColumnGroupRow">
             <summary>
             Represents a row in a column group in a RadGridView with ColumnGroupsViewDefinition set.
-            </summary>
-        </member>
-        <member name="P:Telerik.WinControls.UI.GridViewColumnGroupRow.Columns">
-            <summary>
-            Gets a <see cref="T:Telerik.WinControls.UI.ColumnCollection"/> collection containing the columns for that row.
-            The property is obsolete. Use the ColumnNames property instead.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.GridViewColumnGroupRow.ColumnNames">
@@ -23120,6 +23212,11 @@
             <param name="adjustComboBoxSize">Determines whether to adjust drop-down size according to columns width</param>
             <param name="bestFitAllRows">Determines whether to calculate the optimal with by iterating all rows (including non-visible rows).</param>
         </member>
+        <member name="P:Telerik.WinControls.UI.RadMultiColumnComboBox.AutoFilterDelay">
+            <summary>
+            Gets or set the value in Milliseconds indicating delay between last key press and filtering operation
+            </summary>
+        </member>
         <member name="P:Telerik.WinControls.UI.RadMultiColumnComboBox.AutoSizeDropDownColumnMode">
             <summary>
             Determines whether the drop-down portion of the control will be auto-sized to best fit all columns.        
@@ -23137,11 +23234,11 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadMultiColumnComboBox.Columns">
             <summary>
-            Gets a collection that contains all the columns in the grid conained in the drop down.
+            Gets a collection that contains all the columns in the grid contained in the drop down.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadMultiColumnComboBox.Text">
-            <summary>Gets or sets displayed text.</summary>
+            <summary>Gets or sets displayed text.</summary>,
         </member>
         <member name="P:Telerik.WinControls.UI.RadMultiColumnComboBox.DblClickRotate">
             <summary>
@@ -23161,7 +23258,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadMultiColumnComboBox.DropDownSizingMode">
             <summary>
-            Gets or sets the drop down sizing mode. The mode can be: horizontal, veritcal or a combination of them.
+            Gets or sets the drop down sizing mode. The mode can be: horizontal, vertical or a combination of them.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadMultiColumnComboBox.NullText">
@@ -23214,7 +23311,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadMultiColumnComboBox.DropDownMinSize">
             <summary>
-            Gets or sets the minumum size allowed for the drop-down of the
+            Gets or sets the minimum size allowed for the drop-down of the
             <see cref="T:Telerik.WinControls.UI.RadMultiColumnComboBox"/> control.
             </summary>
         </member>
@@ -23222,6 +23319,11 @@
             <summary>
             Gets or sets the maximum size allowed for the drop-down of the
             <see cref="T:Telerik.WinControls.UI.RadMultiColumnComboBox"/> control.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadMultiColumnComboBox.AutoSize">
+            <summary>
+            Gets or sets whether the edit control is auto-sized
             </summary>
         </member>
         <member name="E:Telerik.WinControls.UI.RadMultiColumnComboBox.DataBindingComplete">

@@ -5,3 +5,12 @@ C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\obj\Debug\Automation.Module.KitchenUp.csprojResolveAssemblyReference.cache
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\obj\Debug\Automation.Module.KitchenUp.dll
 C:\Users\Leo\Source\Repos\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\obj\Debug\Automation.Module.KitchenUp.pdb
+D:\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\bin\Debug\Automation.Module.KitchenUp.dll
+D:\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\bin\Debug\Automation.Module.KitchenUp.pdb
+D:\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\bin\Debug\Automation.Infrastructure.dll
+D:\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\bin\Debug\Automation.Infrastructure.pdb
+D:\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\obj\Debug\Automation.Module.KitchenUp.csprojAssemblyReference.cache
+D:\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\obj\Debug\Automation.Module.KitchenUp.csproj.CoreCompileInputs.cache
+D:\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\obj\Debug\Automation.Module.KitchenUp.csproj.CopyComplete
+D:\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\obj\Debug\Automation.Module.KitchenUp.dll
+D:\AutomationSystem\AutomationStructure\Automation.Module.KitchenUp\obj\Debug\Automation.Module.KitchenUp.pdb

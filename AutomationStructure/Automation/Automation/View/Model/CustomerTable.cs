@@ -6,7 +6,7 @@ namespace Automation.View.Model
 {
     public static class CustomerTable
     {
-        private static Dictionary<string, int> LdspThickness { get; } = new Dictionary<string, int>
+        private static Dictionary<string, int> PlateThickness { get; } = new Dictionary<string, int>
         {
             {"10 мм", 10},
             {"16 мм", 16},
@@ -24,7 +24,7 @@ namespace Automation.View.Model
             {"персонально", 0}
         };
 
-        private static Dictionary<string, double> BackWallThickness { get; } = new Dictionary<string, double>
+        private static Dictionary<string, double> BackPanelThickness { get; } = new Dictionary<string, double>
         {
             {"нет", 0},
             {"3 мм", 3},
@@ -58,7 +58,7 @@ namespace Automation.View.Model
             comboboxCell.Items.Clear();
             comboboxCell.Value = null;
 
-            SetCell(LdspThickness.Keys.ToList(), comboboxCell);
+            SetCell(PlateThickness.Keys.ToList(), comboboxCell);
 
             var comboboxCell2 = (DataGridViewComboBoxCell)dataGridView1.Rows[1].Cells[2];
             comboboxCell2.Items.Clear();
@@ -70,7 +70,7 @@ namespace Automation.View.Model
             comboboxCell3.Items.Clear();
             comboboxCell3.Value = null;
 
-            SetCell(BackWallThickness.Keys.ToList(),comboboxCell3);
+            SetCell(BackPanelThickness.Keys.ToList(),comboboxCell3);
 
             var helpButton = (DataGridViewButtonColumn) dataGridView1.Columns[3];
             helpButton.UseColumnTextForButtonValue = true;
