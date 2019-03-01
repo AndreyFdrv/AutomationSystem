@@ -38,8 +38,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.allModulesInformationDgv = new Telerik.WinControls.UI.RadGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.AddFacadeBtn = new Telerik.WinControls.UI.RadButton();
             this.selectedModuleInformationDgv = new Telerik.WinControls.UI.RadGridView();
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
+            this.DeleteFacadeBtn = new Telerik.WinControls.UI.RadButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radButton4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton3)).BeginInit();
@@ -48,9 +50,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv.MasterTemplate)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddFacadeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DeleteFacadeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,6 +133,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.DeleteFacadeBtn);
+            this.groupBox3.Controls.Add(this.AddFacadeBtn);
             this.groupBox3.Controls.Add(this.selectedModuleInformationDgv);
             this.groupBox3.Controls.Add(this.radButton1);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
@@ -137,6 +143,15 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Настройка выбранного модуля";
+            // 
+            // AddFacadeBtn
+            // 
+            this.AddFacadeBtn.Location = new System.Drawing.Point(1258, 56);
+            this.AddFacadeBtn.Name = "AddFacadeBtn";
+            this.AddFacadeBtn.Size = new System.Drawing.Size(90, 29);
+            this.AddFacadeBtn.TabIndex = 3;
+            this.AddFacadeBtn.Text = "Добавить фасад";
+            this.AddFacadeBtn.Click += new System.EventHandler(this.AddFacadeBtn_Click);
             // 
             // selectedModuleInformationDgv
             // 
@@ -159,10 +174,19 @@
             // 
             this.radButton1.Location = new System.Drawing.Point(1258, 21);
             this.radButton1.Name = "radButton1";
-            this.radButton1.Size = new System.Drawing.Size(76, 29);
+            this.radButton1.Size = new System.Drawing.Size(90, 29);
             this.radButton1.TabIndex = 2;
             this.radButton1.Text = "Обновить";
             this.radButton1.Click += new System.EventHandler(this.UpdateModuleInfoBtn);
+            // 
+            // DeleteFacadeBtn
+            // 
+            this.DeleteFacadeBtn.Location = new System.Drawing.Point(1258, 91);
+            this.DeleteFacadeBtn.Name = "DeleteFacadeBtn";
+            this.DeleteFacadeBtn.Size = new System.Drawing.Size(90, 29);
+            this.DeleteFacadeBtn.TabIndex = 4;
+            this.DeleteFacadeBtn.Text = "Удалить фасад";
+            this.DeleteFacadeBtn.Click += new System.EventHandler(this.DeleteFacadeBtn_Click);
             // 
             // ModuleManager
             // 
@@ -188,9 +212,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allModulesInformationDgv)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.AddFacadeBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedModuleInformationDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DeleteFacadeBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -207,5 +233,7 @@
         private Telerik.WinControls.UI.RadButton radButton1;
         private Telerik.WinControls.UI.RadGridView allModulesInformationDgv;
         private Telerik.WinControls.UI.RadGridView selectedModuleInformationDgv;
+        private Telerik.WinControls.UI.RadButton AddFacadeBtn;
+        private Telerik.WinControls.UI.RadButton DeleteFacadeBtn;
     }
 }

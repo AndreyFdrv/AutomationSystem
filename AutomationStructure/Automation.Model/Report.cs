@@ -28,7 +28,7 @@ namespace Automation.Model
             return table;
         }
 
-        public static DataTable GetBackWallInfo()
+        public static DataTable GetBackPanelAssemblyInfo()
         {
             DataTable table = new DataTable();
             table.Columns.Add("Номер");

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using Automation.Infrastructure;
 using Automation.Model.MainModels;
@@ -124,10 +125,43 @@ namespace Automation.Model
 
         }
 
+        public void AddFacade(string numberModule, ProductType type)
+        {
+            var product = _order.Products.GetProduct(type);
+            try
+            {
+                product.AddFacade(numberModule);
+            }
+            catch (ArgumentException exp)
+            {
+                throw exp;
+            }
+        }
+
+        public void DeleteFacade(string numberModule, ProductType type)
+        {
+            var product = _order.Products.GetProduct(type);
+            try
+            {
+                product.DeleteFacade(numberModule);
+            }
+            catch (ArgumentException exp)
+            {
+                throw exp;
+            }
+        }
+
         public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)
         {
             var product = _order.Products.GetProduct(type);
-            product.UpdateModule(moduleInfoTable, numberModule);
+            try
+            {
+                product.UpdateModule(moduleInfoTable, numberModule);
+            }
+            catch (ArgumentException exp)
+            {
+                throw exp;
+            }
         }
 
         #endregion

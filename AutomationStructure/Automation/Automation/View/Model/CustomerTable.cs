@@ -70,7 +70,7 @@ namespace Automation.View.Model
             comboboxCell3.Items.Clear();
             comboboxCell3.Value = null;
 
-            SetCell(BackPanelThickness.Keys.ToList(),comboboxCell3);
+            SetCell(BackPanelThickness.Keys.ToList(), comboboxCell3);
 
             var helpButton = (DataGridViewButtonColumn) dataGridView1.Columns[3];
             helpButton.UseColumnTextForButtonValue = true;

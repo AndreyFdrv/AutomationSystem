@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModuleConfigurator));
             this.label1 = new System.Windows.Forms.Label();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.radListView1 = new Telerik.WinControls.UI.RadListView();
@@ -86,7 +85,6 @@
             this.radListView1.RootElement.ApplyShapeToControl = false;
             this.radListView1.Size = new System.Drawing.Size(664, 348);
             this.radListView1.TabIndex = 0;
-            this.radListView1.Text = "radListView1";
             this.radListView1.ViewType = Telerik.WinControls.UI.ListViewType.IconsView;
             this.radListView1.ItemMouseClick += new Telerik.WinControls.UI.ListViewItemEventHandler(this.radListView1_ItemMouseClick);
             this.radListView1.ItemMouseDoubleClick += new Telerik.WinControls.UI.ListViewItemEventHandler(this.radListView1_ItemMouseDoubleClick);
@@ -127,6 +125,7 @@
             // 
             this.subSchemeTxb.Location = new System.Drawing.Point(161, 88);
             this.subSchemeTxb.Name = "subSchemeTxb";
+            this.subSchemeTxb.ReadOnly = true;
             this.subSchemeTxb.Size = new System.Drawing.Size(244, 20);
             this.subSchemeTxb.TabIndex = 14;
             // 
@@ -162,7 +161,6 @@
             this.Controls.Add(this.radGroupBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ModuleConfigurator";

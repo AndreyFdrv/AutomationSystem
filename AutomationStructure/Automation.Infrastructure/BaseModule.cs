@@ -11,12 +11,13 @@ namespace Automation.Infrastructure
         public string Name { get; set; }
         public string Sсheme { get; set; }
         
-        protected string BackWall { get; set;}
+        protected string BackPanelAssembly { get; set;}
         public string Number { get; set; }
         public string SubScheme { get; set; }
         public string IconPath { get; set; }
 
-
+        public abstract void AddFacade();
+        public abstract void DeleteFacade();
         public abstract void SetupModule(DataTable changedInfo);
         public abstract void GetInfoRows(DataTable table);
         public abstract DataTable GetInfoTable();

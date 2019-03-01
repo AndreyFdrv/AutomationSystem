@@ -18,12 +18,12 @@ namespace Automation.Controls
             InitializeComponent();
         }
 
-        public void BindData( DataTable ldspInfo, DataTable backWallInfo, DataTable furnitureInfo, DataTable fasadeInfo)
+        public void BindData( DataTable ldspInfo, DataTable backWallInfo, DataTable furnitureInfo, DataTable facadeInfo)
         {
             LDSPDetails.DataSource = ldspInfo;
             BackWallDetails.DataSource = backWallInfo;
             FurnitureDetails.DataSource = furnitureInfo;
-            FasadeDetails.DataSource = fasadeInfo;
+            FasadeDetails.DataSource = facadeInfo;
         }
 
         public void SetViewDefinitions(ColumnGroupsViewDefinition dimensionsVd, ColumnGroupsViewDefinition detailsVd, ColumnGroupsViewDefinition furnitureVd)

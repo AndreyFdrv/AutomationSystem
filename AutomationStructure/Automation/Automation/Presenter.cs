@@ -89,76 +89,109 @@ namespace Automation
         #endregion
 
 
-       internal void AddNewProduct(string nameProduct)
-        {
-            _blService.AddNewProduct( nameProduct);
-        }
+        internal void AddNewProduct(string nameProduct)
+         {
+             _blService.AddNewProduct( nameProduct);
+         }
 
-       public void UpdateModulesCount(ProductType type)
-       {
-           var nameProduct = _blService.GetProductNameByType(type);
-           var countModules = _blService.GetCountModules(type);
-           _view.UpdateProductCount(countModules,nameProduct);
-       }
+        public void UpdateModulesCount(ProductType type)
+        {
+            var nameProduct = _blService.GetProductNameByType(type);
+            var countModules = _blService.GetCountModules(type);
+            _view.UpdateProductCount(countModules,nameProduct);
+        }
 
  
 
         public void ShowModuleInformation(string moduleName, ProductType type)
-       {
-           DataTable table = _blService.GetDetailDataForModule(moduleName, type);
-           Manager.UpdateDetailDataDataGrid(table);
-       }
+        {
+            DataTable table = _blService.GetDetailDataForModule(moduleName, type);
+            Manager.UpdateDetailDataDataGrid(table);
+        }
 
-       public void UpdateTotalModules(ProductType type)
-       {
-           DataTable table = _blService.GetTotalModulesInfo(type);
-           
-           Manager.UpdateAllModuleInfo(table);
-           
-       }
+        public void UpdateTotalModules(ProductType type)
+        {
+            DataTable table = _blService.GetTotalModulesInfo(type);
+            
+            Manager.UpdateAllModuleInfo(table);
+            
+        }
 
-       public void DeleteModule(string nameModule, ProductType type)
-       {
-           if (_blService.GetCountModules(type)>0)
-           {
-                _blService.DeleteModule(nameModule, type);
-                UpdateModuleList(type);
-                UpdateTotalModules(type);
-                Manager.ClearModuleDetailsDgv();
+        public void DeleteModule(string nameModule, ProductType type)
+        {
+            if (_blService.GetCountModules(type)>0)
+            {
+                 _blService.DeleteModule(nameModule, type);
+                 UpdateModuleList(type);
+                 UpdateTotalModules(type);
+                 Manager.ClearModuleDetailsDgv();
+             }
+            
+            
+            
+            
+        }
+
+        public void AddSimilarModule(string similarName, ProductType type)
+        {
+            _blService.AddSimilarModule(similarName, type);
+             UpdateModuleList(type);
+             UpdateTotalModules(type);
+            
+        }
+
+        public void AddFacade(string numberModule, ProductType type)
+        {
+            try
+            {
+                _blService.AddFacade(numberModule, type);
             }
-           
-           
-           
-           
-       }
-
-       public void AddSimilarModule(string similarName, ProductType type)
-       {
-           _blService.AddSimilarModule(similarName, type);
-            UpdateModuleList(type);
+            catch (ArgumentException exp)
+            {
+                throw exp;
+            }
             UpdateTotalModules(type);
-           
-       }
+        }
 
-       public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)
-       {
-           _blService.UpdateModuleInfo(moduleInfoTable, numberModule, type);
+        public void DeleteFacade(string numberModule, ProductType type)
+        {
+            try
+            {
+                _blService.DeleteFacade(numberModule, type);
+            }
+            catch (ArgumentException exp)
+            {
+                throw exp;
+            }
             UpdateTotalModules(type);
-       }
+        }
 
-       public bool IsModuleExist(string number, ProductType getTypeProduct)
-       {
-           return _blService.IsModuleExist(number, getTypeProduct);
-       }
+        public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)
+        {
+            try
+            {
+                _blService.UpdateModuleInfo(moduleInfoTable, numberModule, type);
+            }
+            catch (ArgumentException exp)
+            {
+                throw exp;
+            }
+            UpdateTotalModules(type);
+        }
 
-       public List<Product> GetAllProducts()
-       {
+        public bool IsModuleExist(string number, ProductType getTypeProduct)
+        {
+            return _blService.IsModuleExist(number, getTypeProduct);
+        }
+
+        public List<Product> GetAllProducts()
+        {
            return _blService.GetCurrentOrder().Products.GetAllProducts();
-       }
+        }
 
         public Product GetProductByName(string productName)
-       {
+        {
            return _blService.GetCurrentOrder().Products.GetProduct((ProductType)Enum.Parse(typeof(ProductType),productName));
-       }
+        }
     }
 }

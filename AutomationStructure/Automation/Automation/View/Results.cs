@@ -50,7 +50,7 @@ namespace Automation.View
         private void LoadReport()
         {
            radPageViewPage3.Visible = Visible;
-           reportModule.BindData(Report.GetLdspInfo(),Report.GetBackWallInfo(),Report.GetFurnitureInfo(),Report.GetFasadeInfo());
+           reportModule.BindData(Report.GetLdspInfo(), Report.GetBackPanelAssemblyInfo(), Report.GetFurnitureInfo(), Report.GetFasadeInfo());
         }
 
         private void LoadModules(RadPageViewPage page)
@@ -67,7 +67,8 @@ namespace Automation.View
             {
                 ModuleInfo infoModule = new ModuleInfo();
                 var result = module.Calculate();
-                infoModule.BindData(result.ModuleName,result.ImagePath,result.DimensionInfo,result.DetailsInfo,result.ShelfInfo,result.FurnitureInfo,result.LoopsInfo);
+                infoModule.BindData(result.ModuleName, result.ImagePath, result.DimensionInfo, result.DetailsInfo, result.ShelfInfo,
+                    result.FurnitureInfo, result.LoopsInfo);
                 infoModule.Width = flowLayoutPanel2.Width - 3;
                 panel.Controls.Add(infoModule);
             }

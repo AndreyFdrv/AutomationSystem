@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{68C6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.ModuleFactory", "Automation.ModuleFactory\Automation.ModuleFactory.csproj", "{B1802501-3F3A-4655-91B8-1F667968F8C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.Modules.Tests", "Automation.Modules.Tests\Automation.Modules.Tests.csproj", "{0EC4CD3F-8E4D-4E5F-AABE-49C36D7EA35C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{B1802501-3F3A-4655-91B8-1F667968F8C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1802501-3F3A-4655-91B8-1F667968F8C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1802501-3F3A-4655-91B8-1F667968F8C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EC4CD3F-8E4D-4E5F-AABE-49C36D7EA35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC4CD3F-8E4D-4E5F-AABE-49C36D7EA35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC4CD3F-8E4D-4E5F-AABE-49C36D7EA35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC4CD3F-8E4D-4E5F-AABE-49C36D7EA35C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3D1FE7E7-6EB4-45CA-83CA-DDB5DD5DA34B} = {68C6D328-348E-4AE1-996A-DE06645BA036}
 		{F939B1A6-2F07-4233-BE16-90A11458D95C} = {68C6D328-348E-4AE1-996A-DE06645BA036}
+		{0EC4CD3F-8E4D-4E5F-AABE-49C36D7EA35C} = {68C6D328-348E-4AE1-996A-DE06645BA036}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2A2CDDC7-BAD7-4C4A-9D2A-518F209614DD}

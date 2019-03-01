@@ -63,12 +63,43 @@ namespace Automation.Model
 
         }
 
+        public void AddFacade(string moduleNumber)
+        {
+            var module = _modules.First(x => x.Number == moduleNumber);
+            try
+            {
+                module.AddFacade();
+            }
+            catch (ArgumentException exp)
+            {
+                throw exp;
+            }
+        }
+
+        public void DeleteFacade(string moduleNumber)
+        {
+            var module = _modules.First(x => x.Number == moduleNumber);
+            try
+            {
+                module.DeleteFacade();
+            }
+            catch (ArgumentException exp)
+            {
+                throw exp;
+            }
+        }
+
         public void UpdateModule(DataTable data, string moduleNumber)
         {
             var module = _modules.First(x => x.Number == moduleNumber);
-            module.SetupModule(data);
-       
-
+            try
+            {
+                module.SetupModule(data);
+            }
+            catch (ArgumentException exp)
+            {
+                throw exp;
+            }
         }
         
         public ProductType GetType(string nameProduct)
@@ -91,7 +122,7 @@ namespace Automation.Model
             DataTable emptyTable = null;
             if (_modules.Count!=0)
             {
-               emptyTable = _modules[0].GetEmptyTable();
+                emptyTable = _modules[0].GetEmptyTable();
                 foreach (var module in _modules)
                 {
                     module.GetInfoRows(emptyTable);

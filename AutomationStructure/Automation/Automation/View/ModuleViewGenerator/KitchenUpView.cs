@@ -13,7 +13,7 @@ namespace Automation.View.ModuleViewGenerator
     {
 
 
-        private GridViewComboBoxColumn GetBackWallColumns()
+        private GridViewComboBoxColumn GetBackPanelAssemblyColumns()
         {
             GridViewComboBoxColumn column = new GridViewComboBoxColumn();
 
@@ -22,11 +22,13 @@ namespace Automation.View.ModuleViewGenerator
             column.FieldName = "Задняя стенка";
             column.DataSource = new List<string>
             {
-                "ГВ",
-                "Четверть",
-                "ПАЗ",
+                "нет",
+                "на гвозди",
+                "паз",
+                "четверть",
                 "ЛДСП",
-                "Что это?"
+                "ЛДСП внутрь",
+                "что это?"
             };
             return column;
           
@@ -56,8 +58,11 @@ namespace Automation.View.ModuleViewGenerator
             column.DataSource = new List<string>
             {
                 "нет",
-                "Верт.",
-                "Гориз."
+                "ЛДСП вертик. фактура",
+                "ЛДСП гориз. фактура",
+                "на заказ глухой",
+                "на заказ витрина",
+                "на заказ особый"
             };
             return column;
         }
@@ -70,10 +75,16 @@ namespace Automation.View.ModuleViewGenerator
             column.FieldName = "Тип фасада";
             column.DataSource = new List<string>
             {
-                "Накладной",
-                "Внутренний",
-                "Другой",
-                "Что это?"
+                "нет",
+                "накладной",
+                "вкладной ЛДСП",
+                "вкладной 16 мм",
+                "вкладной 18 мм",
+                "вкладной 19 мм",
+                "вкладной 20 мм",
+                "вкладной 21 мм",
+                "вкладной 22 мм",
+                "что это?"
             };
             return column;
         }
@@ -82,21 +93,17 @@ namespace Automation.View.ModuleViewGenerator
         {
             GridViewComboBoxColumn column = new GridViewComboBoxColumn
             {
-                Name = "Полка по ширине секции (шт)2",
-                HeaderText = "Полка по ширине секции (шт)",
-                FieldName = "Полка по ширине секции (шт)",
+                Name = "Крепление полки",
+                HeaderText = "Крепление полки",
+                FieldName = "Крепление полки",
                 DataSource = new List<string>
                 {
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                    "7",
-                    "8",
-                    "9",
-                    "10",
+                    "полкодержатель",
+                    "конфирмат",
+                    "эксцентрик",
+                    "конфирмат + нагель",
+                    "эксцентрик + нагель",
+                    "нагель"
                 }
             };
             return column;
@@ -111,8 +118,8 @@ namespace Automation.View.ModuleViewGenerator
                 FieldName = @"Режим расчёта",
                 DataSource = new List<string>
                 {
-                    "Автоматически",
-                    "Вручную"
+                    "автоматически",
+                    "вручную"
                 }
             };
             return column;
@@ -122,21 +129,28 @@ namespace Automation.View.ModuleViewGenerator
         {
             GridViewComboBoxColumn column = new GridViewComboBoxColumn
             {
-                Name = "Полка - 2мм (шт)2",
-                HeaderText = "Полка - 2мм (шт)",
-                FieldName = "Полка - 2мм (шт)",
+                Name = "Кол-во полок",
+                HeaderText = "Кол-во полок",
+                FieldName = "Кол-во полок",
                 DataSource = new List<string>
                 {
-                    "1",
-                    "1 стекло",
-                    "2",
-                    "2 стекло",
-                    "3",
-                    "3 стекло",
-                    "4",
-                    "4 стекло",
-                    "5",
-                    "5 стекло"
+                    "нет",
+                    "ЛДСП 1",
+                    "ЛДСП 2",
+                    "ЛДСП 3",
+                    "ЛДСП 4",
+                    "ЛДСП 5",
+                    "ЛДСП 6",
+                    "ЛДСП 7",
+                    "ЛДСП 8",
+                    "стекло 1",
+                    "стекло 2",
+                    "стекло 3",
+                    "стекло 4",
+                    "стекло 5",
+                    "стекло 6",
+                    "стекло 7",
+                    "стекло 8"
                 }
             };
             return column;
@@ -171,15 +185,15 @@ namespace Automation.View.ModuleViewGenerator
 
             dgv.Columns["Изображение"].IsVisible = false;
             dgv.Columns["Задняя стенка"].IsVisible = false;
-            dgv.Columns["Полка по ширине секции (шт)"].IsVisible = false;
-            dgv.Columns["Полка - 2мм (шт)"].IsVisible = false;
+            dgv.Columns.Remove("Крепление полки");
+            dgv.Columns.Remove("Кол-во полок");
             dgv.Columns["Тип фасада"].IsVisible = false;
             dgv.Columns["Материал фасада"].IsVisible = false;
             dgv.Columns["Режим расчёта"].IsVisible = false;
             dgv.Columns["Сборка модуля"].IsVisible = false;
 
             dgv.Columns.Insert(10, GetModuleAssembly());
-            dgv.Columns.Insert(10, GetBackWallColumns());
+            dgv.Columns.Insert(10, GetBackPanelAssemblyColumns());
             dgv.Columns.Insert(20, GetFacadeMaterial());
             dgv.Columns.Insert(16, GetFacadeType());
             dgv.Columns.Insert(17,GetCalculationType());
@@ -278,33 +292,21 @@ namespace Automation.View.ModuleViewGenerator
 
             view.ColumnGroups.Add(new GridViewColumnGroup("ppse"));
             view.ColumnGroups[5].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[5].Rows[0].ColumnNames.Add("Полка по ширине секции (шт)2");
+            view.ColumnGroups[5].Rows[0].ColumnNames.Add("Крепление полки");
             view.ColumnGroups[5].ShowHeader = false;
 
-            view.ColumnGroups.Add(new GridViewColumnGroup("ppmin"));
             view.ColumnGroups[6].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[6].Rows[0].ColumnNames.Add("Полка - 2мм (шт)2");
+            view.ColumnGroups[6].Rows[0].ColumnNames.Add("Кол-во полок");
             view.ColumnGroups[6].ShowHeader = false;
 
-            view.ColumnGroups.Add(new GridViewColumnGroup("ppraz"));
-            view.ColumnGroups[7].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Полка разделительная (шт)");
-            view.ColumnGroups[7].ShowHeader = false;
-
-            view.ColumnGroups.Add(new GridViewColumnGroup("ppraz"));
-            view.ColumnGroups[8].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[8].Rows[0].ColumnNames.Add("Полка стеклянная (шт)");
-            view.ColumnGroups[8].ShowHeader = false;
-
-
             view.ColumnGroups.Add(new GridViewColumnGroup("Фасад"));
-            view.ColumnGroups[9].Rows.Add(new GridViewColumnGroupRow());
-            view.ColumnGroups[9].Rows[0].ColumnNames.Add("№ схемы фасада");
-            view.ColumnGroups[9].Rows[0].ColumnNames.Add("Тип фасада2");
-            view.ColumnGroups[9].Rows[0].ColumnNames.Add("Режим расчёта2");
-            view.ColumnGroups[9].Rows[0].ColumnNames.Add("Горизонтальный размер");
-            view.ColumnGroups[9].Rows[0].ColumnNames.Add("Вертикальный размер");
-            view.ColumnGroups[9].Rows[0].ColumnNames.Add("Материал фасада2");
+            view.ColumnGroups[7].Rows.Add(new GridViewColumnGroupRow());
+            view.ColumnGroups[7].Rows[0].ColumnNames.Add("№ схемы фасада");
+            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Высота");
+            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Ширина");
+            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Тип фасада2");
+            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Режим расчёта2");
+            view.ColumnGroups[7].Rows[0].ColumnNames.Add("Материал фасада2");
     
 
 
@@ -329,7 +331,7 @@ namespace Automation.View.ModuleViewGenerator
         {
             RadDropDownListEditorElement editor = sender as RadDropDownListEditorElement;
           
-            if (editor?.SelectedItem != null && editor.SelectedItem.Text == "Что это?")
+            if (editor?.SelectedItem != null && editor.SelectedItem.Text == "что это?")
             {
                 ShowHelpForm(_columnName);
                 

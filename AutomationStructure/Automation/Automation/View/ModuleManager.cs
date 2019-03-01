@@ -30,7 +30,7 @@ namespace Automation.View
             allModulesInformationDgv.EnableFastScrolling = true;
             selectedModuleInformationDgv.MasterTemplate.BestFitColumns();
            // allModulesInformationDgv.MasterTemplate.BestFitColumns();
-          
+
 
             //allModulesInformationDgv.VirtualMode = true;
             allModulesInformationDgv.EnableFiltering = false;
@@ -148,19 +148,37 @@ namespace Automation.View
 
         private void UpdateModuleInfoBtn(object sender, EventArgs e)
         {
-            string moduleNameWithNumber = modulesLbx.SelectedItem.ToString();
-            string moduleNumber = moduleNameWithNumber.Remove(0, moduleNameWithNumber.IndexOf(' ') + 1);
-            Presenter.UpdateModuleInfo(_moduleInfoTable, moduleNumber, GetProductType());
+            if (modulesLbx.SelectedItem == null)
+            {
+                MessageBox.Show("Не выбран модуль из списка");
+                return;
+            }
+            string moduleNumber = modulesLbx.SelectedItem.ToString();
+            try
+            {
+                Presenter.UpdateModuleInfo(_moduleInfoTable, moduleNumber, GetProductType());
+            }
+            catch (ArgumentException exp)
+            {
+                MessageBox.Show(exp.Message);
+                return;
+            }
             Presenter.ShowModuleInformation(moduleNumber, GetProductType());
             Presenter.UpdateTotalModules(GetProductType());
+            selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
+            selectedModuleInformationDgv.Columns["№ схемы фасада"].ReadOnly = true;
         }
         
         private void modulesLbx_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (modulesLbx.SelectedItem == null)
+                return;
             if (modulesLbx.Items.Count!=0)
             {
                 string moduleNumber = modulesLbx.SelectedItem.ToString();
                 Presenter.ShowModuleInformation(moduleNumber, GetProductType());
+                selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
+                selectedModuleInformationDgv.Columns["№ схемы фасада"].ReadOnly = true;
             }
         }
 
@@ -234,6 +252,50 @@ namespace Automation.View
       
         }
 
-  
+        private void AddFacadeBtn_Click(object sender, EventArgs e)
+        {
+            if (modulesLbx.SelectedItem == null)
+            {
+                MessageBox.Show("Не выбран модуль из списка");
+                return;
+            }
+            string moduleNumber = modulesLbx.SelectedItem.ToString();
+            try
+            {
+                Presenter.AddFacade(moduleNumber, GetProductType());
+            }
+            catch (ArgumentException exp)
+            {
+                MessageBox.Show(exp.Message);
+                return;
+            }
+            Presenter.ShowModuleInformation(moduleNumber, GetProductType());
+            Presenter.UpdateTotalModules(GetProductType());
+            selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
+            selectedModuleInformationDgv.Columns["№ схемы фасада"].ReadOnly = true;
+        }
+
+        private void DeleteFacadeBtn_Click(object sender, EventArgs e)
+        {
+            if (modulesLbx.SelectedItem == null)
+            {
+                MessageBox.Show("Не выбран модуль из списка");
+                return;
+            }
+            string moduleNumber = modulesLbx.SelectedItem.ToString();
+            try
+            {
+                Presenter.DeleteFacade(moduleNumber, GetProductType());
+            }
+            catch (ArgumentException exp)
+            {
+                MessageBox.Show(exp.Message);
+                return;
+            }
+            Presenter.ShowModuleInformation(moduleNumber, GetProductType());
+            Presenter.UpdateTotalModules(GetProductType());
+            selectedModuleInformationDgv.Columns["Номер модуля"].ReadOnly = true;
+            selectedModuleInformationDgv.Columns["№ схемы фасада"].ReadOnly = true;
+        }
     }
 }

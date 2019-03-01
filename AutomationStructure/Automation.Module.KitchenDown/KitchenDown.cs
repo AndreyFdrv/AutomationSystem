@@ -21,9 +21,17 @@ namespace Automation.Module.KitchenDown
         public string ShelfGlass { get; set; }
         
         Facade _facade;
-        
 
-   
+
+        public override void AddFacade()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void DeleteFacade()
+        {
+            throw new NotImplementedException();
+        }
 
         public override void SetupModule(DataTable changedInfo)
         {

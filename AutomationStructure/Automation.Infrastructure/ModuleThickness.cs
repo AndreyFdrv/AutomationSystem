@@ -13,7 +13,7 @@
         public static double BackShelf { get; set; }
         public static double Facade { get; set; }
 
-        public static double DVP { get; set; }
+        public static double BackPanel { get; set; }
         public static double Plate { get; set; }
 
         public static double InputPlateConverter(string value)
@@ -80,6 +80,8 @@
             SideShelf = InputConverter(value);
             BackShelf = InputConverter(value);
             Facade = InputConverter(value);
+            BackPanel = InputConverter(value);
+            Plate = InputConverter(value);
         }
     }
 }
