@@ -128,7 +128,7 @@ namespace Automation.View
         private void SetMoluleThickness()
         {
             var thickness = customerDGV.Rows[1].Cells[2].Value;
-            if (thickness!=null && thickness.ToString()!="персонально")
+            if (thickness!=null && thickness.ToString()!="опционально")
                 ModuleThickness.SetAllSameValues(thickness.ToString());
             var plateThickness = customerDGV.Rows[0].Cells[2].Value;
             if (plateThickness != null)
@@ -151,7 +151,7 @@ namespace Automation.View
         {
             var sendingCB = sender as DataGridViewComboBoxEditingControl;
             var extendOption= sendingCB.EditingControlFormattedValue.ToString();
-            if (extendOption == "персонально")
+            if (extendOption == "опционально")
             {
                 ShowThicknessForm();
             }

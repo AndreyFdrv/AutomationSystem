@@ -23,7 +23,7 @@ namespace Automation.View
 
         private void LoadComboboxData()
         {
-            comboBox1.DataSource = CustomerTable.KromkaThickness.Keys.Where(x => x != "персонально").ToList();
+            comboBox1.DataSource = CustomerTable.KromkaThickness.Keys.Where(x => x != "опционально").ToList();
             comboBox1.SelectedIndex = -1;
         }
 
@@ -78,17 +78,17 @@ namespace Automation.View
 
         private void SetupModuleThickness()
         {
-            ModuleThickness.FrontModule = ModuleThickness.InputConverter(dataGridView1.Rows[0].Cells[2].Value.ToString());
-            ModuleThickness.UpModule = ModuleThickness.InputConverter(dataGridView1.Rows[1].Cells[2].Value.ToString());
-            ModuleThickness.DownModule = ModuleThickness.InputConverter(dataGridView1.Rows[2].Cells[2].Value.ToString());
-            ModuleThickness.SideModule = ModuleThickness.InputConverter(dataGridView1.Rows[3].Cells[2].Value.ToString());
-            ModuleThickness.BackModule = ModuleThickness.InputConverter(dataGridView1.Rows[4].Cells[2].Value.ToString());
+            ModuleThickness.FrontModule = ModuleThickness.InputFrontModuleConverter(dataGridView1.Rows[0].Cells[2].Value.ToString());
+            ModuleThickness.UpModule = ModuleThickness.InputUpModuleConverter(dataGridView1.Rows[1].Cells[2].Value.ToString());
+            ModuleThickness.DownModule = ModuleThickness.InputDownModuleConverter(dataGridView1.Rows[2].Cells[2].Value.ToString());
+            ModuleThickness.SideModule = ModuleThickness.InputSideModuleConverter(dataGridView1.Rows[3].Cells[2].Value.ToString());
+            ModuleThickness.BackModule = ModuleThickness.InputBackModuleConverter(dataGridView1.Rows[4].Cells[2].Value.ToString());
 
-            ModuleThickness.FrontShelf = ModuleThickness.InputConverter(dataGridView2.Rows[0].Cells[2].Value.ToString());
-            ModuleThickness.SideShelf = ModuleThickness.InputConverter(dataGridView2.Rows[1].Cells[2].Value.ToString());
-            ModuleThickness.BackShelf = ModuleThickness.InputConverter(dataGridView2.Rows[2].Cells[2].Value.ToString());
+            ModuleThickness.FrontShelf = ModuleThickness.InputFrontShelfConverter(dataGridView2.Rows[0].Cells[2].Value.ToString());
+            ModuleThickness.SideShelf = ModuleThickness.InputSideShelfConverter(dataGridView2.Rows[1].Cells[2].Value.ToString());
+            ModuleThickness.BackShelf = ModuleThickness.InputBackShelfConverter(dataGridView2.Rows[2].Cells[2].Value.ToString());
 
-            ModuleThickness.Facade = ModuleThickness.InputConverter(dataGridView3.Rows[0].Cells[2].Value.ToString());
+            ModuleThickness.Facade = ModuleThickness.InputFacadeConverter(dataGridView3.Rows[0].Cells[2].Value.ToString());
         }
 
         private string GetResult()

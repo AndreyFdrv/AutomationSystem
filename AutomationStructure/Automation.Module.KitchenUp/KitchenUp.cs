@@ -74,6 +74,26 @@ namespace Automation.Module.KitchenUp
             {
                 throw new ArgumentException("Ширина модуля должна быть числом");
             }
+
+            int facadeNumber = 0;
+            try
+            {
+                facadeNumber = int.Parse(row["№ схемы фасада"].ToString());
+            }
+            catch (FormatException)
+            {
+                throw new ArgumentException("№ схемы фасада должен быть целым числом");
+            }
+            _calcMode = row["Режим расчёта"].ToString();
+            var formula = IconPath.Split('_')[1];
+            if ((facadeNumber > 0) && (_calcMode == "авт. мод."))
+            {
+                _facade._records[0].HorisontalDimension = double.Parse(row["Ширина"].ToString());
+                _facade._records[0].VerticalDimension = double.Parse(row["Высота"].ToString());
+                KitchenUpFacadeCalculator calculator = new KitchenUpFacadeCalculator();
+                calculator.CalculateModuleDimentions(_facade, _dimentions, formula);
+            }
+
             try
             {
                 double depth = double.Parse(row["Глубина модуля (мм)"].ToString());
@@ -134,30 +154,19 @@ namespace Automation.Module.KitchenUp
             _shelfAssembly = row["Крепление полки"].ToString();
             _shelfsCount = row["Кол-во полок"].ToString();
 
-            var formula = IconPath.Split('_')[1];
-            int facadeNumber = 0;
-            try
-            {
-                facadeNumber = int.Parse(row["№ схемы фасада"].ToString());
-            }
-            catch (FormatException)
-            {
-                throw new ArgumentException("№ схемы фасада должен быть целым числом");
-            }
             if (facadeNumber <= 0)
                 return;
             _facade._records[0].NumberOnScheme = facadeNumber;
-            _calcMode = row["Режим расчёта"].ToString();           
             _facade._records[0].Type = row["Тип фасада"].ToString();
             _facade._records[0].Material = row["Материал фасада"].ToString();
 
             for (int i = 0; i < changedInfo.Rows.Count; i++)
             {
                 row = changedInfo.Rows[i];
-                if (_calcMode == "автоматически")
+                if (_calcMode == "авт. фас.")
                 {
                     KitchenUpFacadeCalculator calculator = new KitchenUpFacadeCalculator();
-                    calculator.CalculateDimentions(_facade, _dimentions, formula, i);
+                    calculator.CalculateFacadeDimentions(_facade, _dimentions, formula, i);
                 }
                 else
                 {

@@ -191,11 +191,11 @@ namespace Automation.Module.KitchenUp
             {
                 case "ГВ":
                     return 2;
-                case "четверть":
+                case "в четверть":
                     return 2;
-                case "паз":
+                case "в паз":
                     return 0;
-                case "ЛДСП":
+                case "ЛДСП внутрь":
                     return 2;
             }
             return 0;
@@ -207,11 +207,11 @@ namespace Automation.Module.KitchenUp
             {
                 case "ГВ":
                     return 0;
-                case "четверть":
+                case "в четверть":
                     return 0;
-                case "паз":
+                case "в паз":
                     return 2;
-                case "ЛДСП":
+                case "ЛДСП внутрь":
                     return 0;
             }
             return 0;
@@ -308,9 +308,8 @@ namespace Automation.Module.KitchenUp
                 case "на гвозди":
                     result = _dimentions.Depth - (ModuleThickness.BackPanel + ModuleThickness.FrontModule + ModuleThickness.BackModule);
                     break;
-                case "четверть":
-                case "паз":
-                case "ЛДСП":
+                case "в четверть":
+                case "в паз":
                 case "ЛДСП внутрь":
                     result = _dimentions.Depth - (ModuleThickness.FrontModule + ModuleThickness.BackModule);
                     break;
@@ -328,10 +327,10 @@ namespace Automation.Module.KitchenUp
             string result = string.Empty;
             switch (BackPanelAssembly)
             {
-                case "паз":
+                case "в паз":
                     result = "паз 10*4*16";
                     break;
-                case "четверть":
+                case "в четверть":
                     result = "четверть 10*4 мм";
                     break;
             }
@@ -396,11 +395,11 @@ namespace Automation.Module.KitchenUp
                 switch (BackPanelAssembly)
                 {
                     case "на гвозди":
-                    case "четверть":
+                    case "в четверть":
                         result = (_dimentions.Depth - (5 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf + 
                             ModuleThickness.BackPanel)).ToString();
                         break;
-                    case "паз":
+                    case "в паз":
                         result = (_dimentions.Depth - (21 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf +
                             ModuleThickness.BackPanel)).ToString();
                         break;
@@ -416,10 +415,10 @@ namespace Automation.Module.KitchenUp
                 switch (BackPanelAssembly)
                 {
                     case "на гвозди":
-                    case "четверть":
+                    case "в четверть":
                         result = (_dimentions.Depth - (5 + ModuleThickness.BackPanel)).ToString();
                         break;
-                    case "паз":
+                    case "в паз":
                         result = (_dimentions.Depth - (21 + ModuleThickness.BackPanel)).ToString();
                         break;
                     case "ЛДСП внутрь":
@@ -465,8 +464,8 @@ namespace Automation.Module.KitchenUp
                 case "на гвозди":
                     result = (_dimentions.Hight - 4).ToString();
                     break;
-                case "четверть":
-                case "паз":
+                case "в четверть":
+                case "в паз":
                     result = (_dimentions.Hight - 22).ToString();
                     break;
                 case "ЛДСП внутрь":
@@ -484,8 +483,8 @@ namespace Automation.Module.KitchenUp
                 case "на гвозди":
                     result = (_dimentions.Width - 4).ToString();
                     break;
-                case "четверть":
-                case "паз":
+                case "в четверть":
+                case "в паз":
                     result = (_dimentions.Width - 22).ToString();
                     break;
                 case "ЛДСП внутрь":
@@ -504,8 +503,8 @@ namespace Automation.Module.KitchenUp
                     result = "";
                     break;
                 case "на гвозди":
-                case "четверть":
-                case "паз":
+                case "в четверть":
+                case "в паз":
                     result = "ДВП/фанера";
                     break;
                 case "ЛДСП внутрь":

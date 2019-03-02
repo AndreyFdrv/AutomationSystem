@@ -18,10 +18,14 @@ namespace Automation.View.Model
         public static Dictionary<string, double> KromkaThickness { get; } = new Dictionary<string, double>
         {
             {"нет", 0},
-            {"0.4 мм", 0.4},
-            {"2 мм", 2},
-            {"эконом. 2 мм", 2},
-            {"персонально", 0}
+            {"0,4 (стандарт)", 0.01},
+            {"0,5", 0.5},
+            {"1", 1},
+            {"2", 2},
+            {"0,4 (min)", 0.01},
+            {"0,4 (max)", 0.01},
+            {"0,4...2 (оптим.)", 0.01},
+            {"опционально", 0}
         };
 
         private static Dictionary<string, double> BackPanelThickness { get; } = new Dictionary<string, double>

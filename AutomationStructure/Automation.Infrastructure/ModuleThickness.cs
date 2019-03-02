@@ -38,6 +38,9 @@
                 case "22 мм":
                     result = 22;
                     break;
+                default:
+                    result = 0;
+                    break;
             }
             return result;
         }
@@ -74,18 +77,14 @@
                 case "16 мм":
                     result = 16;
                     break;
+                default:
+                    result = 0;
+                    break;
             }
             return result;
         }
 
-        static ModuleThickness()
-        {
-            SetAllSameValues("2 мм");
-            SetPlateThickness("10 мм");
-            SetBackPanelThickness("нет");
-        }
-
-        public static double InputConverter(string value)
+        public static double InputFrontModuleConverter(string value)
         {
             double result = 0;
             switch (value)
@@ -93,13 +92,23 @@
                 case "нет":
                     result = 0;
                     break;
-                case "0,4 мм":
-                    result = 0.4;
+                case "0,4 (стандарт)":
+                    result = 0.01;
                     break;
-                case "2 мм":
+                case "0,5":
+                    result = 0.5;
+                    break;
+                case "1":
+                    result = 1;
+                    break;
+                case "2":
                     result = 2;
                     break;
-                case "эконом. 2мм":
+                case "0,4 (min)":
+                case "0,4 (max)":
+                    result = 0.01;
+                    break;
+                case "0,4...2 (оптим.)":
                     result = 2;
                     break;
                 default:
@@ -107,6 +116,167 @@
                     break;
             }
             return result;
+        }
+
+        public static double InputUpModuleConverter(string value)
+        {
+            double result = 0;
+            switch (value)
+            {
+                case "нет":
+                    result = 0;
+                    break;
+                case "0,4 (стандарт)":
+                    result = 0.01;
+                    break;
+                case "0,5":
+                    result = 0.5;
+                    break;
+                case "1":
+                    result = 1;
+                    break;
+                case "2":
+                    result = 2;
+                    break;
+                case "0,4 (min)":
+                case "0,4 (max)":
+                case "0,4...2 (оптим.)":
+                default:
+                    result = 0;
+                    break;
+            }
+            return result;
+        }
+
+        public static double InputDownModuleConverter(string value)
+        {
+            return InputUpModuleConverter(value);
+        }
+
+        public static double InputSideModuleConverter(string value)
+        {
+            double result = 0;
+            switch (value)
+            {
+                case "нет":
+                    result = 0;
+                    break;
+                case "0,4 (стандарт)":
+                    result = 0.01;
+                    break;
+                case "0,5":
+                    result = 0.5;
+                    break;
+                case "1":
+                    result = 1;
+                    break;
+                case "2":
+                    result = 2;
+                    break;
+                case "0,4 (min)":
+                case "0,4 (max)":
+                    result = 0.01;
+                    break;
+                case "0,4...2 (оптим.)":
+                    result = 0;
+                    break;
+                default:
+                    result = 0;
+                    break;
+            }
+            return result;
+        }
+
+        public static double InputBackModuleConverter(string value)
+        {
+            double result = 0;
+            switch (value)
+            {
+                case "нет":
+                case "0,4 (стандарт)":
+                case "0,5":
+                case "1":
+                case "2":
+                case "0,4 (min)":
+                    result = 0;
+                    break;
+                case "0,4 (max)":
+                    result = 0.01;
+                    break;
+                case "0,4...2 (оптим.)":
+                    result = 0;
+                    break;
+                default:
+                    result = 0;
+                    break;
+            }
+            return result;
+        }
+
+        public static double InputFrontShelfConverter(string value)
+        {
+            return InputFrontModuleConverter(value);
+        }
+
+        public static double InputSideShelfConverter(string value)
+        {
+            double result = 0;
+            switch (value)
+            {
+                case "нет":
+                    result = 0;
+                    break;
+                case "0,4 (стандарт)":
+                    result = 0.01;
+                    break;
+                case "0,5":
+                    result = 0.5;
+                    break;
+                case "1":
+                    result = 1;
+                    break;
+                case "2":
+                    result = 2;
+                    break;
+                case "0,4 (min)":
+                    result = 0;
+                    break;
+                case "0,4 (max)":
+                case "0,4...2 (оптим.)":
+                    result = 0.01;
+                    break;
+                default:
+                    result = 0;
+                    break;
+            }
+            return result;
+        }
+
+        public static double InputBackShelfConverter(string value)
+        {
+            return InputSideShelfConverter(value);
+        }
+
+        public static double InputFacadeConverter(string value)
+        {
+            double result = 0;
+            switch (value)
+            {
+                case "нет":
+                    result = 0;
+                    break;
+                default:
+                    result = 0;
+                    break;
+            }
+            return result;
+        }
+
+        static ModuleThickness()
+        {
+            SetAllSameValues("2");
+            SetPlateThickness("10 мм");
+            SetBackPanelThickness("нет");
         }
 
         public static void SetBackPanelThickness(string value)
@@ -121,15 +291,15 @@
 
         public static void SetAllSameValues(string value)
         {
-            FrontModule = InputConverter(value);
-            UpModule = InputConverter(value);
-            DownModule = InputConverter(value);
-            SideModule = InputConverter(value);
-            BackModule = InputConverter(value);
-            FrontShelf = InputConverter(value);
-            SideShelf = InputConverter(value);
-            BackShelf = InputConverter(value);
-            Facade = InputConverter(value);
+            FrontModule = InputFrontModuleConverter(value);
+            UpModule = InputUpModuleConverter(value);
+            DownModule = InputDownModuleConverter(value);
+            SideModule = InputSideModuleConverter(value);
+            BackModule = InputBackModuleConverter(value);
+            FrontShelf = InputFrontShelfConverter(value);
+            SideShelf = InputSideShelfConverter(value);
+            BackShelf = InputBackShelfConverter(value);
+            Facade = InputFacadeConverter(value);
         }
     }
 }

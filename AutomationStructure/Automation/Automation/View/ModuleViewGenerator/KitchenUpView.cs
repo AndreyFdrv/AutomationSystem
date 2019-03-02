@@ -24,9 +24,8 @@ namespace Automation.View.ModuleViewGenerator
             {
                 "нет",
                 "на гвозди",
-                "паз",
-                "четверть",
-                "ЛДСП",
+                "в паз",
+                "в четверть",
                 "ЛДСП внутрь",
                 "что это?"
             };
@@ -42,9 +41,11 @@ namespace Automation.View.ModuleViewGenerator
             column.FieldName = "Сборка модуля";
             column.DataSource = new List<string>
             {
-                "не разъёмная (конф.)",
-                "разъёмная (эксцентр.)",
-             
+                "конфирмат",
+                "эксцентрик",
+                "конфирмат + нагель",
+                "эксцентрик + нагель",
+                "нагель"
             };
             return column;
         }
@@ -118,8 +119,9 @@ namespace Automation.View.ModuleViewGenerator
                 FieldName = @"Режим расчёта",
                 DataSource = new List<string>
                 {
-                    "автоматически",
-                    "вручную"
+                    "авт. фас.",
+                    "ручн.",
+                    "авт. мод."
                 }
             };
             return column;
