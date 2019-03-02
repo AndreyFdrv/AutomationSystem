@@ -119,7 +119,7 @@ namespace Automation.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string[]> customerRecord = CustomerTable.GetData(customerDGV,hideThicknessExt);
+            List<string[]> customerRecord = CustomerTable.GetData(customerDGV, hideThicknessExt);
             _presenter.SetCustomer(customerRecord);
             SetMoluleThickness();
 
@@ -129,9 +129,13 @@ namespace Automation.View
         {
             var thickness = customerDGV.Rows[1].Cells[2].Value;
             if (thickness!=null && thickness.ToString()!="персонально")
-            {
                 ModuleThickness.SetAllSameValues(thickness.ToString());
-            }
+            var plateThickness = customerDGV.Rows[0].Cells[2].Value;
+            if (plateThickness != null)
+                ModuleThickness.SetPlateThickness(plateThickness.ToString());
+            var backPanelThickness = customerDGV.Rows[2].Cells[2].Value;
+            if (backPanelThickness != null)
+                ModuleThickness.SetBackPanelThickness(backPanelThickness.ToString());
         }
 
         private void customerDGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)

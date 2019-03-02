@@ -16,26 +16,64 @@
         public static double BackPanel { get; set; }
         public static double Plate { get; set; }
 
+        private static bool UseDefaultValues = false;
+
         public static double InputPlateConverter(string value)
         {
             double result = 0;
             switch (value)
             {
-                case "":
+                case "10 мм":
+                    result = 10;
                     break;
-                
+                case "16 мм":
+                    result = 16;
+                    break;
+                case "18 мм":
+                    result = 18;
+                    break;
+                case "20 мм":
+                    result = 20;
+                    break;
+                case "22 мм":
+                    result = 22;
+                    break;
             }
             return result;
         }
 
-        public static double InputDvpConverter(string value)
+        public static double InputBackPanelConverter(string value)
         {
             double result = 0;
             switch (value)
             {
-                case "":
+                case "нет":
+                    result = 0;
                     break;
-
+                case "3,2 мм":
+                    result = 3.2;
+                    break;
+                case "4 мм":
+                    result = 4;
+                    break;
+                case "4,2 мм":
+                    result = 4.2;
+                    break;
+                case "6 мм":
+                    result = 6;
+                    break;
+                case "8 мм":
+                    result = 8;
+                    break;
+                case "10 мм":
+                    result = 10;
+                    break;
+                case "12 мм":
+                    result = 12;
+                    break;
+                case "16 мм":
+                    result = 16;
+                    break;
             }
             return result;
         }
@@ -43,6 +81,8 @@
         static ModuleThickness()
         {
             SetAllSameValues("2 мм");
+            SetPlateThickness("10 мм");
+            SetBackPanelThickness("нет");
         }
 
         public static double InputConverter(string value)
@@ -69,6 +109,16 @@
             return result;
         }
 
+        public static void SetBackPanelThickness(string value)
+        {
+            BackPanel = InputBackPanelConverter(value);
+        }
+
+        public static void SetPlateThickness(string value)
+        {
+            Plate = InputPlateConverter(value);
+        }
+
         public static void SetAllSameValues(string value)
         {
             FrontModule = InputConverter(value);
@@ -80,8 +130,6 @@
             SideShelf = InputConverter(value);
             BackShelf = InputConverter(value);
             Facade = InputConverter(value);
-            BackPanel = InputConverter(value);
-            Plate = InputConverter(value);
         }
     }
 }

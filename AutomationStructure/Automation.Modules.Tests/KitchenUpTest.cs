@@ -83,7 +83,7 @@ namespace Automation.Modules.Tests
             Assert.AreEqual(detailsInfo.Rows[0]["Примечание"], "");
 
             Assert.AreEqual(detailsInfo.Rows[1]["Наименование"], "верх/низ");
-            Assert.AreEqual(detailsInfo.Rows[1]["firstMM"], "196");
+            Assert.AreEqual(detailsInfo.Rows[1]["firstMM"], "180");
             Assert.AreEqual(detailsInfo.Rows[1]["secondMM"], "296");
             Assert.AreEqual(detailsInfo.Rows[1]["Количество"], "2");
             Assert.AreEqual(detailsInfo.Rows[1]["Примечание"], "");
@@ -112,15 +112,15 @@ namespace Automation.Modules.Tests
             module.SetupModule(input);
             result = module.Calculate();
             detailsInfo = result.DetailsInfo;
-            Assert.AreEqual(detailsInfo.Rows[0]["secondMM"], "294");
+            Assert.AreEqual(detailsInfo.Rows[0]["secondMM"], "296");
             Assert.AreEqual(detailsInfo.Rows[0]["Примечание"], "");
 
-            Assert.AreEqual(detailsInfo.Rows[1]["secondMM"], "294");
+            Assert.AreEqual(detailsInfo.Rows[1]["secondMM"], "296");
             Assert.AreEqual(detailsInfo.Rows[1]["Примечание"], "");
 
             Assert.AreEqual(detailsInfo.Rows[2]["Наименование"], "полка съёмная");
-            Assert.AreEqual(detailsInfo.Rows[2]["firstMM"], "190");
-            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "289");
+            Assert.AreEqual(detailsInfo.Rows[2]["firstMM"], "174");
+            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "291");
             Assert.AreEqual(detailsInfo.Rows[2]["Примечание"], "ЛДСП");
 
             Assert.AreEqual(detailsInfo.Rows[4]["firstMM"], "96");
@@ -144,7 +144,7 @@ namespace Automation.Modules.Tests
             Assert.AreEqual(detailsInfo.Rows[1]["Примечание"], "четверть 10*4 мм");
 
             Assert.AreEqual(detailsInfo.Rows[2]["Наименование"], "полка несъёмная");
-            Assert.AreEqual(detailsInfo.Rows[2]["firstMM"], "196");
+            Assert.AreEqual(detailsInfo.Rows[2]["firstMM"], "180");
 
             Assert.AreEqual(detailsInfo.Rows[4]["firstMM"], "78");
             Assert.AreEqual(detailsInfo.Rows[4]["secondMM"], "178");
@@ -164,7 +164,7 @@ namespace Automation.Modules.Tests
 
             Assert.AreEqual(detailsInfo.Rows[1]["Примечание"], "паз 10*4*16");
 
-            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "273");
+            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "275");
 
             Assert.AreEqual(detailsInfo.Rows[6]["Примечание"], "глухой, на заказ");
 
@@ -175,22 +175,34 @@ namespace Automation.Modules.Tests
             result = module.Calculate();
             detailsInfo = result.DetailsInfo;
             Assert.AreEqual(detailsInfo.Rows[2]["Наименование"], "полка стекло");
-            Assert.AreEqual(detailsInfo.Rows[2]["firstMM"], "193");
-            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "293");
+            Assert.AreEqual(detailsInfo.Rows[2]["firstMM"], "177");
+            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "285");
             Assert.AreEqual(detailsInfo.Rows[2]["Примечание"], "стекло");
 
-            Assert.AreEqual(detailsInfo.Rows[4]["firstMM"], "96");
-            Assert.AreEqual(detailsInfo.Rows[4]["secondMM"], "196");
+            Assert.AreEqual(detailsInfo.Rows[4]["firstMM"], "80");
+            Assert.AreEqual(detailsInfo.Rows[4]["secondMM"], "180");
             Assert.AreEqual(detailsInfo.Rows[4]["Примечание"], "ЛДСП");
 
             Assert.AreEqual(detailsInfo.Rows[6]["Примечание"], "витрина, на заказ");
+
+            input.Rows[0]["Кол-во полок"] = "ЛДСП 1";
+            module.SetupModule(input);
+            result = module.Calculate();
+            detailsInfo = result.DetailsInfo;
+            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "281");
+
+            input.Rows[0]["Кол-во полок"] = "стекло 1";
+            module.SetupModule(input);
+            result = module.Calculate();
+            detailsInfo = result.DetailsInfo;
+            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "285");
 
             input.Rows[0]["Задняя стенка"] = "на гвозди";
             input.Rows[0]["Материал фасада"] = "на заказ особый";
             module.SetupModule(input);
             result = module.Calculate();
             detailsInfo = result.DetailsInfo;
-            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "293");
+            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "295");
 
             Assert.AreEqual(detailsInfo.Rows[6]["Примечание"], "особый, на заказ");
 
@@ -198,7 +210,7 @@ namespace Automation.Modules.Tests
             module.SetupModule(input);
             result = module.Calculate();
             detailsInfo = result.DetailsInfo;
-            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "277");
+            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "279");
         }
     }
 }

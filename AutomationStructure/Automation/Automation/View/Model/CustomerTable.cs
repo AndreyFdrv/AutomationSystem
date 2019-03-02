@@ -27,7 +27,7 @@ namespace Automation.View.Model
         private static Dictionary<string, double> BackPanelThickness { get; } = new Dictionary<string, double>
         {
             {"нет", 0},
-            {"3 мм", 3},
+            {"3,2 мм", 3.2},
             {"4 мм (станд.) ДВА, фанера", 4},
             {"4,2 мм ДВП импорт.", 4.2},
             {"6 мм", 6},
