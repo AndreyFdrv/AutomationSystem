@@ -54,10 +54,10 @@ namespace Automation.Module.KitchenUp
             Sсheme = row["Форма модуля"].ToString();
             try
             {
-                double hight = double.Parse(row["Высота модуля (мм)"].ToString());
-                if (hight < 0)
+                double height = double.Parse(row["Высота модуля (мм)"].ToString());
+                if (height < 0)
                     throw new ArgumentException("Высота модуля не может быть отрицательной");
-                _dimentions.Hight = hight;
+                _dimentions.Height = height;
             }
             catch (FormatException)
             {
@@ -183,7 +183,7 @@ namespace Automation.Module.KitchenUp
             row["Номер модуля"] = Number;
             row["Форма модуля"] = Sсheme;
             row["Изображение"] = IconPath;
-            row["Высота модуля (мм)"] = _dimentions.Hight;
+            row["Высота модуля (мм)"] = _dimentions.Height;
             row["Ширина модуля (мм)"] = _dimentions.Width;
             row["Глубина модуля (мм)"] = _dimentions.Depth;
             row["A размер (мм)"] = _dimentions.A;

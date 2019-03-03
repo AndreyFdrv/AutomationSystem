@@ -13,7 +13,7 @@ namespace Automation.Module.KitchenUp
                 case "F1-01-0001":
 
                     _facade._records[index].HorisontalDimension = _dimentions.Width - 4;
-                    _facade._records[index].VerticalDimension = _dimentions.Hight - 4;
+                    _facade._records[index].VerticalDimension = _dimentions.Height - 4;
                     break;
             }
         }
@@ -24,7 +24,7 @@ namespace Automation.Module.KitchenUp
                 case "F1-01-0001":
 
                     _dimentions.Width = _facade._records[0].HorisontalDimension + 4;
-                    _dimentions.Hight = _facade._records[0].VerticalDimension + 4;
+                    _dimentions.Height = _facade._records[0].VerticalDimension + 4;
                     break;
             }
         }

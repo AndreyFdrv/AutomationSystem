@@ -49,7 +49,7 @@ namespace Automation.Module.KitchenUp
             mainInfo.Columns.Add("C");
             mainInfo.Columns.Add("D");
             DataRow row = mainInfo.NewRow();
-            row[0] = _dimentions.Hight;
+            row[0] = _dimentions.Height;
             row[1] = _dimentions.Width;
             row[2] = _dimentions.Depth;
             row[3] = _dimentions.A;
@@ -316,7 +316,8 @@ namespace Automation.Module.KitchenUp
             }
             shelfInfo.Rows.Add();
             double shelfThickness = CalculateShelfThickness();
-            double sizeSpaceShelf = (_dimentions.Hight - ModuleThickness.Plate * 2 - shelfsCount * shelfThickness) / (shelfsCount + 1);
+            double sizeSpaceShelf = (_dimentions.Height - ModuleThickness.Plate * 2 - 
+                shelfsCount * shelfThickness) / (shelfsCount + 1);
             double dim = shelfThickness;
             shelfInfo.Rows[0][0] = "размер";
             for (int i = 1; i <= shelfsCount; i++)
@@ -352,23 +353,23 @@ namespace Automation.Module.KitchenUp
 
         private double L2()
         {
-            return _dimentions.Hight - 100;
+            return _dimentions.Height - 100;
         }
 
         private double ML2()
         {
-            return _dimentions.Hight - 100 - 2;
+            return _dimentions.Height - 100 - 2;
         }
 
         private double L3()
         {
-            return (_dimentions.Hight - 4)/2;
+            return (_dimentions.Height - 4)/2;
 
         }
 
         private double ML3()
         {
-            return _dimentions.Hight/2;
+            return _dimentions.Height/2;
         }
 
         #region Calculation formules
@@ -376,7 +377,7 @@ namespace Automation.Module.KitchenUp
         //main formules
         private double FL1()
         {
-            return _dimentions.Hight - (ModuleThickness.UpModule + ModuleThickness.DownModule);
+            return _dimentions.Height - (ModuleThickness.UpModule + ModuleThickness.DownModule);
         }
 
         private double FW1()
@@ -550,14 +551,14 @@ namespace Automation.Module.KitchenUp
             switch (BackPanelAssembly)
             {
                 case "на гвозди":
-                    result = (_dimentions.Hight - 4).ToString();
+                    result = (_dimentions.Height - 4).ToString();
                     break;
                 case "в четверть":
                 case "в паз":
-                    result = (_dimentions.Hight - 22).ToString();
+                    result = (_dimentions.Height - 22).ToString();
                     break;
                 case "ЛДСП внутрь":
-                    result = (_dimentions.Hight - (ModuleThickness.Plate*2)).ToString();
+                    result = (_dimentions.Height - (ModuleThickness.Plate*2)).ToString();
                     break;
             }
             return result;
@@ -663,14 +664,14 @@ namespace Automation.Module.KitchenUp
                     result = 0;
                     break;
                 case "на гвозди":
-                    result = _dimentions.Hight - 4;
+                    result = _dimentions.Height - 4;
                     break;
                 case "в четверть":
                 case "в паз":
-                    result = _dimentions.Hight - (ModuleThickness.Plate * 2 + 18);
+                    result = _dimentions.Height - (ModuleThickness.Plate * 2 + 18);
                     break;
                 case "ЛДСП внутрь":
-                    result = _dimentions.Hight - (ModuleThickness.Plate * 2 + ModuleThickness.UpModule + 
+                    result = _dimentions.Height - (ModuleThickness.Plate * 2 + ModuleThickness.UpModule + 
                         ModuleThickness.DownModule);
                     break;
             }
@@ -735,13 +736,13 @@ namespace Automation.Module.KitchenUp
                 switch (_facade._records[0].Material)
                 {
                     case "Верт.":
-                        result =_dimentions.Hight - 4;
+                        result =_dimentions.Height - 4;
                         break;
                     case "Гориз.":
                         result =  _dimentions.Width - 4;
                         break;
                     case "нет":
-                        result = _dimentions.Hight - 4;
+                        result = _dimentions.Height - 4;
                         break;
                 }
             }
@@ -750,13 +751,13 @@ namespace Automation.Module.KitchenUp
                 switch (_facade._records[0].Material)
                 {
                     case "Верт.":
-                        result = _dimentions.Hight -_dimentions.A - 4;
+                        result = _dimentions.Height -_dimentions.A - 4;
                         break;
                     case "Гориз.":
                         result = _dimentions.Width - 4;
                         break;
                     case "нет":
-                        result = _dimentions.Hight - _dimentions.A - 4;
+                        result = _dimentions.Height - _dimentions.A - 4;
                         break;
                 }
             }
@@ -765,13 +766,13 @@ namespace Automation.Module.KitchenUp
                 switch (_facade._records[0].Material)
                 {
                     case "Верт.":
-                        result = _dimentions.Hight - _dimentions.A - 4;
+                        result = _dimentions.Height - _dimentions.A - 4;
                         break;
                     case "Гориз.":
                         result = _dimentions.Width - 4;
                         break;
                     case "нет":
-                        result = _dimentions.Hight - _dimentions.A - 4;
+                        result = _dimentions.Height - _dimentions.A - 4;
                         break;
                 }
             }
@@ -793,7 +794,7 @@ namespace Automation.Module.KitchenUp
                         result = _dimentions.Width - 4;
                         break;
                     case "Гориз.":
-                        result = _dimentions.Hight - 4;
+                        result = _dimentions.Height - 4;
                         break;
                     case "нет":
                         result = _dimentions.Width - 4;
@@ -808,7 +809,7 @@ namespace Automation.Module.KitchenUp
                         result = _dimentions.Width - 4;
                         break;
                     case "Гориз.":
-                        result = _dimentions.Hight - _dimentions.A - 4;
+                        result = _dimentions.Height - _dimentions.A - 4;
                         break;
                     case "нет":
                         result = _dimentions.Width - 4;
@@ -823,7 +824,7 @@ namespace Automation.Module.KitchenUp
                         result = _dimentions.Width - 4;
                         break;
                     case "Гориз.":
-                        result = _dimentions.Hight - _dimentions.A - 4;
+                        result = _dimentions.Height - _dimentions.A - 4;
                         break;
                     case "нет":
                         result = _dimentions.Width - 4;
