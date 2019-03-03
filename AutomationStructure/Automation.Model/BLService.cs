@@ -154,14 +154,7 @@ namespace Automation.Model
         public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)
         {
             var product = _order.Products.GetProduct(type);
-            try
-            {
-                product.UpdateModule(moduleInfoTable, numberModule);
-            }
-            catch (ArgumentException exp)
-            {
-                throw exp;
-            }
+            product.UpdateModule(moduleInfoTable, numberModule);
         }
 
         #endregion

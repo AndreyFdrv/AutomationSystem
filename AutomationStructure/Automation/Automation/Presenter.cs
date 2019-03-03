@@ -168,14 +168,7 @@ namespace Automation
 
         public void UpdateModuleInfo(DataTable moduleInfoTable, string numberModule, ProductType type)
         {
-            try
-            {
-                _blService.UpdateModuleInfo(moduleInfoTable, numberModule, type);
-            }
-            catch (ArgumentException exp)
-            {
-                throw exp;
-            }
+            _blService.UpdateModuleInfo(moduleInfoTable, numberModule, type);
             UpdateTotalModules(type);
         }
 

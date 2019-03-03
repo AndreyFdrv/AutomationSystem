@@ -52,38 +52,20 @@ namespace Automation.Module.KitchenUp
             Number = row["Номер модуля"].ToString();
             IconPath = row["Изображение"].ToString();
             Sсheme = row["Форма модуля"].ToString();
-            try
-            {
-                double height = double.Parse(row["Высота модуля (мм)"].ToString());
-                if (height < 0)
-                    throw new ArgumentException("Высота модуля не может быть отрицательной");
-                _dimentions.Height = height;
-            }
-            catch (FormatException)
-            {
+            if (!double.TryParse(row["Высота модуля (мм)"].ToString(), out double height))
                 throw new ArgumentException("Высота модуля должна быть числом");
-            }
-            try
-            {
-                double width = double.Parse(row["Ширина модуля (мм)"].ToString());
-                if (width < 0)
-                    throw new ArgumentException("Ширина модуля не может быть отрицательной");
-                _dimentions.Width = width;
-            }
-            catch (FormatException)
-            {
+            if (height < 0)
+                throw new ArgumentException("Высота модуля не может быть отрицательной");
+            _dimentions.Height = height;
+            if (!double.TryParse(row["Ширина модуля (мм)"].ToString(), out double width))
                 throw new ArgumentException("Ширина модуля должна быть числом");
-            }
+            if (width < 0)
+                throw new ArgumentException("Ширина модуля не может быть отрицательной");
+            _dimentions.Width = width;
 
-            int facadeNumber = 0;
-            try
-            {
-                facadeNumber = int.Parse(row["№ схемы фасада"].ToString());
-            }
-            catch (FormatException)
-            {
+
+            if (!int.TryParse(row["№ схемы фасада"].ToString(), out int facadeNumber))
                 throw new ArgumentException("№ схемы фасада должен быть целым числом");
-            }
             _calcMode = row["Режим расчёта"].ToString();
             var formula = IconPath.Split('_')[1];
             if ((facadeNumber > 0) && (_calcMode == "авт. мод."))
@@ -94,61 +76,31 @@ namespace Automation.Module.KitchenUp
                 calculator.CalculateModuleDimentions(_facade, _dimentions, formula);
             }
 
-            try
-            {
-                double depth = double.Parse(row["Глубина модуля (мм)"].ToString());
-                if (depth < 0)
-                    throw new ArgumentException("Глубина модуля не может быть отрицательной");
-                _dimentions.Depth = depth;
-            }
-            catch (FormatException)
-            {
-                throw new ArgumentException("Глубина модуля должна быть числом");
-            }
-            try
-            {
-                double a = double.Parse(row["A размер (мм)"].ToString());
-                if (a < 0)
-                    throw new ArgumentException("A размер не может быть отрицательным");
-                _dimentions.A = a;
-            }
-            catch (FormatException)
-            {
+            if (!double.TryParse(row["Глубина модуля (мм)"].ToString(), out double depth))
+                throw new ArgumentException("Глубина модуля должна быть числом"); ;
+            if (depth < 0)
+                throw new ArgumentException("Глубина модуля не может быть отрицательной");
+            _dimentions.Depth = depth;
+            if (!double.TryParse(row["A размер (мм)"].ToString(), out double a))
                 throw new ArgumentException("A размер должен быть числом");
-            }
-            try
-            {
-                double b = double.Parse(row["B размер (мм)"].ToString());
-                if (b < 0)
-                    throw new ArgumentException("B размер не может быть отрицательным");
-                _dimentions.B = b;
-            }
-            catch (FormatException)
-            {
+            if (a < 0)
+                throw new ArgumentException("A размер не может быть отрицательным");
+            _dimentions.A = a;
+            if (!double.TryParse(row["B размер (мм)"].ToString(), out double b))
                 throw new ArgumentException("B размер должен быть числом");
-            }
-            try
-            {
-                double c = double.Parse(row["C размер (мм)"].ToString());
-                if (c < 0)
-                    throw new ArgumentException("C размер не может быть отрицательным");
-                _dimentions.C = c;
-            }
-            catch (FormatException)
-            {
+            if (b < 0)
+                throw new ArgumentException("B размер не может быть отрицательным");
+            _dimentions.B = b;
+            if (!double.TryParse(row["C размер (мм)"].ToString(), out double c))
                 throw new ArgumentException("C размер должен быть числом");
-            }
-            try
-            {
-                double d = double.Parse(row["D размер (мм)"].ToString());
-                if (d < 0)
-                    throw new ArgumentException("D размер не может быть отрицательным");
-                _dimentions.D = d;
-            }
-            catch (FormatException)
-            {
+            if (c < 0)
+                throw new ArgumentException("C размер не может быть отрицательным");
+            _dimentions.C = c;
+            if (!double.TryParse(row["D размер (мм)"].ToString(), out double d))
                 throw new ArgumentException("D размер должен быть числом");
-            }
+            if (d < 0)
+                throw new ArgumentException("D размер не может быть отрицательным");
+            _dimentions.D = d;
             _moduleAssembly = row["Сборка модуля"].ToString();
             BackPanelAssembly = row["Задняя стенка"].ToString();
             _shelfAssembly = row["Крепление полки"].ToString();

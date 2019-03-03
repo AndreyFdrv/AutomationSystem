@@ -91,15 +91,10 @@ namespace Automation.Model
 
         public void UpdateModule(DataTable data, string moduleNumber)
         {
-            var module = _modules.First(x => x.Number == moduleNumber);
-            try
-            {
-                module.SetupModule(data);
-            }
-            catch (ArgumentException exp)
-            {
-                throw exp;
-            }
+            var module = _modules.FirstOrDefault(x => x.Number == moduleNumber);
+            if (module == null)
+                throw new ArgumentException($"Модуль {moduleNumber} не найден");
+            module.SetupModule(data);
         }
         
         public ProductType GetType(string nameProduct)
