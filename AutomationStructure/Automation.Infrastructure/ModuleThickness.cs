@@ -16,8 +16,6 @@
         public static double BackPanel { get; set; }
         public static double Plate { get; set; }
 
-        private static bool UseDefaultValues = false;
-
         public static double InputPlateConverter(string value)
         {
             double result = 0;

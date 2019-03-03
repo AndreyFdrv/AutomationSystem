@@ -38,17 +38,17 @@ namespace Automation.Module.KitchenUp
             return Number;
         }
 
-        public DataTable GetDimensionInfo()
+        public DataTable GetMainInfo()
         {
-            DataTable dimensionsInfo = new DataTable();
-            dimensionsInfo.Columns.Add("Высота H");
-            dimensionsInfo.Columns.Add("Ширина W");
-            dimensionsInfo.Columns.Add("Глубина T");
-            dimensionsInfo.Columns.Add("A");
-            dimensionsInfo.Columns.Add("B");
-            dimensionsInfo.Columns.Add("C");
-            dimensionsInfo.Columns.Add("D");
-            DataRow row = dimensionsInfo.NewRow();
+            DataTable mainInfo = new DataTable();
+            mainInfo.Columns.Add("Высота H");
+            mainInfo.Columns.Add("Ширина W");
+            mainInfo.Columns.Add("Глубина T");
+            mainInfo.Columns.Add("A");
+            mainInfo.Columns.Add("B");
+            mainInfo.Columns.Add("C");
+            mainInfo.Columns.Add("D");
+            DataRow row = mainInfo.NewRow();
             row[0] = _dimentions.Hight;
             row[1] = _dimentions.Width;
             row[2] = _dimentions.Depth;
@@ -56,9 +56,9 @@ namespace Automation.Module.KitchenUp
             row[4] = _dimentions.B;
             row[5] = _dimentions.C;
             row[6] = _dimentions.D;
-            dimensionsInfo.Rows.Add(row);
+            mainInfo.Rows.Add(row);
 
-            return dimensionsInfo;
+            return mainInfo;
         }
 
         public string GetImagePath()
@@ -72,18 +72,19 @@ namespace Automation.Module.KitchenUp
             DataTable detailsInfo = new DataTable();
             SetDetailsInfoColumns(detailsInfo);
 
-            detailsInfo.Rows.Add("1", "бока", MF4(), DF1() + "|" + DF2(), MF5(), DF3() + "|" + DF4(), MF6(), MF7());
-            detailsInfo.Rows.Add("2", "верх/низ", MF8(), DF5() + "|" + DF6(), MF9(), DF7()+ "|" + DF8(), MF10(), MF11());
-            detailsInfo.Rows.Add("3", FA3(), MF12(), DF9() + "|" + DF10(), MF13(), DF11() + "|" + DF12(), "", MF15());
+            detailsInfo.Rows.Add("1", "бока", FL1(), DF1() + "|" + DF2(), FW1(), DF3() + "|" + DF4(), FN1(), MF7());
+            detailsInfo.Rows.Add("2", "верх/низ", FL2(), DF5() + "|" + DF6(), FW2(), DF7()+ "|" + DF8(), FN2(), MF11());
+            detailsInfo.Rows.Add("3", FA3(), FL3(), DF9() + "|" + DF10(), FW3(), DF11() + "|" + DF12(), FN3(), MF15());
             detailsInfo.Rows.Add("");
             detailsInfo.Rows.Add("4", "задняя стенка", MF41(), "", MF42(), "", "", MF43());
             detailsInfo.Rows.Add("");
-            detailsInfo.Rows.Add("5", "фасад", FL7(), DF17() + "|" + DF18(), FW7(), DF19() + "|" + DF20(), "", FP7());
-
-            detailsInfo.Rows.Add("Ф1", "Фасад 1", MF24(), DF21() ,MF25(), DF21(), "", "");
-            detailsInfo.Rows.Add("Ф2", "Фасад 2", "26", "", "27", "", "", "");
-            detailsInfo.Rows.Add("Ф3", "Фасад 3", "28", "", "29", "", "", "");
-            detailsInfo.Rows.Add("Ф4", "Фасад 4", "30", "", "31", "", "", "");
+            detailsInfo.Rows.Add("5", "фасад", FL5(), DF17() + "|" + DF18(), FW5(), DF19() + "|" + DF20(), FN5(), FP5());
+            detailsInfo.Rows.Add("");
+            detailsInfo.Rows.Add("6", "задняя панель", FL7(), DF17() + "|" + DF18(), FW7(), DF19() + "|" + DF20(), FN7(), FP7());
+            detailsInfo.Rows.Add("ф1", "фасад 1", MF24(), DF21() ,MF25(), DF21(), "", "");
+            detailsInfo.Rows.Add("ф2", "фасад 2", "26", "", "27", "", "", "");
+            detailsInfo.Rows.Add("ф3", "фасад 3", "28", "", "29", "", "", "");
+            detailsInfo.Rows.Add("ф4", "фасад 4", "30", "", "31", "", "", "");
             return detailsInfo;
 
         }
@@ -124,125 +125,206 @@ namespace Automation.Module.KitchenUp
             detailsInfo.Columns.Add("Количество");
             detailsInfo.Columns.Add("Примечание");
         }
-        
+
+        public DataTable GetDimensionsInfo()
+        {
+            DataTable dimensionsInfo = new DataTable();
+            return dimensionsInfo;
+        }
+
         public DataTable GetFurnitureInfo()
         {
             DataTable furnitureInfo = new DataTable();
-            furnitureInfo.Columns.Add("Наименование");
-            furnitureInfo.Columns.Add("Петли");
-            furnitureInfo.Columns.Add("Конфирмат");
-            furnitureInfo.Columns.Add("Эксцентрик");
-            furnitureInfo.Columns.Add("Полко держатели");
-            furnitureInfo.Columns.Add("Полко держатели для стеклянных полок");
-            furnitureInfo.Columns.Add("Ручки");
-            furnitureInfo.Columns.Add("Обычные навесные");
-            furnitureInfo.Columns.Add("Регулируемые навесные");
-            furnitureInfo.Columns.Add("Газлифты");
-            furnitureInfo.Rows.Add("Кол-во", MF35(), "", "", "", "", MF39(), MF40(), F45(), "?");
+            furnitureInfo.Columns.Add("наименование");
+            furnitureInfo.Columns.Add("петли " + Mat_txt_1_2());
+            furnitureInfo.Columns.Add("модуль на " + Mat_txt_2_2());
+            furnitureInfo.Columns.Add("полки на " + Mat_txt_3_2());
+            furnitureInfo.Columns.Add("ручки");
+            furnitureInfo.Columns.Add("навесы " + Mat_txt_5_2());
+            furnitureInfo.Columns.Add("плита, м.кв. " + Mat_txt_6_2());
+            furnitureInfo.Columns.Add("кромка, м " + Mat_txt_7_2());
+            furnitureInfo.Columns.Add("задняя стенка " + Mat_txt_8_2());
+            furnitureInfo.Rows.Add("кол-во", Mat1(), Mat2(), Mat3(), "1", "2", Mat6(), Mat7(), Mat8());
 
             return furnitureInfo;
         }
-        
-        private int MF35()
+
+        private string Mat_txt_1_2()
         {
-            var facadeHeight = (int) _dimentions.Hight;
-            if (facadeHeight>0 && facadeHeight<800)
-            {
+            if (_facade._records.Count == 0)
+                return "";
+            string type = _facade._records[0].Type;
+            if (type == null)
+                return "";
+            if (type == "накладной")
+                return "накладные";
+            if (type.Substring(0, Math.Min(8, type.Length)) == "вкладной")
+                return "вкладные";
+            return "";
+        }
+
+        private string Mat_txt_2_2()
+        {
+            return _shelfAssembly;
+        }
+
+        private string Mat_txt_3_2()
+        {
+            return _shelfAssembly;
+        }
+
+        private string Mat_txt_5_2()
+        {
+            if (BackPanelAssembly == "в паз")
+                return "регулируемые";
+            return "обычные";
+        }
+
+        private string Mat_txt_6_2()
+        {
+            return ModuleThickness.Plate.ToString();
+        }
+
+        private string Mat_txt_7_2()
+        {
+            return "0.4/1/2 мм";
+        }
+
+        private string Mat_txt_8_2()
+        {
+            if (BackPanelAssembly == "ЛДСП внутрь")
+                return "ЛДСП";
+            return "ДВП/фанера";
+        }
+
+        private int Mat1()
+        {
+            if (_facade._records.Count == 0)
+                return 0;
+            if (_facade._records[0].Type == "нет")
+                return 0;
+            double height = _facade._records[0].VerticalDimension;
+            if (height < 900)
                 return 2;
-            }
-
-            if(facadeHeight>=800 && facadeHeight<1200)
-            {
+            if (height < 1600)
                 return 3;
-            }
-
-            if (facadeHeight>=1200 && facadeHeight<1500)
-            {
+            if (height < 2000)
                 return 4;
-            }
-
-            if (facadeHeight>=1500 && facadeHeight<=2400)
-            {
+            if (height < 2400)
                 return 5;
-            }
             return 0;
+        }
+
+        private int Mat2()
+        {
+            int result = 0;
+            switch (_shelfAssembly)
+            {
+                case "конфирмат":
+                case "эксцентрик":
+                    if (_dimentions.Depth < 499)
+                        result = 8;
+                    else
+                        result = 12;
+                    break;
+                case "нагель":
+                    if (_dimentions.Depth < 499)
+                        result = 12;
+                    else
+                        result = 16;
+                    break;
+                case "конфирмат + нагель":
+                case "эксцентрик + нагель":
+                    if (_dimentions.Depth < 499)
+                        result = 8;
+                    else
+                        result = 16;
+                    break;
+            }
+            return result;
+        }
+
+        private int Mat3()
+        {
+            return Mat2();
+        }
+
+        private double Mat6()
+        {
+            double LDSP_Shelfs = 0;
+            if (_shelfsCount.Substring(0, Math.Min(4, _shelfsCount.Length)) == "ЛДСП")
+                LDSP_Shelfs = FL3() * FW3() * 0.001 * FN3();
+            double backPanel = 0;
+            if (BackPanelAssembly == "ЛДСП внутрь")
+                backPanel = FL7() * FW7() * 0.001 * FN7();
+            double facades = 0;
+            if (_facade._records.Count != 0)
+            {
+                if (_facade._records[0].Type != "нет" && 
+                    (_facade._records[0].Material == "ЛДСП вертик. фактура" || _facade._records[0].Material == "ЛДСП гориз. фактура"))
+                    facades = FL5() * FW5() * 0.001 * FN5();
+            }
+            return FL1() * FW1() * 0.001 * FN1() + FL2() * FW2() * 0.001 * FN2() + LDSP_Shelfs + backPanel + facades;
+        }
+
+        private int Mat7()
+        {
+            //not implemented
+            return 0;
+        }
+
+        private double Mat8()
+        {
+            if (BackPanelAssembly == "ЛДСП внутрь")
+                return 0;
+            return FL7() * FW7() * FN7() * 0.001;
         }
 
         //TODO:изменить переменные как надо
         string moduleAssembly = "не разъёмная (конф.)";
         int moduleForm = 1;
 
-        private int MF39()
+        public int CalculateShelfsCount()
         {
-            switch (moduleForm)
-            {
-                case 0:
-                case 1:
-                case 2:
-                    return 1;
-                   
-            }
-            return 0;
+            if (_shelfsCount == "нет")
+                return 0;
+            int begin = _shelfsCount.IndexOfAny("0123456789".ToCharArray());
+            if (begin == -1)
+                return 0;
+            return Int32.Parse(_shelfsCount.Substring(begin, _shelfsCount.Length - begin));
         }
 
-        private int MF40()
+        public double CalculateShelfThickness()
         {
-            switch (BackPanelAssembly)
-            {
-                case "ГВ":
-                    return 2;
-                case "в четверть":
-                    return 2;
-                case "в паз":
-                    return 0;
-                case "ЛДСП внутрь":
-                    return 2;
-            }
-            return 0;
-        }
-
-        private int F45()
-        {
-            switch (BackPanelAssembly)
-            {
-                case "ГВ":
-                    return 0;
-                case "в четверть":
-                    return 0;
-                case "в паз":
-                    return 2;
-                case "ЛДСП внутрь":
-                    return 0;
-            }
+            if (_shelfsCount == "нет")
+                return 0;
+            if (_shelfsCount.Substring(0, Math.Min(4, _shelfsCount.Length)) == "ЛДСП")
+                return ModuleThickness.Plate;
+            if (_shelfsCount.Substring(0, Math.Min(6, _shelfsCount.Length)) == "стекло")
+                return 5;
             return 0;
         }
 
         public DataTable GetShelfInfo()
         {
             DataTable shelfInfo = new DataTable();
-            shelfInfo.Columns.Add("Полки");
-            shelfInfo.Columns.Add("1");
-            shelfInfo.Columns.Add("2");
-            shelfInfo.Columns.Add("3");
-            shelfInfo.Columns.Add("4");
-            shelfInfo.Columns.Add("5");
-            shelfInfo.Columns.Add("6");
-            shelfInfo.Columns.Add("Разд.1");
-            shelfInfo.Columns.Add("Разд.2");
-          
-            shelfInfo.Rows.Add("K", "", "", "", "", "", "", "", "" );
-            shelfInfo.Rows.Add("L", "", "", "", "", "", "", "", "" );
-            shelfInfo.Rows.Add("M", "", "", "", "", "", "", "", "" );
-
-            //вычисление на месте
-            //TODO: дописать метод вычисления 
-            List<double> Kitems = new List<double>();
-            List<double> Litems = new List<double>();
-            List<double> Mitems = new List<double>();
-
+            int shelfsCount = CalculateShelfsCount();
+            shelfInfo.Columns.Add("наименование");
+            for (int i = 1; i <= shelfsCount; i++)
+            {
+                shelfInfo.Columns.Add("полка " + i.ToString());
+            }
+            shelfInfo.Rows.Add();
+            double shelfThickness = CalculateShelfThickness();
+            double sizeSpaceShelf = (_dimentions.Hight - ModuleThickness.Plate * 2 - shelfsCount * shelfThickness) / (shelfsCount + 1);
+            double dim = shelfThickness;
+            shelfInfo.Rows[0][0] = "размер";
+            for (int i = 1; i <= shelfsCount; i++)
+            {
+                shelfInfo.Rows[0][i]=dim;
+                dim += (shelfThickness + sizeSpaceShelf);
+            }
             return shelfInfo;
-
-
         }
 
         public DataTable GetLoopsInfo()
@@ -292,12 +374,12 @@ namespace Automation.Module.KitchenUp
         #region Calculation formules
 
         //main formules
-        private double MF4()
+        private double FL1()
         {
             return _dimentions.Hight - (ModuleThickness.UpModule + ModuleThickness.DownModule);
         }
 
-        private double MF5()
+        private double FW1()
         {
             double result = 0;
             switch (BackPanelAssembly)
@@ -317,7 +399,7 @@ namespace Automation.Module.KitchenUp
             return result;
         }
 
-        private double MF6()
+        private double FN1()
         {
             return 2;
         }
@@ -337,17 +419,17 @@ namespace Automation.Module.KitchenUp
             return result;
         }
 
-        private double MF8()
+        private double FL2()
         {
             return _dimentions.Width - (ModuleThickness.Plate*2);
         }
 
-        private double MF9()
+        private double FW2()
         {
-            return MF5();
+            return FW1();
         }
 
-        private double MF10()
+        private double FN2()
         {
             return 2;
         }
@@ -371,23 +453,23 @@ namespace Automation.Module.KitchenUp
             return "";
         }
 
-        private string MF12()
+        private double FL3()
         {
             if (_shelfsCount == "нет")
-                return "";
+                return 0;
             if (_shelfAssembly == "полкодержатель" && _shelfsCount.Substring(0, Math.Min(4, _shelfsCount.Length)) == "ЛДСП")
-                return (_dimentions.Width - (ModuleThickness.Plate * 2 + ModuleThickness.SideShelf * 2 + 2)).ToString();
+                return _dimentions.Width - (ModuleThickness.Plate * 2 + ModuleThickness.SideShelf * 2 + 2);
             if ((_shelfAssembly == "конфирмат" || _shelfAssembly == "эксцентрик" || _shelfAssembly == "конфирмат + нагель" ||
                 _shelfAssembly == "нагель") && _shelfsCount.Substring(0, Math.Min(4, _shelfsCount.Length)) == "ЛДСП")
-                return (_dimentions.Width - (ModuleThickness.Plate * 2)).ToString();
+                return _dimentions.Width - (ModuleThickness.Plate * 2);
             if (_shelfsCount.Substring(0, Math.Min(6, _shelfsCount.Length)) == "стекло")
-                return (_dimentions.Width - (ModuleThickness.Plate * 2 + 3)).ToString();
-            return "";
+                return _dimentions.Width - (ModuleThickness.Plate * 2 + 3);
+            return 0;
         }
 
-        private string MF13()
+        private double FW3()
         {
-            string result = "";
+            double result = 0;
             if (_shelfsCount == "нет")
                 return result;
             if (_shelfsCount.Substring(0, Math.Min(4, _shelfsCount.Length)) == "ЛДСП")
@@ -396,16 +478,16 @@ namespace Automation.Module.KitchenUp
                 {
                     case "на гвозди":
                     case "в четверть":
-                        result = (_dimentions.Depth - (5 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf + 
-                            ModuleThickness.BackPanel)).ToString();
+                        result = _dimentions.Depth - (5 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf + 
+                            ModuleThickness.BackPanel);
                         break;
                     case "в паз":
-                        result = (_dimentions.Depth - (21 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf +
-                            ModuleThickness.BackPanel)).ToString();
+                        result = _dimentions.Depth - (21 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf +
+                            ModuleThickness.BackPanel);
                         break;
                     case "ЛДСП внутрь":
-                        result = (_dimentions.Depth - (5 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf +
-                            ModuleThickness.Plate)).ToString();
+                        result = _dimentions.Depth - (5 + ModuleThickness.FrontShelf + ModuleThickness.BackShelf +
+                            ModuleThickness.Plate);
                         break;
                 }
                 return result;
@@ -416,19 +498,25 @@ namespace Automation.Module.KitchenUp
                 {
                     case "на гвозди":
                     case "в четверть":
-                        result = (_dimentions.Depth - (5 + ModuleThickness.BackPanel)).ToString();
+                        result = _dimentions.Depth - (5 + ModuleThickness.BackPanel);
                         break;
                     case "в паз":
-                        result = (_dimentions.Depth - (21 + ModuleThickness.BackPanel)).ToString();
+                        result = _dimentions.Depth - (21 + ModuleThickness.BackPanel);
                         break;
                     case "ЛДСП внутрь":
-                        result = (_dimentions.Depth - (5 + ModuleThickness.Plate)).ToString();
+                        result = _dimentions.Depth - (5 + ModuleThickness.Plate);
                         break;
                 }
                 return result;
             }
             return result;
         }
+
+        private int FN3()
+        {
+            return CalculateShelfsCount();
+        }
+
 
         private string MF15()
         {
@@ -446,9 +534,9 @@ namespace Automation.Module.KitchenUp
             return _dimentions.Width - ((ModuleThickness.Plate*2) + 2 + (ModuleThickness.SideShelf * 2));
         }
 
-        private string MF17()
+        private double MF17()
         {
-            return MF13();
+            return FW3();
         }
 
         private string MF19()
@@ -514,25 +602,30 @@ namespace Automation.Module.KitchenUp
             return result;
         }
 
-        private string FL7()
+        private double FL5()
         {
             if (_facade._records.Count == 0)
-                return "";
+                return 0;
             if (_facade._records[0].Material == "нет")
-                return "";
-            return _facade._records[0].VerticalDimension.ToString();
+                return 0;
+            return _facade._records[0].VerticalDimension;
         }
 
-        private string FW7()
+        private double FW5()
         {
             if (_facade._records.Count == 0)
-                return "";
+                return 0;
             if (_facade._records[0].Material == "нет")
-                return "";
-            return _facade._records[0].HorisontalDimension.ToString();
+                return 0;
+            return _facade._records[0].HorisontalDimension;
         }
 
-        private string FP7()
+        private int FN5()
+        {
+            return 1;
+        }
+
+        private string FP5()
         {
             if (_facade._records.Count == 0)
                 return "";
@@ -556,6 +649,76 @@ namespace Automation.Module.KitchenUp
                     break;
                 case "на заказ особый":
                     result = "особый, на заказ";
+                    break;
+            }
+            return result;
+        }
+
+        private double FL7()
+        {
+            double result = 0;
+            switch (BackPanelAssembly)
+            {
+                case "нет":
+                    result = 0;
+                    break;
+                case "на гвозди":
+                    result = _dimentions.Hight - 4;
+                    break;
+                case "в четверть":
+                case "в паз":
+                    result = _dimentions.Hight - (ModuleThickness.Plate * 2 + 18);
+                    break;
+                case "ЛДСП внутрь":
+                    result = _dimentions.Hight - (ModuleThickness.Plate * 2 + ModuleThickness.UpModule + 
+                        ModuleThickness.DownModule);
+                    break;
+            }
+            return result;
+        }
+
+        private double FW7()
+        {
+            double result = 0;
+            switch (BackPanelAssembly)
+            {
+                case "нет":
+                    result = 0;
+                    break;
+                case "на гвозди":
+                    result = _dimentions.Width - 2;
+                    break;
+                case "в четверть":
+                case "в паз":
+                    result = _dimentions.Width - (ModuleThickness.Plate * 2 + 18);
+                    break;
+                case "ЛДСП внутрь":
+                    result = _dimentions.Width - (ModuleThickness.Plate * 2 + 2);
+                    break;
+            }
+            return result;
+        }
+
+        private int FN7()
+        {
+            return 1;
+        }
+
+        private string FP7()
+        {
+            string result = "";
+            switch (BackPanelAssembly)
+            {
+                case "нет":
+                    result = "";
+                    break;
+                case "на гвозди":
+                case "в четверть":
+                case "в паз":
+                    result = "ДВП или фанера 4 мм";
+                    break;
+                case "ЛДСП внутрь":
+                    result = "ЛДСП внутрь";
                     break;
             }
             return result;
@@ -729,22 +892,24 @@ namespace Automation.Module.KitchenUp
 
         private string DF1()
         {
-            return GetKromkaThickness(ModuleThickness.FrontModule);
+            return GetEdgeThickness(ModuleThickness.FrontModule);
         }
 
         private string DF2()
         {
-            return GetKromkaThickness(ModuleThickness.BackModule);
+            if(BackPanelAssembly == "в четверть")
+                return GetEdgeThickness(0.4);
+            return GetEdgeThickness(ModuleThickness.BackModule);
         }
 
         private string DF3()
         {
-            return GetKromkaThickness(ModuleThickness.UpModule);
+            return GetEdgeThickness(ModuleThickness.UpModule);
         }
 
         private string DF4()
         {
-            return GetKromkaThickness(ModuleThickness.DownModule);
+            return GetEdgeThickness(ModuleThickness.DownModule);
 
         }
 
@@ -760,33 +925,40 @@ namespace Automation.Module.KitchenUp
 
         private string DF7()
         {
-            return "";
+            return GetEdgeThickness(ModuleThickness.SideModule);
         }
 
         private string DF8()
         {
-            return "";
+            return GetEdgeThickness(ModuleThickness.SideModule);
         }
 
         private string DF9()
         {
-            return GetKromkaThickness(ModuleThickness.FrontShelf);
-
+            if (_shelfsCount == "нет" || _shelfsCount.Substring(0, Math.Min(6, _shelfsCount.Length)) == "стекло")
+                return "";
+            return GetEdgeThickness(ModuleThickness.FrontShelf);
         }
 
         private string DF10()
         {
-            return GetKromkaThickness(ModuleThickness.BackShelf);
+            if (_shelfsCount == "нет" || _shelfsCount.Substring(0, Math.Min(6, _shelfsCount.Length)) == "стекло")
+                return "";
+            return GetEdgeThickness(ModuleThickness.BackShelf);
         }
 
         private string DF11()
         {
+            if (_shelfsCount == "нет" || _shelfsCount.Substring(0, Math.Min(6, _shelfsCount.Length)) == "стекло")
+                return "";
+            if (_shelfAssembly == "полкодержатель")
+                return GetEdgeThickness(ModuleThickness.SideShelf);
             return "";
         }
 
         private string DF12()
         {
-            return "";
+            return DF11();
         }
 
         private string DF13()
@@ -801,10 +973,10 @@ namespace Automation.Module.KitchenUp
 
         private string DF15()
         {
-            return GetKromkaThickness(ModuleThickness.SideShelf);
+            return GetEdgeThickness(ModuleThickness.SideShelf);
         }
 
-        private string GetKromkaThickness(double par)
+        private string GetEdgeThickness(double par)
         {
             string result = string.Empty;
             switch (par.ToString())
@@ -812,6 +984,7 @@ namespace Automation.Module.KitchenUp
                 case "0":
                     result = "";
                     break;
+                case "0,4":
                 case "0.4":
                     result = "I";
                     break;
@@ -824,27 +997,32 @@ namespace Automation.Module.KitchenUp
 
         private string DF16()
         {
-            return GetKromkaThickness(ModuleThickness.SideShelf);
+            return GetEdgeThickness(ModuleThickness.SideShelf);
         }
 
         private string DF17()
         {
-            return DF9();
+            if (_facade._records.Count == 0)
+                return "";
+            if (_facade._records[0].Type == "нет" || _facade._records[0].Material == "на заказ глухой" ||
+                _facade._records[0].Material == "на заказ витрина" || _facade._records[0].Material == "на заказ особый")
+                return "";
+            return GetEdgeThickness(ModuleThickness.Facade);
         }
 
         private string DF18()
         {
-            return DF10();
+            return DF17();
         }
 
         private string DF19()
         {
-            return DF11();
+            return DF17();
         }
 
         private string DF20()
         {
-            return DF12();
+            return DF17();
         }
 
         private string DF21()

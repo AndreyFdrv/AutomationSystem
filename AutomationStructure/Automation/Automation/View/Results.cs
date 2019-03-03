@@ -67,7 +67,7 @@ namespace Automation.View
             {
                 ModuleInfo infoModule = new ModuleInfo();
                 var result = module.Calculate();
-                infoModule.BindData(result.ModuleName, result.ImagePath, result.DimensionInfo, result.DetailsInfo, result.ShelfInfo,
+                infoModule.BindData(result.ModuleName, result.ImagePath, result.MainInfo, result.DetailsInfo, result.ShelfInfo,
                     result.FurnitureInfo, result.LoopsInfo);
                 infoModule.Width = flowLayoutPanel2.Width - 3;
                 panel.Controls.Add(infoModule);

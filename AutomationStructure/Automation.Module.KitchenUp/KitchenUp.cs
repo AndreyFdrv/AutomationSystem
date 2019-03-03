@@ -306,7 +306,7 @@ namespace Automation.Module.KitchenUp
             {
                 ModuleName = calculator.GetModuleName(),
                 ImagePath = calculator.GetImagePath(),
-                DimensionInfo = calculator.GetDimensionInfo(),
+                MainInfo = calculator.GetMainInfo(),
                 DetailsInfo = calculator.GetDetailsInfo(),
                 FurnitureInfo = calculator.GetFurnitureInfo(),
                 ShelfInfo = calculator.GetShelfInfo(),

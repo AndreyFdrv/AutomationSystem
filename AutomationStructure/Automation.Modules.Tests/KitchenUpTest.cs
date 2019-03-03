@@ -67,31 +67,37 @@ namespace Automation.Modules.Tests
             Result result = module.Calculate();
             Assert.AreEqual(result.ModuleName, "1");
             Assert.AreEqual(result.ImagePath, "Кухня верхние модули\\scheme 1\\kitchen-upper-module-table-type1-subtype1_F1-01-0001_result.png");
-            var dimensionInfo = result.DimensionInfo;
-            Assert.AreEqual(dimensionInfo.Rows[0]["Высота H"], "100");
-            Assert.AreEqual(dimensionInfo.Rows[0]["Ширина W"], "200");
-            Assert.AreEqual(dimensionInfo.Rows[0]["Глубина T"], "300");
-            Assert.AreEqual(dimensionInfo.Rows[0]["A"], "4");
-            Assert.AreEqual(dimensionInfo.Rows[0]["B"], "5");
-            Assert.AreEqual(dimensionInfo.Rows[0]["C"], "6");
-            Assert.AreEqual(dimensionInfo.Rows[0]["D"], "7");
+            var mainInfo = result.MainInfo;
+            Assert.AreEqual(mainInfo.Rows[0]["Высота H"], "100");
+            Assert.AreEqual(mainInfo.Rows[0]["Ширина W"], "200");
+            Assert.AreEqual(mainInfo.Rows[0]["Глубина T"], "300");
+            Assert.AreEqual(mainInfo.Rows[0]["A"], "4");
+            Assert.AreEqual(mainInfo.Rows[0]["B"], "5");
+            Assert.AreEqual(mainInfo.Rows[0]["C"], "6");
+            Assert.AreEqual(mainInfo.Rows[0]["D"], "7");
             var detailsInfo = result.DetailsInfo;
             Assert.AreEqual(detailsInfo.Rows[0]["Наименование"], "бока");
             Assert.AreEqual(detailsInfo.Rows[0]["firstMM"], "96");
+            Assert.AreEqual(detailsInfo.Rows[0]["firstEdge"], "V|");
             Assert.AreEqual(detailsInfo.Rows[0]["secondMM"], "298");
+            Assert.AreEqual(detailsInfo.Rows[0]["secondEdge"], "V|V");
             Assert.AreEqual(detailsInfo.Rows[0]["Количество"], "2");
             Assert.AreEqual(detailsInfo.Rows[0]["Примечание"], "");
 
             Assert.AreEqual(detailsInfo.Rows[1]["Наименование"], "верх/низ");
             Assert.AreEqual(detailsInfo.Rows[1]["firstMM"], "180");
+            Assert.AreEqual(detailsInfo.Rows[1]["firstEdge"], "V|");
             Assert.AreEqual(detailsInfo.Rows[1]["secondMM"], "298");
+            Assert.AreEqual(detailsInfo.Rows[1]["secondEdge"], "V|V");
             Assert.AreEqual(detailsInfo.Rows[1]["Количество"], "2");
             Assert.AreEqual(detailsInfo.Rows[1]["Примечание"], "");
 
             Assert.AreEqual(detailsInfo.Rows[2]["Наименование"], "полок нет");
-            Assert.AreEqual(detailsInfo.Rows[2]["firstMM"], "");
-            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "");
-            Assert.AreEqual(detailsInfo.Rows[2]["Количество"], "");
+            Assert.AreEqual(detailsInfo.Rows[2]["firstMM"], "0");
+            Assert.AreEqual(detailsInfo.Rows[2]["firstEdge"], "|");
+            Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "0");
+            Assert.AreEqual(detailsInfo.Rows[2]["secondEdge"], "|");
+            Assert.AreEqual(detailsInfo.Rows[2]["Количество"], "0");
             Assert.AreEqual(detailsInfo.Rows[2]["Примечание"], "");
 
             Assert.AreEqual(detailsInfo.Rows[4]["Наименование"], "задняя стенка");
@@ -101,14 +107,35 @@ namespace Automation.Modules.Tests
             Assert.AreEqual(detailsInfo.Rows[4]["Примечание"], "");
 
             Assert.AreEqual(detailsInfo.Rows[6]["Наименование"], "фасад");
-            Assert.AreEqual(detailsInfo.Rows[6]["firstMM"], "");
-            Assert.AreEqual(detailsInfo.Rows[6]["secondMM"], "");
-            Assert.AreEqual(detailsInfo.Rows[6]["Количество"], "");
+            Assert.AreEqual(detailsInfo.Rows[6]["firstMM"], "0");
+            Assert.AreEqual(detailsInfo.Rows[6]["firstEdge"], "|");
+            Assert.AreEqual(detailsInfo.Rows[6]["secondMM"], "0");
+            Assert.AreEqual(detailsInfo.Rows[6]["secondEdge"], "|");
+            Assert.AreEqual(detailsInfo.Rows[6]["Количество"], "1");
             Assert.AreEqual(detailsInfo.Rows[6]["Примечание"], "");
+
+            Assert.AreEqual(detailsInfo.Rows[8]["Наименование"], "задняя панель");
+            Assert.AreEqual(detailsInfo.Rows[8]["firstMM"], "0");
+            Assert.AreEqual(detailsInfo.Rows[8]["secondMM"], "0");
+            Assert.AreEqual(detailsInfo.Rows[8]["Количество"], "1");
+            Assert.AreEqual(detailsInfo.Rows[8]["Примечание"], "");
+
+            var shelfsInfo = result.ShelfInfo;
+            Assert.AreEqual(shelfsInfo.Columns.Count, 1);
+
+            var furnitureInfo = result.FurnitureInfo;
+            Assert.AreEqual(furnitureInfo.Rows[0]["петли "], "0");
+            Assert.AreEqual(furnitureInfo.Rows[0]["модуль на полкодержатель"], "0");
+            Assert.AreEqual(furnitureInfo.Rows[0]["полки на полкодержатель"], "0");
+            Assert.AreEqual(furnitureInfo.Rows[0]["ручки"], "1");
+            Assert.AreEqual(furnitureInfo.Rows[0]["навесы обычные"], "2");
+            Assert.AreEqual(furnitureInfo.Rows[0]["плита, м.кв. 10"], "164,496");
+            Assert.AreEqual(furnitureInfo.Rows[0]["задняя стенка ДВП/фанера"], "0");
 
             input.Rows[0]["Задняя стенка"]="на гвозди";
             input.Rows[0]["Кол-во полок"] = "ЛДСП 1";
             input.Rows[0]["Материал фасада"] = "ЛДСП вертик. фактура";
+            input.Rows[0]["Тип фасада"] = "накладной";
             module.SetupModule(input);
             result = module.Calculate();
             detailsInfo = result.DetailsInfo;
@@ -120,7 +147,9 @@ namespace Automation.Modules.Tests
 
             Assert.AreEqual(detailsInfo.Rows[2]["Наименование"], "полка съёмная");
             Assert.AreEqual(detailsInfo.Rows[2]["firstMM"], "174");
+            Assert.AreEqual(detailsInfo.Rows[2]["firstEdge"], "V|V");
             Assert.AreEqual(detailsInfo.Rows[2]["secondMM"], "291");
+            Assert.AreEqual(detailsInfo.Rows[2]["secondEdge"], "V|V");
             Assert.AreEqual(detailsInfo.Rows[2]["Примечание"], "ЛДСП");
 
             Assert.AreEqual(detailsInfo.Rows[4]["firstMM"], "96");
@@ -128,19 +157,35 @@ namespace Automation.Modules.Tests
             Assert.AreEqual(detailsInfo.Rows[4]["Примечание"], "ДВП/фанера");
 
             Assert.AreEqual(detailsInfo.Rows[6]["firstMM"], "96");
+            Assert.AreEqual(detailsInfo.Rows[6]["firstEdge"], "|");
             Assert.AreEqual(detailsInfo.Rows[6]["secondMM"], "196");
+            Assert.AreEqual(detailsInfo.Rows[6]["secondEdge"], "|");
             Assert.AreEqual(detailsInfo.Rows[6]["Примечание"], "ЛДСП вертик. факт.");
 
+            Assert.AreEqual(detailsInfo.Rows[8]["firstMM"], "96");
+            Assert.AreEqual(detailsInfo.Rows[8]["secondMM"], "198");
+            Assert.AreEqual(detailsInfo.Rows[8]["Примечание"], "ДВП или фанера 4 мм");
+
+            shelfsInfo = result.ShelfInfo;
+            Assert.AreEqual(shelfsInfo.Rows[0]["полка 1"], "10");
+
+            furnitureInfo = result.FurnitureInfo;
+            Assert.AreEqual(furnitureInfo.Rows[0]["петли накладные"], "2");
+            Assert.AreEqual(furnitureInfo.Rows[0]["плита, м.кв. 10"], "233,946");
+            Assert.AreEqual(furnitureInfo.Rows[0]["задняя стенка ДВП/фанера"], "19,008");
 
             input.Rows[0]["Задняя стенка"] = "в четверть";
             input.Rows[0]["Крепление полки"] = "конфирмат";
             input.Rows[0]["Материал фасада"] = "ЛДСП гориз. фактура";
             input.Rows[0]["Режим расчёта"] = "ручн.";
+            input.Rows[0]["Тип фасада"] = "вкладной ЛДСП";
             module.SetupModule(input);
             result = module.Calculate();
             detailsInfo = result.DetailsInfo;
+            Assert.AreEqual(detailsInfo.Rows[0]["firstEdge"], "V|I");
             Assert.AreEqual(detailsInfo.Rows[0]["Примечание"], "четверть 10*4 мм");
 
+            Assert.AreEqual(detailsInfo.Rows[1]["firstEdge"], "V|I");
             Assert.AreEqual(detailsInfo.Rows[1]["Примечание"], "четверть 10*4 мм");
 
             Assert.AreEqual(detailsInfo.Rows[2]["Наименование"], "полка несъёмная");
@@ -154,9 +199,17 @@ namespace Automation.Modules.Tests
             Assert.AreEqual(detailsInfo.Rows[6]["secondMM"], "9");
             Assert.AreEqual(detailsInfo.Rows[6]["Примечание"], "ЛДСП гориз. факт.");
 
+            Assert.AreEqual(detailsInfo.Rows[8]["firstMM"], "62");
+            Assert.AreEqual(detailsInfo.Rows[8]["secondMM"], "162");
+
+            furnitureInfo = result.FurnitureInfo;
+            Assert.AreEqual(furnitureInfo.Rows[0]["петли вкладные"], "2");
+            Assert.AreEqual(furnitureInfo.Rows[0]["модуль на конфирмат"], "8");
+
             input.Rows[0]["Задняя стенка"] = "в паз";
-            input.Rows[0]["Кол-во полок"] = "ЛДСП 1";
+            input.Rows[0]["Кол-во полок"] = "ЛДСП 2";
             input.Rows[0]["Материал фасада"] = "на заказ глухой";
+            input.Rows[0]["Крепление полки"] = "нагель";
             module.SetupModule(input);
             result = module.Calculate();
             detailsInfo = result.DetailsInfo;
@@ -168,9 +221,16 @@ namespace Automation.Modules.Tests
 
             Assert.AreEqual(detailsInfo.Rows[6]["Примечание"], "глухой, на заказ");
 
+            shelfsInfo = result.ShelfInfo;
+            Assert.AreEqual(shelfsInfo.Rows[0]["полка 2"], "40");
+
+            furnitureInfo = result.FurnitureInfo;
+            Assert.AreEqual(furnitureInfo.Rows[0]["модуль на нагель"], "12");
+
             input.Rows[0]["Задняя стенка"] = "ЛДСП внутрь";
             input.Rows[0]["Кол-во полок"] = "стекло 1";
             input.Rows[0]["Материал фасада"] = "на заказ витрина";
+            input.Rows[0]["Крепление полки"] = "конфирмат + нагель";
             module.SetupModule(input);
             result = module.Calculate();
             detailsInfo = result.DetailsInfo;
@@ -184,6 +244,18 @@ namespace Automation.Modules.Tests
             Assert.AreEqual(detailsInfo.Rows[4]["Примечание"], "ЛДСП");
 
             Assert.AreEqual(detailsInfo.Rows[6]["Примечание"], "витрина, на заказ");
+
+            Assert.AreEqual(detailsInfo.Rows[8]["firstMM"], "76");
+            Assert.AreEqual(detailsInfo.Rows[8]["secondMM"], "178");
+            Assert.AreEqual(detailsInfo.Rows[8]["Примечание"], "ЛДСП внутрь");
+
+            shelfsInfo = result.ShelfInfo;
+            Assert.AreEqual(shelfsInfo.Rows[0]["полка 1"], "5");
+
+            furnitureInfo = result.FurnitureInfo;
+            Assert.AreEqual(furnitureInfo.Rows[0]["модуль на конфирмат + нагель"], "8");
+            Assert.AreEqual(furnitureInfo.Rows[0]["плита, м.кв. 10"], "178,024");
+            Assert.AreEqual(furnitureInfo.Rows[0]["задняя стенка ЛДСП"], "0");
 
             input.Rows[0]["Кол-во полок"] = "ЛДСП 1";
             module.SetupModule(input);
@@ -215,9 +287,41 @@ namespace Automation.Modules.Tests
             input.Rows[0]["Режим расчёта"] = "авт. мод.";
             module.SetupModule(input);
             result = module.Calculate();
-            dimensionInfo = result.DimensionInfo;
-            Assert.AreEqual(dimensionInfo.Rows[0]["Высота H"], "12");
-            Assert.AreEqual(dimensionInfo.Rows[0]["Ширина W"], "13");
+            mainInfo = result.MainInfo;
+            Assert.AreEqual(mainInfo.Rows[0]["Высота H"], "12");
+            Assert.AreEqual(mainInfo.Rows[0]["Ширина W"], "13");
+
+            input.Rows[0]["Режим расчёта"] = "ручн.";
+            input.Rows[0]["Высота"] = 900;
+            input.Rows[0]["Крепление полки"] = "конфирмат";
+            input.Rows[0]["Глубина модуля (мм)"] = 500;
+            module.SetupModule(input);
+            result = module.Calculate();
+            furnitureInfo = result.FurnitureInfo;
+            Assert.AreEqual(furnitureInfo.Rows[0]["петли вкладные"], "3");
+            Assert.AreEqual(furnitureInfo.Rows[0]["модуль на конфирмат"], "12");
+
+            input.Rows[0]["Высота"] = 1600;
+            input.Rows[0]["Крепление полки"] = "нагель";
+            module.SetupModule(input);
+            result = module.Calculate();
+            furnitureInfo = result.FurnitureInfo;
+            Assert.AreEqual(furnitureInfo.Rows[0]["петли вкладные"], "4");
+            Assert.AreEqual(furnitureInfo.Rows[0]["модуль на нагель"], "16");
+
+            input.Rows[0]["Высота"] = 2000;
+            input.Rows[0]["Крепление полки"] = "конфирмат + нагель";
+            module.SetupModule(input);
+            result = module.Calculate();
+            furnitureInfo = result.FurnitureInfo;
+            Assert.AreEqual(furnitureInfo.Rows[0]["петли вкладные"], "5");
+            Assert.AreEqual(furnitureInfo.Rows[0]["модуль на конфирмат + нагель"], "16");
+
+            input.Rows[0]["Высота"] = 2400;
+            module.SetupModule(input);
+            result = module.Calculate();
+            furnitureInfo = result.FurnitureInfo;
+            Assert.AreEqual(furnitureInfo.Rows[0]["петли вкладные"], "0");
         }
     }
 }
